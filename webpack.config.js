@@ -1,22 +1,29 @@
 const path = require('path');
 // const ExtractTextPlugin = require('extract-text-webpack-plugin');
+// console.log('path', __dirname + './app/app.jsx');
+console.log('path', path.resolve(__dirname, './app/actions'));
+console.log('path', path.resolve(__dirname, 'app/actions'));
+
+console.log('path.resolve(__dirname, app)', path.resolve(__dirname, 'app'));
 
 module.exports = {
   entry: './app/app.jsx',
+  // entry: path.resolve(__dirname, './app/app.jsx'),
   output: {
     path: __dirname,
     filename: './public/bundle.js'
   },
   resolve: {
     alias: {
-      actions: 'app/actions/actions.jsx',
-      reducers: 'app/reducers/reducers.jsx'
-      // app: path.resolve(__dirname, 'app')
     },
+    // when doing 'require' and 'import', webpack will check this directories for files
+    // e.g. import ... from 'filename', no need to specify path or file extensions
     modules: [
-      './app',
-      './app/styles',
-      './app/components',
+      'app/actions',
+      'app/components',
+      'app/containers',
+      'app/reducers',
+      'styles',
       'node_modules'
     ],
     extensions: ['.js', '.jsx', '.scss']
@@ -38,6 +45,7 @@ module.exports = {
         test: /\.scss$/,
         use: [
           'style-loader',
+          // allows to use @import statements
           'css-loader',
           {
             loader: 'postcss-loader',
@@ -47,6 +55,7 @@ module.exports = {
               }
             }
           },
+          // converts SASS/SCSS to CSS
           'sass-loader'
         ]
       }
