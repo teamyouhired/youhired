@@ -8,7 +8,7 @@ import {Router, browserHistory } from 'react-router';
 import path from 'path';
 
 import routes from './routes';
-import reducers from './reducers';
+import reducers from 'reducers';
 import _Root from './components/_Root';
 
 // load scss styles
