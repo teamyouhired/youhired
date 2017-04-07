@@ -8,11 +8,11 @@ import {Router, browserHistory } from 'react-router';
 import path from 'path';
 
 import routes from './routes';
-import reducers from 'reducers';
+import reducers from './reducers/reducers.jsx';
 import _Root from './components/_Root';
 
 // load scss styles
-require('app.scss');
+//require('app.scss');
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
