@@ -10,7 +10,6 @@
     "react": "^0.14.x || 15.4.2",
     "react-dom": "^15.4.2",
     "react-router": "^2.0.1",
-    "reactor-router": "^0.2.7",
     "redux": "^3.6.0",
     "redux-promise": "^0.5.3"
   },
