@@ -47,17 +47,6 @@ CREATE TABLE jobApplication (
   -- FOREIGN KEY (seedUserId) REFERENCES users (seedUserId)
 );
 
-CREATE TABLE activityLog (
-  activityLogId SERIAL PRIMARY KEY,
-  applicationId INT,
-  seedApplicationId INT,
-  activityType VARCHAR(50),
-  activityLogContent VARCHAR(1000),
-  activityCreatedAt TIMESTAMP DEFAULT NOW(),
-  FOREIGN KEY (applicationId) REFERENCES jobApplication (applicationId)
-  -- FOREIGN KEY (seedApplicationId) REFERENCES jobApplication (seedApplicationId)
-);
-
 CREATE TABLE contacts (
   contactId SERIAL PRIMARY KEY,
   seedContactId INT,
@@ -75,7 +64,22 @@ CREATE TABLE contacts (
   contactZip INT,
   secondaryPhoneNumber VARCHAR(14),
   secondaryEmail VARCHAR(100),
+  backgroundInformation VARCHAR(2000),
   FOREIGN KEY (userId) REFERENCES users (userId)
+);
+
+CREATE TABLE activityLog (
+  activityLogId SERIAL PRIMARY KEY,
+  applicationId INT,
+  seedApplicationId INT,
+  contactId INT,
+  seedContactId INT,
+  activityType VARCHAR(50),
+  activityLogContent VARCHAR(1000),
+  activityCreatedAt TIMESTAMP DEFAULT NOW(),
+  FOREIGN KEY (applicationId) REFERENCES jobApplication (applicationId),
+  FOREIGN KEY (contactId) REFERENCES contacts (contactId)
+  -- FOREIGN KEY (seedApplicationId) REFERENCES jobApplication (seedApplicationId)
 );
 
 CREATE TABLE contactApplicationJoin (
@@ -123,27 +127,27 @@ INSERT INTO jobApplication(seedApplicationId, seedUserId, positionName, companyN
 
 --INSERT ACTIVITIES FOR A JOBAPPLICATION--
 
-INSERT INTO activityLog (seedApplicationId, activityType, activityLogContent) VALUES
-(444, 'NOTE', 'saw job and applied'),
-(444, 'NOTE', 'recruiter called me back and said they were interested in chatting further.  Very cool!'),
-(444, 'ARTICLE', 'http://www.adweek.com/digital/pinterest-175-million-monthly-active-users/'),
-(444, 'ARTICLE', 'http://www.cnbc.com/2017/04/03/pinterest-ceo-future-of-search.html'),
-(444, 'NOTE', 'did some research'),
-(444, 'NOTE', 'recruiter called back and said they were interested in setting up a phone screen'),
-(444, 'NOTE', 'had phone screen today she said to prepare on toy problems, especially ones dealing with time complexity'),
-(444, 'NOTE', 'have not heard anything for a week.  Emailed recruiter'),
-(444, 'NOTE', 'heard back.  they want to set up an interview!  The interview will be in two weeks.'),
-(444, 'ARTICLE', 'http://www.adweek.com/digital/pinterest-app-shortcuts-android/'),
-(444, 'NOTE', 'recruiter called to set up time for interview prep session'),
-(444, 'NOTE', 'had prep session with recruiter.  Need to improve the tell me about yourself question'),
-(444, 'NOTE', 'had interview.  Ultimately I think it went alright except for the second interviewer whoe would not stop giving me other toy problems to do.  He gave me like 1000 of them.  He also seemed a bit cranky - maybe he had a bad day.  But everyone else was great, and I got a good vibe from the place.  Certainly hope that they make me an offer');
+INSERT INTO activityLog (seedApplicationId, seedContactId, activityType, activityLogContent) VALUES
+(444, null, 'NOTE', 'saw job and applied'),
+(444, 123451, 'NOTE', 'recruiter called me back and said they were interested in chatting further.  Very cool!'),
+(444, null, 'ARTICLE', 'http://www.adweek.com/digital/pinterest-175-million-monthly-active-users/'),
+(444, null, 'ARTICLE', 'http://www.cnbc.com/2017/04/03/pinterest-ceo-future-of-search.html'),
+(444, null, 'NOTE', 'did some research'),
+(444, 123451, 'NOTE', 'recruiter called back and said they were interested in setting up a phone screen'),
+(444, 123451, 'NOTE', 'had phone screen today she said to prepare on toy problems, especially ones dealing with time complexity'),
+(444, 123451, 'NOTE', 'have not heard anything for a week.  Emailed recruiter'),
+(444, 123453, 'NOTE', 'heard back.  they want to set up an interview!  The interview will be in two weeks.'),
+(444, null, 'ARTICLE', 'http://www.adweek.com/digital/pinterest-app-shortcuts-android/'),
+(444, 123451, 'NOTE', 'recruiter called to set up time for interview prep session'),
+(444, 123451, 'NOTE', 'had prep session with recruiter.  Need to improve the tell me about yourself question'),
+(444, null, 'NOTE', 'had interview.  Ultimately I think it went alright except for the second interviewer who would not stop giving me other toy problems to do.  He gave me like 1000 of them.  He also seemed a bit cranky - maybe he had a bad day.  But everyone else was great, and I got a good vibe from the place.  Certainly hope that they make me an offer');
 
 --INSERT CONTACTS INTO CONTACTS TABLE--
 
-INSERT INTO contacts(seedUserId, seedContactId, contactFirstName, contactLastName, contactCompany, contactPositionTitle, contactPhoneNumber, contactEmail, contactAddress, contactCity, contactState, contactZip, secondaryPhoneNumber, secondaryEmail) VALUES
-(111111, 123451, 'Connie', 'Machado', 'JobsRUs', 'Tech Recruiter', '(291) 391-1928', 'cmachado@gmail.com', 'contactAddress', 'San Jose', 'CA', 94931, '(111) 291-4932', 'connie@hotmail.com'),
-(111111, 123452, 'Bradford', 'Sharpe', 'Pinterest', 'VP Engineering', '(111) 291-4932', 'bsharpe@pinterest.com', '3821 Pinterest Place', 'San Francisco', 'CA', 48321, '(222) 222-2222', 'bsharpe@hotmail.com'),
-(111111, 123453, 'Rodrigo', 'DeSouza', 'Pinterest', 'Back End Engineer', '(333) 333-3333', 'rodrigo@pinterest.com', '3821 Pinterest Place', 'San Francisco', 'CA', 48321, '(444) 444-4444', 'rodrigo@hotmail.com');
+INSERT INTO contacts(seedUserId, seedContactId, contactFirstName, contactLastName, contactCompany, contactPositionTitle, contactPhoneNumber, contactEmail, contactAddress, contactCity, contactState, contactZip, secondaryPhoneNumber, secondaryEmail, backgroundInformation) VALUES
+(111111, 123451, 'Connie', 'Machado', 'JobsRUs', 'Tech Recruiter', '(291) 391-1928', 'cmachado@gmail.com', 'contactAddress', 'San Jose', 'CA', 94931, '(111) 291-4932', 'connie@hotmail.com', 'met at a convention last week.  Very cool lady, who said she would be interested in helping me finding a job.  She said that she liked Hack Reactor a lot and had had success placing their students'),
+(111111, 123452, 'Bradford', 'Sharpe', 'Pinterest', 'VP Engineering', '(111) 291-4932', 'bsharpe@pinterest.com', '3821 Pinterest Place', 'San Francisco', 'CA', 48321, '(222) 222-2222', 'bsharpe@hotmail.com', 'We have been childhood friends for a very long time and he ended up working for Pinterest, when it first got going.  He he\'s grown along with the company and done very well for himself.  Great guy and has indicated that he\'d be willing to heop me if I needed any help'),
+(111111, 123453, 'Rodrigo', 'DeSouza', 'Pinterest', 'Back End Engineer', '(333) 333-3333', 'rodrigo@pinterest.com', '3821 Pinterest Place', 'San Francisco', 'CA', 48321, '(444) 444-4444', 'rodrigo@hotmail.com', null);
 
 INSERT INTO contactApplicationJoin(seedContactId, seedApplicationId) VALUES
 (123451, 444),
@@ -155,6 +159,10 @@ INSERT INTO contactApplicationJoin(seedContactId, seedApplicationId) VALUES
 --TEST QUERIES--
 
 SELECT u.userfirstName, u.userlastName, a.positionName, a.companyName, c.contactFirstName, c.contactLastName, c.contactCompany, c.contactPositionTitle FROM (((users u INNER JOIN jobApplication a ON u.seedUserId = a.seedUserId) INNER JOIN contactApplicationJoin j ON a.seedApplicationId = j.seedApplicationId) INNER JOIN contacts c ON j.seedContactId = c.seedContactId);
+
+--VIEW ALL INFORMATION ABOUT A GIVEN CONTACT--
+
+
 
 
 
