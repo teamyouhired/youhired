@@ -1,10 +1,10 @@
-import React, { createClass, Component } from 'react';
+import React, { createClass } from 'react';
 
-const Login = createClass({
+const Signup = createClass({
 
-  signUserIn(email, password) {
+  signUserUp(email, password) {
     dispatch({
-      type: 'SIGN_IN',
+      type: 'SIGN_UP',
       email,
       password
     });
@@ -19,7 +19,7 @@ const Login = createClass({
           </div>
           <div class="row loginbox">
             <div class="col-lg-12">
-              <span class="singtext" >Sign in </span>
+              <span class="singtext" >Sign Up Today! </span>
             </div>
           <div class="col-lg-12 col-md-12 col-sm-12">
             <input class="form-control" type="text" ref={email => this.email = email} placeholder="E-mail" >
@@ -28,7 +28,7 @@ const Login = createClass({
             <input class="form-control" type="password" ref={password => this.password = password} placeholder="Please enter password" >
           </div>
           <div class="col-lg-12  col-md-12 col-sm-12">
-            <a href="#" class="btn  submitButton" onSubmit={signUserIn(this.email, this.password)}>Submit </a>
+            <a href="#" class="btn  submitButton" onSubmit={signUserUp(this.email, this.password)}>Submit </a>
           </div>
         </div>
         <div class="row forGotPassword">
@@ -38,4 +38,3 @@ const Login = createClass({
     );
   }
 });
-
