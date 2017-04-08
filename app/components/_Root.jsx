@@ -9,13 +9,12 @@ const _Root = (props) => {
   // }
   return (
     <div>
-      <h3> Congratulations!!! You are hired??????</h3>
+      <header />
+      <div>
+        <h3> Congratulations!!! You are hired!</h3>
       <Dashboard />
-      {
-      // <Header />
-      // <CurrentPage />
-      // <Footer />
-      }
+      </div>
+      <footer />
     </div>
   );
 };
