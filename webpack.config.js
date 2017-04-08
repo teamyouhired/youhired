@@ -55,7 +55,7 @@ module.exports = {
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoEmitOnErrorsPlugin(),
-      new ExtractTextPlugin("styles.css")
+      new ExtractTextPlugin("styles")
     ],
     devServer: {
       hot: true,
