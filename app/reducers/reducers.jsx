@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from '../app';
+import { combineReducers } from 'redux';
+import jobs from './dashboardReducers';
 
-export default function() {
-  return {};
-}
+const jobsList = combineReducers({
+  jobs
+});
+export default jobsList;
