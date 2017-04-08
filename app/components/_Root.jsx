@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
 import Dashboard from './dashboard/Dashboard';
+import Header from 'header';
+import Footer from 'footer';
 //may not necessarily be functional based, could be class based
 
 const _Root = (props) => {
@@ -9,12 +11,10 @@ const _Root = (props) => {
   // }
   return (
     <div>
-      <header />
       <div>
         <h3> Congratulations!!! You are hired!</h3>
       <Dashboard />
       </div>
-      <footer />
     </div>
   );
 };
