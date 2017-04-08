@@ -2,13 +2,13 @@ import React, { createClass, Component } from 'react';
 
 const Login = createClass({
 
-  signUserIn(email, password) {
-    dispatch({
-      type: 'SIGN_IN',
-      email,
-      password
-    });
-  },
+  // signUserIn(email, password) {
+  //   dispatch({
+  //     type: 'SIGN_IN',
+  //     email,
+  //     password
+  //   });
+  // },
   render() {
     return (
       <div class="container">
@@ -28,7 +28,7 @@ const Login = createClass({
               <input class="form-control" type="password" ref={password => this.password = password} placeholder="Please enter password" />
             </div>
             <div class="col-lg-12  col-md-12 col-sm-12">
-              <a href="#" class="btn  submitButton" onSubmit={signUserIn(this.email, this.password)}>Submit </a>
+              <a href="#" class="btn  submitButton">Submit </a>
             </div>
           </div>
           <div class="row forGotPassword">
@@ -40,3 +40,4 @@ const Login = createClass({
   }
 });
 
+export default Login;

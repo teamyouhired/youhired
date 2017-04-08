@@ -2,13 +2,13 @@ import React, { createClass } from 'react';
 
 const Signup = createClass({
 
-  signUserUp(email, password) {
-    dispatch({
-      type: 'SIGN_UP',
-      email,
-      password
-    });
-  }
+  // signUserUp(email, password) {
+  //   dispatch({
+  //     type: 'SIGN_UP',
+  //     email,
+  //     password
+  //   });
+  // },
   render() {
     return (
       <div class="container">
@@ -22,19 +22,22 @@ const Signup = createClass({
               <span class="singtext" >Sign Up Today! </span>
             </div>
           <div class="col-lg-12 col-md-12 col-sm-12">
-            <input class="form-control" type="text" ref={email => this.email = email} placeholder="E-mail" >
+            <input class="form-control" type="text" ref={email => this.email = email} placeholder="E-mail" />
           </div>
           <div class="col-lg-12  col-md-12 col-sm-12">
-            <input class="form-control" type="password" ref={password => this.password = password} placeholder="Please enter password" >
+            <input class="form-control" type="password" ref={password => this.password = password} placeholder="Please enter password" />
           </div>
           <div class="col-lg-12  col-md-12 col-sm-12">
-            <a href="#" class="btn  submitButton" onSubmit={signUserUp(this.email, this.password)}>Submit </a>
+            <a href="#" class="btn  submitButton" >Submit </a>
           </div>
         </div>
         <div class="row forGotPassword">
             <a href="#" >Forgot Username / Password? </a>
         </div>
       </div>
+      </div>
     );
   }
 });
+//onSubmit={this.signUserUp(this.email, this.password)}
+export default Signup;
