@@ -8,7 +8,6 @@ const JobCard = ({ companyName, status }) => {
     </div>
   );
 }
-// may need prop types
 JobCard.propTypes = {
   companyName: PropTypes.string.isRequired,
   status: PropTypes.string.isRequired

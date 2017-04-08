@@ -7,6 +7,7 @@ const mapStateToProps = (state) => {
     jobs: state.jobs
   }
 }
+// will need for when we filter the jobs
 // const mapDispatchToProps = (dispatch) => {
 //   return {
 //     onAddJobClick: (job) => {

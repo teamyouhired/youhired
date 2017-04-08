@@ -14,8 +14,6 @@ const JobList = ({ jobs }) => (
     <AddJob />
   </div>
 );
-// may need to add proptypes
-
 JobList.propTypes = {
   jobs: PropTypes.arrayOf(PropTypes.shape({
     companyName: PropTypes.string.isRequired,
