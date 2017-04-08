@@ -1,4 +1,4 @@
-import React, { createClass } from 'react';
+import React, { createClass, Component } from 'react';
 
 const Login = createClass({
 
