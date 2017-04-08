@@ -1,7 +1,6 @@
 
-/public/bundle.js
-public/*.*
-public/*.hot-update.*
+public/bundle.js
+
 
 ### OSX ###
 .DS_Store
