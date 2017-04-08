@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Dashboard from './Dashboard';
+import Dashboard from './dashboard/Dashboard';
 //may not necessarily be functional based, could be class based
 
 const _Root = (props) => {

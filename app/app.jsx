@@ -45,13 +45,13 @@ import path from 'path';
 import { browserHistory } from 'react-router';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import jobsList from './reducers/reducers';
+import * as reducers from './reducers/reducers';
 import _Root from './components/_Root';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 ReactDOM.render (
-  <Provider store={createStoreWithMiddleware(jobsList)}>
+  <Provider store={createStoreWithMiddleware(combineReducers(reducers))}>
     <Router history={browserHistory}>
       <Route exact path='/' component={_Root}/>
     </Router>
