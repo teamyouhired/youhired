@@ -46,8 +46,9 @@ import { browserHistory } from 'react-router';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import * as reducers from './reducers/reducers';
-import _Root from './components/_Root';
+import _Root from '_Root';
 import Login from './components/login/Login';
+require('app.scss');
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
