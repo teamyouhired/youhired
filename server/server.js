@@ -1,9 +1,12 @@
-var express = require('express');
-var bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const express = require('express');
+const bodyParser = require('body-parser');
 
-var routes = require('./routes');
+const routes = require('./routes');
 
-var PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
+
+mongoose.connect('mongodb://localhost/hired');
 
 app = express();
 
@@ -11,9 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + './../public'));
 
-
 routes(app);
-
 
 app.listen(PORT, function() {
   console.log('Your Hired Express server started on port ' + PORT);
