@@ -189,7 +189,8 @@ INSERT INTO contactApplicationJoin(seedContactId, seedApplicationId) VALUES
 SELECT
   TO_CHAR(applicationCreatedAt, 'MON YYYY') AS activityCreatedAt,
   positionName,
-  companyName
+  companyName,
+  status
   FROM jobApplication WHERE (seedUserId = 111111);
 
 --JOB APPLICATION PAGE
