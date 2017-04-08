@@ -11,7 +11,6 @@ const JobList = createClass({
     },
 
     render() {
-      console.log(this.props)
       return (
         <div>
           <div>
@@ -28,8 +27,6 @@ const JobList = createClass({
 });
 
 const mapStateToProps = (state) => {
-  console.log(state.dashboard);
-  console.log(state);
   return {
     jobs: state.dashboard.jobs
   }

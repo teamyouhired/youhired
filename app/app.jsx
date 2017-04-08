@@ -47,13 +47,17 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import * as reducers from './reducers/reducers';
 import _Root from './components/_Root';
+import Login from './components/login/Login';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 ReactDOM.render (
   <Provider store={createStoreWithMiddleware(combineReducers(reducers))}>
     <Router history={browserHistory}>
-      <Route exact path='/' component={_Root}/>
+      <div>
+        <Route exact path='/' component={_Root}/>
+        <Route path='/login' component={Login} />
+      </div>
     </Router>
   </Provider>,
     document.getElementById('root')
