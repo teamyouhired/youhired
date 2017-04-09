@@ -11,12 +11,12 @@ DELETE FROM jobApplication;
 --enter in in ONE command!
 
 CREATE TABLE users (
-  userId SERIAL PRIMARY KEY,
-  seedUserId INT,
-  userEmail VARCHAR(100) UNIQUE NOT NULL,
-  userPassword VARCHAR(255) UNIQUE NOT NULL,
-  userFirstName VARCHAR(50) NOT NULL,
-  userLastName VARCHAR(50) NOT NULL
+  -- userId SERIAL PRIMARY KEY,
+  -- seedUserId INT,
+  -- userEmail VARCHAR(100) UNIQUE NOT NULL,
+  -- userPassword VARCHAR(255) UNIQUE NOT NULL,
+  -- userFirstName VARCHAR(50) NOT NULL,
+  -- userLastName VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE tokens (
@@ -104,9 +104,10 @@ CREATE TABLE contactApplicationJoin (
 
 --INSERT THREE USERS INTO USERS TABLE--
 
-INSERT INTO users(seedUserId, userEmail, userPassword, userFirstName, userLastName) VALUES (111111, 'samsimple@gmail.com', '3kjblkj4j3nin2i1', 'Sam', 'Simple'),
-(222222, 'susysimple@gmail.com', '3kjb3s24j3nin2i1', 'Susy', 'Simple'),
-(333333, 'johndoe@gmail.com', '3kjbdhw4j3nin2i1', 'John', 'Doe');
+INSERT INTO users(seedUserId, userEmail, userPassword, userFirstName, userLastName) VALUES (111111, 'samsimple@gmail.com', '$2a$10$9nAbMiiI.6Sw.VT.NSUgKOtU/yeKupPjSZ5mpAgSGxdEWtzAWcxoO', 'Sam', 'Simple'),
+--from Dimitri
+(222222, 'susysimple@gmail.com', '$2a$10$9nAbMiiI.6Sw.VT.NSUgKOtU/yeKupPjSZ5mpAgSGxdEWtzAWcxoO', 'Susy', 'Simple'),
+(333333, 'johndoe@gmail.com', '$2a$10$9nAbMiiI.6Sw.VT.NSUgKOtU/yeKupPjSZ5mpAgSGxdEWtzAWcxoO', 'John', 'Doe');
 
 --INSERT SEVERAL JOBS AT SEVERAL STAGES INTO JOBAPPLICATION TABLE (ALL ARE ASSOCIATED WITH USER 111111--
 
@@ -224,7 +225,6 @@ SELECT
 --Query URLs specific to the job application
 
 SELECT
-  TO_CHAR(activityCreatedAt, 'DD MON YYYY   HH12:MI:SS') AS activityCreatedAt,
   activityLogContent
   FROM activityLog WHERE seedApplicationId = 444 AND activityType = 'ARTICLE'
   GROUP BY activityCreatedAt, activityLogContent ORDER BY activityCreatedAt DESC;
