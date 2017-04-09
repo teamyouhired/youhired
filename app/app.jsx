@@ -1,8 +1,9 @@
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import ReduxPromise from 'redux-promise';
+import { composeWithDevTools } from 'remote-redux-devtools';
 import { Provider } from 'react-redux';
-import { combineReducers, createStore, applyMiddleware } from 'redux';
+import { combineReducers, compose, createStore, applyMiddleware } from 'redux';
 //research browser history, hash history, memory history...which might be more useful
 import path from 'path';
 import { browserHistory } from 'react-router';
@@ -18,10 +19,12 @@ import Header from 'Header';
 require('app.scss');
 require('styles.css');
 
-const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const enhancer = composeEnhancers(applyMiddleware(ReduxPromise))
+const store = createStore(combineReducers(reducers), enhancer);
 
 ReactDOM.render (
-  <Provider store={createStoreWithMiddleware(combineReducers(reducers))}>
+  <Provider store={store}>
     <Router history={browserHistory}>
       <div>
         <nav>
