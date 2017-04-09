@@ -16,6 +16,7 @@ import Splash from 'splashpage/Splash';
 import Footer from 'Footer';
 import Header from 'Header';
 require('app.scss');
+require('styles.css');
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
