@@ -16,6 +16,6 @@ const JobCard = createClass({
     );
   }
 
-})
+});
 
 export default JobCard;
