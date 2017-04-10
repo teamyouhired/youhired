@@ -1,6 +1,6 @@
 import React, { createClass } from 'react';
 
-const Footer = createClass({
+const FooterComponent = createClass({
   render() {
     return (<footer className="footer-distributed">
     <div className="footer-left">
@@ -47,4 +47,4 @@ const Footer = createClass({
   </footer>);
   }
 });
-export default Footer;
+export default FooterComponent;

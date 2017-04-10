@@ -1,0 +1,30 @@
+.job-list {
+}
+
+.card-horizontal {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.company-name {
+  display: inline-flex;
+  font-size: 3rem;
+  margin: auto;
+  /*padding-left: 10px;*/
+}
+
+.status {
+  display: inline-flex;
+  font-size: 3rem;
+  margin: auto;
+}
+
+.add-task {
+  align-items: right;
+  font-size: 3rem;
+  padding: 15px 15px;
+  margin: auto;
+}
