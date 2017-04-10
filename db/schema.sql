@@ -105,7 +105,7 @@ CREATE TABLE contactApplicationJoin (
 --INSERT THREE USERS INTO USERS TABLE--
 
 INSERT INTO users(seedUserId, userEmail, userPassword, userFirstName, userLastName) VALUES (111111, 'samsimple@gmail.com', '$2a$10$9nAbMiiI.6Sw.VT.NSUgKOtU/yeKupPjSZ5mpAgSGxdEWtzAWcxoO', 'Sam', 'Simple'),
---from Dimitri
+--from Dimitri; same password for every user.  Password will be 111 for all.
 (222222, 'susysimple@gmail.com', '$2a$10$9nAbMiiI.6Sw.VT.NSUgKOtU/yeKupPjSZ5mpAgSGxdEWtzAWcxoO', 'Susy', 'Simple'),
 (333333, 'johndoe@gmail.com', '$2a$10$9nAbMiiI.6Sw.VT.NSUgKOtU/yeKupPjSZ5mpAgSGxdEWtzAWcxoO', 'John', 'Doe');
 
