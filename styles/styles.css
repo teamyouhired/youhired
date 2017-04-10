@@ -7,8 +7,8 @@ body {
 /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
 
 .business-header {
-    height: 400px;
-    background: url('http://placehold.it/1920x400') center center no-repeat scroll;
+    height: 800px;
+    background: url('https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiu1s2svprTAhUG1mMKHe4RA50QjRwIBg&url=https%3A%2F%2Fwww.jgllaw.com%2Fpractice-areas%2Fbusiness-law%2Fblog&psig=AFQjCNGhRKbH6fVNrAy5IjB3LiH2rkdWBA&ust=1491933752421921') center center no-repeat scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -16,6 +16,12 @@ body {
 }
 
 /* Customize the text color and shadow color and to optimize text legibility. */
+.position-type {
+  position: absolute;
+}
+.text-center {
+  text-align: center;
+}
 
 .tagline {
     text-shadow: 0 0 10px #000;

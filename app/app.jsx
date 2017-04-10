@@ -28,7 +28,7 @@ const store = createStore(combineReducers(reducers), enhancer);
 ReactDOM.render (
   <Provider store={store}>
     <Router history={browserHistory}>
-      <div className="container">
+      <div className="container-fluid">
         <nav>
           <Link to="/">Root</Link>
           <Link to="/signup">Signup</Link>

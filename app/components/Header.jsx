@@ -3,7 +3,7 @@ import React, { createClass } from 'react';
 const HeaderComponent = createClass({
   render() {
     return (<nav className="navbar navbar-light" style={{backgroundColor: '#e3f2fd'}}>
-    <div>
+
       <div className="navbar-header">
         <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
           <span className="icon-bar"></span>
@@ -26,7 +26,7 @@ const HeaderComponent = createClass({
         </ul>
         </div>
       </div>
-    </div>
+
   </nav>);
   }
 });
