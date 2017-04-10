@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import ReduxPromise from 'redux-promise';
+import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'remote-redux-devtools';
 import { Provider } from 'react-redux';
 import { combineReducers, compose, createStore, applyMiddleware } from 'redux';
@@ -20,7 +21,7 @@ require('app.scss');
 require('styles.css');
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const enhancer = composeEnhancers(applyMiddleware(ReduxPromise))
+const enhancer = composeEnhancers(applyMiddleware(thunk))
 const store = createStore(combineReducers(reducers), enhancer);
 
 ReactDOM.render (

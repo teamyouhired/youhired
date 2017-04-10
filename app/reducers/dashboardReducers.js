@@ -34,6 +34,38 @@ const dashboardReducer = (state = defaultState, { type, payload }) => {
       return state;
   }
 }
+// import {} from '../actions/dashboard/DashboardActionTypes';
+// import { addJob, addTask, getUserData } from '../api/users';
+/*const defaultState = {
+  userData: {
+    applications: [],
+    activity: [],
+    applicationContacts: [],
+    jobs: []
+  }
+};
+
+const dashboardReducer = (state = defaultState, { type, payload }) => {
+  switch (type) {
+    case addJob.SUCCESS:
+      return {
+        ...state,
+        userData.jobs: payload.userData.jobs
+      };
+    case addTask.SUCCESS:
+      return {
+        ...state,
+        userData.activity: payload.userData.activity
+      }
+    case getUserData.SUCCESS:
+      return {
+        ...state,
+        userData: payload.userData
+      }
+    default:
+      return state;
+  }
+}*/
 
 export default dashboardReducer;
 
