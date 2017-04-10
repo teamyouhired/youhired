@@ -67,7 +67,10 @@ var User = connection.define('users', {
 });
 
 var JobApplication = connection.define('jobapplications', {
-  seedApplicationId: Sequelize.INTEGER,
+  seedApplicationId: {
+    type: Sequelize.INTEGER,
+    unique: true
+  },
   seedUserId: Sequelize.INTEGER,
   positionName: Sequelize.STRING(100),
   companyName: Sequelize.STRING(100),
@@ -83,9 +86,42 @@ var JobApplication = connection.define('jobapplications', {
   offerBenefits: Sequelize.TEXT
 });
 
-// JobApplication.belongsTo(User, {foreignKey: 'userId'});
+var Contact = connection.define('contacts', {
+  seedContactId: {
+    type: Sequelize.INTEGER,
+    unique: true
+  },
+  seedUserId: Sequelize.INTEGER,
+  contactFirstName: Sequelize.STRING(50),
+  contactLastName: Sequelize.STRING(50),
+  contactCompany: Sequelize.STRING(100),
+  contactPositionTitle: Sequelize.STRING(100),
+  contactPhoneNumber: Sequelize.STRING(14),
+  contactEmail: Sequelize.STRING(100),
+  contactAddress: Sequelize.STRING(255),
+  contactCity: Sequelize.STRING(100),
+  contactState: Sequelize.STRING(2),
+  contactZip: Sequelize.INTEGER,
+  secondaryPhoneNumber: Sequelize.STRING(14),
+  secondaryEmail: Sequelize.STRING(100),
+  backgroundInformation: Sequelize.TEXT
+});
 
+var ActivityLog = connection.define('activitylogs', {
+  seedActivityLogId: {
+    type: Sequelize.INTEGER,
+    unique: true
+  },
+  seedApplicationId: Sequelize.INTEGER,
+  seedContactId: Sequelize.INTEGER,
+  activityType: Sequelize.STRING(50),
+  activityLogContent: Sequelize.TEXT
+});
 
+var ContactApplicationJoin = connection.define('contactapplicationjoin', {
+  seedContactId: Sequelize.INTEGER,
+  seedApplicationId: Sequelize.INTEGER
+});
 
 //SEED FILE
 
@@ -147,12 +183,44 @@ connection.sync().then(
       offerBenefits: null
     });
   }
+).then(
+  function() {
+    Contact.create({
+      seedContactId: 111111,
+      seedUserId: 123451,
+      contactFirstName: 'Connie',
+      contactLastName: 'Machado',
+      contactCompany: 'JobsRUs',
+      contactPositionTitle: 'Tech Recruiter',
+      contactPhoneNumber: '(291) 391-1928',
+      contactEmail: 'cmachado@gmail.com',
+      contactAddress: 'contactAddress',
+      contactCity: 'San Jose',
+      contactState: 'CA',
+      contactZip: 94931,
+      secondaryPhoneNumber: '(111) 291-4932',
+      secondaryEmail: 'connie@hotmail.com',
+      backgroundInformation: 'met at a convention last week.  Very cool lady, who said she would be interested in helping me finding a job.  She said that she liked Hack Reactor a lot and had had success placing their students',
+    });
+  }
+).then(
+  function() {
+    ActivityLog.create({
+      seedActivityLogId: 1,
+      seedApplicationId: 444,
+      seedContactId: null,
+      activityType: 'NOTE',
+      activityLogContent: 'saw job and applied'
+    });
+  }
+).then(
+  function() {
+    ContactApplicationJoin.create({
+      seedContactId: 123451,
+      seedApplicationId: 444
+    });
+  }
 );
-
-
-
-
-
 
 
 

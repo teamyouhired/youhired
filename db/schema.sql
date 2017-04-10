@@ -27,49 +27,49 @@ CREATE TABLE tokens (
   -- FOREIGN KEY (seedUserId) REFERENCES users (seedUserId)
 );
 
-CREATE TABLE jobApplication (
-  applicationId SERIAL PRIMARY KEY,
-  seedApplicationId INT,
-  userId INT,
-  seedUserId INT,
-  positionName VARCHAR(100),
-  companyName VARCHAR(100),
-  jobPostURL VARCHAR(1500),
-  jobArchiveURL VARCHAR(1500),
-  status VARCHAR(50),
-  companyAddress VARCHAR(150),
-  companyCity VARCHAR(150),
-  companyState CHAR(2),
-  companyZip CHAR(5),
-  offerSalary INT,
-  offerOptions VARCHAR(2000),
-  offerBenefits VARCHAR(5000),
-  applicationCreatedAt TIMESTAMP DEFAULT NOW(),
-  FOREIGN KEY (userId) REFERENCES users (userId)
-  -- FOREIGN KEY (seedUserId) REFERENCES users (seedUserId)
-);
+-- CREATE TABLE jobApplication (
+--   applicationId SERIAL PRIMARY KEY,
+--   seedApplicationId INT,
+--   userId INT,
+--   seedUserId INT,
+--   positionName VARCHAR(100),
+--   companyName VARCHAR(100),
+--   jobPostURL VARCHAR(1500),
+--   jobArchiveURL VARCHAR(1500),
+--   status VARCHAR(50),
+--   companyAddress VARCHAR(150),
+--   companyCity VARCHAR(150),
+--   companyState CHAR(2),
+--   companyZip CHAR(5),
+--   offerSalary INT,
+--   offerOptions VARCHAR(2000),
+--   offerBenefits VARCHAR(5000),
+--   applicationCreatedAt TIMESTAMP DEFAULT NOW(),
+--   FOREIGN KEY (userId) REFERENCES users (userId)
+--   -- FOREIGN KEY (seedUserId) REFERENCES users (seedUserId)
+-- );
 
-CREATE TABLE contacts (
-  contactId SERIAL PRIMARY KEY,
-  seedContactId INT,
-  userId INT,
-  seedUserId INT,
-  contactFirstName VARCHAR(50),
-  contactLastName VARCHAR(50),
-  contactCompany VARCHAR(100),
-  contactPositionTitle VARCHAR(100),
-  contactPhoneNumber VARCHAR(14),
-  contactEmail VARCHAR(100),
-  contactAddress VARCHAR(255),
-  contactCity VARCHAR(100),
-  contactState VARCHAR(2),
-  contactZip INT,
-  secondaryPhoneNumber VARCHAR(14),
-  secondaryEmail VARCHAR(100),
-  backgroundInformation VARCHAR(2000),
-  contactCreatedAt TIMESTAMP DEFAULT NOW(),
-  FOREIGN KEY (userId) REFERENCES users (userId)
-);
+-- CREATE TABLE contacts (
+--   contactId SERIAL PRIMARY KEY,
+--   seedContactId INT,
+--   userId INT,
+--   seedUserId INT,
+--   contactFirstName VARCHAR(50),
+--   contactLastName VARCHAR(50),
+--   contactCompany VARCHAR(100),
+--   contactPositionTitle VARCHAR(100),
+--   contactPhoneNumber VARCHAR(14),
+--   contactEmail VARCHAR(100),
+--   contactAddress VARCHAR(255),
+--   contactCity VARCHAR(100),
+--   contactState VARCHAR(2),
+--   contactZip INT,
+--   secondaryPhoneNumber VARCHAR(14),
+--   secondaryEmail VARCHAR(100),
+--   backgroundInformation VARCHAR(2000),
+--   contactCreatedAt TIMESTAMP DEFAULT NOW(),
+--   FOREIGN KEY (userId) REFERENCES users (userId)
+-- );
 
 CREATE TABLE activityLog (
   activityLogId SERIAL PRIMARY KEY,
@@ -104,10 +104,10 @@ CREATE TABLE contactApplicationJoin (
 
 --INSERT THREE USERS INTO USERS TABLE--
 
-INSERT INTO users(seedUserId, userEmail, userPassword, userFirstName, userLastName) VALUES (111111, 'samsimple@gmail.com', '$2a$10$9nAbMiiI.6Sw.VT.NSUgKOtU/yeKupPjSZ5mpAgSGxdEWtzAWcxoO', 'Sam', 'Simple'),
---from Dimitri; same password for every user.  Password will be 111 for all.
-(222222, 'susysimple@gmail.com', '$2a$10$9nAbMiiI.6Sw.VT.NSUgKOtU/yeKupPjSZ5mpAgSGxdEWtzAWcxoO', 'Susy', 'Simple'),
-(333333, 'johndoe@gmail.com', '$2a$10$9nAbMiiI.6Sw.VT.NSUgKOtU/yeKupPjSZ5mpAgSGxdEWtzAWcxoO', 'John', 'Doe');
+-- INSERT INTO users(seedUserId, userEmail, userPassword, userFirstName, userLastName) VALUES (111111, 'samsimple@gmail.com', '$2a$10$9nAbMiiI.6Sw.VT.NSUgKOtU/yeKupPjSZ5mpAgSGxdEWtzAWcxoO', 'Sam', 'Simple'),
+-- --from Dimitri; same password for every user.  Password will be 111 for all.
+-- (222222, 'susysimple@gmail.com', '$2a$10$9nAbMiiI.6Sw.VT.NSUgKOtU/yeKupPjSZ5mpAgSGxdEWtzAWcxoO', 'Susy', 'Simple'),
+-- (333333, 'johndoe@gmail.com', '$2a$10$9nAbMiiI.6Sw.VT.NSUgKOtU/yeKupPjSZ5mpAgSGxdEWtzAWcxoO', 'John', 'Doe');
 
 --INSERT SEVERAL JOBS AT SEVERAL STAGES INTO JOBAPPLICATION TABLE (ALL ARE ASSOCIATED WITH USER 111111--
 
@@ -168,7 +168,7 @@ INSERT INTO activityLog (seedApplicationId, seedContactId, activityType, activit
 --INSERT CONTACTS INTO CONTACTS TABLE--
 
 INSERT INTO contacts(seedUserId, seedContactId, contactFirstName, contactLastName, contactCompany, contactPositionTitle, contactPhoneNumber, contactEmail, contactAddress, contactCity, contactState, contactZip, secondaryPhoneNumber, secondaryEmail, backgroundInformation) VALUES
-(111111, 123451, 'Connie', 'Machado', 'JobsRUs', 'Tech Recruiter', '(291) 391-1928', 'cmachado@gmail.com', 'contactAddress', 'San Jose', 'CA', 94931, '(111) 291-4932', 'connie@hotmail.com', 'met at a convention last week.  Very cool lady, who said she would be interested in helping me finding a job.  She said that she liked Hack Reactor a lot and had had success placing their students'),
+-- (111111, 123451, 'Connie', 'Machado', 'JobsRUs', 'Tech Recruiter', '(291) 391-1928', 'cmachado@gmail.com', 'contactAddress', 'San Jose', 'CA', 94931, '(111) 291-4932', 'connie@hotmail.com', 'met at a convention last week.  Very cool lady, who said she would be interested in helping me finding a job.  She said that she liked Hack Reactor a lot and had had success placing their students'),
 (111111, 123452, 'Bradford', 'Sharpe', 'Pinterest', 'VP Engineering', '(111) 291-4932', 'bsharpe@pinterest.com', '3821 Pinterest Place', 'San Francisco', 'CA', 48321, '(222) 222-2222', 'bsharpe@hotmail.com', 'We have been childhood friends for a very long time and he ended up working for Pinterest, when it first got going.  He''s grown along with the company and done very well for himself.  Great guy and has indicated that he''d be willing to heop me if I needed any help'),
 (111111, 123453, 'Rodrigo', 'DeSouza', 'Pinterest', 'Back End Engineer', '(333) 333-3333', 'rodrigo@pinterest.com', '3821 Pinterest Place', 'San Francisco', 'CA', 48321, '(444) 444-4444', 'rodrigo@hotmail.com', null);
 
