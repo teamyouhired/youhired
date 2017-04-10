@@ -4,7 +4,7 @@ import TaskList from './tasks/TaskList';
 
 
 const Dashboard = () => (
-  <div>
+  <div className='dashboard-container'>
     <JobList />
     <TaskList />
   </div>
