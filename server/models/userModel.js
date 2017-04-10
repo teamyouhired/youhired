@@ -40,14 +40,15 @@ var UserSchema = new Schema({
 // Generate JWT tokens
 UserSchema.methods.generateToken = function () {
   var user = this;
-  var access = 'auth';
-  var token = jwt.sign({_id: user._id.toString(), access}, 'somesecret');
+  // var access = 'auth';
+  var token = jwt.sign({_id: user._id.toString(), access: 'auth'}, 'somesecret');
 
-  user.tokens.push({access, token});
+  // user.tokens.push({access, token});
+  return token;
 
-  return user.save().then(() => {
-    return token;
-  });
+  // return user.save().then(() => {
+  //   return token;
+  // });
 };
 
 //
@@ -109,14 +110,28 @@ UserSchema.pre('save', function (next) {
   if (!user.isModified('password')) {
     return next();
   }
-  // hash user password using salt 10 times
-  bcrypt.hash(user.password, 10, (err, hash) => {
+
+  // bcrypt with Promise
+  // hash user password using 10 saltRounds
+  bcrypt.hash(user.password, 10)
+  .then(hash => {
+    user.password = hash;
+    next();
+  })
+  .catch(err => {
     if (err) {
       return next(err);
     }
-    user.password = hash;
-    next();
   });
+
+  // bcrypt with callback
+  // bcrypt.hash(user.password, 10, (err, hash) => {
+  //   if (err) {
+  //     return next(err);
+  //   }
+  //   user.password = hash;
+  //   next();
+  // });
 });
 
 var User = mongoose.model('User', UserSchema);
