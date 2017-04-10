@@ -14,10 +14,11 @@ const JobList = createClass({
       return (
         <div className='job-list'>
           <div>
-            {this.props.jobs.map(job =>
+            {this.props.jobs.map((job, index) =>
               <JobCard
-              {...job}
-            />
+                key={index}
+                {...job}
+              />
             )}
           </div>
           <AddJob />

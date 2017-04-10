@@ -8,8 +8,9 @@ const TaskList = createClass({
   render() {
     return (
       <div>
-        {this.props.tasks.map(task =>
+        {this.props.tasks.map((task, index) =>
           <Task
+            key={index}
             {...task}
           />
         )}
