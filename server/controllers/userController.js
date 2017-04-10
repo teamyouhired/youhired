@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs');
 
-var User = require('../models/userModel.js');
+const User = require('../models/userModel.js');
+
 
 // server route handlers
 module.exports = {
@@ -8,36 +9,78 @@ module.exports = {
   // create new user
   onSignup: function (req, res) {
     var {email, password} = req.body;
-    console.log('email', email);
-    console.log('password', password);
 
-    // check if user already exists in db
-    User.findOne({email: req.body.email})
+    if (email) {
+      email = email.trim();
+    }
+    if (password) {
+      password = password.trim();
+    }
+
+    // if no email or empty password
+    if (!email || !password) {
+      console.log('Invalid email or password');
+      return res.status(422).send({ error: 'You must provide valid email and password'});
+    }
+
+    // find email and check if already exists in db
+    User.findOne({email})
     .then(user => {
       console.log('-------- user -------- \n', user);
 
       if (user) {
-        console.log('User already exist!');
-        res.status(400).send('User already exist!');
+        console.log('Email already in use!');
+        res.status(400).send('Email already in use!');
       } else {
-        console.log('Creating new user');
-        var newUser = new User(req.body);
 
-        newUser.save().then(() => {
-          return newUser.generateToken();
-        }).then(token => {
+        // create new user, generate token and save to db
+        console.log('Creating new user');
+
+        var newUser = new User({ email, password });
+        var token = newUser.generateToken();
+        newUser.tokens.push({access: 'auth', token});
+        console.log('newUser created', newUser);
+
+        newUser.save()
+        .then(() => {
           res.header('auth', token).send(newUser);
-        }).catch(err => {
-          res.status(400).send(err);
+        })
+        .catch(err => {
+          console.log('Error1 --->', err);
+          res.status(400).send(err.message);
         });
       }
-    });
+
+// has been refactored
+//       if (user) {
+//         console.log('User already exist!');
+//         res.status(400).send('User already exist!');
+//       } else {
+//         console.log('Creating new user');
+//         var newUser = new User(req.body);
+//
+//         newUser.save().then(() => {
+//           return newUser.generateToken();
+//         }).then(token => {
+//           res.header('auth', token).send(newUser);
+//         }).catch(err => {
+//           console.log('Error --->', err);
+//           res.status(400).send(err);
+//         });
+//       }
+
+    })
   },
 
   onSignin: function (req, res) {
     var {email, password} = req.body;
-    console.log('email', email);
-    console.log('password', password);
+
+    if (email) {
+      email = email.trim();
+    }
+    if (password) {
+      password = password.trim();
+    }
 
     // check if user exists in db
     User.findOne({email: req.body.email})
