@@ -14,8 +14,8 @@ import _Root from '_Root';
 import Login from 'login/Login';
 import Signup from 'signup/Signup';
 import Splash from 'splashpage/Splash';
-import Footer from 'Footer';
-import Header from 'Header';
+import FooterComponent from 'Footer';
+import HeaderComponent from 'Header';
 require('app.scss');
 require('styles.css');
 
@@ -26,20 +26,18 @@ const store = createStore(combineReducers(reducers), enhancer);
 ReactDOM.render (
   <Provider store={store}>
     <Router history={browserHistory}>
-      <div>
+      <div className="container">
         <nav>
           <Link to="/">Root</Link>
           <Link to="/signup">Signup</Link>
           <Link to="/login">Login</Link>
           <Link to="/splash">Splash</Link>
         </nav>
-        <Header />
         <hr/>
         <Route exact path='/' component={_Root}/>
         <Route path='/login' component={Login} />
         <Route path='/signup' component={Signup} />
         <Route path='/splash' component={Splash} />
-        <Footer />
       </div>
     </Router>
   </Provider>,

@@ -1,6 +1,6 @@
 import React, { createClass } from 'react';
 
-const Header = createClass({
+const HeaderComponent = createClass({
   render() {
     return (<nav className="navbar navbar-light" style={{backgroundColor: '#e3f2fd'}}>
     <div>
@@ -31,4 +31,4 @@ const Header = createClass({
   }
 });
 // className="container-fluid"  className="container"
-export default Header;
+export default HeaderComponent;

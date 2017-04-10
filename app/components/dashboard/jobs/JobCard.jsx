@@ -7,8 +7,11 @@ const JobCard = createClass({
     const { companyName, status } = this.props;
     return (
       <div>
-        <h3>{companyName}</h3>
-        <h4>{status}</h4>
+        <div className='card-horizontal'>
+          <h5 className='company-name'>{companyName}</h5>
+          <h5 className='status'>{status}</h5>
+          <span className='add-task glyphicon glyphicon-plus-sign'></span>
+        </div>
       </div>
     );
   }

@@ -12,7 +12,7 @@ const JobList = createClass({
 
     render() {
       return (
-        <div>
+        <div className='job-list'>
           <div>
             {this.props.jobs.map(job =>
               <JobCard
