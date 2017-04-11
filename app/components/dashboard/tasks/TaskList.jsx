@@ -8,7 +8,7 @@ const TaskList = createClass({
   render() {
     return (
       <div className='task-list'>
-        {this.props.tasks.map((task, index) =>
+        {this.props.activity.map((task, index) =>
           <Task
             key={index}
             {...task}
@@ -21,7 +21,7 @@ const TaskList = createClass({
 
 const mapStateToProps = (state) => {
   return {
-    tasks: state.dashboard.tasks
+    activity: state.dashboard.activity
   }
 }
 
