@@ -5,10 +5,9 @@ const Activity = createClass({
     const { activitylogcontent, createdat } = this.props;
     return (
       <div>
-        <div className=''>
-          <h5 className=''>{activitylogcontent}</h5>
-          <br/>
-          <h6 className=''>{createdat}</h6>
+        <div className='activity'>
+          <h4 className='activity-date'>{createdat}</h4>
+          <h5 className='activity-description'>{activitylogcontent}</h5>
         </div>
       </div>
     );

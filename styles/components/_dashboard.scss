@@ -1,11 +1,10 @@
 .dashboard-container {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+
 }
 
 .job-list {
-  border: 1px dashed black;
   height: 100%;
   flex-basis: 50%;
   margin-right: 5px;
@@ -20,24 +19,29 @@
 
 .card-horizontal {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   border: 1px solid black;
   border-radius: 5px;
   margin-top: 5px;
 }
 
 .company-name, .status {
-  display: inline-flex;
+  flex-basis: 40%;
+  text-align: left;
   font-size: 3rem;
-  margin: auto;
+  margin-left: 10px;
   /*padding-left: 10px;*/
 }
 
+.status {
+  flex-basis: 25%;
+}
+
 .add-task {
-  align-items: right;
+  flex-basis: 15%;
+  text-align: right;
   font-size: 3rem;
-  padding: 15px 15px;
-  margin: auto;
+  padding: 13px 15px;
 }
 
 .description, .date-due {
