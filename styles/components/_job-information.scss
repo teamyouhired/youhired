@@ -5,29 +5,51 @@
 
 .application-contacts {
   flex-direction: column;
-  flex-basis: 25%;
+  flex-basis: 30%;
 }
 
 .activity-log {
-  flex-basis: 70%;
-  height: 400px;
+  flex-basis: 60%;
+  margin: 15px;
   flex-order: 2;
+}
+
+.activity-scroll {
+  word-wrap: normal;
+  height: 400px;
+  width: 90%
+}
+
+.activity {
+  word-wrap: normal;
+  border-bottom: 2px solid #52658F;
+}
+
+.activity-description {
+  word-wrap: normal;
+}
+
+.activity-date {
+
 }
 
 .basic-information {
   display: flex;
+  border: 1px dashed black;
+  flex-wrap: wrap;
   justify-content: space-between;
-  flex-basis: 70%;
+  margin: 15px;
+  flex-basis: 60%;
 }
 
 .job-status {
   margin: 5px;
 }
 
-.offer-details {
+.company-details {
   margin: 5px;
 }
 
-.company-details {
+.offer-details {
   margin: 5px;
 }

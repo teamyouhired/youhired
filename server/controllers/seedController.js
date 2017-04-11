@@ -25,18 +25,18 @@ module.exports = {
       .then(function(result) {
         data.push(result[0]);
       })
-    })
-    .then(function(){
-      connection.query(jobActivities)
-      .then(function(result) {
-        data.push(result[0]);
-      })
-    })
-    .then(function(){
-      connection.query(jobContacts)
-      .then(function(result) {
-        data.push(result[0]);
-        res.send(data);
+      .then(function(){
+        connection.query(jobActivities)
+        .then(function(result) {
+          data.push(result[0]);
+        })
+        .then(function(){
+          connection.query(jobContacts)
+          .then(function(result) {
+            data.push(result[0]);
+            res.send(data);
+          })
+        })
       })
     });
     // .then(function(){

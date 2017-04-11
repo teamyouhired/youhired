@@ -17,7 +17,7 @@ const _Root = (props) => {
       </div>
 
       <div className="root-main">
-        <h3> Congratulations!!! You are hired!</h3>
+        <h1> Current Job Applications </h1>
       <Dashboard />
       </div>
 
