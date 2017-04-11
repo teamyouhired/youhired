@@ -13,23 +13,41 @@ module.exports = {
 
   //information for the jobs page
 
-  sendSeedData:  function(req, res){
+  sendSeedData: function(req, res) {
 
     var data = [];
-    connection.query(jobsList).then(function(result) {
-      data.push(result[0]);
-      res.send(data);
+    connection.query(jobsList)
+    .then(function(result) {
+       data.push(result[0]);
     })
+    .then(function(){
+      connection.query(jobApplicationInfo)
+      .then(function(result) {
+        data.push(result[0]);
+      })
+    })
+    .then(function(){
+      connection.query(jobActivities)
+      .then(function(result) {
+        data.push(result[0]);
+      })
+    })
+    .then(function(){
+      connection.query(jobContacts)
+      .then(function(result) {
+        data.push(result[0]);
+        res.send(data);
+      })
+    });
+    // .then(function(){
+
+    // });
 
     // .query(jobApplicationInfo).then(function(result) {
     //   data.push(result[0]);
     // }).query(jobActivities).then(function(result) {
     //   data.push(result[0]);
     // }).query(jobContacts).then(function(result) {
-    //   data.push(result[0]);
-    // });
-
-
   }
 };
 
