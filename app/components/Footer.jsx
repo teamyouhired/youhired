@@ -6,15 +6,15 @@ const FooterComponent = createClass({
     <div className="footer-left">
       <h3>youHired<span>logo</span></h3>
       <p className="footer-links">
-        <a href="#">Main Dashboard</a>
-        .
-        <a href="#">Goals</a>
-        ·
-        <a href="#">Current Jobs</a>
-        ·
-        <a href="#">Job Hunt Advice</a>
-        ·
-        <a href="#">Job Search</a>
+        <a href="#" className="link-space">Main Dashboard</a>
+
+        <a href="#" className='link-space'>Goals</a>
+
+        <a href="#" className='link-space'>Current Jobs</a>
+
+        <a href="#" className='link-space'>Job Hunt Advice</a>
+
+        <a href="#" className='link-space'>Job Search</a>
       </p>
       <p className="footer-company-name">youHired &copy; 2017</p>
     </div>
@@ -29,7 +29,7 @@ const FooterComponent = createClass({
       </div>
       <div>
         <i className="fa fa-envelope"></i>
-        <p><a href="mailto:support@company.com">support@company.com</a></p>
+        <p><a href="mailto:support@company.com">support@youhired.com</a></p>
       </div>
     </div>
     <div className="footer-right">

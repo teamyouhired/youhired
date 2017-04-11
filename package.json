@@ -20,6 +20,7 @@
     "express": "^4.15.2",
     "jquery": "^3.2.1",
     "file-loader": "^0.8.5",
+    "image-webpack-loader": "^3.3.0",
     "img-loader": "^1.2.2",
     "jsonwebtoken": "^7.3.0",
     "mongoose": "^4.9.3",

@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack')
 // const ExtractTextPlugin = require('extract-text-webpack-plugin');
 // console.log('path', __dirname + './app/app.jsx');
 console.log('path', path.resolve(__dirname, './app/actions'));
@@ -64,6 +65,14 @@ module.exports = {
           },
           // converts SASS/SCSS to CSS
           'sass-loader'
+        ]
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        use: [
+            'url-loader?limit=8192',
+            'img-loader',
+            'file-loader?name=/public/images/[name].[ext]'
         ]
       }
     ]
