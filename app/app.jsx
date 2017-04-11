@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import * as reducers from './reducers/reducers';
 import _Root from '_Root';
+import JobInformation from './components/jobsinformationpage/JobInformation';
 import Login from 'login/Login';
 import Signup from 'signup/Signup';
 import Splash from 'splashpage/Splash';
@@ -33,12 +34,14 @@ ReactDOM.render (
           <Link to="/signup">Signup</Link>
           <Link to="/login">Login</Link>
           <Link to="/splash">Splash</Link>
+          <Link to="/job-information">JobInformation</Link>
         </nav>
         <hr/>
         <Route exact path='/' component={_Root}/>
         <Route path='/login' component={Login} />
         <Route path='/signup' component={Signup} />
         <Route path='/splash' component={Splash} />
+        <Route path='/job-information' component={JobInformation} />
       </div>
     </Router>
   </Provider>,
