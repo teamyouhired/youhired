@@ -1,9 +1,21 @@
 .dashboard-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 10px;
 }
 
 .job-list {
+  border: 1px dashed black;
+  height: 100%;
+  flex-basis: 50%;
+  margin-right: 5px;
+}
+
+.task-list {
+  border: 1px dashed black;
+  height: 100%;
+  flex-basis: 50%;
+  margin-left: 5px;
 }
 
 .card-horizontal {
@@ -14,22 +26,22 @@
   margin-top: 5px;
 }
 
-.company-name {
+.company-name, .status {
   display: inline-flex;
   font-size: 3rem;
   margin: auto;
   /*padding-left: 10px;*/
 }
 
-.status {
-  display: inline-flex;
-  font-size: 3rem;
-  margin: auto;
-}
-
 .add-task {
   align-items: right;
   font-size: 3rem;
   padding: 15px 15px;
+  margin: auto;
+}
+
+.description, .date-due {
+  display: inline-flex;
+  font-size: 3rem;
   margin: auto;
 }

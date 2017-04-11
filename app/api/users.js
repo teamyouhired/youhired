@@ -1,5 +1,5 @@
 import { createClient } from './utils';
-
+// api/seed gives back all data
 export const addJob = createClient({
   actionTypePrefix: '',
   requestType: 'POST',
@@ -15,5 +15,5 @@ export const addTask = createClient({
 export const getUserData = createClient({
   actionTypePrefix: 'user:allUserData',
   requestType: 'GET',
-  url: 'api/users'
+  url: 'api/seed'
 });

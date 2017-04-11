@@ -13,7 +13,6 @@ const _Root = (props) => {
     <div>
       <HeaderComponent />
       <div>
-        <h3> Congratulations!!! You are hired!</h3>
       <Dashboard />
       </div>
       <FooterComponent />

@@ -7,7 +7,7 @@ const TaskList = createClass({
 
   render() {
     return (
-      <div>
+      <div className='task-list'>
         {this.props.tasks.map((task, index) =>
           <Task
             key={index}

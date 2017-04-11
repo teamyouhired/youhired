@@ -14,9 +14,9 @@ const Task = createClass({
     return (
       <div>
         <div className='card-horizontal'>
-          <h5>{description}</h5>
+          <h5 className='description'>{description}</h5>
           <br/>
-          <h6>{dateDue}</h6>
+          <h6 className='date-due'>{dateDue}</h6>
         </div>
       </div>
     );
