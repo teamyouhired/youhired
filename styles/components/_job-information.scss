@@ -1,0 +1,33 @@
+.job-information-page {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.application-contacts {
+  flex-direction: column;
+  flex-basis: 25%;
+}
+
+.activity-log {
+  flex-basis: 70%;
+  height: 400px;
+  flex-order: 2;
+}
+
+.basic-information {
+  display: flex;
+  justify-content: space-between;
+  flex-basis: 70%;
+}
+
+.job-status {
+  margin: 5px;
+}
+
+.offer-details {
+  margin: 5px;
+}
+
+.company-details {
+  margin: 5px;
+}

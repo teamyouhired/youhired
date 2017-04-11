@@ -4,8 +4,7 @@ import Contact from './Contact';
 const ApplicationContacts = createClass({
   render() {
     return (
-      <div>
-        <h2>Application contact information goes here</h2>
+      <div className='application-contacts'>
         {this.props.contacts.map((contact, index) =>
           <Contact
             key={index}
