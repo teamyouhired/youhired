@@ -19,13 +19,13 @@ CREATE TABLE users (
   -- userLastName VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE tokens (
-  token VARCHAR(255) PRIMARY KEY,
-  userId INT,
-  seedUserId INT,
-  FOREIGN KEY (userId) REFERENCES users (userId)
-  -- FOREIGN KEY (seedUserId) REFERENCES users (seedUserId)
-);
+-- CREATE TABLE tokens (
+--   token VARCHAR(255) PRIMARY KEY,
+--   userId INT,
+--   seedUserId INT,
+--   FOREIGN KEY (userId) REFERENCES users (userId)
+--   -- FOREIGN KEY (seedUserId) REFERENCES users (seedUserId)
+-- );
 
 -- CREATE TABLE jobApplication (
 --   applicationId SERIAL PRIMARY KEY,

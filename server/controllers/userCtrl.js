@@ -51,6 +51,8 @@ module.exports = {
         });
       }
 
+
+
 // has been refactored
 //       if (user) {
 //         console.log('User already exist!');
