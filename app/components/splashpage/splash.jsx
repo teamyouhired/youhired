@@ -1,8 +1,9 @@
 import React, { createClass, Component } from 'react';
+import FooterComponent from 'Footer';
 
 const Splash = createClass({
   render () {
-    return (<div style={{backgroundColor: '#F7F5E6'}}>
+    return (<div className="main-splash" style={{backgroundColor: '#F7F5E6'}}>
       <header className="business-header">
 
         <div className="my-logo"></div>
@@ -32,18 +33,9 @@ const Splash = createClass({
 
         </div>
       </div>
-
-      <hr/>
-
-      <footer>
-        <div className="row">
-          <div className="col-lg-12">
-            <p>Copyright &copy; youHired 2017</p>
-          </div>
-        </div>
-      </footer>
-
-
+    </div>
+    <div>
+    <FooterComponent />
     </div>
   </div>);
   }

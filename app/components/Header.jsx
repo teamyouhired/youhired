@@ -2,7 +2,7 @@ import React, { createClass } from 'react';
 
 const HeaderComponent = createClass({
   render() {
-    return (<nav className="navbar navbar-light" style={{backgroundColor: '#52658F'}}>
+    return (<nav className="navbar navbar-light my-nav" style={{backgroundColor: '#52658F'}}>
 
       <div className="navbar-header my-nav">
         <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -10,7 +10,7 @@ const HeaderComponent = createClass({
           <span className="icon-bar"></span>
           <span className="icon-bar"></span>
         </button>
-        <a className="navbar-brand nav-names" href="#">'youHired' LOGO</a>
+        <img src='images/small-logo.png' alt="" />
       </div>
       <div className="collapse navbar-collapse" id="myNavbar">
         <ul className="nav navbar-nav navbar-right">

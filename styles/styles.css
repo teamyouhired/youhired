@@ -1,4 +1,4 @@
-.my-logo {
+/*.my-logo {
     top: 0px;
     position: absolute;
     width: 100%;
@@ -6,7 +6,7 @@
     background: url("/images/logo.png") no-repeat scroll;
     background-size: contain;
     z-index: 3;
-  }
+  }*/
 
 .button-container {
   position: absolute;
@@ -61,8 +61,13 @@ body {
     padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
+.main-splash {
+  position: relative;
+}
+
 .splash-bottom {
   margin-top: 25px;
+
 }
 
 /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
@@ -70,7 +75,7 @@ body {
 .business-header {
     position: relative;
     height: 400px;
-    background: url("/images/slider3.jpg") center center no-repeat scroll;
+    background: url("/images/slider3.png") center center no-repeat scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -102,10 +107,24 @@ footer {
     margin: 50px 0;
 }
 /*================ROOT==================*/
+.root-view {
+
+}
+
+.root-main {
+  margin: 20px;
+  padding-bottom: 20px;
+
+}
+
 .root-background {
   padding-right: 0px;
   padding-left: 0px;
   background-color: #F7F5E6;
+}
+
+.root-footer {
+
 }
 
 /*================HEADER==================*/
@@ -113,10 +132,14 @@ footer {
 .nav-names {
   color:white;
 }
+
 .my-nav {
   border-radius: 0px;
+  padding-right: 10px;
 }
 /*================LOGIN PAGE==================*/
+
+
 .form-control{
   border-radius: 0px;
   margin: 12px 3px;
@@ -125,7 +148,7 @@ footer {
 .logo{
   margin: auto;
   text-align: center;
-  padding-top: 20%;
+  padding-top: 25%;
 }
 .logo img{
   height: 70px;
@@ -144,31 +167,33 @@ footer {
 
 /*for logintemplate blue*/
 .grayBody{
-  background-color: #E9E9E9;
+  background-color: #E8E8E8;
 }
 .loginbox{
+  text-align: center;
   margin-top: 5%;
-  border-top: 6px solid #0088D8;
-  background-color:#fff;
+  border-top: 6px solid #333a56;
+  background-color:#E8E8E8;
   padding: 20px;
   box-shadow: 0 10px 10px -2px rgba(0,0,0,0.12),0 -2px 10px -2px rgba(0,0,0,0.12);
 }
 .singtext{
   font-size: 28px;
-  color: #0088D8;
+  color: #52658F;
   font-weight: 500;
   letter-spacing: 1px;
 }
 .submitButton{
-  background-color: #0088D8;
+
+  background-color: #52658F;
   color: #fff;
   margin-top: 12px;
   margin-bottom: 10px;
   padding: 10px 0px;
-  width: 100%;
+  width: 50%;
   margin-left: 2px;
   font-size: 16px;
-  border-radius: 0px;
+  border-radius: 4px;
   outline: none;
 }
 .submitButton:hover,.submitButton:focus{
@@ -176,16 +201,17 @@ footer {
   outline: none;
 }
 .forGotPassword{
-  background-color: #F2F2F2;
+  background-color: #333a56;
   padding: 15px 0px;
   text-align: center;
+  margin-bottom: 50%;
 
 }
 .forGotPassword:hover{
    box-shadow: 0 10px 10px -2px rgba(0,0,0,0.12);
 }
 .forGotPassword a{
-  color: #000;
+  color: #fff;
   outline: none;
 }
 .forGotPassword a:hover, .forGotPassword a:active,.forGotPassword a:focus{
@@ -195,16 +221,15 @@ footer {
 
 /*===========BELOW IS ALL STATIC FOOTER=============*/
 .footer-distributed{
-  position: fixed;
-  bottom: 0;
+
   background-color: #52658F;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
   width: 100%;
   text-align: left;
   font: bold 16px sans-serif;
-
-  padding: 15px 50px;
+  margin-bottom: 0;
+  padding: 15px;
 
 }
 
@@ -218,8 +243,11 @@ footer {
 /* Footer left */
 
 .footer-distributed .footer-left{
+  position: relative;
+  height: 200px;
   width: 40%;
 }
+
 
 /* The company logo */
 
@@ -250,7 +278,9 @@ footer {
 }
 
 .footer-distributed .footer-company-name{
-  color:  #8f9296b;
+  position: absolute;
+  bottom: 0;
+  color:  white;
   font-size: 14px;
   font-weight: normal;
   margin: 0;
@@ -331,7 +361,7 @@ footer {
   width: 35px;
   height: 35px;
   cursor: pointer;
-  background-color:  white;
+
   border-radius: 2px;
 
   font-size: 20px;
@@ -343,9 +373,14 @@ footer {
   margin-bottom: 5px;
 }
 
+
+
+
 @media (max-width: 880px) {
 
   .footer-distributed{
+    position: fixed;
+    bottom: 0;
     font: bold 14px sans-serif;
   }
 
