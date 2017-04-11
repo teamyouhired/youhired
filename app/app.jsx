@@ -15,9 +15,11 @@ import _Root from '_Root';
 import JobInformation from './components/jobsinformationpage/JobInformation';
 import Login from 'login/Login';
 import Signup from 'signup/Signup';
-import Splash from 'splashpage/Splash';
+import Splash from 'splashpage/splash';
 import FooterComponent from 'Footer';
 import HeaderComponent from 'Header';
+import About from 'about-us/about-us';
+import Services from 'services/services';
 require('app.scss');
 require('styles.css');
 
@@ -35,6 +37,8 @@ ReactDOM.render (
           <Link to="/login">Login</Link>
           <Link to="/splash">Splash</Link>
           <Link to="/job-information">JobInformation</Link>
+          <Link to='/about-us'>About Us</Link>
+          <Link to='/services'>Services</Link>
         </nav>
         <hr/>
         <Route exact path='/' component={_Root}/>
@@ -42,6 +46,8 @@ ReactDOM.render (
         <Route path='/signup' component={Signup} />
         <Route path='/splash' component={Splash} />
         <Route path='/job-information' component={JobInformation} />
+        <Route path='/services' component={Services} />
+        <Route path='/about-us' component={About} />
       </div>
     </Router>
   </Provider>,

@@ -4,21 +4,23 @@ const BasicInformation = createClass({
   render() {
     const { company } = this.props;
     return (
-      <div>
-        <div>
-          <h6>{company.createdat}</h6>
-          <h6>{company.positionname}</h6>
-          <h6>{company.companyname}</h6>
-          <h6>{company.jobsposturl}</h6>
-          <h6>{company.status}</h6>
+      <div className='basic-information'>
+        <div className='job-status'>
+          <h4>{company.createdat}</h4>
+          <h4>{company.status}</h4>
         </div>
-        <div>
-          <h6>{company.companyaddress}</h6>
-          <h6>{company.companystate}</h6>
-          <h6>{company.companyzip}</h6>
-          <h6>{company.offersalary}</h6>
-          <h6>{company.offeroptions}</h6>
-          <h6>{company.offerbenefits}</h6>
+        <div className='offer-details'>
+          <h4>{company.positionname}</h4>
+          <h4>{company.jobsposturl}</h4>
+          <h4>{company.offersalary}</h4>
+          <h4>{company.offeroptions}</h4>
+          <h4>{company.offerbenefits}</h4>
+        </div>
+        <div className='company-details'>
+          <h4>{company.companyname}</h4>
+          <h4>{company.companyaddress}</h4>
+          <h4>{company.companystate}</h4>
+          <h4>{company.companyzip}</h4>
         </div>
       </div>
     );

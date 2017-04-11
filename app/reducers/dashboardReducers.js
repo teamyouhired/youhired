@@ -5,9 +5,6 @@ import { addJob, addTask, getUserData } from '../api/users';
 
 
 const defaultState = {
-    companies: [],
-    activity: [],
-    applicationContacts: [],
     jobs: []
 };
 
@@ -26,10 +23,7 @@ const dashboardReducer = (state = defaultState, { type, payload }) => {
     case getUserData.SUCCESS:
       return {
         ...state,
-        jobs: payload[0],
-        companies: payload[1],
-        activity: payload[2],
-        applicationContacts: payload[3]
+        jobs: payload[0]
       }
     default:
       return state;

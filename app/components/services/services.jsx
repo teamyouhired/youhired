@@ -2,7 +2,7 @@ import React, { createClass, Component } from 'react';
 
 const Services = createClass({
   render () {
-    return (
+    return ({/*
         <section id="service" class="section-padding">
     <div class="container">
       <div class="row">
@@ -54,7 +54,7 @@ const Services = createClass({
       </div>
     </div>
   </section>
-    );
+    */});
   }
 });
 

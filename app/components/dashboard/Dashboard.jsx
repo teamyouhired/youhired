@@ -20,7 +20,7 @@ const Dashboard = createClass({
     return (
       <div className='dashboard-container'>
         <JobList jobs={this.props.jobs}/>
-        <TaskList activity={this.props.activity}/>
+        {/*<TaskList activity={this.props.activity}/>*/}
       </div>
     );
   }

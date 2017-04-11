@@ -8,14 +8,13 @@ import { getUserData } from '../../api/users';
 const JobInformation = createClass({
   displayName: 'JobInformation',
   propTypes: {
-    getData: PropTypes.func.isRequired,
     companies: PropTypes.array.isRequired,
     activity: PropTypes.array.isRequired,
     applicationContacts: PropTypes.array.isRequired
   },
-  componentWillMount() {
-    this.props.getData();
-  },
+  // componentWillMount() {
+  //   this.props.getData();
+  // },
 
   render() {
     const {
@@ -24,7 +23,7 @@ const JobInformation = createClass({
       applicationContacts
     } = this.props;
     return (
-      <div>
+      <div className='job-information-page'>
         <BasicInformation company={companies[0]}/>
         <ActivityLog activities={activity}/>
         <ApplicationContacts contacts={applicationContacts}/>
@@ -41,8 +40,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapActionsToProps = {
-  getData: getUserData
-};
+// const mapActionsToProps = {
+//   getData: getUserData
+// };
 
-export default connect(mapStateToProps, mapActionsToProps)(JobInformation);
+export default connect(mapStateToProps)(JobInformation);
