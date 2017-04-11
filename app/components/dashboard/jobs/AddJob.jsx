@@ -21,14 +21,16 @@ const AddJob = createClass({
     return (
       <form onSubmit={this.onSubmit}>
         <input
+          className='form-control'
           ref={nameInput => { this.companyNameInput = nameInput }}
           placeholder={'Company Name'}
         />
         <input
+          className='form-control'
           ref={statusInput => { this.jobStatusInput = statusInput }}
           placeholder={'Status'}
         />
-        <button type="submit">
+        <button className='button' type='submit'>
           Add Job
         </button>
       </form>
