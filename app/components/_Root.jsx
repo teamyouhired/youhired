@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import Dashboard from './dashboard/Dashboard';
 import HeaderComponent from 'Header';
 import FooterComponent from 'Footer';
+
 //may not necessarily be functional based, could be class based
 
 const _Root = (props) => {
