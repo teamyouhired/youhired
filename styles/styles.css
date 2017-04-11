@@ -1,18 +1,81 @@
+.my-logo {
+    top: 0px;
+    position: absolute;
+    width: 100%;
+    height:500px;
+    background: url("/images/logo.png") no-repeat scroll;
+    background-size: contain;
+    z-index: 3;
+  }
+
+.button-container {
+  position: absolute;
+  bottom: 50px;
+  right: 100px;
+}
+
+.bottom-button {
+  clear: right;
+  margin-top: 15px;
+
+}
+
+.button {
+    float: right;
+    width: 175px;
+    background-color: #52658F; /* Green */
+    border: solid;
+    border-width: 1px;
+    border-color: #f7f5e6;
+    border-radius: 3px;
+    color: white;
+    padding: 10px 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 0 8px 16px 0 rgba(1,1,1,0.2), 0 6px 20px 0 rgba(1,1,1,0.2);
+}
+
+/*================SERVICES PAGE==================*/
+
+.icon i{
+  color: #0cb8b6;
+  font-size: 45px;
+  margin-bottom: 25px;
+}
+.service-info{
+  margin-bottom: 20px;
+}
+.icon-info h4{
+  padding-bottom: 15px;
+}
+.icon-info p{
+  font-size: 15px !important;
+}
+
 
 /*================SPLASH PAGE==================*/
+
 body {
     padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.splash-bottom {
+  margin-top: 25px;
 }
 
 /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
 
 .business-header {
-    height: 800px;
-    background: url('https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiu1s2svprTAhUG1mMKHe4RA50QjRwIBg&url=https%3A%2F%2Fwww.jgllaw.com%2Fpractice-areas%2Fbusiness-law%2Fblog&psig=AFQjCNGhRKbH6fVNrAy5IjB3LiH2rkdWBA&ust=1491933752421921') center center no-repeat scroll;
+    position: relative;
+    height: 400px;
+    background: url("/images/slider3.jpg") center center no-repeat scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    overflow: hidden;
 }
 
 /* Customize the text color and shadow color and to optimize text legibility. */
@@ -20,6 +83,8 @@ body {
   position: absolute;
 }
 .text-center {
+  color: #333A56;
+  font-family: "Lucida Bright", Georgia, serif;
   text-align: center;
 }
 
@@ -30,13 +95,27 @@ body {
 
 .img-center {
     margin: 0 auto;
+    box-shadow: 0 8px 16px 0 rgba(1,1,1,0.2), 0 6px 20px 0 rgba(1,1,1,0.2);
 }
 
 footer {
     margin: 50px 0;
 }
+/*================ROOT==================*/
+.root-background {
+  padding-right: 0px;
+  padding-left: 0px;
+  background-color: #F7F5E6;
+}
 
+/*================HEADER==================*/
 
+.nav-names {
+  color:white;
+}
+.my-nav {
+  border-radius: 0px;
+}
 /*================LOGIN PAGE==================*/
 .form-control{
   border-radius: 0px;
@@ -118,7 +197,7 @@ footer {
 .footer-distributed{
   position: fixed;
   bottom: 0;
-  background-color: #e3f2fd;
+  background-color: #52658F;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
   width: 100%;
@@ -164,13 +243,14 @@ footer {
 
 .footer-distributed .footer-links a{
   display:inline-block;
+  margin-right: 12px;
   line-height: 1.8;
   text-decoration: none;
   color:  inherit;
 }
 
 .footer-distributed .footer-company-name{
-  color:  #8f9296;
+  color:  #8f9296b;
   font-size: 14px;
   font-weight: normal;
   margin: 0;
@@ -228,7 +308,7 @@ footer {
 
 .footer-distributed .footer-company-about{
   line-height: 20px;
-  color:  #92999f;
+  color:  white;
   font-size: 13px;
   font-weight: normal;
   margin: 0;
@@ -251,7 +331,7 @@ footer {
   width: 35px;
   height: 35px;
   cursor: pointer;
-  background-color:  #33383b;
+  background-color:  white;
   border-radius: 2px;
 
   font-size: 20px;
@@ -281,4 +361,7 @@ footer {
   .footer-distributed .footer-center i{
     margin-left: 0;
   }
+
+
+
 }

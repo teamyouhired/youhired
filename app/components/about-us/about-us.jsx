@@ -14,7 +14,7 @@ const About = createClass({
                 <h1 class="page-header">About Us
                     <small>It's Nice to Meet You!</small>
                 </h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, explicabo dolores ipsam aliquam inventore corrupti eveniet quisquam quod totam laudantium repudiandae obcaecati ea consectetur debitis velit facere nisi expedita vel?</p>
+                <p>youHired is a personal job search Organizer. An app where a job seeker can save and track job application status, set reminders, take notes,set search goals, document individual interview restrospectives and save contact info.</p>
             </div>
         </div>
 
