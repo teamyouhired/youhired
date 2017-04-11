@@ -12,7 +12,7 @@ const Dashboard = createClass({
     getData: PropTypes.func.isRequired
   },
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.getData();
   },
 
@@ -32,7 +32,7 @@ const mapStateToProps = (state) => {
       companies: state.dashboard.companies,
       activity: state.dashboard.activity,
       applicationContacts: state.dashboard.applicationContacts
-  }
+  };
 };
 
 const mapActionsToProps = {

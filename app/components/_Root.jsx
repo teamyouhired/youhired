@@ -15,7 +15,7 @@ const _Root = (props) => {
       <div>
       <Dashboard />
       </div>
-      <FooterComponent />
+      {/*<FooterComponent />*/}
     </div>
   );
 };
