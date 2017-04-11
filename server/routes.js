@@ -1,8 +1,13 @@
 // const bcrypt = require('bcryptjs');
 
 const authenticate = require('./middleware/authenticate');
-const userCtrl = require('./controllers/userController.js');
-const seedCtrl = require('./controllers/seedController.js')
+const userCtrl = require('./controllers/userCtrl.js');
+const seedCtrl = require('./controllers/seedCtrl.js');
+const tokenCtrl = require('./controllers/tokenCtrl.js');
+const jobApplicationCtrl = ('./controllers/jobApplicationCtrl.js');
+const contactCtrl = require('./controllers/contactCtrl.js');
+const activityLogCtrl = require('./controllers/activityLogCtrl.js');
+
 
 // endpoint routes
 function Routes(app) {
