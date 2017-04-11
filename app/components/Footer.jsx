@@ -4,19 +4,9 @@ const FooterComponent = createClass({
   render() {
     return (<footer className="footer-distributed">
     <div className="footer-left">
-      <h3>youHired<span>logo</span></h3>
-      <p className="footer-links">
-        <a href="#" className="link-space">Main Dashboard</a>
+      <img src='images/logo.png' alt="" />
 
-        <a href="#" className='link-space'>Goals</a>
-
-        <a href="#" className='link-space'>Current Jobs</a>
-
-        <a href="#" className='link-space'>Job Hunt Advice</a>
-
-        <a href="#" className='link-space'>Job Search</a>
-      </p>
-      <p className="footer-company-name">youHired &copy; 2017</p>
+      <p className="footer-company-name">&copy; 2017 youHired Inc. All rights reserved.</p>
     </div>
     <div className="footer-center">
       <div>
@@ -25,7 +15,7 @@ const FooterComponent = createClass({
       </div>
       <div>
         <i className="fa fa-phone"></i>
-        <p>+1 555 123456</p>
+        <p>+1 (555) 123-4567</p>
       </div>
       <div>
         <i className="fa fa-envelope"></i>
@@ -35,7 +25,7 @@ const FooterComponent = createClass({
     <div className="footer-right">
       <p className="footer-company-about">
         <span>About the company</span>
-        Personal job search Organizer. An app where a job seeker can save and track job application status, set reminders, take notes,set search goals, document individual interview restrospectives and save contact info.
+        youHired is a personal job search Organizer where a job seeker can save and track job application status, set reminders, take notes, set search goals, document individual interview restrospectives and save contact info.
       </p>
       <div className="footer-icons">
         <a href="#"><i className="fa fa-facebook"></i></a>

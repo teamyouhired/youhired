@@ -2,20 +2,13 @@ import React, { createClass } from 'react';
 
 const Signup = createClass({
 
-  // signUserUp(email, password) {
-  //   dispatch({
-  //     type: 'SIGN_UP',
-  //     email,
-  //     password
-  //   });
-  // },
   render() {
     return (
       <div>
       <div className="col-lg-4 col-md-3 col-sm-2"></div>
         <div className="col-lg-4 col-md-6 col-sm-8">
           <div className="logo">
-            <h2>youHiredLOGO</h2>
+            <img src='images/logo.png' alt="" />
           </div>
           <div className="row loginbox">
             <div className="col-lg-12">

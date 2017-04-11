@@ -11,12 +11,20 @@ const _Root = (props) => {
   //   CurrentPage = Login;
   // }
   return (
-    <div>
-      <HeaderComponent />
+    <div className="root-view">
       <div>
+      <HeaderComponent />
+      </div>
+
+      <div className="root-main">
+        <h3> Congratulations!!! You are hired!</h3>
       <Dashboard />
       </div>
-      {/*<FooterComponent />*/}
+
+      <div className="root-footer">
+        <FooterComponent />
+      </div>
+
     </div>
   );
 };
