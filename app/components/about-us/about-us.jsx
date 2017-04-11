@@ -5,7 +5,7 @@ const About = createClass({
     return (
 
 
-    <!-- Page Content -->
+    {/*<!-- Page Content -->
     <div class="container">
 
         <!-- Introduction Row -->
@@ -73,7 +73,7 @@ const About = createClass({
     <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>*/}
 
 );
   }
