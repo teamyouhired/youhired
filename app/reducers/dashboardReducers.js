@@ -5,7 +5,7 @@ import { addJob, addTask, getUserData } from '../api/users';
 
 
 const defaultState = {
-    jobs: []
+  jobs: []
 };
 
 const dashboardReducer = (state = defaultState, { type, payload }) => {
