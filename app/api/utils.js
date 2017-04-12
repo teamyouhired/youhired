@@ -4,12 +4,7 @@ import $ from 'jquery';
 export function createClient({ actionTypePrefix, requestType, url }) {
   const SUCCESS = `${actionTypePrefix}_SUCCESS`;
   const FAIL = `${actionTypePrefix}_FAIL`;
-  if (actionTypePrefix === 'user:signIn') {
-    console.log('********************************************************************************************************************************************************************************************************')
-    console.log(requestType);
-    console.log(url);
-    console.log(actionTypePrefix)
-  }
+
   function request(data) {
     function thunk(dispatch) {
       return $.ajax({

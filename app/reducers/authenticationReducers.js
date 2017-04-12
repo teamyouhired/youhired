@@ -1,4 +1,4 @@
-import { newSignup, signIn } from '../api/users';
+import { signUp, signIn } from '../api/users';
 
 const defaultState = {
   isAuthenticated: localStorage.getItem('id_token') ? true : false,
@@ -11,16 +11,18 @@ const authentication = (state = defaultState, { type, payload }) => {
     console.log('type for auth reducer', type);
   }
   switch (type) {
-    case newSignup.SUCCESS:
     case signIn.SUCCESS:
+    case signUp.SUCCESS:
       console.log('sign in case', payload);
+      debugger;
       return {
         ...state,
         isAuthenticated: true,
         userToken: payload.data.tokens[0].token
       };
     case signIn.FAIL:
-    case newSignup.FAIL:
+    case signUp.FAIL:
+      console.log('fail case in reducer', payload);
       return {
         ...state,
         isAuthenticated: false

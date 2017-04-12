@@ -1,7 +1,24 @@
-import React, { createClass } from 'react';
+import React, { createClass, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { signUp } from '../../api/users';
 
 const Signup = createClass({
+  displayName: 'Signup',
 
+  propTypes: {
+    onSignUp: PropTypes.func.isRequired
+  },
+
+  onSignUp(event) {
+    event.preventDefault();
+    this.props.onSignUp({
+      email: this.emailInput.value,
+      password: this.passwordInput.value
+    });
+
+    this.emailInput.value = '';
+    this.passwordInput.value = '';
+  },
   render() {
     return (
       <div>
@@ -15,13 +32,13 @@ const Signup = createClass({
               <span className="singtext" >Sign Up Today! </span>
             </div>
           <div className="col-lg-12 col-md-12 col-sm-12">
-            <input className="form-control" type="text" ref={email => this.email = email} placeholder="E-mail" />
+            <input className="form-control" type="text" ref={email => this.emailInput = email} placeholder="E-mail" />
           </div>
           <div className="col-lg-12  col-md-12 col-sm-12">
-            <input className="form-control" type="password" ref={password => this.password = password} placeholder="Please enter password" />
+            <input className="form-control" type="password" ref={password => this.passwordInput = password} placeholder="Please enter password" />
           </div>
           <div className="col-lg-12  col-md-12 col-sm-12">
-            <a href="#" className="btn  submitButton" >Submit </a>
+            <button onClick={this.onSignUp} className="btn  submitButton" >Submit </button>
           </div>
         </div>
         <div className="row forGotPassword">
@@ -32,5 +49,9 @@ const Signup = createClass({
     );
   }
 });
+
+const mapActionsToProps = {
+  onSignUp: signUp
+};
 //onSubmit={this.signUserUp(this.email, this.password)}
-export default Signup;
+export default connect(null, mapActionsToProps)(Signup);
