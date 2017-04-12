@@ -1,5 +1,6 @@
 var pg = require('pg');
 var Sequelize = require('sequelize');
+
 var connection = require('./../db');
 var User = require('./../models/UserModel');
 var Token = require('./../models/TokenModel')
@@ -55,9 +56,9 @@ module.exports = {
     // }).query(jobContacts).then(function(result) {
   },
 
-  seedDatabase: function() {
+  seedDatabase: function(req, res) {
 
-    connection.sync().then(
+    connection.sync({force: true}).then(
       function() {
         User.create({
           seeduserid: 111111,
@@ -426,7 +427,9 @@ module.exports = {
           seedapplicationid: 444
         });
       }
-    );
+    ).then(() => {
+      res.send('Database seeded successfully!');
+    });
   }
 };
 
