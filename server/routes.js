@@ -23,6 +23,8 @@ function Routes(app) {
 
   app.get('/api/seed', seedCtrl.sendSeedData);
 
+  app.get('/api/seedme', seedCtrl.seedDatabase);
+
   app.get('*', function (req, res) {
     res.send('Please login');
   });
