@@ -7,7 +7,7 @@ const BasicInformation = createClass({
     return (
       <div className="top-divs">
         <div className='basic-information'>
-          <div className="status-bar">{status}</div>
+
           <div className='company-details'>
             <h4>{company.companyname}</h4>
             <p>{company.companyaddress}</p>
@@ -23,10 +23,10 @@ const BasicInformation = createClass({
         </div>
         <div className="details">
           <div className="position-details">
-            <h4>Position Details:</h4>
-            <p>{company.offersalary}</p>
-            <p>{company.offeroptions}</p>
-            <p>{company.offerbenefits}</p>
+            <h4>Position Details</h4>
+            <p><b>Salary:</b>  ${company.offersalary}</p>
+            <p><b>Offer Options:</b>  {company.offeroptions}</p>
+            <p><b>Benefits:</b>  {company.offerbenefits}</p>
           </div>
           <div className="job-url">
             <h4>Description:</h4>

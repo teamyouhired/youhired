@@ -6,7 +6,7 @@ const ApplicationContacts = createClass({
   render() {
     return (
 
-      <div  className="app-contacts">
+      <div>
         {this.props.contacts.map((contact, index) =>
           <Contact
             key={index}

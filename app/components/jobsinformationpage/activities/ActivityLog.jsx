@@ -6,7 +6,9 @@ const ActivityLog = createClass({
   render() {
     return (
       <div className='activity-log'>
-        <h1>Activity Log</h1>
+        <div className="activity-title">
+          <h4 className="act-title-text">Activity Log</h4>
+        </div>
         <ScrollArea
           speed={0.8}
           className='activity-scroll'
