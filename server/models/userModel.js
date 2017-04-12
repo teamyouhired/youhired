@@ -1,9 +1,10 @@
 var pg = require('pg');
 var Sequelize = require('sequelize');
-var connection = require('./../db');
 const validator = require('validator');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+
+var connection = require('./../db');
 
 var User = connection.define('users', {
       // userId: {
@@ -14,8 +15,8 @@ var User = connection.define('users', {
       seeduserid: Sequelize.INTEGER,
       useremail: {
         type: Sequelize.STRING(100),
-        unique: true,
-        allowNull: false
+        // unique: true,
+        // allowNull: false
       },
       userpassword: {
         type: Sequelize.STRING(255),
@@ -30,18 +31,47 @@ var User = connection.define('users', {
         type: Sequelize.STRING(50),
         allowNull: true
       }
-    // '},
-    // {'
+    }, {
+        timestamps: true,
+        createdAt: 'createdat',
+        updatedAt: 'updatedat'
+    });
+
+
+      // classMethods: {
+      //   generateToken: function () {
+      //     var user = this;
+      //     // var access = 'auth';
+      //     var token = jwt.sign({useremail: user.useremail.toString(), access: 'auth'}, 'somesecret');
+      //     // var token = jwt.sign({id: user.id.toString(), access: 'auth'}, 'somesecret');
+      //     // user.tokens.push({access, token});
+      //     return token;
+      //
+      //   }
+      // }
+
+    //  {
       // hooks: {
       //   afterValidate: function (user) {
       //     user.userpassword = bcrypt.hashSync(user.password, 8);
       //   }
       // }
-    }, {
-      timestamps: true,
-      createdAt: 'createdat',
-      updatedAt: 'updatedat'
-    });
+
+
+    // Generate JWT tokens
+    // User.generateToken = function () {
+    //   var user = this;
+    //   // var access = 'auth';
+    //   var token = jwt.sign({useremail: user.useremail.toString(), access: 'auth'}, 'somesecret');
+    //
+    //   // var token = jwt.sign({id: user.id.toString(), access: 'auth'}, 'somesecret');
+    //   // user.tokens.push({access, token});
+    //   return token;
+    //
+    //   // return user.save().then(() => {
+    //   //   return token;
+    //   // });
+    // };
 
 module.exports = User;
 
@@ -78,21 +108,20 @@ module.exports = User;
 
 // methods - instance methods
 
-// Generate JWT tokens
-User.prototype.generateToken = function () {
-  var user = this;
-  // var access = 'auth';
-  var token = jwt.sign({useremail: user.useremail.toString(), access: 'auth'}, 'somesecret');
-
-  // var token = jwt.sign({id: user.id.toString(), access: 'auth'}, 'somesecret');
-
-  // user.tokens.push({access, token});
-  return token;
-
-  // return user.save().then(() => {
-  //   return token;
-  // });
-};
+// // Generate JWT tokens
+// User.generateToken = function () {
+//   var user = this;
+//   // var access = 'auth';
+//   var token = jwt.sign({useremail: user.useremail.toString(), access: 'auth'}, 'somesecret');
+//
+//   // var token = jwt.sign({id: user.id.toString(), access: 'auth'}, 'somesecret');
+//   // user.tokens.push({access, token});
+//   return token;
+//
+//   // return user.save().then(() => {
+//   //   return token;
+//   // });
+// };
 
 //
 // UserSchema.methods.removeToken = function (token) {
@@ -180,4 +209,3 @@ User.prototype.generateToken = function () {
 // var User = mongoose.model('User', UserSchema);
 
 // module.exports = User;
-
