@@ -21,11 +21,11 @@ var User = connection.define('users', {
       },
       userfirstname: {
         type: Sequelize.STRING(50),
-        allowNull: false
+        allowNull: true
       },
       userlastname: {
         type: Sequelize.STRING(50),
-        allowNull: false
+        allowNull: true
       }
     // '},
     // {'
