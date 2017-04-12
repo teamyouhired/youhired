@@ -1,4 +1,5 @@
 .dashboard-container {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 
@@ -6,8 +7,9 @@
 
 .job-list {
   height: 100%;
-  flex-basis: 50%;
+  flex-basis: 100%;
   margin-right: 5px;
+  margin-left: 5px;
 }
 
 .task-list {
@@ -18,30 +20,42 @@
 }
 
 .card-horizontal {
-  display: flex;
-  justify-content: space-between;
+  height: 50px;
+  background-color: white;
   border: 1px solid black;
   border-radius: 5px;
   margin-top: 5px;
 }
 
-.company-name, .status {
-  flex-basis: 40%;
-  text-align: left;
-  font-size: 3rem;
-  margin-left: 10px;
-  /*padding-left: 10px;*/
+.ind-card {
+  width: 100%;
 }
 
-.status {
-  flex-basis: 25%;
+.card-company {
+  padding-top: 12px;
+  padding-left: 5px;
+  text-align: left;
+  width: 33%;
+  float: left;
+}
+
+.card-status {
+  text-align: center;
+  padding-top: 12px;
+  width: 33%;
+  float: left;
+}
+
+.card-icons {
+  padding-right: 5px;
+  padding-top: 12px;
+  text-align: right;
+  width: 33%;
+  float: right;
 }
 
 .add-task {
-  flex-basis: 15%;
-  text-align: right;
-  font-size: 3rem;
-  padding: 13px 15px;
+  font-size: 2rem;
 }
 
 .description, .date-due {

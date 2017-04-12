@@ -109,12 +109,32 @@ footer {
 /*================ROOT==================*/
 .root-view {
 
+
+}
+
+.job-card{
+  width: 100%;
+}
+
+.job-app-header {
+  height: 40px;
+  background-color: #333a56;
+}
+
+.job-app-text {
+  margin: 0px;
+  padding-top: 7px;
+  color: white;
+
 }
 
 .root-main {
+  text-align: center;
+  width: 33%;
+  border: 2px solid;
   margin: 20px;
   padding-bottom: 20px;
-
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .root-background {
