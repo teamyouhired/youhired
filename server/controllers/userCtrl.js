@@ -11,6 +11,7 @@ var Token = require('./../models/TokenModel');
 module.exports = {
 
   // create new user
+
   onSignup: function (req, res) {
 
     var useremail = req.body.useremail;
@@ -116,4 +117,5 @@ module.exports = {
       }
     });
   }
+
 };

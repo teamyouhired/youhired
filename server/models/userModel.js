@@ -108,6 +108,7 @@ module.exports = User;
 
 // methods - instance methods
 
+
 // // Generate JWT tokens
 // User.generateToken = function () {
 //   var user = this;
@@ -118,9 +119,6 @@ module.exports = User;
 //   // user.tokens.push({access, token});
 //   return token;
 //
-//   // return user.save().then(() => {
-//   //   return token;
-//   // });
 // };
 
 //
