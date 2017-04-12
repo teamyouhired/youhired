@@ -1,12 +1,75 @@
+.creation-date {
+  padding-right: 5px;
+}
+
+.details {
+  height:100px;
+
+}
+
+.job-url {
+  padding: 5px;
+  width: 50%;
+  float: left;
+}
+
+.position-details {
+  padding: 5px;
+  height: 100%;
+  border-right: 2px solid;
+  width: 50%;
+  float: left;
+}
+
+.top-divs {
+  border-style: solid;
+  border-width: 2px;
+
+}
+
+.status-bar {
+  background-color: green;
+  height: 25px;
+  width: 100%;
+}
+
+hr {
+  margin: 3px;
+}
+
+h4 {
+  margin-bottom: 4px;
+}
+
+p {
+  margin: 1px;
+}
+
+.main-view {
+  height: 1000px;
+  width:100%;
+  padding: 50px;
+}
+
+.job-area {
+  float: left;
+  width: 75%;
+}
+
+.app-contacts {
+  background-color: white;
+  padding-left: 7px;
+  height: 100%;
+  width: 25%;
+  float: left;
+}
+
+
 .job-information-page {
   display: flex;
   flex-wrap: wrap;
 }
 
-.application-contacts {
-  flex-direction: column;
-  flex-basis: 30%;
-}
 
 .activity-log {
   flex-basis: 60%;
@@ -35,10 +98,9 @@
 
 .basic-information {
   display: flex;
-  border: 1px dashed black;
+  border-bottom: 2px solid;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 15px;
   flex-basis: 60%;
 }
 

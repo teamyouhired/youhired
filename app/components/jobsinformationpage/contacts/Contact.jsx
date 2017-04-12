@@ -12,12 +12,12 @@ const Contact = createClass({
     } = this.props;
     return (
       <div>
-        <h2>{contactfirstname + contactlastname}</h2>
-        <h3>{contactemail}</h3>
-        <h3>{contactphonenumber}</h3>
-        <h6>{contactcompany}</h6>
-        <h6>{contactpositiontitle}</h6>
-        <br/>
+        <h4>{contactfirstname + ' ' + contactlastname}</h4>
+        <p>{contactemail}</p>
+        <p>{contactphonenumber}</p>
+        <p>{contactcompany}</p>
+        <p>{contactpositiontitle}</p>
+        <hr/>
       </div>
     );
   }
