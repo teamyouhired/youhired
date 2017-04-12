@@ -1,5 +1,4 @@
 import React, { createClass, PropTypes } from 'react';
-import { connect } from 'react-redux';
 import JobCard from './JobCard';
 import AddJob from './AddJob';
 
@@ -7,7 +6,9 @@ const JobList = createClass({
     displayName: 'JobList',
 
     propTypes: {
-      jobs: PropTypes.array.isRequired
+      jobs: PropTypes.array.isRequired,
+      changePage: PropTypes.func.isRequired,
+      activeComponent: PropTypes.string.isRequired
     },
 
     render() {
@@ -17,6 +18,8 @@ const JobList = createClass({
             {this.props.jobs.map((job, index) =>
               <JobCard
                 key={index}
+                activeComponent={this.props.activeComponent}
+                changePage={this.props.changePage}
                 {...job}
               />
             )}
@@ -27,10 +30,4 @@ const JobList = createClass({
     }
 });
 
-const mapStateToProps = (state) => {
-  return {
-    jobs: state.dashboard.jobs
-  }
-}
-
-export default connect(mapStateToProps)(JobList);
+export default JobList;
