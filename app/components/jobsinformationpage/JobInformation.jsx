@@ -4,6 +4,9 @@ import BasicInformation from './BasicInformation';
 import ActivityLog from './activities/ActivityLog';
 import ApplicationContacts from './contacts/ApplicationContacts';
 import { getUserData } from '../../api/users';
+import HeaderComponent from 'Header';
+import FooterComponent from 'Footer';
+
 
 const JobInformation = createClass({
   displayName: 'JobInformation',
@@ -23,10 +26,23 @@ const JobInformation = createClass({
       applicationContacts
     } = this.props;
     return (
-      <div className='job-information-page'>
-        <BasicInformation company={companies[0]}/>
-        <ActivityLog activities={activity}/>
-        <ApplicationContacts contacts={applicationContacts}/>
+      <div>
+        <div>
+          <HeaderComponent />
+        </div>
+        <div className="main-view">
+          <div className="job-area">
+            <BasicInformation company={companies[0]}/>
+            <ActivityLog activities={activity}/>
+          </div>
+          <div>
+          <ApplicationContacts contacts={applicationContacts}/>
+          </div>
+        </div>
+
+        <div>
+          <FooterComponent />
+        </div>
       </div>
     );
   }

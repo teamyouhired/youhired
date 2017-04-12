@@ -6,8 +6,11 @@ const Activity = createClass({
     return (
       <div>
         <div className='activity'>
-          <h4 className='activity-date'>{createdat}</h4>
-          <h5 className='activity-description'>{activitylogcontent}</h5>
+          <div className="action-head">
+          <p className="activity-action"><b>Action:</b> Applied</p>
+          <p className='activity-date'><b>Creaction Date:</b> {createdat}</p>
+          </div>
+          <p className='activity-description'>{activitylogcontent}</p>
         </div>
       </div>
     );

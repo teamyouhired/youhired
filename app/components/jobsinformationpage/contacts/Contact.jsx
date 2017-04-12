@@ -11,13 +11,16 @@ const Contact = createClass({
       contactemail
     } = this.props;
     return (
-      <div>
-        <h2>{contactfirstname + contactlastname}</h2>
-        <h3>{contactemail}</h3>
-        <h3>{contactphonenumber}</h3>
-        <h6>{contactcompany}</h6>
-        <h6>{contactpositiontitle}</h6>
-        <br/>
+      <div className="app-contacts">
+        <div id="contact-name-box">
+          <h4 id="contact-name-txt">{contactfirstname + ' ' + contactlastname}</h4>
+        </div>
+        <div className="contact-text">
+          <p>{contactemail}</p>
+          <p>{contactphonenumber}</p>
+          <p>{contactcompany}</p>
+          <p>{contactpositiontitle}</p>
+        </div>
       </div>
     );
   }
