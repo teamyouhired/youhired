@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs');
-
-const User = require('../models/userModel.js');
+var Sequelize = require('sequelize');
+var connection = require('./../db');
+var User = require('./../models/UserModel');
 
 
 // server route handlers
@@ -8,84 +9,76 @@ module.exports = {
 
   // create new user
   onSignup: function (req, res) {
-    var {email, password} = req.body;
 
-    if (email) {
-      email = email.trim();
-    }
-    if (password) {
-      password = password.trim();
-    }
+    var useremail = req.body.useremail;
+    var userpassword = req.body.userpassword;
 
-    // if no email or empty password
-    if (!email || !password) {
-      console.log('Invalid email or password');
-      return res.status(422).send({ error: 'You must provide valid email and password'});
+    console.log(useremail + 'and ' + userpassword);
+
+    if (useremail) {
+      useremail = useremail.trim();
+    }
+    if (userpassword) {
+      userpassword = userpassword.trim();
     }
 
-    // find email and check if already exists in db
-    User.findOne({email})
+    // if no useremail or empty userpassword
+    if (!useremail || !userpassword) {
+      console.log('Invalid useremail or userpassword');
+      return res.status(422).send({ error: 'You must provide valid useremail and userpassword'});
+    }
+
+    // find useremail and check if already exists in db
+    User.findAll({
+      where: {
+      useremail: useremail,
+        }
+      })
     .then(user => {
-      console.log('-------- user -------- \n', user);
 
-      if (user) {
-        console.log('Email already in use!');
-        res.status(400).send('Email already in use!');
+      console.log('-------- user -------- \n', user);
+      console.log(user.length);
+
+      if (user.length !== 0) {
+        console.log('useremail already in use!');
+        res.status(400).send('useremail already in use!');
       } else {
 
         // create new user, generate token and save to db
         console.log('Creating new user');
 
-        var newUser = new User({ email, password });
-        var token = newUser.generateToken();
-        newUser.tokens.push({access: 'auth', token});
-        console.log('newUser created', newUser);
+        User.create({
+          useremail: useremail,
+          userpassword: userpassword
+        }).then(() => {
+          res.send('item in db');
+          // var token = newUser.generateToken();
+        // newUser.tokens.push({access: 'auth', token});
+        // console.log('newUser created', newUser);
 
-        newUser.save()
-        .then(() => {
-          res.header('auth', token).send(newUser);
+        // newUser.save()
+          // res.header('auth', token).send(newUser);
         })
         .catch(err => {
           console.log('Error1 --->', err);
           res.status(400).send(err.message);
         });
       }
-
-
-
-// has been refactored
-//       if (user) {
-//         console.log('User already exist!');
-//         res.status(400).send('User already exist!');
-//       } else {
-//         console.log('Creating new user');
-//         var newUser = new User(req.body);
-//
-//         newUser.save().then(() => {
-//           return newUser.generateToken();
-//         }).then(token => {
-//           res.header('auth', token).send(newUser);
-//         }).catch(err => {
-//           console.log('Error --->', err);
-//           res.status(400).send(err);
-//         });
-//       }
-
     })
   },
 
   onSignin: function (req, res) {
-    var {email, password} = req.body;
+    var {useremail, userpassword} = req.body;
 
-    if (email) {
-      email = email.trim();
+    if (useremail) {
+      useremail = useremail.trim();
     }
-    if (password) {
-      password = password.trim();
+    if (userpassword) {
+      userpassword = userpassword.trim();
     }
 
     // check if user exists in db
-    User.findOne({email: req.body.email})
+    User.findOne({useremail: req.body.useremail})
     .then(user => {
       console.log('-------- user -------- \n', user);
 
@@ -94,13 +87,13 @@ module.exports = {
         res.status(400).send('User doesn\'t exist!');
 
       } else {
-        bcrypt.compare(password, user.password, (err, match) => {
+        bcrypt.compare(userpassword, user.userpassword, (err, match) => {
           if (match) {
-            console.log('Passwords match');
+            console.log('userpasswords match');
             res.header('auth', user.tokens[0].token).send(user);
           } else {
-            console.log('Passwords do NOT match');
-            res.status(401).send('Passwords do not match');
+            console.log('userpasswords do NOT match');
+            res.status(401).send('userpasswords do not match');
           }
         });
       }
