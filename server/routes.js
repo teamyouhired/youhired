@@ -12,8 +12,8 @@ const activityLogCtrl = require('./controllers/activityLogCtrl.js');
 // endpoint routes
 function Routes(app) {
 
-  app.post('/api/signup', userCtrl.onSignup);
-  app.post('/api/signin', userCtrl.onSignin);
+  // app.post('/api/signup', userCtrl.onSignup);
+  // app.post('/api/signin', userCtrl.onSignin);
 
 
   app.get('/dashboard', authenticate, function (req, res) {
