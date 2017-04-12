@@ -1,6 +1,9 @@
 var pg = require('pg');
 var Sequelize = require('sequelize');
 var connection = require('./../db');
+const validator = require('validator');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
 var User = connection.define('users', {
       // userId: {
@@ -42,23 +45,16 @@ var User = connection.define('users', {
 
 module.exports = User;
 
+////////
 
-// const mongoose = require('mongoose');
-// const validator = require('validator');
-// const jwt = require('jsonwebtoken');
-// const bcrypt = require('bcryptjs');
-
-// mongoose.Promise = global.Promise;
-
-// var Schema = mongoose.Schema;
 
 // var UserSchema = new Schema({
 //   email: {
 //     type: String,
-//     required: true,
+//     // required: true,
 //     trim: true,
 //     lowercase: true,
-//     unique: true,
+//     // unique: true,
 //     validate: {
 //       isAsync: true,
 //       validator: validator.isEmail,
@@ -80,35 +76,37 @@ module.exports = User;
 // });
 
 
-// // methods - instance methods
+// methods - instance methods
 
-// // Generate JWT tokens
-// UserSchema.methods.generateToken = function () {
+// Generate JWT tokens
+User.prototype.generateToken = function () {
+  var user = this;
+  // var access = 'auth';
+  var token = jwt.sign({useremail: user.useremail.toString(), access: 'auth'}, 'somesecret');
+
+  // var token = jwt.sign({id: user.id.toString(), access: 'auth'}, 'somesecret');
+
+  // user.tokens.push({access, token});
+  return token;
+
+  // return user.save().then(() => {
+  //   return token;
+  // });
+};
+
+//
+// UserSchema.methods.removeToken = function (token) {
 //   var user = this;
-//   // var access = 'auth';
-//   var token = jwt.sign({_id: user._id.toString(), access: 'auth'}, 'somesecret');
-
-//   // user.tokens.push({access, token});
-//   return token;
-
-//   // return user.save().then(() => {
-//   //   return token;
-//   // });
+//
+//   return user.update({
+//     $pull: {
+//       tokens: {token}
+//     }
+//   });
 // };
 
-// //
-// // UserSchema.methods.removeToken = function (token) {
-// //   var user = this;
-// //
-// //   return user.update({
-// //     $pull: {
-// //       tokens: {token}
-// //     }
-// //   });
-// // };
 
-
-// // statics - Model methods
+// statics - Model methods
 // UserSchema.statics.findByToken = function (token) {
 //   var User = this;
 //   var decoded;
@@ -182,3 +180,4 @@ module.exports = User;
 // var User = mongoose.model('User', UserSchema);
 
 // module.exports = User;
+

@@ -6,7 +6,6 @@ var User = require('./../models/UserModel');
 var Token = connection.define('token', {
   token: {
     type: Sequelize.TEXT,
-    unique: true,
     allowNull: false
   }
 });
