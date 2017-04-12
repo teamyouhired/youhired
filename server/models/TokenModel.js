@@ -1,10 +1,11 @@
 var pg = require('pg');
 var Sequelize = require('sequelize');
-var connection = require('./../db');
+
 var User = require('./../models/UserModel');
+var connection = require('./../db');
 
 var Token = connection.define('token', {
-  token: {
+  auth: {
     type: Sequelize.TEXT,
     allowNull: false
   }
