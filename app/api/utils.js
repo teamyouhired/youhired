@@ -3,7 +3,13 @@ import $ from 'jquery';
 
 export function createClient({ actionTypePrefix, requestType, url }) {
   const SUCCESS = `${actionTypePrefix}_SUCCESS`;
-
+  const FAIL = `${actionTypePrefix}_FAIL`;
+  if (actionTypePrefix === 'user:signIn') {
+    console.log('********************************************************************************************************************************************************************************************************')
+    console.log(requestType);
+    console.log(url);
+    console.log(actionTypePrefix)
+  }
   function request(data) {
     function thunk(dispatch) {
       return $.ajax({
@@ -12,9 +18,17 @@ export function createClient({ actionTypePrefix, requestType, url }) {
         data: JSON.stringify(data),
         type: requestType,
         success(response) {
+          console.log('success function ran');
           dispatch({
           type: SUCCESS,
           payload: response
+          });
+        },
+        fail(response) {
+          console.log('fail function ran');
+          dispatch({
+            type: FAIL,
+            payload: response
           });
         }
       });
@@ -23,6 +37,7 @@ export function createClient({ actionTypePrefix, requestType, url }) {
     return thunk;
   }
 
+  request.FAIL = FAIL;
   request.SUCCESS = SUCCESS;
 
   return request;

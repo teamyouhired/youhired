@@ -17,3 +17,15 @@ export const getUserData = createClient({
   requestType: 'GET',
   url: 'api/seed'
 });
+
+export const newSignup = createClient({
+  actionTypePrefix: 'user:signUp',
+  requestType: 'POST',
+  url: '/api/signup'
+});
+
+export const signIn = createClient({
+  actionTypePrefix: 'user:signIn',
+  requestType: 'POST',
+  url: '/api/signin'
+});
