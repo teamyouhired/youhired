@@ -2,13 +2,11 @@ var Sequelize = require('sequelize');
 
 
 //CONNECTION TO LOCAL DATABASE
-<<<<<<< 72b1cf29b8a6caf701f20abca102496798db6ed5
+
 // module.exports = new Sequelize('youhired', 'abramicf', 'password', {
 //   dialect: 'postgres'
 // });
 
-=======
->>>>>>> Merging
 // module.exports = new Sequelize('youhired', 'macuser', 'password', {
 //   dialect: 'postgres'
 // });
