@@ -2,6 +2,9 @@ const bcrypt = require('bcryptjs');
 var Sequelize = require('sequelize');
 var connection = require('./../db');
 var User = require('./../models/UserModel');
+var Token = require('./../models/TokenModel');
+
+
 
 
 // server route handlers
@@ -43,16 +46,24 @@ module.exports = {
         console.log('useremail already in use!');
         res.status(400).send('useremail already in use!');
       } else {
-
         // create new user, generate token and save to db
         console.log('Creating new user');
 
-        User.create({
+        var newUser = User.create({
           useremail: useremail,
           userpassword: userpassword
         }).then(() => {
-          res.send('item in db');
-          // var token = newUser.generateToken();
+          console.log(newUser);
+          var token = newUser.generateToken();
+          console.log('Creating new token');
+          console.log(token);
+          Token.create({
+            token: token,
+            userid: newUser.id
+          }).then(function(){
+            // res.send('');
+          });
+
         // newUser.tokens.push({access: 'auth', token});
         // console.log('newUser created', newUser);
 
@@ -100,3 +111,6 @@ module.exports = {
     });
   }
 };
+
+//ADDITIONAL INFO
+

@@ -14,7 +14,7 @@ app.use(express.static(__dirname + './../public'));
 
 routes(app);
 //SEED DATABASE
-seedCtrl.seedDatabase();
+// seedCtrl.seedDatabase();
 
 app.listen(PORT, function() {
   console.log('Your Hired Express server started on port ' + PORT);
