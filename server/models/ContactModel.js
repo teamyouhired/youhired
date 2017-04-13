@@ -10,10 +10,22 @@ var Contact = connection.define('contacts', {
     unique: true
   },
   seeduserid: Sequelize.INTEGER,
-  contactfirstname: Sequelize.STRING(50),
-  contactlastname: Sequelize.STRING(50),
-  contactcompany: Sequelize.STRING(100),
-  contactpositiontitle: Sequelize.STRING(100),
+  contactfirstname: {
+        type: Sequelize.STRING(50),
+        allowNull: false
+      },
+  contactlastname: {
+        type: Sequelize.STRING(50),
+        allowNull: false
+      },
+  contactcompany: {
+        type: Sequelize.STRING(100),
+        allowNull: false
+      },
+  contactpositiontitle: {
+        type: Sequelize.STRING(100),
+        allowNull: false
+      },
   contactphonenumber: Sequelize.STRING(14),
   contactemail: Sequelize.STRING(100),
   contactaddress: Sequelize.STRING(255),
