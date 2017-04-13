@@ -14,7 +14,7 @@ const BasicInformation = createClass({
             <h4>{company.positionname}</h4>
           </div>
           <div className="creation-date">
-            <h4>Creation date</h4>
+            <h4>Creation Date</h4>
           </div>
         </div>
         <div className='basic-information'>
