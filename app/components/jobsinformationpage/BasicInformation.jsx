@@ -34,7 +34,7 @@ const BasicInformation = createClass({
             <h4>Position Details</h4>
           </div>
           <div className="job-url">
-            <h4>Description:</h4>
+            <h4>Description</h4>
           </div>
         </div>
         <div className="details-info">
