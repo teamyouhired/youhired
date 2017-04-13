@@ -16,18 +16,18 @@ function Routes(app) {
   // app.post('/api/signin', userCtrl.onSignin);
 
 
-  app.get('/dashboard', authenticate, function (req, res) {
-  // app.get('/dashboard', function (req, res) {
-    res.send('Welcome!');
-  });
+  // app.get('/dashboard', authenticate, function (req, res) {
+  // // app.get('/dashboard', function (req, res) {
+  //   res.send('Welcome!');
+  // });
 
   app.get('/api/seed', seedCtrl.sendSeedData);
 
-  app.get('/api/seedme', seedCtrl.seedDatabase);
+  // app.get('/api/seedme', seedCtrl.seedDatabase);
 
-  app.get('*', function (req, res) {
-    res.send('Please login');
-  });
+  // app.get('*', function (req, res) {
+  //   res.send('Please login');
+  // });
 
 }
 

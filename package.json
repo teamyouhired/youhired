@@ -59,6 +59,7 @@
     "express": "^4.15.2",
     "extract-text-webpack-plugin": "^2.0.0",
     "file-loader": "^0.8.5",
+    "history": "^4.6.1",
     "img-loader": "^1.2.2",
     "mocha": "^2.3.4",
     "module-alias": "^2.0.0",

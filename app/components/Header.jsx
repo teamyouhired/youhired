@@ -1,4 +1,5 @@
 import React, { createClass } from 'react';
+import { Link } from 'react-router-dom';
 
 const HeaderComponent = createClass({
   render() {
@@ -14,11 +15,16 @@ const HeaderComponent = createClass({
       </div>
       <div className="collapse navbar-collapse" id="myNavbar">
         <ul className="nav navbar-nav navbar-right">
-          <li><a href="#" className="nav-names"><span className="glyphicon nav-names glyphicon-log-in"></span>Login</a></li>
+          <li><a href="#" className="nav-names"><span className="glyphicon nav-names glyphicon-log-in"></span>
+          <Link to="/login">Logout</Link>
+          </a></li>
         </ul>
         <div>
         <ul className="nav navbar-nav navbar-left">
-          <li><a href="#" className="nav-names">MAIN DASHBOARD</a></li>
+          <li>
+            <Link to="/dashboard" className="nav-names">MAIN DASHBOARD
+          </Link>
+          </li>
           <li><a href="#" className="nav-names">GOALS</a></li>
           <li><a href="#" className="nav-names">CURRENT JOBS</a></li>
           <li><a href="#" className="nav-names">JOB HUNT ADVICE</a></li>
