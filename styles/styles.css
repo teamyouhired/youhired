@@ -7,7 +7,9 @@
     background-size: contain;
     z-index: 3;
   }*/
-
+body {
+  background-color: #f7f5e6;
+}
 .button-container {
   position: absolute;
   bottom: 50px;
@@ -56,11 +58,6 @@
 
 
 /*================SPLASH PAGE==================*/
-
-body {
-    padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-}
-
 .main-splash {
   position: relative;
 }
