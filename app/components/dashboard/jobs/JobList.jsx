@@ -1,6 +1,7 @@
 import React, { createClass, PropTypes } from 'react';
 import JobCard from './JobCard';
 import AddJob from './AddJob';
+// import Popup from 'react-popup';
 
 const JobList = createClass({
     displayName: 'JobList',
@@ -8,10 +9,19 @@ const JobList = createClass({
     propTypes: {
       jobs: PropTypes.array.isRequired,
       changePage: PropTypes.func.isRequired,
+      addJob: PropTypes.func.isRequired,
       activeComponent: PropTypes.string.isRequired
     },
 
+    onAddJob(event) {
+      console.log('on add job fired');
+      this.props.changePage({
+        activeComponent: 'AddJob'
+      })
+    },
+
     render() {
+
       return (
         <div className='job-list'>
           <div>
@@ -24,7 +34,10 @@ const JobList = createClass({
               />
             )}
           </div>
-          <AddJob />
+
+          <button className='button' onClick={this.onAddJob}>
+            Add Job
+          </button>
         </div>
       );
     }

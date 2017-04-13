@@ -1,20 +1,30 @@
-import React, { createClass } from 'react';
+import React, { createClass, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { addJob } from '../../../actions/dashboard/DashboardActions';
-
+// import Popup from 'react-popup';
 
 const AddJob = createClass({
   displayName: 'AddJob',
 
+  propTypes: {
+    addJob: PropTypes.func.isRequired
+  },
+
   onSubmit(event) {
     event.preventDefault();
-    this.props.dispatch(addJob({
+    this.props.addJob({
       companyName: this.companyNameInput.value,
-      status: this.jobStatusInput.value
-    }));
+      position:  this.jobPositionInput.value,
+      jobPostUrl: this.jobUrlInput.value
+    });
+
     this.companyNameInput.value = '';
-    this.jobStatusInput.value = '';
+    this.jobPositionInput.value = '';
+    this.jobUrlInput.value = '';
+    this.props.changePage({
+      activeComponent: 'JobList'
+    })
   },
 
   render() {
@@ -27,22 +37,20 @@ const AddJob = createClass({
         />
         <input
           className='form-control'
-          ref={statusInput => { this.jobStatusInput = statusInput }}
-          placeholder={'Status'}
+          ref={positionInput => { this.jobPositionInput = positionInput }}
+          placeholder={'Position'}
+        />
+        <input
+          className='form-control'
+          ref={urlInput => { this.jobUrlInput = urlInput }}
+          placeholder={'Job Post Url'}
         />
         <button className='button' type='submit'>
-          Add Job
+          Submit
         </button>
       </form>
     );
   }
 });
 
-
-// const mapDispatchToProps = (dispatch) => {
-//   return bindActionCreators({
-
-//   })
-// }
-
-export default connect()(AddJob)
+export default AddJob;
