@@ -6,6 +6,7 @@ import ApplicationContacts from './contacts/ApplicationContacts';
 import { getUserData } from '../../api/users';
 import HeaderComponent from 'Header';
 import FooterComponent from 'Footer';
+import { Link } from 'react-router-dom';
 
 
 const JobInformation = createClass({

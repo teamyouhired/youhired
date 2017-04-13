@@ -20,6 +20,7 @@ import FooterComponent from 'Footer';
 import HeaderComponent from 'Header';
 import About from 'about-us/about-us';
 import Services from 'services/services';
+import routes from './routes';
 require('app.scss');
 require('styles.css');
 
@@ -29,26 +30,10 @@ const store = createStore(combineReducers(reducers), enhancer);
 
 ReactDOM.render (
   <Provider store={store}>
-    <Router history={browserHistory}>
-      <div className="container-fluid root-background">
-        <nav>
-          <Link to="/">Root</Link>
-          <Link to="/signup">Signup</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/splash">Splash</Link>
-          <Link to="/job-information">JobInformation</Link>
-          <Link to='/about-us'>About Us</Link>
-          <Link to='/services'>Services</Link>
-        </nav>
-        <hr/>
-        <Route exact path='/' component={_Root}/>
-        <Route path='/login' component={Login} />
-        <Route path='/signup' component={Signup} />
-        <Route path='/splash' component={Splash} />
-        <Route path='/job-information' component={JobInformation} />
-        <Route path='/services' component={Services} />
-        <Route path='/about-us' component={About} />
-      </div>
+    <Router
+      history={browserHistory}
+      children={routes}
+    >
     </Router>
   </Provider>,
     document.getElementById('root')

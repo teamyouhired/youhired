@@ -1,5 +1,6 @@
 import React, { createClass, PropTypes } from 'react';
 import { changePage } from '../../../actions/NavigationActions';
+import { browserHistory } from 'react-router';
 
 const JobCard = createClass({
   displayName: 'JobCard',
@@ -9,12 +10,14 @@ const JobCard = createClass({
     activeComponent: PropTypes.string.isRequired
   },
 
+  contextTypes: {
+    router: PropTypes.object
+  },
+
   onJobClick(event) {
-
-    this.props.changePage({
-      activeComponent: 'jobInformation'
-    });
-
+    // const path = `/job-information/${this.props.companyname}/application`; for when we navigate to a single application page
+    const path = '/job-information';
+    this.context.router.history.push(path)
   },
 
   render() {

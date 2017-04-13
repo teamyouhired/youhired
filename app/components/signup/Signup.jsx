@@ -1,6 +1,7 @@
 import React, { createClass, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { signUp } from '../../api/users';
+import { Link } from 'react-router-dom';
 
 const Signup = createClass({
   displayName: 'Signup',
@@ -38,7 +39,9 @@ const Signup = createClass({
             <input className="form-control" type="password" ref={password => this.passwordInput = password} placeholder="Please enter password" />
           </div>
           <div className="col-lg-12  col-md-12 col-sm-12">
-            <button onClick={this.onSignUp} className="btn  submitButton" >Submit </button>
+            <button onClick={this.onSignUp} className="btn  submitButton" >
+              <Link style={{ color: 'white' }} to='/dashboard'>Submit</Link>
+            </button>
           </div>
         </div>
         <div className="row forGotPassword">

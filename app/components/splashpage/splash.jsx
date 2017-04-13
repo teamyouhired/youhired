@@ -1,4 +1,5 @@
 import React, { createClass, Component } from 'react';
+import { Link } from 'react-router-dom';
 import FooterComponent from 'Footer';
 
 const Splash = createClass({
@@ -9,8 +10,12 @@ const Splash = createClass({
         <div className="my-logo"></div>
 
         <div className="button-container">
-          <button type="button" className="button">Login</button>
-          <button type="button" className="button bottom-button">Sign up</button>
+          <button type="button" className="button">
+            <Link style={{ color: 'white' }} to='/login'>Login</Link>
+          </button>
+          <button type="button" className="button bottom-button">
+            <Link style={{ color: 'white' }} to='/signup'>Sign up</Link>
+          </button>
         </div>
       </header>
 
@@ -19,12 +24,16 @@ const Splash = createClass({
       <div className="row position-absolute">
         <div className="col-sm-4 ">
           <img className="img-circle img-responsive img-center" src='images/business-team.jpg' alt="" />
+              <Link to='/about-us'>
                 <h2 className="text-center">ABOUT US</h2>
+              </Link>
 
         </div>
         <div className="col-sm-4">
           <img className="img-circle img-responsive img-center" src="images/1.jpg" alt="" />
+              <Link to='/services'>
                 <h2 className="text-center">SERVICES</h2>
+              </Link>
 
         </div>
         <div className="col-sm-4">

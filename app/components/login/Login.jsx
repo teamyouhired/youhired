@@ -1,5 +1,6 @@
 import React, { createClass, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { signIn } from '../../api/users';
 
 const Login = createClass({
@@ -40,7 +41,11 @@ const Login = createClass({
               <input className="form-control" type="password" ref={password => this.passwordInput = password} placeholder="Please enter password" />
             </div>
             <div className="col-lg-12  col-md-12 col-sm-12">
-              <button onClick={this.onSignIn} className="btn  submitButton">Submit </button>
+
+              <button onClick={this.onSignIn} className="btn  submitButton">
+                <Link style={{ color: 'white' }} to='/dashboard'>Submit</Link>
+              </button>
+
             </div>
           </div>
           <div className="row forGotPassword">
