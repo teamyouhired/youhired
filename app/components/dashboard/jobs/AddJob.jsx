@@ -11,6 +11,13 @@ const AddJob = createClass({
     addJob: PropTypes.func.isRequired
   },
 
+  cancelForm(event) {
+    event.preventDefault();
+    this.props.changePage({
+      activeComponent: 'JobList'
+    });
+  },
+
   onSubmit(event) {
     event.preventDefault();
     this.props.addJob({
@@ -26,7 +33,7 @@ const AddJob = createClass({
     this.jobUrlInput.value = '';
     this.props.changePage({
       activeComponent: 'JobList'
-    })
+    });
   },
 
   render() {
@@ -54,6 +61,9 @@ const AddJob = createClass({
         />
         <button className='button' type='submit'>
           Submit
+        </button>
+        <button className='button' onClick={this.cancelForm}>
+          Cancel
         </button>
       </form>
     );
