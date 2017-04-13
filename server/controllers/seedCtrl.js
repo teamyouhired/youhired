@@ -1,6 +1,5 @@
 var pg = require('pg');
 var Sequelize = require('sequelize');
-
 var connection = require('./../db');
 var User = require('./../models/UserModel');
 var Token = require('./../models/TokenModel')
@@ -8,7 +7,6 @@ var JobApplication = require('./../models/JobApplicationModel');
 var Contact = require('./../models/ContactModel');
 var ActivityLog = require('./../models/ActivityLogModel');
 var ContactApplicationJoin = require('./../models/ContactApplicationJoinModel');
-
 
 var jobsList = "SELECT TO_CHAR(createdat, 'MON YYYY') AS createdat, positionname, companyname, status FROM jobapplications WHERE (seeduserid = 111111)";
 var jobApplicationInfo = "SELECT TO_CHAR(createdat, 'MON YYYY') AS createdat, positionname, companyname, jobposturl, jobarchiveurl, status, companyaddress, companycity, companystate, companyzip, offersalary, offeroptions, offerbenefits FROM jobapplications WHERE (seeduserid = 111111 AND seedapplicationid = 444);";

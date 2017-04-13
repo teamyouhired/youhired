@@ -33,6 +33,7 @@ var User = connection.define('users', {
       }
     }, {
         timestamps: true,
+        id: 'userid',
         createdAt: 'createdat',
         updatedAt: 'updatedat'
     });
