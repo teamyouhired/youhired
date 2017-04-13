@@ -4,17 +4,32 @@
 }
 
 .details {
-  height:100px;
+  background-color: #333a56;
+  height:37px;
 
 }
 
 .job-url {
+  background-color: #333a56;
+  color: white;
   padding: 5px;
   width: 50%;
   float: left;
 }
 
+.position-details-info {
+  padding-left: 5px;
+  width: 50%;
+  height: 100%;
+  border-right: 2px solid black;
+}
+
+.details-info {
+  background-color: white;
+}
+
 .position-details {
+  color: white;
   padding: 5px;
   height: 100%;
   border-right: 2px solid;
@@ -48,9 +63,9 @@ p {
 }
 
 .main-view {
-  height: 1000px;
+  height: 750px;
   width:100%;
-  padding: 50px;
+  padding: 25px;
 }
 
 .job-area {
@@ -132,6 +147,15 @@ p {
  padding-right: 7px;
 }
 
+.basic-heading {
+  background-color: #333a56;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-basis: 60%;
+}
+
 .basic-information {
   background-color: white;
   display: flex;
@@ -155,7 +179,22 @@ p {
 
 #contact-name-text {
   margin: 0px;
+}
 
+.creation-info {
+  margin-right: 5px;
+}
+
+.company-info {
+  margin-left: 5px;
+}
+
+.head-color {
+  width: 100%;
+  height: 20px;
+  background-color: #333a56;
+  overflow: auto;
+  z-index: 10;
 }
 
 .job-status {

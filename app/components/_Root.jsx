@@ -33,8 +33,12 @@ const _Root = createClass({
         </div>
 
         <div className="root-main">
-          <h1> Current Job Applications </h1>
-        {currentComponent}
+          <div className="job-app-header">
+            <h4 className="job-app-text"> Current Job Applications </h4>
+          </div>
+          <div className="job-card">
+            {currentComponent}
+          </div>
         </div>
 
         <div className="root-footer">

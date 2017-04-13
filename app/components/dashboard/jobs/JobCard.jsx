@@ -23,12 +23,16 @@ const JobCard = createClass({
   render() {
     const { companyname, status } = this.props;
     return (
-      <div onClick={this.onJobClick}>
-        <div className='card-horizontal'>
-          <h5 className='company-name'>{companyname}</h5>
-          <h5 className='status'>{status}</h5>
-          <span className='add-task glyphicon glyphicon-plus-sign'></span>
-        </div>
+      <div onClick={this.onJobClick} className='card-horizontal'>
+          <div className="card-company">
+            <p>{companyname}</p>
+          </div>
+          <div className="card-status">
+            <p>{status}</p>
+          </div>
+          <div className="card-icons">
+            <span className='add-task glyphicon glyphicon-plus-sign'></span>
+          </div>
       </div>
     );
   }
