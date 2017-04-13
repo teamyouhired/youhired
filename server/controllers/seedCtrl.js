@@ -111,7 +111,8 @@ module.exports = {
           companyzip: 94015,
           offersalary: null,
           offeroptions: null,
-          offerbenefits: null
+          offerbenefits: null,
+          userid: 1
         });
       }
     ).then(
