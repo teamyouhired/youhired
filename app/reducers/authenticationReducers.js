@@ -18,8 +18,8 @@ const authentication = (state = defaultState, { type, payload }) => {
       //localSession.setItem('auth', payload.auth); //depends on request type
       return {
         ...state,
-        isAuthenticated: true,
-        userToken: payload.data.tokens[0].token
+        isAuthenticated: true
+        // userToken: payload.data.tokens[0].token
       };
     case signIn.FAIL:
     case signUp.FAIL:

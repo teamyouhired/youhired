@@ -14,8 +14,8 @@ const Login = createClass({
     event.preventDefault();
     console.log(signIn);
     this.props.onSignIn({
-      email: this.emailInput.value,
-      password: this.passwordInput.value
+      useremail: this.emailInput.value,
+      userpassword: this.passwordInput.value
     });
 
     this.emailInput.value = '';

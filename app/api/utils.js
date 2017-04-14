@@ -14,13 +14,12 @@ export function createClient({ actionTypePrefix, requestType, url }) {
         type: requestType,
         success(response) {
           console.log('success function ran');
-          if (response.auth) {
-            localSession.setItem('auth', response.auth)
-          }
+          console.log(response.header.auth);
           dispatch({
           type: SUCCESS,
           payload: response
           });
+
         },
         fail(response) {
           console.log('fail function ran');
