@@ -65,12 +65,18 @@ module.exports = {
     }
 
     getContacts()
-    .then(function(results){
+    .then((results) => {
       data['contacts'] = results;
-    }).then(function(){
-      res.send(data);
-    });
-
+    })
+    .then(() => {
+      getApplications()
+        .then((results) => {
+          data['jobapplications'] = results;
+        })
+        .then(() => {
+          res.send(data);
+        })
+    })
   }
 };
 
