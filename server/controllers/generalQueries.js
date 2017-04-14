@@ -48,6 +48,12 @@ module.exports = {
       });
     }
 
+    var getContactsForApplication = function(id){
+      return connection.query('SELECT * FROM ((contacts c INNER JOIN contactapplicationjoins j ON c.seedcontactid = j.seedcontactid) INNER JOIN jobApplications a ON j.seedapplicationid = a.seedapplicationid) WHERE a.seedapplicationid = :id ', {
+          replacements: { id: id}
+        });
+    };
+
     var loopThroughApplications = function(arr, callback){
         return new Promise(function(resolve, reject){
           arr.forEach(function(item, index){
@@ -61,16 +67,27 @@ module.exports = {
           // console.log(id);
           //run the getActivitiesQuery
           getActivitiesForApplication(id)
-          .then(function(result){
+          .then((result) => {
             // console.log(data['jobapplications'][index]);
             data['jobapplications'][index]['activities'] = result || [];
             console.log(data['jobapplications'][index]['activities']);
-            var lastIndex = applications.length - 1;
+
             //REVISIT IF WE HAVE ASYNC ISSUES!!
-            if(index === lastIndex){
-              res.send(data);
-            }
-          })
+
+
+
+          }).then(() => {
+            var id = item['dataValues']['seedapplicationid'];
+            getContactsForApplication(id)
+              .then((result) => {
+                  console.log(result);
+                  data['jobapplications'][index]['contacts'] = result || [];
+                  var lastIndex = applications.length - 1;
+                  if(index === lastIndex){
+                    res.send(data);
+                  }
+                });
+              })
           //then, push the result to applicationactivities in data
           //then, run again to counter++
         })
@@ -147,13 +164,11 @@ module.exports = {
   // "SELECT TO_CHAR(createdat, 'MON YYYY') AS createdat, positionname, companyname, status FROM jobapplications WHERE (seeduserid = 111111)";
   // var jobApplicationInfo = "SELECT TO_CHAR(createdat, 'MON YYYY') AS createdat, positionname, companyname, jobposturl, jobarchiveurl, status, companyaddress, companycity, companystate, companyzip, offersalary, offeroptions, offerbenefits FROM jobapplications WHERE (seeduserid = 111111 AND seedapplicationid = 444);";
   // var jobActivities = "SELECT TO_CHAR(createdat, 'DD MON YYYY   HH12:MI:SS') AS createdat, activitylogcontent FROM activitylogs WHERE seedapplicationid = 444 AND activitytype = 'NOTE' GROUP BY createdat, activitylogcontent ORDER BY createdat DESC;";
-  // var jobContacts = "SELECT c.contactfirstname, c.contactlastname, c.contactcompany, c.contactpositiontitle, c.contactphonenumber, c.contactemail FROM ((contacts c INNER JOIN contactapplicationjoins j ON c.seedcontactid = j.seedcontactid) INNER JOIN jobApplications a ON j.seedapplicationid = a.seedapplicationid) WHERE a.seedapplicationid = 444;";
+
+
+
 
   // }
-
-
-
-
 // {
 //       attributes: [id, 'applicationid'],
 //       where: {
