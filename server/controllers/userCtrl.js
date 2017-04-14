@@ -8,6 +8,7 @@ var Token = require('./../models/TokenModel');
 // console.log('USER', User);
 // server route handlers
 module.exports = {
+
   test: function (req, res) {
     // var token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5IiwiYWNjZXNzIjoiYXV0aCIsImlhdCI6MTQ5MjEwNDY1NH0.QjYGuK3zwa-JlDYSVqTGCMb2CHTtyxnHvXD-aXxS4Gw'
     console.log('res user', res.userid);
@@ -19,6 +20,8 @@ module.exports = {
     // res.send(JSON.stringify(id));
     // res.header('auth', res.token).send(user);
   },
+
+
   // create new user
   onSignup: function (req, res) {
     var {useremail, userpassword} = req.body;

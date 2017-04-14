@@ -14,33 +14,25 @@ module.exports = {
 
   createApplication: function(req, res) {
 
-    var user = req.body.id;
-    var userToken = req.body.token;
     //1. Invoke Dimitri's verify token formula!
-    connection.sync({force: true})
-    .then(() => {
       //assumes that verifyToken is a method on the User model
-      User.verifyToken(user, userToken);
-    })
-    .then(() => {
-      console.log('add functionality that sends jobPostUrl to site and returns archive URL.  Data received back should be an argument to next function in the chain')
-    })
-    .then(() => {
-      JobApplication.create({
-        userid: req.body.userid,
-        positionname: req.body.positionname,
-        companyname: req.body.companyname,
-        jobposturl: req.body.jobposturl
-        //jobarchiveurl: whatever url we get back from the site
-      });
-    }).then(function(info){
-      res.send(info);
-    }).catch('error!');
+      User.authenticate(req, res, function(){
 
-    //no way to 'overwrite' specific job
+        console.log('add functionality that sends jobPostUrl to site and returns archive URL.  Data received back should be an argument to next function in the chain')
 
+        JobApplication.create({
+          userid: req.body.userid,
+          positionname: req.body.positionname,
+          companyname: req.body.companyname,
+          jobposturl: req.body.jobposturl
+          //jobarchiveurl: whatever url we get back from the site
+        })
+        //gets all the job info from newly created record and sends to the front end!
+        .then(function(info){
+        res.send(info);
+      }).catch('error!');
+    });
   };
-
 
   retrieveArchivedUrl: function(req, res) {
     return blah;

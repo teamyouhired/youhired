@@ -253,6 +253,30 @@ module.exports = {
       }
     ).then(
       function() {
+        Contact.create({
+          seedcontactid: 123454,
+          seeduserid: 111111,
+          contactfirstname: 'Betty',
+          contactlastname: 'Cragsdale',
+          contactcompany: 'NY Sypmphony',
+          contactpositiontitle: 'Oboe Player',
+          contactphonenumber: '(212) 573-5839',
+          contactemail: 'cragsdale'
+        });
+      }
+    ).then(
+      function() {
+        Contact.create({
+          seedcontactid: 123455,
+          seeduserid: 111111,
+          contactfirstname: 'Hailey',
+          contactlastname: 'Rutlidge',
+          contactcompany: 'Andrew Walsh Ensemble',
+          contactpositiontitle: 'Oboe Player Two'
+        });
+      }
+    ).then(
+      function() {
         ActivityLog.create({
           seedactivitylogid: 1,
           seedapplicationid: 444,
