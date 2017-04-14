@@ -7,6 +7,7 @@ var JobApplication = require('./../models/JobApplicationModel');
 var Contact = require('./../models/ContactModel');
 var ActivityLog = require('./../models/ActivityLogModel');
 var ContactApplicationJoin = require('./../models/ContactApplicationJoinModel');
+var Promise = require('bluebird');
 
 
 module.exports = {
@@ -17,7 +18,10 @@ module.exports = {
     // var applicationids = [];
 
     var data = {
+      jobapplications: []
     };
+
+    var applications;
 
     var getContacts = function(){
       return Contact.findAll({
@@ -36,33 +40,43 @@ module.exports = {
     }
 
 
-    var getActivitiesForApplication = function(){
-      return JobApplication.findAll({
+    var getActivitiesForApplication = function(id){
+      return ActivityLog.findAll({
         where: {
           seedapplicationid: id
         }
       });
     }
 
-
-    //subroutine occurs after 'getApplications'
-    var subroutine = function(info, counter = 0){
-      //if the counter is equal to info.length then return
-      if(counter === info.length){
-        return;
-      } else {
-        //set the variable for seedapplicationid
-        var id = info[counter]['dataValues']['seedApplicationId'];
-        //run the getActivitiesQuery
-        getActivitiesForApplication()
-        .then(function(result){
-          data['jobapplications'][counter]['activities'] = result.dataValues || [];
+    var loopThroughApplications = function(arr, callback){
+        return new Promise(function(resolve, reject){
+          arr.forEach(function(item, index){
+        //if the counter is equal to info.length then return
+          //push the application details into data
+          data['jobapplications'].push({
+            details: item['dataValues']
+          });
+          //set the variable for seedapplicationid
+          var id = item['dataValues']['seedapplicationid'];
+          // console.log(id);
+          //run the getActivitiesQuery
+          getActivitiesForApplication(id)
+          .then(function(result){
+            // console.log(data['jobapplications'][index]);
+            data['jobapplications'][index]['activities'] = result || [];
+            console.log(data['jobapplications'][index]['activities']);
+            var lastIndex = applications.length - 1;
+            //REVISIT IF WE HAVE ASYNC ISSUES!!
+            if(index === lastIndex){
+              res.send(data);
+            }
+          })
+          //then, push the result to applicationactivities in data
+          //then, run again to counter++
         })
-        .then(subroutine(info, counter ++));
-        //then, push the result to applicationactivities in data
-        //then, run again to counter++
-      }
-    }
+      })
+    };
+
 
     getContacts()
     .then((results) => {
@@ -71,14 +85,45 @@ module.exports = {
     .then(() => {
       getApplications()
         .then((results) => {
-          data['jobapplications'] = results;
+          applications = results;
+          // console.log(applications);
         })
         .then(() => {
-          res.send(data);
-        })
-    })
+          loopThroughApplications(applications)
+          // res.send(data);
+      })
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 };
+
+    // var subroutine = function(info, counter = 0){
+    //   //if the counter is equal to info.length then return
+    //   if(counter === info.length){
+    //     return;
+    //   } else {
+    //     //push the application details into data
+    //     data['jobapplications'].push({
+    //       details: info[counter]
+    //     });
+    //     //set the variable for seedapplicationid
+    //     var id = info[counter]['seedApplicationId'];
+    //     console.log(id);
+    //     //run the getActivitiesQuery
+    //     getActivitiesForApplication(id)
+    //     .then(function(result){
+    //       data['jobapplications'][counter]['activities'] = result.dataValues || [];
+    //     })
+    //     .then(subroutine(info, counter++));
+    //     //then, push the result to applicationactivities in data
+    //     //then, run again to counter++
+    //   }
+    // }
+
+
+
+
 
 
 
