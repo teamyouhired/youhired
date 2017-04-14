@@ -22,7 +22,6 @@ module.exports = {
     // res.send(JSON.stringify(res.token));
     // res.send(JSON.stringify(id));
     // res.header('auth', res.token).send(user);
-
   },
 
   // create new user
@@ -44,16 +43,6 @@ module.exports = {
     }
 
     // hash passwords
-    // bcrypt.hash(userpassword, 10)
-    // .then(hash => {
-    //   userpassword = hash;
-    // })
-    // .catch(err => {
-    //   if (err) {
-    //     console.log('err', err);
-    //   }
-    // });
-
     User.hash(userpassword).then(hash => {
       userpassword = hash;
       console.log('hash', hash);
@@ -64,7 +53,8 @@ module.exports = {
       where: {
         useremail: useremail
       }
-    }).then(user => {
+    })
+    .then(user => {
       if (user.length !== 0) {
         console.log('Email already in use!');
         res.status(400).send('Email already in use!');
@@ -74,18 +64,19 @@ module.exports = {
         User.create({
           useremail: useremail,
           userpassword: userpassword
-        }).then(usr => {
+        })
+        .then(usr => {
           var userid = usr.dataValues.id;
-          var token = User.generateToken(userid)
-          return Token.create({
-            auth: token,
-            userid: userid
-          });
-        }).then(token => {
-          res.header('auth', token.auth).send(token);
-        }).catch(err => {
-          console.log('Error1 --->', err);
-          res.status(400).send(err.message);
+          var auth = User.generateToken(userid)
+
+          Token.create({auth, userid})
+            .then(token => {
+              res.header('auth', token.auth).send(token);
+            })
+            .catch(err => {
+              console.log('Error1 --->', err);
+              res.status(400).send(err.message);
+            });
         });
       }
     });
@@ -104,7 +95,7 @@ module.exports = {
 
   onSignin: function (req, res) {
     var {useremail, userpassword} = req.body;
-    console.log(useremail, userpassword);
+    console.log('email -', useremail, userpassword);
 
     if (useremail) {
       useremail = useremail.trim().toLowerCase();
@@ -126,25 +117,35 @@ module.exports = {
       }
     })
     .then(user => {
-      console.log('-------- user -------- \n', user);
-
+      // console.log('-------- user -------- \n', user);
       if (!user) {
         console.log('User doesn\'t exist!');
-        res.status(400).send('User doesn\'t exist!');
-
-      } else {
-        bcrypt.compare(userpassword, user.userpassword, (err, match) => {
-          if (match) {
-            console.log('passwords match', '\n\n');
-            res.send(user)
-            // res.header('auth', user.tokens[0].token).send(user);
-          } else {
+        return res.status(400).send('User doesn\'t exist!');
+      }
+      bcrypt.compare(userpassword, user.userpassword)
+        .then(match => {
+          if (!match) {
             console.log('passwords do NOT match');
             res.status(401).send('passwords do not match');
+          } else {
+            console.log('passwords match', '\n\n');
+            var userid = user.id;
+            var auth = User.generateToken(userid)
+
+            Token.create({auth, userid})
+              .then(token => {
+                res.header('auth', token.auth).send(token);
+              })
+              .catch(err => {
+                console.log('Error1 --->', err);
+                res.status(400).send(err.message);
+              });
           }
-        });
-      }
+        })
+        .catch(err => {
+          console.log('Error has occured', err);
+          res.status(401).send('Error has occured!');
+        })
     });
   }
-
 };

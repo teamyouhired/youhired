@@ -24,6 +24,8 @@ function Routes(app) {
   //  /api/user/contact
   //  /api/user/
 
+  // app.post('/api/user/job', userCtrl.onSignin);
+
 
   // app.get('/dashboard', authenticate, function (req, res) {
   // // app.get('/dashboard', function (req, res) {

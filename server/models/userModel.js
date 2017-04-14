@@ -55,23 +55,7 @@ User.generateToken = function(userid) {
 
 module.exports = User;
 
-
-
-
-
-      // classMethods: {
-      //   generateToken: function () {
-      //     var user = this;
-      //     // var access = 'auth';
-      //     var token = jwt.sign({useremail: user.useremail.toString(), access: 'auth'}, 'somesecret');
-      //     // var token = jwt.sign({id: user.id.toString(), access: 'auth'}, 'somesecret');
-      //     // user.tokens.push({access, token});
-      //     return token;
-      //
-      //   }
-      // }
-
-    //  {
+  //  {
       // hooks: {
       //   afterValidate: function (user) {
       //     user.userpassword = bcrypt.hashSync(user.password, 8);
