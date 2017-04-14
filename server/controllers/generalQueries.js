@@ -72,16 +72,14 @@ module.exports = {
             data['jobapplications'][index]['activities'] = result || [];
             console.log(data['jobapplications'][index]['activities']);
 
-            //REVISIT IF WE HAVE ASYNC ISSUES!!
-
-
+            //REVISIT IF WE HAVE ASYNC ISSUES!
 
           }).then(() => {
             var id = item['dataValues']['seedapplicationid'];
             getContactsForApplication(id)
               .then((result) => {
                   console.log(result);
-                  data['jobapplications'][index]['contacts'] = result || [];
+                  data['jobapplications'][index]['contacts'] = result[0] || [];
                   var lastIndex = applications.length - 1;
                   if(index === lastIndex){
                     res.send(data);
