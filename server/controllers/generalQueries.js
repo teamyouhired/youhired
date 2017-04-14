@@ -14,6 +14,8 @@ module.exports = {
   getData: function (req, res) {
     console.log('youre in!');
 
+    var applicationids = [];
+
     var data = {
       contacts: 0,
       jobApplications: []
@@ -37,9 +39,11 @@ module.exports = {
           data.jobApplications.push({
             applicationdetails: results[i].dataValues
           });
+          applicationids.push(results[i].dataValues['id']);
         }
       }).then(function(){
         res.send(data);
+        console.log(applicationids);
       });
 
      }).error(function(err) {
