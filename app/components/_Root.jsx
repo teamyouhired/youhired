@@ -29,19 +29,39 @@ const _Root = createClass({
 
       <div className="root-view">
         <div>
-        <HeaderComponent />
+          <HeaderComponent />
         </div>
 
-        <div className="root-main">
-          <div className="job-app-header">
-            <h4 className="job-app-text"> Current Job Applications </h4>
-          </div>
-          <div className="job-card">
-            <Dashboard />
-          </div>
-        </div>
+          <div className="root-main">
+            <div className="root-main-apps">
+              <div className="job-app-header">
+                <h4 className="job-app-text"> Current Job Applications </h4>
+              </div>
+              <div className="job-card">
+                <Dashboard />
+              </div>
+            </div>
 
-        <div className="root-footer">
+            <div className="root-main-goals">
+              <div className="job-app-header">
+                <h4 className="job-app-text"> Goals Monitoring </h4>
+              </div>
+              <div className="job-card">
+
+              </div>
+            </div>
+
+            <div className="root-main-tasks">
+              <div className="job-app-header">
+                <h4 className="job-app-text"> Current Task List </h4>
+              </div>
+              <div className="job-card">
+
+              </div>
+            </div>
+          </div>
+
+        <div>
           <FooterComponent />
         </div>
 

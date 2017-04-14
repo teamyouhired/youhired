@@ -1,3 +1,16 @@
+/*================ABOUT US==================*/
+
+
+.team-card {
+  border: 2px solid;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0 8px 16px 0 rgba(1,1,1,0.2), 0 6px 20px 0 rgba(1,1,1,0.2);
+}
+
+
+/*================GENERAL==================*/
+
 /*.my-logo {
     top: 0px;
     position: absolute;
@@ -126,10 +139,41 @@ footer {
 }
 
 .root-main {
+
   text-align: center;
-  width: 33%;
+  margin: auto;
+  height: 500px;
+  width: 100%;
+  padding: 20px;
+
+}
+
+.root-main-apps {
+  float: left;
+  text-align: center;
+  width: 32%;
   border: 2px solid;
-  margin: 20px;
+  margin: 7px;
+  padding-bottom: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.root-main-tasks {
+  float: left;
+  text-align: center;
+  width: 32%;
+  border: 2px solid;
+  margin: 7px;
+  padding-bottom: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.root-main-goals {
+  float: left;
+  text-align: center;
+  width: 32%;
+  border: 2px solid;
+  margin: 7px;
   padding-bottom: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -140,9 +184,6 @@ footer {
   background-color: #F7F5E6;
 }
 
-.root-footer {
-
-}
 
 /*================HEADER==================*/
 
@@ -415,7 +456,4 @@ footer {
   .footer-distributed .footer-center i{
     margin-left: 0;
   }
-
-
-
 }
