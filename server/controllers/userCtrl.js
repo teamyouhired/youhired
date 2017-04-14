@@ -6,21 +6,32 @@ var connection = require('./../db');
 var User = require('./../models/UserModel');
 var Token = require('./../models/TokenModel');
 
+// console.log('USER.dima', User.dima());
+// console.log('USER', User);
 
 // server route handlers
 module.exports = {
 
+  test: function (req, res) {
+    // var token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5IiwiYWNjZXNzIjoiYXV0aCIsImlhdCI6MTQ5MjEwNDY1NH0.QjYGuK3zwa-JlDYSVqTGCMb2CHTtyxnHvXD-aXxS4Gw'
+    console.log('res user', res.userid);
+    console.log('res token', res.token);
+    var id = res.userid;
+    console.log('id -------- ',id);
+    res.send(res.token);
+    // res.send(JSON.stringify(res.token));
+    // res.send(JSON.stringify(id));
+    // res.header('auth', res.token).send(user);
+
+  },
+
   // create new user
-
   onSignup: function (req, res) {
-
-    var useremail = req.body.useremail;
-    var userpassword = req.body.userpassword;
-
+    var {useremail, userpassword} = req.body;
     console.log(useremail + 'and ' + userpassword);
 
     if (useremail) {
-      useremail = useremail.trim();
+      useremail = useremail.trim().toLowerCase();
     }
     if (userpassword) {
       userpassword = userpassword.trim();
@@ -32,16 +43,21 @@ module.exports = {
       return res.status(422).send({ error: 'You must provide valid useremail and userpassword'});
     }
 
-    // encrypt passwords
-    bcrypt.hash(userpassword, 10)
-    .then(hash => {
+    // hash passwords
+    // bcrypt.hash(userpassword, 10)
+    // .then(hash => {
+    //   userpassword = hash;
+    // })
+    // .catch(err => {
+    //   if (err) {
+    //     console.log('err', err);
+    //   }
+    // });
+
+    User.hash(userpassword).then(hash => {
       userpassword = hash;
+      console.log('hash', hash);
     })
-    .catch(err => {
-      if (err) {
-        console.log('err', err);
-      }
-    });
 
     // find useremail and check if already exists in db
     User.findAll({
@@ -59,10 +75,11 @@ module.exports = {
           useremail: useremail,
           userpassword: userpassword
         }).then(usr => {
-          var token = jwt.sign({useremail: usr.useremail.toString(), access: 'auth'}, 'somesecret');
+          var userid = usr.dataValues.id;
+          var token = User.generateToken(userid)
           return Token.create({
             auth: token,
-            userid: usr.dataValues.id
+            userid: userid
           });
         }).then(token => {
           res.header('auth', token.auth).send(token);
@@ -87,16 +104,27 @@ module.exports = {
 
   onSignin: function (req, res) {
     var {useremail, userpassword} = req.body;
+    console.log(useremail, userpassword);
 
     if (useremail) {
-      useremail = useremail.trim();
+      useremail = useremail.trim().toLowerCase();
     }
     if (userpassword) {
       userpassword = userpassword.trim();
     }
 
+    // if no useremail or empty userpassword
+    if (!useremail || !userpassword) {
+      console.log('Invalid email or password');
+      return res.status(422).send({ error: 'You must provide valid email and password'});
+    }
+
     // check if user exists in db
-    User.findOne({useremail: req.body.useremail})
+    User.findOne({
+      where: {
+        useremail: useremail
+      }
+    })
     .then(user => {
       console.log('-------- user -------- \n', user);
 
@@ -107,11 +135,12 @@ module.exports = {
       } else {
         bcrypt.compare(userpassword, user.userpassword, (err, match) => {
           if (match) {
-            console.log('userpasswords match');
-            res.header('auth', user.tokens[0].token).send(user);
+            console.log('passwords match', '\n\n');
+            res.send(user)
+            // res.header('auth', user.tokens[0].token).send(user);
           } else {
-            console.log('userpasswords do NOT match');
-            res.status(401).send('userpasswords do not match');
+            console.log('passwords do NOT match');
+            res.status(401).send('passwords do not match');
           }
         });
       }
