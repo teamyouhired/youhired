@@ -14,6 +14,9 @@ export function createClient({ actionTypePrefix, requestType, url }) {
         type: requestType,
         success(response) {
           console.log('success function ran');
+          if (response.auth) {
+            localSession.setItem('auth', response.auth)
+          }
           dispatch({
           type: SUCCESS,
           payload: response

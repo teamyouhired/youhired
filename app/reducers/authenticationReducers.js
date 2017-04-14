@@ -1,7 +1,7 @@
 import { signUp, signIn } from '../api/users';
 
 const defaultState = {
-  isAuthenticated: localStorage.getItem('id_token') ? true : false,
+  isAuthenticated: localStorage.getItem('auth') ? true : false,
   userToken: null
 }
 
@@ -15,6 +15,7 @@ const authentication = (state = defaultState, { type, payload }) => {
     case signUp.SUCCESS:
       console.log('sign in case', payload);
       debugger;
+      //localSession.setItem('auth', payload.auth); //depends on request type
       return {
         ...state,
         isAuthenticated: true,

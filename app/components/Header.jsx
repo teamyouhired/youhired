@@ -16,7 +16,7 @@ const HeaderComponent = createClass({
       <div className="collapse navbar-collapse" id="myNavbar">
         <ul className="nav navbar-nav navbar-right">
           <li><a href="#" className="nav-names"><span className="glyphicon nav-names glyphicon-log-in"></span>
-          <Link to="/login" style={{ color: 'white' }}>Logout</Link>
+          <Link to="/" style={{ color: 'white' }}>Logout</Link>
           </a></li>
         </ul>
         <div>
