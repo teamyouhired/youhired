@@ -2,7 +2,7 @@ import { CHANGE_PAGE } from '../actions/NavigationActionTypes';
 import { changePage } from '../actions/NavigationActions';
 
 const defaultState = {
-  activeComponent: 'Dashboard'
+  activeComponent: 'JobList'
 }
 
 const navigationReducer = (state = defaultState, { type, payload }) => {

@@ -17,14 +17,14 @@ const _Root = createClass({
   render() {
     const { activeComponent } = this.props;
 
-    let currentComponent = null;
-    if (activeComponent === 'jobInformation') {
-      console.log('jobinfo should render');
-      currentComponent = <JobInformation />;
-    } else if (activeComponent === 'Dashboard') {
-      console.log('dashboard should render');
-      currentComponent = <Dashboard />;
-    }
+    // let currentComponent = null;
+    // if (activeComponent === 'jobInformation') {
+    //   console.log('jobinfo should render');
+    //   currentComponent = <JobInformation />;
+    // } else if (activeComponent === 'Dashboard') {
+    //   console.log('dashboard should render');
+    //   currentComponent = <Dashboard />;
+    // }
     return (
 
       <div className="root-view">
@@ -37,7 +37,7 @@ const _Root = createClass({
             <h4 className="job-app-text"> Current Job Applications </h4>
           </div>
           <div className="job-card">
-            {currentComponent}
+            <Dashboard />
           </div>
         </div>
 

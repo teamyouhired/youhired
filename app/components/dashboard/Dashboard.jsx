@@ -5,6 +5,8 @@ import JobList from './jobs/JobList';
 import TaskList from './tasks/TaskList';
 import { getUserData } from '../../api/users';
 import { changePage } from '../../actions/NavigationActions';
+import { addJob } from '../../api/users';
+import AddJob from './jobs/AddJob';
 
 const Dashboard = createClass({
   displayName: 'Dashboard',
@@ -12,6 +14,7 @@ const Dashboard = createClass({
   propTypes: {
     getData: PropTypes.func.isRequired,
     changePage: PropTypes.func.isRequired,
+    addJob: PropTypes.func.isRequired,
     jobs: PropTypes.array.isRequired
   },
 
@@ -20,13 +23,26 @@ const Dashboard = createClass({
   },
 
   render() {
+    const {
+      addJob,
+      changePage,
+      activeComponent,
+      jobs
+    } = this.props;
+
+    let currentComponent = null;
+
+    if (activeComponent === 'AddJob') {
+      console.log('jobinfo should render');
+      currentComponent = <AddJob addJob={addJob} changePage={changePage} />;
+    } else if (activeComponent === 'JobList') {
+      console.log('dashboard should render');
+      currentComponent = <JobList jobs={jobs} changePage={changePage} activeComponent={activeComponent} addJob={addJob}/>
+    }
+
     return (
       <div className='dashboard-container'>
-        <JobList
-          jobs={this.props.jobs}
-          changePage={this.props.changePage}
-          activeComponent={this.props.activeComponent}
-        />
+        {currentComponent}
         {/*<TaskList activity={this.props.activity}/>*/}
       </div>
     );
@@ -45,7 +61,8 @@ const mapStateToProps = (state) => {
 
 const mapActionsToProps = {
   getData: getUserData,
-  changePage: changePage
+  changePage: changePage,
+  addJob: addJob
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(Dashboard);
