@@ -1,37 +1,61 @@
 const jwt = require('jsonwebtoken');
 
-var User = require('./../models/userModel.js');
+// var User = require('./../models/userModel.js');
+var Token = require('./../models/TokenModel');
+
 
 var authenticate = function (req, res, next) {
   var decoded;
   var token = req.header('auth');
-  // console.log('token', token);
+  console.log('token', token);
   try {
     decoded = jwt.verify(token, 'somesecret');
     console.log('decoded', decoded);
   } catch (err) {
-    console.log('Rejjjject');
+    console.log('Reject');
     return Promise.reject(err);
   }
 
-  // find user by id and token
-  User.findOne({
-    '_id': decoded._id,
-    'tokens.token': token,
-    'tokens.access': 'auth'
-  })
-  .then(user => {
-    console.log('user', user);
-    if (!user) {
+  // find userid by token
+  Token.findOne({
+    where: {
+      auth: token
+    } //,
+    // include: [{
+    //   model: User
+    //   // where: { 'user.id': Sequelize.col('token.userid') }
+    // }]
+  }).then(token => {
+    console.log('token!!!', token);
+    if (!token) {
       return Promise.reject();
     }
-    req.user = user;
-    req.token = token;
+    res.userid = token.userid;
+    res.token = token.auth;
     next();
+
   }).catch(err => {
     console.log('err', err);
     res.status(401).send(err);
-  })
+  });
+
+  // User.findOne({
+  //   '_id': decoded._id,
+  //   'tokens.token': token,
+  //   'tokens.access': 'auth'
+  // })
+  // .then(user => {
+  //   console.log('user', user);
+  //   if (!user) {
+  //     return Promise.reject();
+  //   }
+  //   req.user = user;
+  //   req.token = token;
+  //   next();
+  // }).catch(err => {
+  //   console.log('err', err);
+  //   res.status(401).send(err);
+  // })
 
 };
 

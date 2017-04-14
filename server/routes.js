@@ -12,8 +12,17 @@ const activityLogCtrl = require('./controllers/activityLogCtrl.js');
 // endpoint routes
 function Routes(app) {
 
-  // app.post('/api/signup', userCtrl.onSignup);
-  // app.post('/api/signin', userCtrl.onSignin);
+  app.post('/api/signup', userCtrl.onSignup);
+  app.post('/api/signin', userCtrl.onSignin);
+
+  app.post('/api/test', authenticate, userCtrl.test);
+  // app.post('/api/test', userCtrl.test);
+
+// POST
+  //  /api/user/job
+  //  /api/user/activity
+  //  /api/user/contact
+  //  /api/user/
 
 
   // app.get('/dashboard', authenticate, function (req, res) {
@@ -23,7 +32,7 @@ function Routes(app) {
 
   app.get('/api/seed', seedCtrl.sendSeedData);
 
-  // app.get('/api/seedme', seedCtrl.seedDatabase);
+  app.get('/api/seedme', seedCtrl.seedDatabase);
 
   // app.get('*', function (req, res) {
   //   res.send('Please login');

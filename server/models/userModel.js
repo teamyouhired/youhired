@@ -7,36 +7,56 @@ const bcrypt = require('bcryptjs');
 var connection = require('./../db');
 
 var User = connection.define('users', {
-      // userId: {
-      //   type: Sequelize.INTEGER,
-      //   primaryKey: true,
-      //   autoIncrement: true // Automatically gets converted to SERIAL for postgres
-      // },
-      seeduserid: Sequelize.INTEGER,
-      useremail: {
-        type: Sequelize.STRING(100),
-        // unique: true,
-        // allowNull: false
-      },
-      userpassword: {
-        type: Sequelize.STRING(255),
-        unique: false,
-        allowNull: false
-      },
-      userfirstname: {
-        type: Sequelize.STRING(50),
-        allowNull: true
-      },
-      userlastname: {
-        type: Sequelize.STRING(50),
-        allowNull: true
-      }
-    }, {
-        timestamps: true,
-        id: 'userid',
-        createdAt: 'createdat',
-        updatedAt: 'updatedat'
-    });
+  // userId: {
+  //   type: Sequelize.INTEGER,
+  //   primaryKey: true,
+  //   autoIncrement: true // Automatically gets converted to SERIAL for postgres
+  // },
+  seeduserid: Sequelize.INTEGER,
+  useremail: {
+    type: Sequelize.STRING(100),
+    // unique: true,
+    // allowNull: false
+  },
+  userpassword: {
+    type: Sequelize.STRING(255),
+    unique: false,
+    allowNull: false
+  },
+  userfirstname: {
+    type: Sequelize.STRING(50),
+    allowNull: true
+  },
+  userlastname: {
+    type: Sequelize.STRING(50),
+    allowNull: true
+  }
+}, {
+  timestamps: true,
+  createdAt: 'createdat',
+  updatedAt: 'updatedat'
+});
+
+// hash passwords
+User.hash = function (userpassword) {
+  return bcrypt.hash(userpassword, 10)
+  .then(hash => hash)
+  .catch(err => {
+    if (err) {
+      console.log('err', err);
+    }
+  });
+};
+
+// generate authentication token
+User.generateToken = function(userid) {
+  return jwt.sign({userid: userid.toString(), access: 'auth'}, 'somesecret');
+};
+
+module.exports = User;
+
+
+
 
 
       // classMethods: {
@@ -74,7 +94,7 @@ var User = connection.define('users', {
     //   // });
     // };
 
-module.exports = User;
+
 
 ////////
 
