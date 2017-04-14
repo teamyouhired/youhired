@@ -7,6 +7,7 @@ const tokenCtrl = require('./controllers/tokenCtrl.js');
 const jobApplicationCtrl = ('./controllers/jobApplicationCtrl.js');
 const contactCtrl = require('./controllers/contactCtrl.js');
 const activityLogCtrl = require('./controllers/activityLogCtrl.js');
+const generalQueries = require('./controllers/generalQueries');
 
 
 // endpoint routes
@@ -33,6 +34,7 @@ function Routes(app) {
   // });
 
   app.get('/api/seed', seedCtrl.sendSeedData);
+  app.post('/api/getData', generalQueries.getData);
 
   app.get('/api/seedme', seedCtrl.seedDatabase);
 

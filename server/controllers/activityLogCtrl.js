@@ -36,3 +36,41 @@ module.exports = {
   }
 
 };
+
+//SYNTAXES FOR QUERYING & UPDATING RECORDS!
+
+// Project.find({ where: { title: 'aProject' } })
+//   .on('success', function (project) {
+//     // Check if record exists in db
+//     if (project) {
+//       project.updateAttributes({
+//         title: 'a very different title now'
+//       })
+//       .success(function () {})
+//     }
+//   })
+
+
+
+// var findUserDevice = function(userDeviceId){
+//     // return the promise itself
+//     return db.DeviceUser.find({
+//         where: {
+//            id: userDeviceId
+//         }
+//      }).then(function(device) {
+//         if (!device) {
+//             return 'not find';
+//         }
+//         return device.dataValues;
+//      });
+// };
+
+//SYNTAXES FOR DESTROYING RECORDS
+// Project.find(123).on('success', function(project) {
+//   project.destroy().on('success', function(u) {
+//     if (u && u.deletedAt) {
+//       // successfully deleted the project
+//     }
+//   })
+// })

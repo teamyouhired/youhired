@@ -18,7 +18,6 @@ routes(app);
 // just make a GET request to /api/seedme
 // it will drop all tables and recreate data
 
-
 app.listen(PORT, function() {
   console.log('Your Hired Express server started on port ' + PORT);
 });
