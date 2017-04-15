@@ -8,7 +8,8 @@ import { changePage } from '../../actions/NavigationActions';
 import Redirect from 'react-router-dom';
 import { addJob } from '../../api/users';
 import AddJob from './jobs/AddJob';
-import GoalApp from './goals/GoalApp'
+import GoalApp from './goals/GoalApp';
+import VisualData from './visualdata/VisualData';
 import HeaderComponent from 'Header';
 import FooterComponent from 'Footer';
 
@@ -54,12 +55,22 @@ const Dashboard = createClass({
         </div>
 
           <div className="root-main">
+
             <div className="root-main-apps">
               <div className="job-app-header">
                 <h4 className="job-app-text"> Current Job Applications </h4>
               </div>
               <div className="job-card">
                 { currentComponent }
+              </div>
+            </div>
+
+            <div className="root-main-tasks">
+              <div className="job-app-header">
+                <h4 className="job-app-text"> Data Visualization </h4>
+              </div>
+              <div className="job-card">
+                <VisualData />
               </div>
             </div>
 
@@ -72,14 +83,8 @@ const Dashboard = createClass({
               </div>
             </div>
 
-            <div className="root-main-tasks">
-              <div className="job-app-header">
-                <h4 className="job-app-text"> Current Task List </h4>
-              </div>
-              <div className="job-card">
 
-              </div>
-            </div>
+
           </div>
 
         <div>
