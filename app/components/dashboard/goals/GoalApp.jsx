@@ -11,7 +11,9 @@ import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import HelpBlock from 'react-bootstrap/lib/HelpBlock';
-//import style from "../../../styles";
+import SmallChart from './SmallChart';
+import PieOverall from './PieOverall';
+import AppChart from './AppChart';
 
 
 
@@ -22,46 +24,8 @@ const scrollingDivStyle = { padding: '10px', height: '70px', overflow: 'auto' };
 
 const GoalApp = createClass({
   displayName: 'GoalApp',
-  getInitialState() {
-    return {
-      date: new Date().toISOString(),
-      previousDate: null,
-      minDate: null,
-      maxDate: null,
-      focused: false
-    };
-  },
-  handleChange(value) {
-    this.setState({
-      date: value
-    });
-  },
-  handleMinChange(value) {
-    this.setState({
-      minDate: value
-    });
-  },
-  handleMaxChange(value) {
-    this.setState({
-      maxDate: value
-    });
-  },
-  handlePlacement() {
-    return 'top';
-  },
-  handleRandomPlacement() {
-    const placementKey = Math.floor((Math.random()*4) + 1);
-    switch (placementKey) {
-      case 1:
-        return 'top';
-      case 2:
-        return 'left';
-      case 4:
-        return 'right';
-      default:
-        return 'bottom';
-    }
-  },
+
+
   render() {
     return (
       <div className='goal-card'>
@@ -72,7 +36,7 @@ const GoalApp = createClass({
           <div className="start-date">
           <FormGroup >
             <ControlLabel>Start Date</ControlLabel>
-            <DatePicker placeholder="Placeholder" calendarPlacement="bottom" className="form-custom"/>
+            <DatePicker placeholder="Placeholder" calendarPlacement="bottom"  />
           </FormGroup>
           </div>
           <div className="end-date">
@@ -97,7 +61,9 @@ const GoalApp = createClass({
           </div>
 
           <div className="goal-card-smlgrph">
-            <div className="goal-graph">Graph</div>
+            <div className="goal-graph">
+              <SmallChart />
+            </div>
           </div>
 
         </div>

@@ -142,7 +142,7 @@ footer {
 
   text-align: center;
   margin: auto;
-  height: 500px;
+  height: 750px;
   width: 100%;
   padding: 20px;
 
@@ -162,6 +162,7 @@ footer {
   float: left;
   text-align: center;
   width: 32%;
+
   border: 2px solid;
   margin: 7px;
   padding-bottom: 20px;
