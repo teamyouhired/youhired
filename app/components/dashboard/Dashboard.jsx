@@ -5,6 +5,7 @@ import JobList from './jobs/JobList';
 import TaskList from './tasks/TaskList';
 import { getUserData } from '../../api/users';
 import { changePage } from '../../actions/NavigationActions';
+import Redirect from 'react-router-dom';
 import { addJob } from '../../api/users';
 import AddJob from './jobs/AddJob';
 import GoalApp from './goals/GoalApp'
@@ -18,11 +19,21 @@ const Dashboard = createClass({
     getData: PropTypes.func.isRequired,
     changePage: PropTypes.func.isRequired,
     addJob: PropTypes.func.isRequired,
-    jobs: PropTypes.array.isRequired
+    jobs: PropTypes.array.isRequired,
+    isAuthenticated: PropTypes.bool.isRequired
   },
 
   componentWillMount() {
-    this.props.getData();
+    const history = this.props.history;
+    console.log('isAuthenticated in dash', this.props.location);
+    if (!sessionStorage.getItem('auth')) {
+      history.push('/login');
+    } else {
+      this.props.getData();
+      console.log('history should be dashboard now');
+      history.push('/dashboard')
+      // this.props.location.something
+    }
   },
 
   render() {
@@ -36,15 +47,12 @@ const Dashboard = createClass({
     let currentComponent = null;
 
     if (activeComponent === 'AddJob') {
-      console.log('jobinfo should render');
       currentComponent = <AddJob addJob={addJob} changePage={changePage} />;
     } else if (activeComponent === 'JobList') {
-      console.log('dashboard should render');
       currentComponent = <JobList jobs={jobs} changePage={changePage} activeComponent={activeComponent} addJob={addJob}/>
     }
 
     return (
-
       <div className="root-view">
         <div>
           <HeaderComponent />
@@ -84,7 +92,7 @@ const Dashboard = createClass({
         </div>
 
       </div>
-    );
+    )
   }
 });
 
@@ -94,7 +102,8 @@ const mapStateToProps = (state) => {
       companies: state.dashboard.companies,
       activity: state.dashboard.activity,
       applicationContacts: state.dashboard.applicationContacts,
-      activeComponent: state.navigation.activeComponent
+      activeComponent: state.navigation.activeComponent,
+      isAuthenticated: state.authentication.isAuthenticated
   };
 };
 

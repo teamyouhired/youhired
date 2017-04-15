@@ -1,7 +1,7 @@
 import { signUp, signIn } from '../api/users';
 
 const defaultState = {
-  isAuthenticated: localStorage.getItem('auth') ? true : false,
+  isAuthenticated: sessionStorage.getItem('auth') ? true : false,
   userToken: null
 }
 
@@ -14,12 +14,11 @@ const authentication = (state = defaultState, { type, payload }) => {
     case signIn.SUCCESS:
     case signUp.SUCCESS:
       console.log('sign in case', payload);
-      debugger;
       //localSession.setItem('auth', payload.auth); //depends on request type
       return {
         ...state,
-        isAuthenticated: true
-        // userToken: payload.data.tokens[0].token
+        isAuthenticated: true,
+        userToken: payload.auth
       };
     case signIn.FAIL:
     case signUp.FAIL:

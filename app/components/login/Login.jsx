@@ -17,7 +17,6 @@ const Login = createClass({
       useremail: this.emailInput.value,
       userpassword: this.passwordInput.value
     });
-
     this.emailInput.value = '';
     this.passwordInput.value = '';
   },

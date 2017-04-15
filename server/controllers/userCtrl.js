@@ -1,17 +1,13 @@
 const bcrypt = require('bcryptjs');
 var Sequelize = require('sequelize');
 const jwt = require('jsonwebtoken');
-
 var connection = require('./../db');
 var User = require('./../models/UserModel');
 var Token = require('./../models/TokenModel');
-
 // console.log('USER.dima', User.dima());
 // console.log('USER', User);
-
 // server route handlers
 module.exports = {
-
   test: function (req, res) {
     // var token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5IiwiYWNjZXNzIjoiYXV0aCIsImlhdCI6MTQ5MjEwNDY1NH0.QjYGuK3zwa-JlDYSVqTGCMb2CHTtyxnHvXD-aXxS4Gw'
     console.log('res user', res.userid);
@@ -23,31 +19,26 @@ module.exports = {
     // res.send(JSON.stringify(id));
     // res.header('auth', res.token).send(user);
   },
-
   // create new user
   onSignup: function (req, res) {
     var {useremail, userpassword} = req.body;
     console.log(useremail + 'and ' + userpassword);
-
     if (useremail) {
       useremail = useremail.trim().toLowerCase();
     }
     if (userpassword) {
       userpassword = userpassword.trim();
     }
-
     // if no useremail or empty userpassword
     if (!useremail || !userpassword) {
       console.log('Invalid useremail or userpassword');
       return res.status(422).send({ error: 'You must provide valid useremail and userpassword'});
     }
-
     // hash passwords
     User.hash(userpassword).then(hash => {
       userpassword = hash;
       console.log('hash', hash);
     })
-
     // find useremail and check if already exists in db
     User.findAll({
       where: {
@@ -81,8 +72,6 @@ module.exports = {
       }
     });
   },
-
-
   // Find all projects with a least one task where task.state === project.task
   // Project.findAll({
   //     include: [{
@@ -90,9 +79,6 @@ module.exports = {
   //         where: { state: Sequelize.col('project.state') }
   //     }]
   // })
-
-
-
   onSignin: function (req, res) {
     var {useremail, userpassword} = req.body;
     console.log('email -', useremail, userpassword);
@@ -103,13 +89,11 @@ module.exports = {
     if (userpassword) {
       userpassword = userpassword.trim();
     }
-
     // if no useremail or empty userpassword
     if (!useremail || !userpassword) {
       console.log('Invalid email or password');
       return res.status(422).send({ error: 'You must provide valid email and password'});
     }
-
     // check if user exists in db
     User.findOne({
       where: {
@@ -134,7 +118,7 @@ module.exports = {
 
             Token.create({auth, userid})
               .then(token => {
-                res.header('auth', token.auth).send(token);
+                res.header('auth', token.auth).send({user: user, token: token.auth});
               })
               .catch(err => {
                 console.log('Error1 --->', err);

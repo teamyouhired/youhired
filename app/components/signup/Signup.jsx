@@ -13,8 +13,8 @@ const Signup = createClass({
   onSignUp(event) {
     event.preventDefault();
     this.props.onSignUp({
-      email: this.emailInput.value,
-      password: this.passwordInput.value
+      useremail: this.emailInput.value,
+      userpassword: this.passwordInput.value
     });
 
     this.emailInput.value = '';
