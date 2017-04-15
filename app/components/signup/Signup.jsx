@@ -1,20 +1,28 @@
 import React, { createClass, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { signUp } from '../../api/users';
+import { signUp, getUserData } from '../../api/users';
 import { Link } from 'react-router-dom';
 
 const Signup = createClass({
   displayName: 'Signup',
 
   propTypes: {
-    onSignUp: PropTypes.func.isRequired
+    onSignUp: PropTypes.func.isRequired,
+    getData: PropTypes.func.isRequired
   },
 
   onSignUp(event) {
     event.preventDefault();
+
     this.props.onSignUp({
-      email: this.emailInput.value,
-      password: this.passwordInput.value
+      useremail: this.emailInput.value,
+      userpassword: this.passwordInput.value
+    })
+    .then(() => {
+      if (sessionStorage.getItem('auth')) {
+        this.props.getData();
+        this.props.history.push('/dashboard');
+      }
     });
 
     this.emailInput.value = '';
@@ -54,7 +62,8 @@ const Signup = createClass({
 });
 
 const mapActionsToProps = {
-  onSignUp: signUp
+  onSignUp: signUp,
+  getData: getUserData
 };
-//onSubmit={this.signUserUp(this.email, this.password)}
+
 export default connect(null, mapActionsToProps)(Signup);

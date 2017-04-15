@@ -12,16 +12,24 @@ import HeaderComponent from 'Header';
 import About from 'about-us/about-us';
 import Services from 'services/services';
 import Dashboard from './components/dashboard/Dashboard';
+import AuthenticateUser from './AuthenticateUser';
+
+// const requireAuth = (nextState, replace) => {
+//   console.log('requireAuth was invoked', nextState, 'replace', replace);
+//   if (!sessionStorage.getItem('auth')) {
+//     replace({pathname: '/login'});
+//   }
+// };
 
 const routes = (
   <div>
     <Route exact path='/' component={Splash}/>
     <Route path='/login' component={Login} />
     <Route path='/signup' component={Signup} />
-    <Route path='/dashboard' component={Dashboard} />
-    <Route path='/job-information' component={JobInformation} />
     <Route path='/services' component={Services} />
     <Route path='/about-us' component={About} />
+    <Route path='/dashboard' component={Dashboard} />
+    <Route path='/job-information' component={JobInformation} />
   </div>
 );
 
