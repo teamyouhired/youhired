@@ -25,14 +25,9 @@ const Dashboard = createClass({
 
   componentWillMount() {
     const history = this.props.history;
-    console.log('isAuthenticated in dash', this.props.location);
+
     if (!sessionStorage.getItem('auth')) {
-      history.push('/login');
-    } else {
-      this.props.getData();
-      console.log('history should be dashboard now');
-      history.push('/dashboard')
-      // this.props.location.something
+      history.push('/signup');
     }
   },
 

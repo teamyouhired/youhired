@@ -16,13 +16,12 @@ export function createClient({ actionTypePrefix, requestType, url }) {
           // console.log(xhr.getResponseHeader('auth'));
 
           if (response.token) {
-            console.log('header exists and auth exists', response.token);
             sessionStorage.setItem('auth', response.token);
           }
 
           dispatch({
-          type: SUCCESS,
-          payload: response
+            type: SUCCESS,
+            payload: response
           });
 
         },

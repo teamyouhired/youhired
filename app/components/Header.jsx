@@ -2,6 +2,11 @@ import React, { createClass } from 'react';
 import { Link } from 'react-router-dom';
 
 const HeaderComponent = createClass({
+
+  logout() {
+    sessionStorage.removeItem('auth');
+  },
+
   render() {
     return (<nav className="navbar navbar-light my-nav" style={{backgroundColor: '#52658F'}}>
 
@@ -16,7 +21,7 @@ const HeaderComponent = createClass({
       <div className="collapse navbar-collapse" id="myNavbar">
         <ul className="nav navbar-nav navbar-right">
           <li><a href="#" className="nav-names"><span className="glyphicon nav-names glyphicon-log-in"></span>
-          <Link to="/" style={{ color: 'white' }}>Logout</Link>
+          <Link onClick={this.logout} to="/" style={{ color: 'white' }}>Logout</Link>
           </a></li>
         </ul>
         <div>

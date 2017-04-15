@@ -62,7 +62,7 @@ module.exports = {
 
           Token.create({auth, userid})
             .then(token => {
-              res.header('auth', token.auth).send(token);
+              res.header('auth', token.auth).send({user: user, token: token.auth});
             })
             .catch(err => {
               console.log('Error1 --->', err);
