@@ -11,7 +11,7 @@ import { browserHistory } from 'react-router';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import * as reducers from './reducers/reducers';
-import _Root from '_Root';
+//import Dashboard from '.components/dashboard/Dashboard';
 import JobInformation from './components/jobsinformationpage/JobInformation';
 import Login from 'login/Login';
 import Signup from 'signup/Signup';
