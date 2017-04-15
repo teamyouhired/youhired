@@ -27,7 +27,7 @@ module.exports = {
       'styles',
       'node_modules'
     ],
-    extensions: ['.js', '.jsx', '.scss']
+    extensions: ['.js', '.jsx', '.scss', '.css']
   },
 
   module: {
