@@ -28,9 +28,10 @@ var JobApplication = connection.define('jobapplications', {
   updatedAt: 'updatedat'
 });
 
-JobApplication.belongsTo(User, {
-  foreignKey: 'userid',
-  targetKey: 'id'
-});
+// JobApplication.belongsTo(User, {
+//   foreignKey: 'userid',
+//   targetKey: 'id'
+// });
+
 
 module.exports = JobApplication;

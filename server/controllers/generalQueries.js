@@ -10,12 +10,27 @@ var ContactApplicationJoin = require('./../models/ContactApplicationJoinModel');
 var Promise = require('bluebird');
 
 
+// module.exports = {
+
+//   getData: function(req, res){
+//     User.findAll({
+//     where: {
+//       seeduserid: req.body.seeduserid
+//     },
+//     include: [{model: connection.JobApplication}]
+//     }).then((data) => {res.send(data)})
+//   }
+// }
+
+
 module.exports = {
 
   getData: function (req, res) {
     // console.log('youre in!');
 
     // var applicationids = [];
+
+    var applicationids = [];
 
     var data = {
       jobapplications: []
@@ -25,6 +40,21 @@ module.exports = {
 
     var getContacts = function(){
       return Contact.findAll({
+        attributes: [['id', 'contactid'],
+        'contactfirstname',
+        'contactlastname',
+        'contactcompany',
+        'contactpositiontitle',
+        'contactphonenumber',
+        'contactemail',
+        'contactaddress',
+        'contactcity',
+        'contactstate',
+        'contactzip',
+        'secondaryphonenumber',
+        'secondaryemail',
+        'backgroundinformation'
+        ],
         where: {
           seeduserid: req.body.seeduserid
         }
@@ -49,48 +79,56 @@ module.exports = {
     }
 
     var getContactsForApplication = function(id){
-      return connection.query('SELECT * FROM ((contacts c INNER JOIN contactapplicationjoins j ON c.seedcontactid = j.seedcontactid) INNER JOIN jobApplications a ON j.seedapplicationid = a.seedapplicationid) WHERE a.seedapplicationid = :id ', {
+      return connection.query('SELECT c.contactfirstname, c.contactlastname, c.contactcompany, c.contactpositiontitle, c.contactphonenumber, c.contactemail, c.contactaddress, c.contactcity, c.contactstate, c.contactzip, c.secondaryphonenumber, c.secondaryemail, c.backgroundinformation FROM ((contacts c INNER JOIN contactapplicationjoins j ON c.seedcontactid = j.seedcontactid) INNER JOIN jobApplications a ON j.seedapplicationid = a.seedapplicationid) WHERE a.seedapplicationid = :id ', {
           replacements: { id: id}
         });
     };
 
-    var loopThroughApplications = function(arr, callback){
-        return new Promise(function(resolve, reject){
-          arr.forEach(function(item, index){
-        //if the counter is equal to info.length then return
-          //push the application details into data
+
+//query to get applications, save to variable.
+
+
+
+//applicationid, which will be in application[i]
+//1.  get activites for application (query)
+//2.  push activities array to application.activities (processing query results)
+//3.  get contacts for application (query)
+//4.  push contacts for application (processing query results)
+
+//thunk invocations can be 'steps' in promise.all
+
+    var loopThroughApplications = function(array, count){
+
+      if(count === array.length){
+          console.log(count);
+          res.send(data);
+          return;
+        } else {
+          console.log(count);
+          var item = applications[count];
           data['jobapplications'].push({
             details: item['dataValues']
           });
-          //set the variable for seedapplicationid
           var id = item['dataValues']['seedapplicationid'];
-          // console.log(id);
-          //run the getActivitiesQuery
           getActivitiesForApplication(id)
           .then((result) => {
             // console.log(data['jobapplications'][index]);
-            data['jobapplications'][index]['activities'] = result || [];
-            console.log(data['jobapplications'][index]['activities']);
-
-            //REVISIT IF WE HAVE ASYNC ISSUES!
-
+            data['jobapplications'][count]['activities'] = result || [];
+            // console.log(data['jobapplications'][count]['activities']);
           }).then(() => {
             var id = item['dataValues']['seedapplicationid'];
             getContactsForApplication(id)
               .then((result) => {
-                  console.log(result);
-                  data['jobapplications'][index]['contacts'] = result[0] || [];
-                  var lastIndex = applications.length - 1;
-                  if(index === lastIndex){
-                    res.send(data);
-                  }
-                });
+                  console.log(count);
+                  data['jobapplications'][count]['contacts'] = result[0] || [];
+              }).then(() => {
+                  loopThroughApplications(array, count += 1)
+                })
               })
-          //then, push the result to applicationactivities in data
-          //then, run again to counter++
-        })
-      })
+      }
     };
+
+
 
 
     getContacts()
@@ -104,7 +142,8 @@ module.exports = {
           // console.log(applications);
         })
         .then(() => {
-          loopThroughApplications(applications)
+          // var count = 0;
+          loopThroughApplications(applications, 0)
           // res.send(data);
       })
     }).catch((error) => {
@@ -112,116 +151,3 @@ module.exports = {
     });
   }
 };
-
-    // var subroutine = function(info, counter = 0){
-    //   //if the counter is equal to info.length then return
-    //   if(counter === info.length){
-    //     return;
-    //   } else {
-    //     //push the application details into data
-    //     data['jobapplications'].push({
-    //       details: info[counter]
-    //     });
-    //     //set the variable for seedapplicationid
-    //     var id = info[counter]['seedApplicationId'];
-    //     console.log(id);
-    //     //run the getActivitiesQuery
-    //     getActivitiesForApplication(id)
-    //     .then(function(result){
-    //       data['jobapplications'][counter]['activities'] = result.dataValues || [];
-    //     })
-    //     .then(subroutine(info, counter++));
-    //     //then, push the result to applicationactivities in data
-    //     //then, run again to counter++
-    //   }
-    // }
-
-
-
-
-
-
-
-
-
-//we can just stick then on to the back
-//
-
-
-
-
-
-
-// .then((data) => {
-//       data.forEach(function(item){
-//         appIdList.push(item);
-//       });
-//     })
-
-
-  // "SELECT TO_CHAR(createdat, 'MON YYYY') AS createdat, positionname, companyname, status FROM jobapplications WHERE (seeduserid = 111111)";
-  // var jobApplicationInfo = "SELECT TO_CHAR(createdat, 'MON YYYY') AS createdat, positionname, companyname, jobposturl, jobarchiveurl, status, companyaddress, companycity, companystate, companyzip, offersalary, offeroptions, offerbenefits FROM jobapplications WHERE (seeduserid = 111111 AND seedapplicationid = 444);";
-  // var jobActivities = "SELECT TO_CHAR(createdat, 'DD MON YYYY   HH12:MI:SS') AS createdat, activitylogcontent FROM activitylogs WHERE seedapplicationid = 444 AND activitytype = 'NOTE' GROUP BY createdat, activitylogcontent ORDER BY createdat DESC;";
-
-
-
-
-  // }
-// {
-//       attributes: [id, 'applicationid'],
-//       where: {
-//         seeduserid: req.body.seeduserid
-//       }
-//     }
-
-
-
-//PREIVOUS FUNCTION
-
-// Contact.findAll({
-//       where: {
-//         seeduserid: req.body.seeduserid
-//       }
-//     }).then(function(results) {
-//       data.contacts = results;
-//     }).then(function(){
-
-//         JobApplication.findAll({
-//         // attributes: ['id'],
-//           where: {
-//             seeduserid: req.body.seeduserid
-//           }
-//         }).then(function(results){
-//           results.forEach(function(item, index) {
-//             return new Promise(function(resolve, reject){
-
-//             data.jobapplications.push({
-//               applicationdetails: item.dataValues
-//             })
-//             // console.log(data.jobapplications[i]);
-//             var id = item.dataValues['seedapplicationid'];
-//             console.log(id);
-//           }).then(function(){
-//             //it's as if this is starting AND retrieving BEFORE the 'push' happens above
-//             ActivityLog.findAll({
-//                 where: {
-//                   seedapplicationid: id
-//                 }
-//                 }).then(function(results){
-//                     console.log('youre in! ' + results);
-//                     // console.log('Activities: ' + data.jobapplications[index]['activities']);
-//                     data.jobapplications[index]['activities']: results || 0;
-//                 })
-//               })
-//             })//loop ends here
-//           }).then(function(){  //when the loop is complete, send along the data!
-//             res.send(data);;
-//                 console.log(data)
-
-//         })
-//      }).error(function(err) {
-//       console.log('oh no', err);
-//     });
-//   }
-
-
