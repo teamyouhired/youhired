@@ -3,6 +3,8 @@ var Sequelize = require('sequelize');
 const validator = require('validator');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+var Token = require('./../models/TokenModel')
+var JobApplication = require('./../models/JobApplicationModel');
 
 var connection = require('./../db');
 
@@ -36,6 +38,8 @@ var User = connection.define('users', {
   createdAt: 'createdat',
   updatedAt: 'updatedat'
 });
+
+// User.hasMany(JobApplication);
 
 // hash passwords
 User.hash = function (userpassword) {
