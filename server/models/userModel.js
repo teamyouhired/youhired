@@ -4,6 +4,7 @@ const validator = require('validator');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 var Token = require('./../models/TokenModel')
+// var JobApplication = require('./JobApplicationModel');
 var JobApplication = require('./../models/JobApplicationModel');
 
 var connection = require('./../db');
@@ -40,6 +41,13 @@ var User = connection.define('users', {
 });
 
 // User.hasMany(JobApplication);
+// JobApplication.belongsTo(User);
+
+
+// JobApplication.belongsTo(User, {
+//   foreignKey: 'userid',
+//   targetKey: 'id'
+// });
 
 // hash passwords
 User.hash = function (userpassword) {

@@ -9,16 +9,24 @@ var ActivityLog = require('./../models/ActivityLogModel');
 var ContactApplicationJoin = require('./../models/ContactApplicationJoinModel');
 var Promise = require('bluebird');
 
-
+//
 // module.exports = {
-
+//
 //   getData: function(req, res){
 //     User.findAll({
-//     where: {
-//       seeduserid: req.body.seeduserid
-//     },
-//     include: [{model: connection.JobApplication}]
-//     }).then((data) => {res.send(data)})
+//     // where: {
+//     //   seeduserid: 111111 //req.body.seeduserid
+//     // },
+//       include: [{
+//         model: JobApplication,
+//         where: {
+//           seeduserid: 111111
+//         }
+//       }]
+//     })
+//     .then((data) => {
+//       res.send(data);
+//     })
 //   }
 // }
 
@@ -40,7 +48,8 @@ module.exports = {
 
     var getContacts = function(){
       return Contact.findAll({
-        attributes: [['id', 'contactid'],
+        attributes: [
+        ['id', 'contactid'],
         'contactfirstname',
         'contactlastname',
         'contactcompany',
@@ -56,27 +65,52 @@ module.exports = {
         'backgroundinformation'
         ],
         where: {
-          seeduserid: req.body.seeduserid
+          seeduserid: req.body.userid
         }
       });
-    }
+    };
 
     var getApplications = function(){
       return JobApplication.findAll({
+        attributes: [
+          ['id', 'applicationid'],
+          'seedapplicationid',
+          'seeduserid',
+          'positionname',
+          'companyname',
+          'jobposturl',
+          'jobarchiveurl',
+          'status',
+          'companyaddress',
+          'companycity',
+          'companystate',
+          'companyzip',
+          'offersalary',
+          'offeroptions',
+          'offerbenefits',
+          'userid'
+        ],
         where: {
-          seeduserid: req.body.seeduserid
+          seeduserid: req.body.userid
         }
       });
-    }
+    };
 
 
     var getActivitiesForApplication = function(id){
       return ActivityLog.findAll({
+        // attributes: [
+        //   seedactivitylogid,
+        //   seedapplicationid,
+        //   seedcontactid,
+        //   activitytype,
+        //   activitylogcontent
+        // ],
         where: {
           seedapplicationid: id
         }
       });
-    }
+    };
 
     var getContactsForApplication = function(id){
       return connection.query('SELECT c.contactfirstname, c.contactlastname, c.contactcompany, c.contactpositiontitle, c.contactphonenumber, c.contactemail, c.contactaddress, c.contactcity, c.contactstate, c.contactzip, c.secondaryphonenumber, c.secondaryemail, c.backgroundinformation FROM ((contacts c INNER JOIN contactapplicationjoins j ON c.seedcontactid = j.seedcontactid) INNER JOIN jobApplications a ON j.seedapplicationid = a.seedapplicationid) WHERE a.seedapplicationid = :id ', {
@@ -127,8 +161,6 @@ module.exports = {
               })
       }
     };
-
-
 
 
     getContacts()
