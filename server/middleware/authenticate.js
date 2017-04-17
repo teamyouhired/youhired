@@ -32,7 +32,8 @@ var authenticate = function (req, res, next) {
       return Promise.reject();
     }
     req.body.userid = token.userid;
-    req.token = token.auth;
+    res.token = token.auth;
+
     next();
 
   }).catch(err => {

@@ -34,20 +34,25 @@ console.log('req.body.userid --- ',req.body.userid);
         }).catch('error!');
   },
 
-  retrieveArchivedUrl: function(req, res) {
-    return blah;
-  },
+  // retrieveArchivedUrl: function(req, res) {
 
-  addInterview: function(req, res) {
+  // },
 
-  },
 
-  addJobOffer: function(req, res) {
+  // retrieveArchivedUrl: function(req, res) {
+  //   return blah;
+  // },
 
-  },
+  // addInterview: function(req, res) {
 
-  updatestatus: function(req, res) {
+  // },
 
-  }
+  // addJobOffer: function(req, res) {
+
+  // },
+
+  // updatestatus: function(req, res) {
+
+  // }
 
 };

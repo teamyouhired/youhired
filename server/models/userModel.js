@@ -40,6 +40,7 @@ var User = connection.define('users', {
   updatedAt: 'updatedat'
 });
 
+
 // User.hasMany(JobApplication);
 // JobApplication.belongsTo(User);
 
@@ -48,6 +49,7 @@ var User = connection.define('users', {
 //   foreignKey: 'userid',
 //   targetKey: 'id'
 // });
+
 
 // hash passwords
 User.hash = function (userpassword) {
