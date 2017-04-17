@@ -30,12 +30,11 @@ var JobApplication = connection.define('jobapplications', {
 
 // User.hasMany(JobApplication);
 
-// JobApplication.belongsTo(User)
-
 JobApplication.belongsTo(User, {
   foreignKey: 'userid'
   // targetKey: 'id'
 });
+
 
 
 module.exports = JobApplication;

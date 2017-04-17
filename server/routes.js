@@ -39,8 +39,6 @@ function Routes(app) {
   app.post('/api/addapplication', authenticate, jobApplicationCtrl.addApplication);
   app.post('/api/addactivity', authenticate, activityLogCtrl.addActivity);
 
-
-
   app.get('/api/seedme', seedCtrl.seedDatabase);
 
   // app.get('*', function (req, res) {
