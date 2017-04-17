@@ -1,11 +1,14 @@
-import React, { createClass, PropTypes } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { addJob } from '../../../actions/dashboard/DashboardActions';
+
+// may replace the AddJob component with this one to keep all the form components in the same file. TBD
+
+// import React, { createClass, PropTypes } from 'react';
+// import { bindActionCreators } from 'redux';
+// import { connect } from 'react-redux';
+// import { addJob } from '../../../actions/dashboard/DashboardActions';
 // import Popup from 'react-popup';
 
-const AddJob = createClass({
-  displayName: 'AddJob',
+const JobApplicationForm = createClass({
+  displayName: 'JobApplicationForm',
 
   propTypes: {
     addJob: PropTypes.func.isRequired
@@ -77,4 +80,4 @@ const AddJob = createClass({
   }
 });
 
-export default AddJob;
+// export default JobApplicationForm;
