@@ -16,26 +16,23 @@ module.exports = {
     //talk to folks about the need to create variables with names like 'applicationid', 'activitylogid', etc.
 
     //1. Invoke Dimitri's verify token formula!
-    connection.sync({force: true})
-    .then(() => {
-      //assumes that verifyToken is a method on the User model
-      User.verifyToken(user, userToken);
+
+    ActivityLog.create({
+      applicationid: req.body.applicationid,
+      activitytype: req.body.activitytype,
+      activitylogcontent: req.body.activitylogcontent
+      //jobarchiveurl: whatever url we get back from the site
     })
-    .then(() => {
-      ActivityLog.create({
-        userid: req.body.userid,
-        applicationid: req.body.applicationid,
-        activitytype: req.body.activitytype,
-        activitylogcontent: req.body.activitylogcontent
-        //jobarchiveurl: whatever url we get back from the site
-      });
-    }).then(function(info){
+    .then(function(info){
       res.send(info);
-    }).catch('error!');
+    })
+    .catch('error!');
 
   }
 
 };
+
+
 
 //SYNTAXES FOR QUERYING & UPDATING RECORDS!
 

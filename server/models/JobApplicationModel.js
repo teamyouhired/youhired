@@ -2,7 +2,7 @@ var pg = require('pg');
 var Sequelize = require('sequelize');
 
 var connection = require('./../db');
-var User = require('./../models/UserModel');
+var User = require('./../models/userModel');
 
 var JobApplication = connection.define('jobapplications', {
   seedapplicationid: {
@@ -28,10 +28,14 @@ var JobApplication = connection.define('jobapplications', {
   updatedAt: 'updatedat'
 });
 
-// JobApplication.belongsTo(User, {
-//   foreignKey: 'userid',
-//   targetKey: 'id'
-// });
+// User.hasMany(JobApplication);
+
+// JobApplication.belongsTo(User)
+
+JobApplication.belongsTo(User, {
+  foreignKey: 'userid'
+  // targetKey: 'id'
+});
 
 
 module.exports = JobApplication;

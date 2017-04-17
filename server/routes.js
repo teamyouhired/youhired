@@ -4,7 +4,7 @@ const authenticate = require('./middleware/authenticate');
 const userCtrl = require('./controllers/userCtrl.js');
 const seedCtrl = require('./controllers/seedCtrl.js');
 const tokenCtrl = require('./controllers/tokenCtrl.js');
-const jobApplicationCtrl = ('./controllers/jobApplicationCtrl.js');
+const jobApplicationCtrl = require('./controllers/jobApplicationCtrl.js');
 const contactCtrl = require('./controllers/contactCtrl.js');
 const activityLogCtrl = require('./controllers/activityLogCtrl.js');
 const generalQueries = require('./controllers/generalQueries');
@@ -34,7 +34,12 @@ function Routes(app) {
   // });
 
   app.get('/api/seed', seedCtrl.sendSeedData);
-  app.post('/api/getData', generalQueries.getData);
+  app.post('/api/getData', authenticate, generalQueries.getData);
+
+  app.post('/api/addapplication', authenticate, jobApplicationCtrl.addApplication);
+  app.post('/api/addactivity', authenticate, activityLogCtrl.addActivity);
+
+
 
   app.get('/api/seedme', seedCtrl.seedDatabase);
 

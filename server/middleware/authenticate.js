@@ -13,7 +13,8 @@ var authenticate = function (req, res, next) {
     console.log('decoded', decoded);
   } catch (err) {
     console.log('Reject');
-    return Promise.reject(err);
+    res.send(err);
+    // return Promise.reject(err);
   }
 
   // find userid by token
@@ -30,8 +31,8 @@ var authenticate = function (req, res, next) {
     if (!token) {
       return Promise.reject();
     }
-    res.userid = token.userid;
-    res.token = token.auth;
+    req.body.userid = token.userid;
+    req.token = token.auth;
     next();
 
   }).catch(err => {
