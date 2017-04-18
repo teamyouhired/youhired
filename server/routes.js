@@ -27,7 +27,7 @@ function Routes(app) {
 
   app.post('/api/addinterview', authenticate, jobApplicationCtrl.addInterview);
   app.post('/api/addjoboffer', authenticate, jobApplicationCtrl.addJobOffer);
-
+  app.post('/api/updatestatus', authenticate, jobApplicationCtrl.updateStatus);
 
   app.get('/api/seedme', seedCtrl.seedDatabase);
 
