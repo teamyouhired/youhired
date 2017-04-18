@@ -3,6 +3,8 @@ var Sequelize = require('sequelize');
 
 var connection = require('./../db');
 var User = require('./../models/UserModel');
+var JobApplication = require('./../models/JobApplicationModel');
+
 
 var Contact = connection.define('contacts', {
   seedcontactid: {
@@ -45,5 +47,9 @@ Contact.belongsTo(User, {
   foreignKey: 'userid',
   targetKey: 'id'
 });
+
+
+Contact.belongsToMany(JobApplication, {through: 'applicationcontact', foreignKey: 'contactid' })
+JobApplication.belongsToMany(Contact, {through: 'applicationcontact', foreignKey: 'applicationid' })
 
 module.exports = Contact;

@@ -11,20 +11,10 @@ var ContactApplicationJoin = require('./../models/ContactApplicationJoinModel');
 
 module.exports = {
 
-  addContact: function(req, res) {
+  addContactFromUser: function(req, res) {
 
-    //talk to folks about the need to create variables with names like 'applicationid', 'activitylogid', etc.
-
-    //not sure if this 'null syntax will work...'
-
-    //1. Invoke Dimitri's verify token formula!
-    connection.sync({force: true})
-    .then(() => {
-      //assumes that verifyToken is a method on the User model
-      User.verifyToken(user, userToken);
-    })
-    .then(() => {
       Contact.create({
+        userid: req.body.userid,
         contactfirstname: req.body.contactfirstname,
         contactlastname: req.body.contactlastname,
         contactcompany: req.body.contactcompany,
@@ -38,13 +28,20 @@ module.exports = {
         secondaryphonenumber: req.body.secondaryphonenumber || null,
         secondaryemail: req.body.secondaryemail || null,
         backgroundinformation: req.body.backgroundinformation || null
-              //jobarchiveurl: whatever url we get back from the site
-      });
     }).then(function(info){
       res.send(info);
     }).catch('error!');
 
+  },
+
+  addContactFromApplication: function(req, res) {
+
+  },
+
+  associateContactToApplication: function(req, res) {
+
   }
+
 
 
 
