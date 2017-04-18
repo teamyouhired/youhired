@@ -1,6 +1,5 @@
 var pg = require('pg');
 var Sequelize = require('sequelize');
-
 var connection = require('./../db');
 var JobApplication = require('./../models/JobApplicationModel');
 var Contact = require('./../models/ContactModel');

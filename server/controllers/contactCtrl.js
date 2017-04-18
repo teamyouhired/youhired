@@ -9,6 +9,33 @@ var ActivityLog = require('./../models/ActivityLogModel');
 var ContactApplicationJoin = require('./../models/ContactApplicationJoinModel');
 
 
+
+var consistencyContactQuery = function(data){
+      return Contact.findOne({
+        attributes: [
+           ['id', 'contactid'],
+            'contactfirstname',
+            'contactlastname',
+            'contactcompany',
+            'contactpositiontitle',
+            'contactphonenumber',
+            'contactemail',
+            'contactaddress',
+            'contactcity',
+            'contactstate',
+            'contactzip',
+            'secondaryphonenumber',
+            'secondaryemail',
+            'backgroundinformation'
+          ],
+        where: {
+            id: data.dataValues.id
+          }
+      });
+    }
+
+
+
 module.exports = {
 
   addContactFromUser: function(req, res) {
@@ -28,10 +55,12 @@ module.exports = {
         secondaryphonenumber: req.body.secondaryphonenumber || null,
         secondaryemail: req.body.secondaryemail || null,
         backgroundinformation: req.body.backgroundinformation || null
-    }).then(function(info){
-      res.send(info);
+    }).then((data) => {
+      consistencyContactQuery(data).then((info) => {
+        res.send(info);
+        console.log(info);
+      })
     }).catch('error!');
-
   }
 
 
