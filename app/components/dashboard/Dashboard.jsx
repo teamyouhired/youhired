@@ -58,12 +58,13 @@ const Dashboard = createClass({
         <div>
           <HeaderComponent />
         </div>
-
           { isModalActive ? (
-            <div className="root-main">
-              <RootModal />
+            <div className="root-main overlay">
+              <div className="add-job-modal">
+                <RootModal />
+              </div>
             </div>
-            ) : (
+            ) : null }
             <div className="root-main">
 
               <div className="root-main-apps">
@@ -71,7 +72,13 @@ const Dashboard = createClass({
                   <h4 className="job-app-text"> Current Job Applications </h4>
                 </div>
                 <div className="job-card">
-                  <JobList jobs={jobs} changePage={changePage} activeComponent={activeComponent} addJob={addJob} displayJobForm={displayJobForm} hideModal={hideModal} />
+                  <JobList
+                    jobs={jobs}
+                    changePage={changePage}
+                    activeComponent={activeComponent}
+                    addJob={addJob}
+                    displayJobForm={displayJobForm}
+                    hideModal={hideModal} />
                 </div>
               </div>
               <div className="root-main-tasks">
@@ -93,7 +100,6 @@ const Dashboard = createClass({
               </div>
 
             </div>
-        )}
 
         <div>
           <FooterComponent />

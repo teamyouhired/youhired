@@ -1,4 +1,8 @@
-import { DISPLAY_JOB_FORM, HIDE_JOB_FORM } from '../actions/modals/ModalActionTypes';
+import {
+  DISPLAY_JOB_FORM,
+  HIDE_JOB_FORM,
+  DISPLAY_CONTACT_FORM
+  } from '../actions/modals/ModalActionTypes';
 
 const defaultState = {
   modalType: null,
@@ -6,12 +10,9 @@ const defaultState = {
 };
 
 const modalReducer = (state = defaultState, { type, modalType, modalProps }) => {
-  console.log('type equals: ', type);
-  console.log('modal type equals: ', modalType);
-  console.log('modal props equals: ', modalProps);
   switch (type) {
     case DISPLAY_JOB_FORM:
-    console.log('modal props calc' ,modalProps ? modalProps : {});
+    case DISPLAY_CONTACT_FORM:
       return {
         ...state,
         modalType: modalType,
@@ -22,6 +23,6 @@ const modalReducer = (state = defaultState, { type, modalType, modalProps }) => 
     default:
       return state;
   }
-}
+};
 
 export default modalReducer;

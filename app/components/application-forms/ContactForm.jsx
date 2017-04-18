@@ -4,6 +4,7 @@ const ContactForm = createClass({
 
   cancelForm() {
     // close modal and clear all fields
+    this.props.hideModal();
   },
 
   onSubmit(event) {
@@ -26,6 +27,7 @@ const ContactForm = createClass({
     this.statusInput.value = '';
     this.jobUrlInput.value = '';
     // need to close the modal now
+    this.props.hideModal();
   },
 
   render() {
