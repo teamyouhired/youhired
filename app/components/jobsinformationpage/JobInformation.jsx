@@ -16,7 +16,7 @@ import RootModal from '../RootModal';
 const JobInformation = createClass({
   displayName: 'JobInformation',
   propTypes: {
-    companies: PropTypes.array.isRequired,
+    jobApplications: PropTypes.array.isRequired,
     activity: PropTypes.array.isRequired,
     applicationContacts: PropTypes.array.isRequired
   },
@@ -26,7 +26,7 @@ const JobInformation = createClass({
 
   render() {
     const {
-      companies,
+      jobApplication,
       activity,
       applicationContacts,
       displayContactForm,
@@ -34,6 +34,7 @@ const JobInformation = createClass({
       addContact,
       isModalActive
     } = this.props;
+    console.log('job application on info page',jobApplication);
     return (
       <div>
         <div>
@@ -49,7 +50,7 @@ const JobInformation = createClass({
         <div className="main-view">
           <div className="job-area">
             <BasicInformation
-              company={companies[0]} />
+              details={jobApplication} />
             <ActivityLog
               activities={activity} />
           </div>
@@ -72,9 +73,9 @@ const JobInformation = createClass({
 
 const mapStateToProps = (state) => {
   return {
-    companies: state.jobInformation.companies,
-    activity: state.jobInformation.activity,
-    applicationContacts: state.jobInformation.applicationContacts,
+    jobApplication: state.jobInformation.jobDetails,
+    activity: state.jobInformation.jobDetails.activity,
+    applicationContacts: state.jobInformation.jobDetails.applicationContacts,
     isModalActive: state.modal.modalType
   };
 };

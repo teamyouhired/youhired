@@ -24,8 +24,14 @@ const ContactForm = createClass({
 
     this.companyNameInput.value = '';
     this.jobPositionInput.value = '';
-    this.statusInput.value = '';
-    this.jobUrlInput.value = '';
+    this.firstName.value = '';
+    this.lastName.value = '';
+    this.phoneNumber.value = '';
+    this.email.value = '';
+    this.address.value = '';
+    this.city.value = '';
+    this.state.value = '';
+    this.zip.value = '';
     // need to close the modal now
     this.props.hideModal();
   },

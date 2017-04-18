@@ -13,6 +13,7 @@ import VisualData from './visualdata/VisualData';
 import HeaderComponent from 'Header';
 import FooterComponent from 'Footer';
 import { displayJobForm, hideModal } from '../../actions/modals/ModalActions';
+import { selectJob } from '../../actions/dashboard/DashboardActions';
 import RootModal from '../RootModal';
 
 const Dashboard = createClass({
@@ -23,6 +24,7 @@ const Dashboard = createClass({
     changePage: PropTypes.func.isRequired,
     addJob: PropTypes.func.isRequired,
     jobs: PropTypes.array.isRequired,
+    selectJob: PropTypes.func.isRequired,
     isAuthenticated: PropTypes.bool.isRequired
   },
 
@@ -42,17 +44,10 @@ const Dashboard = createClass({
       jobs,
       displayJobForm,
       hideModal,
+      selectJob,
       isModalActive
     } = this.props;
-
-    // let currentComponent = null;
-
-    // if (activeComponent === 'AddJob') {
-    //   currentComponent = <AddJob addJob={addJob} changePage={changePage} />;
-    // } else if (activeComponent === 'JobList') {
-    //   currentComponent = <JobList jobs={jobs} changePage={changePage} activeComponent={activeComponent} addJob={addJob}/>
-    // }
-
+    console.log('jobs in dashboard', jobs)
     return (
       <div className="root-view">
         <div>
@@ -78,7 +73,8 @@ const Dashboard = createClass({
                     activeComponent={activeComponent}
                     addJob={addJob}
                     displayJobForm={displayJobForm}
-                    hideModal={hideModal} />
+                    hideModal={hideModal}
+                    selectJob={selectJob} />
                 </div>
               </div>
               <div className="root-main-tasks">
@@ -127,7 +123,8 @@ const mapActionsToProps = {
   changePage: changePage,
   addJob: addJob,
   displayJobForm: displayJobForm,
-  hideModal: hideModal
+  hideModal: hideModal,
+  selectJob: selectJob
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(Dashboard);

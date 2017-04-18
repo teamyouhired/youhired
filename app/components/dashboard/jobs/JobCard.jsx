@@ -15,20 +15,25 @@ const JobCard = createClass({
   },
 
   onJobClick(event) {
-    // const path = `/job-information/${this.props.companyname}/application`; for when we navigate to a single application page
+    //const path = '/job-information/:' + this.props.applicationid;
     const path = '/job-information';
+    this.props.selectJob({
+      jobDetails: this.props.jobDetails,
+      jobActivities: this.props.jobActivities,
+      jobContacts: this.props.jobContacts
+    });
     this.context.router.history.push(path)
   },
 
   render() {
-    const { companyname, status } = this.props;
+    console.log(this.props.jobDetails);
     return (
       <div onClick={this.onJobClick} className='card-horizontal'>
           <div className="card-company">
-            <p>{companyname}</p>
+            <p>{this.props.jobDetails.companyname}</p>
           </div>
           <div className="card-status">
-            <p>{status}</p>
+            <p>{this.props.jobDetails.status}</p>
           </div>
           <div className="card-icons">
             <span className='add-task glyphicon glyphicon-plus-sign'></span>

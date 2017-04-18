@@ -9,16 +9,20 @@ const TaskForm = createClass({
       event.preventDefault();
       this.props.addGoal({
         ApplicationId: this.ApplicationId.value,
-        activityType:  this.activityType.value,
+        //activityType:  this.activityType.value,
         description:  this.description.value
       });
 
       this.ApplicationId.value = '';
-      this.activityType.value = '';
+      //this.activityType.value = '';
       this.description.value = '';
       // need to close the modal now
     },
-
+    /*
+      Right now only one status, need to revisit later
+      make type a dropdown with following options:
+      NOTE
+    */
     render() {
       return (
         <form onSubmit={this.onSubmit}>
@@ -27,12 +31,12 @@ const TaskForm = createClass({
             ref={ApplicationId => { this.ApplicationId = ApplicationId }}
             placeholder={'Application ID'}
           />
-          <input
-            className='form-control'
-            type='number'
-            ref={activityType => { this.activityType = activityType }}
-            placeholder={'Number of applications to fill out'}
-          />
+          {/*<input
+              className='form-control'
+              type='number'
+              ref={activityType => { this.activityType = activityType }}
+              placeholder={'Number of applications to fill out'}
+            />*/}
           <input
             className='form-control'
             type='number'

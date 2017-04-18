@@ -3,15 +3,15 @@ import React, { createClass } from 'react';
 
 const BasicInformation = createClass({
   render() {
-    const { company } = this.props;
+    const { details } = this.props;
     return (
       <div className="top-divs">
         <div className='basic-heading'>
           <div className="company-details">
-            <h4>{company.companyname}</h4>
+            <h4>{details.companyname}</h4>
           </div>
           <div className="offer-details" >
-            <h4>{company.positionname}</h4>
+            <h4>{details.positionname}</h4>
           </div>
           <div className="creation-date">
             <h4>Creation Date</h4>
@@ -19,13 +19,13 @@ const BasicInformation = createClass({
         </div>
         <div className='basic-information'>
           <div className="company-info">
-            <p>{company.companyaddress}</p>
-            <p>{company.companystate + ', ' + company.companyzip}</p>
+            <p>{details.companyaddress}</p>
+            <p>{details.companystate + ', ' + details.companyzip}</p>
           </div>
           <div className="offer-info" >
           </div>
           <div className="creation-info">
-            <p>{company.createdat}</p>
+            <p>{details.createdat}</p>
           </div>
         </div>
 
@@ -39,12 +39,12 @@ const BasicInformation = createClass({
         </div>
         <div className="details-info">
           <div className="position-details-info">
-            <p><b>Salary:</b>  ${company.offersalary}</p>
-            <p><b>Offer Options:</b>  {company.offeroptions}</p>
-            <p><b>Benefits:</b>  {company.offerbenefits}</p>
+            <p><b>Salary:</b>  ${details.offersalary}</p>
+            <p><b>Offer Options:</b>  {details.offeroptions}</p>
+            <p><b>Benefits:</b>  {details.offerbenefits}</p>
           </div>
           <div className="job-url-info">
-            <p>{company.jobsposturl}</p>
+            <p>{details.jobsposturl}</p>
           </div>
         </div>
       </div>

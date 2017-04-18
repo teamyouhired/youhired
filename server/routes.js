@@ -20,7 +20,7 @@ function Routes(app) {
   // app.post('/api/test', userCtrl.test);
 
   app.get('/api/seed', seedCtrl.sendSeedData);
-  app.post('/api/getData', authenticate, generalQueries.getData);
+  app.get('/api/getData', authenticate, generalQueries.getData);
 
   app.post('/api/addapplication', authenticate, jobApplicationCtrl.addApplication);
   app.post('/api/addactivity', authenticate, activityLogCtrl.addActivity);

@@ -3,25 +3,26 @@ import { createClient } from './utils';
 export const addJob = createClient({
   actionTypePrefix: 'user:addJob',
   requestType: 'POST',
-  url: 'api/users/jobs'
+  url: '/api/addapplication'
 });
 
+// change to activity
 export const addTask = createClient({
   actionTypePrefix: 'user:addTask',
   requestType: 'POST',
-  url: 'api/users/tasks'
+  url: '/api/addactivity'
 });
 
 export const addContact = createClient({
   actionTypePrefix: 'user:addContact',
   requestType: 'POST',
-  url: 'api/users/contact'
+  url: '/api/addcontact'
 });
 
 export const getUserData = createClient({
   actionTypePrefix: 'user:getUserData',
   requestType: 'GET',
-  url: 'api/seed'
+  url: '/api/getData'
 });
 
 export const signUp = createClient({

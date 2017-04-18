@@ -13,7 +13,8 @@ const ActivityLog = createClass({
           speed={0.8}
           className='activity-scroll'
           horizontal={false}>
-          {this.props.activities.map((activity, index) =>
+          {!this.props.activities ? null :
+            this.props.activities.map((activity, index) =>
             <Activity
               key={index}
               {...activity}
