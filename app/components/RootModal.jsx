@@ -6,7 +6,7 @@ const MODAL_COMPONENTS = {
   'DISPLAY_JOB_FORM': AddJobModal
 };
 
-const ModalRoot = ({ modalType, modalProps }) => {
+const RootModal = ({ modalType, modalProps }) => {
   if (!modalType) {
     return null;
   }
@@ -15,4 +15,4 @@ const ModalRoot = ({ modalType, modalProps }) => {
   return <SpecificModal {...modalProps} />;
 }
 
-export default connect(state => state.modal)(ModalRoot);
+export default connect(state => state.modal)(RootModal);
