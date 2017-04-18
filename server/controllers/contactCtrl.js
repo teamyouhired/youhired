@@ -32,15 +32,13 @@ module.exports = {
       res.send(info);
     }).catch('error!');
 
-  },
-
-  addContactFromApplication: function(req, res) {
-
-  },
-
-  associateContactToApplication: function(req, res) {
-
   }
+
+
+
+  // associateContactToApplication: function(req, res) {
+
+  // }
 
 
 

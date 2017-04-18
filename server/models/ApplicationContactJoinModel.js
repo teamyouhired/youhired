@@ -1,12 +1,12 @@
 var pg = require('pg');
 var Sequelize = require('sequelize');
-
 var connection = require('./../db');
 var JobApplication = require('./../models/JobApplicationModel');
 var Contact = require('./../models/ContactModel');
 
-//join table between Contact and JobApplication
-//join model is created through use of the 'through' attribute below.
+var ApplicationContact = connection.define('applicationcontacts', {});
 
-// Contact.belongsToMany(JobApplication, {through: 'applicationcontactjoin', foreignKey: 'contactid' })
-// JobApplication.belongsToMany(Contact, {through: 'applicationcontactjoin', foreignKey: 'applicationid' })
+Contact.belongsToMany(JobApplication, {through: 'applicationcontacts', foreignKey: 'contactid' });
+JobApplication.belongsToMany(Contact, {through: 'applicationcontacts', foreignKey: 'applicationid' });
+
+module.exports = ApplicationContact;

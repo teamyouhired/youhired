@@ -8,6 +8,7 @@ const jobApplicationCtrl = require('./controllers/jobApplicationCtrl.js');
 const contactCtrl = require('./controllers/contactCtrl.js');
 const activityLogCtrl = require('./controllers/activityLogCtrl.js');
 const generalQueries = require('./controllers/generalQueries');
+const applicationContactCtrl = require('./controllers/applicationContactCtrl.js');
 
 // endpoint routes
 function Routes(app) {
@@ -30,6 +31,7 @@ function Routes(app) {
   app.post('/api/updatestatus', authenticate, jobApplicationCtrl.updateStatus);
 
   app.get('/api/seedme', seedCtrl.seedDatabase);
+  app.post('/api/associatecontactwithapplication', authenticate, applicationContactCtrl.associateContactWithApplication);
 
   // app.get('*', function (req, res) {
   //   res.send('Please login');

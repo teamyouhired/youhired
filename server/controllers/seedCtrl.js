@@ -7,6 +7,7 @@ var JobApplication = require('./../models/JobApplicationModel');
 var Contact = require('./../models/ContactModel');
 var ActivityLog = require('./../models/ActivityLogModel');
 var ContactApplicationJoin = require('./../models/ContactApplicationJoinModel');
+var ApplicationContact = require('./../models/ApplicationContactJoinModel');
 
 var jobsList = "SELECT TO_CHAR(createdat, 'MON YYYY') AS createdat, positionname, companyname, status FROM jobapplications WHERE (seeduserid = 111111)";
 var jobApplicationInfo = "SELECT TO_CHAR(createdat, 'MON YYYY') AS createdat, positionname, companyname, jobposturl, jobarchiveurl, status, companyaddress, companycity, companystate, companyzip, offersalary, offeroptions, offerbenefits FROM jobapplications WHERE (seeduserid = 111111 AND seedapplicationid = 444);";
@@ -570,4 +571,31 @@ module.exports = {
 //    "activitytype": "NOTE",
 //    "activitylogcontent": "I will totally rock that whole process"
 // }
+
+//new contact
+
+// {
+// "userid": "5",
+// "contactfirstname": "Joseph",
+// "contactlastname": "Biben",
+// "contactcompany": "Recruiters Inc",
+// "contactpositiontitle": "Recruiter",
+// "contactphonenumber": "(650)-455-9527"
+// }
+
+//new association
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
