@@ -538,3 +538,36 @@ module.exports = {
 //     });
 //   }
 // )
+
+
+
+
+
+
+
+//REAL USER INFORMATION
+
+//new user
+
+// {
+//     "useremail": "7000@gmail.com",
+//     "userpassword": "111"
+// }
+
+
+
+//new job application
+// {
+//   "positionname": "Front end developer",
+//   "companyname": "Facebook.com",
+//   "jobposturl": "www.facebook.com",
+//   "status": "APPLIED"
+// }
+
+//new user activity
+// {
+//    "applicationid": "6",
+//    "activitytype": "NOTE",
+//    "activitylogcontent": "I will totally rock that whole process"
+// }
+

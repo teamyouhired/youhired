@@ -8,5 +8,5 @@ var Contact = require('./../models/ContactModel');
 //join table between Contact and JobApplication
 //join model is created through use of the 'through' attribute below.
 
-Contact.belongsToMany(JobApplication, {through: 'applicationcontactjoin', foreignKey: 'contactid' })
-JobApplication.belongsToMany(Contact, {through: 'applicationcontactjoin', foreignKey: 'applicationid' })
+// Contact.belongsToMany(JobApplication, {through: 'applicationcontactjoin', foreignKey: 'contactid' })
+// JobApplication.belongsToMany(Contact, {through: 'applicationcontactjoin', foreignKey: 'applicationid' })

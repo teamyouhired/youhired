@@ -23,6 +23,7 @@ console.log('req.body.userid --- ',req.body.userid);
 
         JobApplication.create({
           userid: req.body.userid,
+          status: req.body.status,
           positionname: req.body.positionname,
           companyname: req.body.companyname,
           jobposturl: req.body.jobposturl
@@ -43,16 +44,40 @@ console.log('req.body.userid --- ',req.body.userid);
   //   return blah;
   // },
 
-  // addInterview: function(req, res) {
+  addInterview: function(req, res) {
+    JobApplication.update({
+      companyaddress: req.body.companyaddress,
+      companycity: req.body.companycity,
+      companystate: req.body.companystate,
+      companyzip: req.body.companyzip
+    },{
+      fields: ['companyaddress', 'companycity', 'companystate', 'companyzip'],
+      where: {
+        id: req.body.applicationid
+      }
+    }).then(function(info){
+      res.send(info);
+    }).catch('error!');
+  },
 
-  // },
-
-  // addJobOffer: function(req, res) {
-
-  // },
+  addJobOffer: function(req, res) {
+    JobApplication.update({
+      offersalary: req.body.offersalary,
+      offeroptions: req.body.offeroptions,
+      offerbenefits: req.body.offerbenefits
+    },{
+      fields: ['offersalary', 'offeroptions', 'offerbenefits'],
+      where: {
+        id: req.body.applicationid
+      }
+    }).then(function(info){
+      res.send(info);
+    }).catch('error!');
+  }
 
   // updatestatus: function(req, res) {
 
   // }
+
 
 };

@@ -15,7 +15,10 @@ var ActivityLog = connection.define('activitylogs', {
   seedapplicationid: Sequelize.INTEGER,
   seedcontactid: Sequelize.INTEGER,
   activitytype: Sequelize.STRING(50),
-  activitylogcontent: Sequelize.TEXT
+  activitylogcontent: {
+    type: Sequelize.TEXT,
+    allowNull: false
+  }
 }, {
   timestamps: true,
   createdAt: 'createdat',
