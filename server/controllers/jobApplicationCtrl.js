@@ -10,10 +10,34 @@ var ContactApplicationJoin = require('./../models/ContactApplicationJoinModel');
 
 //CREATE A NEW JOB APPLICATION
 
+var consistencyApplicationQuery = function(data){
+      return JobApplication.findOne({
+        attributes: [
+          ['id', 'applicationid'],
+          'positionname',
+          'companyname',
+          'jobposturl',
+          'jobarchiveurl',
+          'status',
+          'companyaddress',
+          'companycity',
+          'companystate',
+          'companyzip',
+          'offersalary',
+          'offeroptions',
+          'offerbenefits',
+          'userid'
+          ],
+        where: {
+            id: data.dataValues.id
+          }
+      });
+    }
+
+
 module.exports = {
 
   addApplication: function(req, res) {
-
 
 console.log('req.body.userid --- ',req.body.userid);
     //1. Invoke Dimitri's verify token formula!
@@ -30,8 +54,11 @@ console.log('req.body.userid --- ',req.body.userid);
           //jobarchiveurl: whatever url we get back from the site
         })
         //gets all the job info from newly created record and sends to the front end!
-        .then(function(info){
-          res.send(info);
+        .then((data) => {
+          consistencyApplicationQuery(data).then((info) => {
+            res.send(info);
+            console.log(info);
+          })
         }).catch('error!');
   },
 
@@ -55,8 +82,11 @@ console.log('req.body.userid --- ',req.body.userid);
       where: {
         id: req.body.applicationid
       }
-    }).then(function(info){
-      res.send(info);
+    }).then((data) => {
+      consistencyApplicationQuery(data).then((info) => {
+        res.send(info);
+        console.log(info);
+      })
     }).catch('error!');
   },
 
@@ -70,8 +100,11 @@ console.log('req.body.userid --- ',req.body.userid);
       where: {
         id: req.body.applicationid
       }
-    }).then(function(info){
-      res.send(info);
+    }).then((data) => {
+      consistencyApplicationQuery(data).then((info) => {
+        res.send(info);
+        console.log(info);
+      })
     }).catch('error!');
   },
 

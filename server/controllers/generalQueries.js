@@ -47,8 +47,6 @@ module.exports = {
       return JobApplication.findAll({
         attributes: [
           ['id', 'applicationid'],
-          // 'seedapplicationid',
-          // 'seeduserid',
           'positionname',
           'companyname',
           'jobposturl',
