@@ -7,6 +7,8 @@ var JobApplication = require('./../models/JobApplicationModel');
 var Contact = require('./../models/ContactModel');
 var ActivityLog = require('./../models/ActivityLogModel');
 var ContactApplicationJoin = require('./../models/ContactApplicationJoinModel');
+
+
 var Promise = require('bluebird');
 
 module.exports = {
@@ -47,8 +49,6 @@ module.exports = {
       return JobApplication.findAll({
         attributes: [
           ['id', 'applicationid'],
-          // 'seedapplicationid',
-          // 'seeduserid',
           'positionname',
           'companyname',
           'jobposturl',

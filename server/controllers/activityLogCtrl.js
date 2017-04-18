@@ -9,13 +9,30 @@ var ActivityLog = require('./../models/ActivityLogModel');
 var ContactApplicationJoin = require('./../models/ContactApplicationJoinModel');
 
 
+
+
+
+
+
+var consistencyActivityQuery = function(data){
+      return ActivityLog.findOne({
+        attributes:  [['id', 'activitylogid'],
+          'activitytype',
+          'activitylogcontent',
+          'createdat'
+        ],
+        where: {
+            id: data.dataValues.id
+          }
+      });
+    }
+
+
+
+
 module.exports = {
 
   addActivity: function(req, res) {
-
-    //talk to folks about the need to create variables with names like 'applicationid', 'activitylogid', etc.
-
-    //1. Invoke Dimitri's verify token formula!
 
     ActivityLog.create({
       applicationid: req.body.applicationid,
@@ -23,13 +40,13 @@ module.exports = {
       activitylogcontent: req.body.activitylogcontent
       //jobarchiveurl: whatever url we get back from the site
     })
-    .then(function(info){
-      res.send(info);
-    })
-    .catch('error!');
-
+    .then((data) => {
+      consistencyActivityQuery(data).then((info) => {
+        res.send(info);
+        console.log(info);
+      })
+    }).catch('error!');
   }
-
 };
 
 
