@@ -1,6 +1,5 @@
 var pg = require('pg');
 var Sequelize = require('sequelize');
-
 var connection = require('./../db');
 var User = require('./../models/UserModel');
 var JobApplication = require('./../models/JobApplicationModel');
@@ -49,7 +48,7 @@ Contact.belongsTo(User, {
 });
 
 
-Contact.belongsToMany(JobApplication, {through: 'applicationcontact', foreignKey: 'contactid' })
-JobApplication.belongsToMany(Contact, {through: 'applicationcontact', foreignKey: 'applicationid' })
+// Contact.belongsToMany(JobApplication, {through: 'applicationcontact', foreignKey: 'contactid' })
+// JobApplication.belongsToMany(Contact, {through: 'applicationcontact', foreignKey: 'applicationid' })
 
 module.exports = Contact;

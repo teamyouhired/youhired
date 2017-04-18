@@ -8,12 +8,12 @@ var Contact = require('./../models/ContactModel');
 
 
 var ActivityLog = connection.define('activitylogs', {
-  seedactivitylogid: {
-    type: Sequelize.INTEGER,
-    unique: true
-  },
-  seedapplicationid: Sequelize.INTEGER,
-  seedcontactid: Sequelize.INTEGER,
+  // seedactivitylogid: {
+  //   type: Sequelize.INTEGER,
+  //   unique: true
+  // },
+  // seedapplicationid: Sequelize.INTEGER,
+  // seedcontactid: Sequelize.INTEGER,
   activitytype: Sequelize.STRING(50),
   activitylogcontent: {
     type: Sequelize.TEXT,
