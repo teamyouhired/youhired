@@ -1,16 +1,17 @@
-import React, { createClass, PropTypes } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { addJob } from '../../../actions/dashboard/DashboardActions';
-import { hideModal } from '../../../actions/modals/ModalActions';
+
+// may replace the AddJob component with this one to keep all the form components in the same file. TBD
+
+// import React, { createClass, PropTypes } from 'react';
+// import { bindActionCreators } from 'redux';
+// import { connect } from 'react-redux';
+// import { addJob } from '../../../actions/dashboard/DashboardActions';
 // import Popup from 'react-popup';
 
-const AddJob = createClass({
-  displayName: 'AddJob',
+const JobApplicationForm = createClass({
+  displayName: 'JobApplicationForm',
 
   propTypes: {
-    addJob: PropTypes.func.isRequired,
-    hideModal: PropTypes.func.isRequired
+    addJob: PropTypes.func.isRequired
   },
 
   cancelForm(event) {
@@ -22,10 +23,9 @@ const AddJob = createClass({
     this.statusInput.value = '';
     this.jobUrlInput.value = '';
 
-    this.props.hideModal();
-    // this.props.changePage({
-    //   activeComponent: 'JobList'
-    // });
+    this.props.changePage({
+      activeComponent: 'JobList'
+    });
   },
 
   onSubmit(event) {
@@ -41,11 +41,9 @@ const AddJob = createClass({
     this.jobPositionInput.value = '';
     this.statusInput.value = '';
     this.jobUrlInput.value = '';
-
-    this.props.hideModal();
-    // this.props.changePage({
-    //   activeComponent: 'JobList'
-    // });
+    this.props.changePage({
+      activeComponent: 'JobList'
+    });
   },
 
   render() {
@@ -82,4 +80,4 @@ const AddJob = createClass({
   }
 });
 
-export default AddJob;
+// export default JobApplicationForm;

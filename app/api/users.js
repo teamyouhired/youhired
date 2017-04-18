@@ -12,6 +12,12 @@ export const addTask = createClient({
   url: 'api/users/tasks'
 });
 
+export const addContact = createClient({
+  actionTypePrefix: 'user:addContact',
+  requestType: 'POST',
+  url: 'api/users/contact'
+});
+
 export const getUserData = createClient({
   actionTypePrefix: 'user:getUserData',
   requestType: 'GET',

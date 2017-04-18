@@ -10,14 +10,22 @@ const JobList = createClass({
       jobs: PropTypes.array.isRequired,
       changePage: PropTypes.func.isRequired,
       addJob: PropTypes.func.isRequired,
-      activeComponent: PropTypes.string.isRequired
+      activeComponent: PropTypes.string.isRequired,
+      hideModal: PropTypes.func.isRequired
     },
 
     onAddJob(event) {
-      console.log('on add job fired');
-      this.props.changePage({
-        activeComponent: 'AddJob'
-      })
+      console.log('add job ran, modal state should be updated');
+      this.props.displayJobForm({
+        formType: 'DISPLAY_JOB_FORM',
+        modalProps: {
+          addJob: this.props.addJob,
+          hideModal: this.props.hideModal
+        }
+      });
+      // this.props.changePage({
+      //   activeComponent: 'AddJob'
+      // })
     },
 
     render() {
@@ -34,7 +42,6 @@ const JobList = createClass({
               />
             )}
           </div>
-
           <button className='button' onClick={this.onAddJob}>
             Add Job
           </button>
