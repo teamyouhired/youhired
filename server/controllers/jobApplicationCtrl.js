@@ -61,7 +61,7 @@ console.log('req.body.userid --- ',req.body.userid);
   },
 
   addJobOffer: function(req, res) {
-    JobApplication.update({
+   JobApplication.update({
       offersalary: req.body.offersalary,
       offeroptions: req.body.offeroptions,
       offerbenefits: req.body.offerbenefits
@@ -73,11 +73,28 @@ console.log('req.body.userid --- ',req.body.userid);
     }).then(function(info){
       res.send(info);
     }).catch('error!');
+  },
+
+  updateStatus: function(req, res) {
+    JobApplication.update({
+      status: req.body.status,
+    },{
+      fields: ['status'],
+      where: {
+        id: req.body.applicationid
+      }
+    }).then(() => {
+      ActivityLog.create({
+      applicationid: req.body.applicationid,
+      activitytype: 'STATUSCHANGE',
+      activitylogcontent: req.body.status
+      //jobarchiveurl: whatever url we get back from the site
+      })
+      .then(function(info){
+        res.send(info);
+      })
+    }).catch('error!');
   }
-
-  // updatestatus: function(req, res) {
-
-  // }
 
 
 };
