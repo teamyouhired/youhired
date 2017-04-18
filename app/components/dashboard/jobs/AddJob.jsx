@@ -2,13 +2,15 @@ import React, { createClass, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { addJob } from '../../../actions/dashboard/DashboardActions';
+import { hideModal } from '../../../actions/modals/ModalActions';
 // import Popup from 'react-popup';
 
 const AddJob = createClass({
   displayName: 'AddJob',
 
   propTypes: {
-    addJob: PropTypes.func.isRequired
+    addJob: PropTypes.func.isRequired,
+    hideModal: PropTypes.func.isRequired
   },
 
   cancelForm(event) {
@@ -20,9 +22,10 @@ const AddJob = createClass({
     this.statusInput.value = '';
     this.jobUrlInput.value = '';
 
-    this.props.changePage({
-      activeComponent: 'JobList'
-    });
+    this.props.hideModal();
+    // this.props.changePage({
+    //   activeComponent: 'JobList'
+    // });
   },
 
   onSubmit(event) {
@@ -38,9 +41,11 @@ const AddJob = createClass({
     this.jobPositionInput.value = '';
     this.statusInput.value = '';
     this.jobUrlInput.value = '';
-    this.props.changePage({
-      activeComponent: 'JobList'
-    });
+
+    this.props.hideModal();
+    // this.props.changePage({
+    //   activeComponent: 'JobList'
+    // });
   },
 
   render() {

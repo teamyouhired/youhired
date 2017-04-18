@@ -6,8 +6,12 @@ const defaultState = {
 };
 
 const modalReducer = (state = defaultState, { type, modalType, modalProps }) => {
+  console.log('type equals: ', type);
+  console.log('modal type equals: ', modalType);
+  console.log('modal props equals: ', modalProps);
   switch (type) {
     case DISPLAY_JOB_FORM:
+    console.log('modal props calc' ,modalProps ? modalProps : {});
       return {
         ...state,
         modalType: modalType,

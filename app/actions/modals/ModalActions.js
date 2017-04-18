@@ -1,17 +1,16 @@
 import { DISPLAY_JOB_FORM, HIDE_JOB_FORM } from './ModalActionTypes';
 
-export cosnt displayJobForm = ({ formType }) => {
+export const displayJobForm = ({ formType, modalProps }) => {
+  console.log('display job form ran', formType);
   return {
     type: DISPLAY_JOB_FORM,
-    modalType: formType
-  };
-};
-
-export const hideJobForm = ({ formType }) => {
-  return {
-    type: HIDE_JOB_FORM,
     modalType: formType,
-    modalProps: formProps ? formProps : null
+    modalProps: modalProps
   };
 };
 
+export const hideModal = () => {
+  return {
+    type: HIDE_JOB_FORM
+  };
+};

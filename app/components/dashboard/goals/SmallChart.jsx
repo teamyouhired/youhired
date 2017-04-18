@@ -42,7 +42,7 @@ const SmallChart = createClass({
             }
            </Bar>
          </BarChart>
-         <p class="content">{`Uv of "${activeItem.name}": ${activeItem.uv}`}</p>
+         <p className="content">{`Uv of "${activeItem.name}": ${activeItem.uv}`}</p>
        </div>
     );
   }
