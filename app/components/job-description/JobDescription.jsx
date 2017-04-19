@@ -1,6 +1,6 @@
 import React, { createClass, PropTypes } from 'react';
 import Iframe from 'react-iframe';
-
+import ReactPDF from 'react-pdf';
 
 const API_KEY = "g8v5kuA8GXNu";
 //url is from user input
@@ -17,7 +17,6 @@ const JobDescription= createClass({
   onSubmit(event) {
     event.preventDefault();
 
-    const jobUrlPdf  = "http://pdfmyurl.com/api?license="+ API_KEY + "&url=" + this.jobUrlInput.value + "&page_size=A4&orientation=portrait"
 
     this.props.onSubmit({
       urlPdf: this.jobUrlInput.value
@@ -31,7 +30,7 @@ const JobDescription= createClass({
 
   },
   render() {
-    const { activitylogcontent, createdat } = this.props;
+    const { createdat, pdfFile } = this.props;
     return (
       <div>
         <div className='jobdesc-heading'>
@@ -43,7 +42,7 @@ const JobDescription= createClass({
             <h4>Job Description</h4>
           </div>
           <div className="jobdesc-scroll-main">
-
+            <ReactPDF file={pdfFile} />
           </div>
         </div>
       </div>

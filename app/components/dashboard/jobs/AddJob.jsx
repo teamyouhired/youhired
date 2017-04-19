@@ -35,30 +35,31 @@ const AddJob = createClass({
 
     const API_KEY = "g8v5kuA8GXNu";
     const jobUrlPdf  = "http://pdfmyurl.com/api?license="+ API_KEY + "&url=" + this.jobUrlInput.value + "&page_size=A4&orientation=portrait";
-
+    console.log("campany name: ",this.companyNameInput.value)
     $.ajax(jobUrlPdf)
       .done(file => {
-        console.log(file)
+        console.log("PDF returned in request: ",file)
+          console.log("what is this", this)
         this.props.addJob({
-          //companyName: this.companyNameInput.value,
-          //position:  this.jobPositionInput.value,
-          jobPostUrl: file,
-          // jobPostUrl: this.jobUrlInput.value,
-          //status: this.statusInput.value
+          companyname: this.companyNameInput.value,
+          position:  this.jobPositionInput.value,
+          jobfile: file,
+          jobposturl: this.jobUrlInput.value,
+          status: this.statusInput.value
         });
       });
 
-    this.props.addJob({
-      companyname: this.companyNameInput.value,
-      positionname:  this.jobPositionInput.value,
-      jobposturl: this.jobUrlInput.value,
-      status: this.statusInput.value
-    });
+    // this.props.addJob({
+    //   companyname: this.companyNameInput.value,
+    //   positionname:  this.jobPositionInput.value,
+    //   jobposturl: this.jobUrlInput.value,
+    //   status: this.statusInput.value
+    // });
 
-    this.companyNameInput.value = '';
-    this.jobPositionInput.value = '';
-    this.statusInput.value = '';
-    this.jobUrlInput.value = '';
+    // this.companyNameInput.value = '';
+    // this.jobPositionInput.value = '';
+    // this.statusInput.value = '';
+    // this.jobUrlInput.value = '';
 
     this.props.hideModal();
     // this.props.changePage({
