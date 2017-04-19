@@ -52,7 +52,7 @@ module.exports = {
           'positionname',
           'companyname',
           'jobposturl',
-          'jobarchiveurl',
+          'jobfile',
           'status',
           'companyaddress',
           'companycity',
