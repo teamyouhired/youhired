@@ -66,7 +66,7 @@ const Login = createClass({
 
 const mapStateToProps = (state) => {
   return {
-    isAuthenticated: state.authentication.isAuthenticated
+
   }
 };
 
@@ -75,4 +75,4 @@ const mapActionsToProps = {
   getData: getUserData
 };
 
-export default connect(mapStateToProps, mapActionsToProps)(Login);
+export default connect(null, mapActionsToProps)(Login);

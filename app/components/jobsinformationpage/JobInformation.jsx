@@ -26,6 +26,7 @@ const JobInformation = createClass({
 
   render() {
     const {
+      pdfFile,
       jobApplication,
       activity,
       applicationContacts,
@@ -54,7 +55,7 @@ const JobInformation = createClass({
             <ActivityLog
               activities={activity} />
             <div className="jobdesc-main">
-              <JobDescription />
+              <JobDescription pdfFile={pdfFile}/>
             </div>
           </div>
           <div>
@@ -80,7 +81,8 @@ const mapStateToProps = (state) => {
     jobApplication: state.jobInformation.jobDetails,
     activity: state.jobInformation.jobDetails.activity,
     applicationContacts: state.jobInformation.jobDetails.applicationContacts,
-    isModalActive: state.modal.modalType
+    isModalActive: state.modal.modalType,
+    pdfFile: state.jobInformation.jobDetails.jobarchiveurl
   };
 };
 
