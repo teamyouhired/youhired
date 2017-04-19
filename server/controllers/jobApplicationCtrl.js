@@ -39,27 +39,30 @@ module.exports = {
 
   addApplication: function(req, res) {
 
-console.log('req.body.userid --- ',req.body.userid);
-    //1. Invoke Dimitri's verify token formula!
-      //assumes that verifyToken is a method on the User model
+    console.log('req.body.userid --- ',req.body.userid);
 
-        console.log('add functionality that sends jobPostUrl to site and returns archive URL.  Data received back should be an argument to next function in the chain');
+    console.log('add functionality that sends jobPostUrl to site and returns archive URL.  Data received back should be an argument to next function in the chain');
 
-        JobApplication.create({
-          userid: req.body.userid,
-          status: req.body.status,
-          positionname: req.body.positionname,
-          companyname: req.body.companyname,
-          jobposturl: req.body.jobposturl
-          // jobarchiveurl: whatever url we get back from the site
+    JobApplication.create({
+      userid: req.body.userid,
+      status: req.body.status,
+      positionname: req.body.positionname,
+      companyname: req.body.companyname,
+      jobposturl: req.body.jobposturl
+    })
+    .then((data) => {
+      consistencyApplicationQuery(data.dataValues.id).then((info) => {
+        res.send(info);
+        console.log(info);
+      }).then(() => {
+        ActivityLog.create({
+          applicationid: data.dataValues.id,
+          activitytype: 'STATUSCHANGE',
+          activitylogcontent: req.body.status
         })
-        //gets all the job info from newly created record and sends to the front end!
-        .then((data) => {
-          consistencyApplicationQuery(data.dataValues.id).then((info) => {
-            res.send(info);
-            console.log(info);
-          })
-        }).catch('error!');
+      })
+    })
+    .catch('error!');
   },
 
   // retrieveArchivedUrl: function(req, res) {
@@ -125,10 +128,9 @@ console.log('req.body.userid --- ',req.body.userid);
       }
     }).then(() => {
       ActivityLog.create({
-      applicationid: req.body.applicationid,
-      activitytype: 'STATUSCHANGE',
-      activitylogcontent: req.body.status
-      //jobarchiveurl: whatever url we get back from the site
+        applicationid: req.body.applicationid,
+        activitytype: 'STATUSCHANGE',
+        activitylogcontent: req.body.status
       })
       .then(function(info){
         res.send(info);
