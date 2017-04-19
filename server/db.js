@@ -3,9 +3,9 @@ var Sequelize = require('sequelize');
 
 //CONNECTION TO LOCAL DATABASE
 
-module.exports = new Sequelize('youhired', 'abramicf', 'password', {
-  dialect: 'postgres'
-});
+// module.exports = new Sequelize('youhired', 'abramicf', 'password', {
+//   dialect: 'postgres'
+// });
 
 // module.exports = new Sequelize('youhired', 'macuser', 'password', {
 //   dialect: 'postgres'

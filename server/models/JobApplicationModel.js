@@ -9,16 +9,25 @@ var JobApplication = connection.define('jobapplications', {
     unique: true
   },
   seeduserid: Sequelize.INTEGER,
-  positionname: Sequelize.STRING(100),
-  companyname: Sequelize.STRING(100),
+  positionname: {
+    type: Sequelize.STRING(100),
+    allowNull: false
+  },
+  companyname: {
+    type: Sequelize.STRING(100),
+    allowNull: false
+  },
   jobposturl: Sequelize.TEXT,
-  jobarchiveurl: Sequelize.TEXT,
-  status: Sequelize.STRING(50),
+  jobfile: Sequelize.TEXT,
+  status: {
+    type: Sequelize.STRING(50),
+    allowNull: false
+  },
   companyaddress: Sequelize.STRING(150),
   companycity: Sequelize.STRING(150),
   companystate: Sequelize.STRING(2),
   companyzip: Sequelize.STRING(5),
-  offersalary: Sequelize.INTEGER,
+  offersalary: Sequelize.STRING(10),
   offeroptions: Sequelize.TEXT,
   offerbenefits: Sequelize.TEXT
 }, {
