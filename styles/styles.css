@@ -21,7 +21,7 @@
     z-index: 3;
   }*/
 body {
-  background-color: #f7f5e6;
+  background-color: #F7F5E6;
 }
 .button-container {
   position: absolute;
@@ -162,7 +162,6 @@ footer {
   float: left;
   text-align: center;
   width: 32%;
-
   border: 2px solid;
   margin: 7px;
   padding-bottom: 20px;
@@ -170,6 +169,7 @@ footer {
 }
 
 .root-main-goals {
+  background-color: #f7f5e6;
   float: left;
   text-align: center;
   width: 32%;
