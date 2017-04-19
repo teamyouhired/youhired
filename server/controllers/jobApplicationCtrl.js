@@ -10,7 +10,7 @@ var ContactApplicationJoin = require('./../models/ContactApplicationJoinModel');
 
 //CREATE A NEW JOB APPLICATION
 
-var consistencyApplicationQuery = function(data){
+var consistencyApplicationQuery = function(id){
       return JobApplication.findOne({
         attributes: [
           ['id', 'applicationid'],
@@ -29,7 +29,7 @@ var consistencyApplicationQuery = function(data){
           'userid'
           ],
         where: {
-            id: data.dataValues.id
+            id: id
           }
       });
     }
@@ -51,11 +51,11 @@ console.log('req.body.userid --- ',req.body.userid);
           positionname: req.body.positionname,
           companyname: req.body.companyname,
           jobposturl: req.body.jobposturl
-          //jobarchiveurl: whatever url we get back from the site
+          // jobarchiveurl: whatever url we get back from the site
         })
         //gets all the job info from newly created record and sends to the front end!
         .then((data) => {
-          consistencyApplicationQuery(data).then((info) => {
+          consistencyApplicationQuery(data.dataValues.id).then((info) => {
             res.send(info);
             console.log(info);
           })
@@ -72,6 +72,7 @@ console.log('req.body.userid --- ',req.body.userid);
   // },
 
   addInterview: function(req, res) {
+    console.log(req.body.applicationid);
     JobApplication.update({
       companyaddress: req.body.companyaddress,
       companycity: req.body.companycity,
@@ -82,8 +83,9 @@ console.log('req.body.userid --- ',req.body.userid);
       where: {
         id: req.body.applicationid
       }
-    }).then((data) => {
-      consistencyApplicationQuery(data).then((info) => {
+    }).then(() => {
+      var id = req.body.applicationid;
+      consistencyApplicationQuery(id).then((info) => {
         res.send(info);
         console.log(info);
       })
