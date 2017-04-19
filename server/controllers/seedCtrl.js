@@ -576,6 +576,15 @@ module.exports = {
 //     "companyzip": "48382"
 // }
 
+//new job offer
+
+// {
+//   "applicationid": 16,
+//   "offersalary": 80000,
+//   "offeroptions": "health, dental, vision",
+//   "offerbenefits": "free airline travel"
+// }
+
 //new user activity
 // {
 //    "applicationid": "6",
