@@ -210,6 +210,18 @@ h4 {
 }
 
 .large-plus-sign {
-  font-size: 64px;
+  font-size: 72px;
   color: gray;
+}
+
+.update-buttons {
+  display: flex;
+  justify-content:space-around;
+  margin: 12px 0 0 0;
+}
+
+#job-info-button {
+  font-size: 14px;
+  text-align: center;
+  white-space: nowrap;
 }

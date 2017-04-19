@@ -22,6 +22,8 @@ const Login = createClass({
       if (sessionStorage.getItem('auth')) {
         this.props.getData();
         this.props.history.push('/dashboard');
+      } else {
+        this.props.history.push('/signup');
       }
     });
 
@@ -50,13 +52,14 @@ const Login = createClass({
             <div className="col-lg-12  col-md-12 col-sm-12">
 
               <button onClick={this.onSignIn} className="btn  submitButton">
-                <Link style={{ color: 'white' }} to='/dashboard'>Submit</Link>
+                Submit
               </button>
 
             </div>
           </div>
           <div className="row forGotPassword">
               <a href="#" >Forgot Username / Password? </a>
+              <Link to="/signup">Sign Up</Link>
           </div>
         </div>
       </div>

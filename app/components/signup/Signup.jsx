@@ -22,6 +22,8 @@ const Signup = createClass({
       if (sessionStorage.getItem('auth')) {
         this.props.getData();
         this.props.history.push('/dashboard');
+      } else {
+        alert('User already exisits');
       }
     });
 
@@ -48,7 +50,7 @@ const Signup = createClass({
           </div>
           <div className="col-lg-12  col-md-12 col-sm-12">
             <button onClick={this.onSignUp} className="btn  submitButton" >
-              <Link style={{ color: 'white' }} to='/dashboard'>Submit</Link>
+              Submit
             </button>
           </div>
         </div>

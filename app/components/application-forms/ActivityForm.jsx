@@ -1,13 +1,14 @@
 import React, { createClass } from 'react';
 
-const TaskForm = createClass({
+const ActivityForm = createClass({
   cancelForm() {
       // close modal and clear all fields
+      this.props.hideModal();
     },
 
     onSubmit(event) {
       event.preventDefault();
-      this.props.addGoal({
+      this.props.addActivity({
         ApplicationId: this.ApplicationId.value,
         //activityType:  this.activityType.value,
         description:  this.description.value
@@ -17,6 +18,7 @@ const TaskForm = createClass({
       //this.activityType.value = '';
       this.description.value = '';
       // need to close the modal now
+      this.props.hideModal();
     },
     /*
       Right now only one status, need to revisit later
@@ -54,4 +56,4 @@ const TaskForm = createClass({
     }
 });
 
-export default TaskForm;
+export default ActivityForm;

@@ -3,14 +3,19 @@ import { connect } from 'react-redux';
 import BasicInformation from './BasicInformation';
 import ActivityLog from './activities/ActivityLog';
 import ApplicationContacts from './contacts/ApplicationContacts';
-import { getUserData, addContact } from '../../api/users';
+import { getUserData, addContact, updateStatus, addGoal, addActivity } from '../../api/users';
 // import { addContact } from '../../actions/jobsinformationpage';
 import JobDescription from '../job-description/JobDescription';
 import HeaderComponent from 'Header';
 import FooterComponent from 'Footer';
 import ContactForm from '../application-forms/ContactForm';
 import { Link } from 'react-router-dom';
-import { displayContactForm, hideModal } from '../../actions/modals/ModalActions';
+import {
+  displayContactForm,
+  hideModal,
+  displayActivityForm,
+  displayGoalForm
+  } from '../../actions/modals/ModalActions';
 import RootModal from '../RootModal';
 
 const JobInformation = createClass({
@@ -23,6 +28,30 @@ const JobInformation = createClass({
   // componentWillMount() {
   //   this.props.getData();
   // },
+
+  onAddActivity(event) {
+    this.props.displayActivityForm({
+      formType: 'DISPLAY_ACTIVITY_FORM',
+      modalProps: {
+        addActivity: this.props.addActivity,
+        hideModal: this.props.hideModal
+      }
+    });
+  },
+
+  onAddGoal(event) {
+    this.props.displayGoalForm({
+      formType: 'DISPLAY_GOAL_FORM',
+      modalProps: {
+        addGoal: this.props.addGoal,
+        hideModal: this.props.hideModal
+      }
+    });
+  },
+
+  onUpdateStatus(event) {
+    // dispatch action to update status in server
+  },
 
   render() {
     const {
@@ -52,6 +81,17 @@ const JobInformation = createClass({
           <div className="job-area">
             <BasicInformation
               details={jobApplication} />
+              <div className="update-buttons">
+                <button id='job-info-button' className='button' onClick={this.onAddActivity} >
+                  Add Activity
+                </button>
+                <button id='job-info-button' className='button' onClick={this.onAddGoal} >
+                  Add Goal
+                </button>
+                <button id='job-info-button' className='button' onClick={this.onUpdateStatus} >
+                  Update Status
+                </button>
+              </div>
             <ActivityLog
               activities={activity} />
             <div className="jobdesc-main">
@@ -89,7 +129,12 @@ const mapStateToProps = (state) => {
 const mapActionsToProps = {
   addContact: addContact,
   displayContactForm: displayContactForm,
-  hideModal: hideModal
+  displayGoalForm: displayGoalForm,
+  displayActivityForm: displayActivityForm,
+  hideModal: hideModal,
+  addGoal: addGoal,
+  addActivity: addActivity,
+  updateStatus: updateStatus
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(JobInformation);

@@ -14,11 +14,6 @@ const dashboardReducer = (state = defaultState, { type, payload }) => {
         ...state,
         jobs: state.jobs.concat([{ details: payload, activities: [], contacts: [] }])
       };
-    case addTask.SUCCESS:
-      return {
-        ...state,
-        activity: payload
-      };
     case getUserData.SUCCESS:
     console.log('user data payload', payload);
       return {
