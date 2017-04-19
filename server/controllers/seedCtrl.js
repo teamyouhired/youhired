@@ -557,12 +557,23 @@ module.exports = {
 
 
 
-//new job application
+// new job application
 // {
 //   "positionname": "Front end developer",
 //   "companyname": "Facebook.com",
 //   "jobposturl": "www.facebook.com",
 //   "status": "APPLIED"
+// }
+
+
+//new interview
+
+// {
+//   "applicationid": 13,
+//     "companyaddress": "124 Delta Drive",
+//     "companycity": "Atlanta",
+//     "companystate": "GA",
+//     "companyzip": "48382"
 // }
 
 //new user activity
