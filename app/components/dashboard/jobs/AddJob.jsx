@@ -31,9 +31,9 @@ const AddJob = createClass({
   onSubmit(event) {
     event.preventDefault();
     this.props.addJob({
-      companyName: this.companyNameInput.value,
-      position:  this.jobPositionInput.value,
-      jobPostUrl: this.jobUrlInput.value,
+      companyname: this.companyNameInput.value,
+      positionname:  this.jobPositionInput.value,
+      jobposturl: this.jobUrlInput.value,
       status: this.statusInput.value
     });
 

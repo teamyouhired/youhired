@@ -10,22 +10,28 @@ const ContactForm = createClass({
   onSubmit(event) {
     event.preventDefault();
     this.props.addContact({
-      companyName: this.companyNameInput.value,
-      position:  this.jobPositionInput.value,
-      firstName: this.firstName.value,
-      lastName: this.lastName.value,
-      phoneNumber: this.phoneNumber.value,
-      email: this.email.value,
-      address: this.address.value,
-      city: this.city.value,
-      state: this.state.value,
-      zip: this.zip.value
+      contactcompany: this.companyNameInput.value,
+      contactpositiontitle:  this.jobPositionInput.value,
+      contactfirstname: this.firstName.value,
+      contactlastname: this.lastName.value,
+      contactphonenumber: this.phoneNumber.value,
+      contactemail: this.email.value,
+      contactaddress: this.address.value,
+      contactcity: this.city.value,
+      contactstate: this.state.value,
+      contactzip: this.zip.value
     });
 
     this.companyNameInput.value = '';
     this.jobPositionInput.value = '';
-    this.statusInput.value = '';
-    this.jobUrlInput.value = '';
+    this.firstName.value = '';
+    this.lastName.value = '';
+    this.phoneNumber.value = '';
+    this.email.value = '';
+    this.address.value = '';
+    this.city.value = '';
+    this.state.value = '';
+    this.zip.value = '';
     // need to close the modal now
     this.props.hideModal();
   },
@@ -77,6 +83,7 @@ const ContactForm = createClass({
           className='form-control'
           ref={state => { this.state = state }}
           placeholder={'State'}
+          maxLength={2}
         />
         <input
           className='form-control'

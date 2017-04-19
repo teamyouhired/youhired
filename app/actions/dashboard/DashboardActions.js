@@ -1,5 +1,4 @@
-import { ADD_JOB } from './DashboardActionTypes';
-import { ADD_TASK } from './DashboardActionTypes';
+import { ADD_JOB, ADD_TASK, SELECT_JOB } from './DashboardActionTypes';
 
 export function addJob({ companyName, status }) {
   return {
@@ -8,6 +7,13 @@ export function addJob({ companyName, status }) {
       companyName,
       status
     }
+  };
+}
+
+export function selectJob(jobInformation) {
+  return {
+    type: SELECT_JOB,
+    payload: jobInformation
   };
 }
 

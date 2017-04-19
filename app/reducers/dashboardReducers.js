@@ -1,35 +1,34 @@
-import { ADD_JOB } from '../actions/dashboard/DashboardActionTypes';
-import { ADD_TASK } from '../actions/dashboard/DashboardActionTypes';
-import {} from '../actions/dashboard/DashboardActionTypes';
+import { ADD_JOB, ADD_TASK } from '../actions/dashboard/DashboardActionTypes';
 import { addJob, addTask, getUserData } from '../api/users';
 
-
 const defaultState = {
-  jobs: []
+  jobs: [],
+  contacts: []
 };
 
 const dashboardReducer = (state = defaultState, { type, payload }) => {
   switch (type) {
     case addJob.SUCCESS:
+    console.log('add job payload ', payload);
       return {
         ...state,
-        jobs: payload.userData.jobs
+        jobs: state.jobs.concat([{ details: payload, activities: [], contacts: [] }])
       };
     case addTask.SUCCESS:
       return {
         ...state,
-        activity: payload.userData.activity
+        activity: payload
       };
     case getUserData.SUCCESS:
+    console.log('user data payload', payload);
       return {
         ...state,
-        jobs: payload[0]
-      }
+        jobs: payload.jobapplications,
+        contacts: payload.contacts
+      };
     default:
       return state;
   }
 }
 
 export default dashboardReducer;
-
-

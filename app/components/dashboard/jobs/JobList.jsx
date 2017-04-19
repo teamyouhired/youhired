@@ -10,12 +10,12 @@ const JobList = createClass({
       jobs: PropTypes.array.isRequired,
       changePage: PropTypes.func.isRequired,
       addJob: PropTypes.func.isRequired,
+      selectJob: PropTypes.func.isRequired,
       activeComponent: PropTypes.string.isRequired,
       hideModal: PropTypes.func.isRequired
     },
 
     onAddJob(event) {
-      console.log('add job ran, modal state should be updated');
       this.props.displayJobForm({
         formType: 'DISPLAY_JOB_FORM',
         modalProps: {
@@ -23,22 +23,27 @@ const JobList = createClass({
           hideModal: this.props.hideModal
         }
       });
-      // this.props.changePage({
-      //   activeComponent: 'AddJob'
-      // })
     },
 
     render() {
-
+      const {
+        selectJob,
+        changePage,
+        activeComponent,
+        jobs
+      } = this.props;
       return (
         <div className='job-list'>
           <div>
-            {this.props.jobs.map((job, index) =>
+            {jobs.map((job, index) =>
               <JobCard
                 key={index}
-                activeComponent={this.props.activeComponent}
-                changePage={this.props.changePage}
-                {...job}
+                activeComponent={activeComponent}
+                changePage={changePage}
+                selectJob={selectJob}
+                jobDetails={job.details}
+                jobActivities={job.activities}
+                jobContacts={job.contacts}
               />
             )}
           </div>

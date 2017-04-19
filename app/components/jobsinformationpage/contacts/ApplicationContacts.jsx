@@ -21,8 +21,16 @@ const ApplicationContacts = createClass({
   },
 
   render() {
+    if (!this.props.contacts) {
+      return (
+        <div className="app-contacts">
+          <div className="contact-text" onClick={this.onAddContact}>
+            <p className="large-plus-sign text-center">+</p>
+          </div>
+        </div>
+      );
+    }
     return (
-
       <div>
         {this.props.contacts.map((contact, index) =>
           <Contact

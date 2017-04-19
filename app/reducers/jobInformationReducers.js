@@ -1,20 +1,20 @@
-import {} from '../actions/jobsinformationpage/JobInformationActionTypes';
-import { getUserData } from '../api/users';
+import { SELECT_JOB } from '../actions/dashboard/DashboardActionTypes';
 
 const defaultState = {
-    companies: [],
-    activity: [],
-    applicationContacts: []
+    jobDetails: {},
+    jobActivities: [],
+    jobContacts: []
 };
 
 const jobInformationReducer = (state = defaultState, { type, payload }) => {
   switch (type) {
-    case getUserData.SUCCESS:
+    case SELECT_JOB:
+    console.log('payload from dashboard reducer : ', payload);
       return {
         ...state,
-        companies: payload[1],
-        activity: payload[2],
-        applicationContacts: payload[3]
+        jobDetails: payload.jobDetails,
+        jobActivities: payload.jobActivities,
+        jobContacts: payload.jobContacts
       }
     default:
       return state;
@@ -22,4 +22,3 @@ const jobInformationReducer = (state = defaultState, { type, payload }) => {
 }
 
 export default jobInformationReducer;
-
