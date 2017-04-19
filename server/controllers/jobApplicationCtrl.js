@@ -17,7 +17,7 @@ var consistencyApplicationQuery = function(id){
           'positionname',
           'companyname',
           'jobposturl',
-          'jobarchiveurl',
+          'jobfile',
           'status',
           'companyaddress',
           'companycity',
