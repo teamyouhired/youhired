@@ -92,6 +92,8 @@ console.log('req.body.userid --- ',req.body.userid);
     }).catch('error!');
   },
 
+
+
   addJobOffer: function(req, res) {
    JobApplication.update({
       offersalary: req.body.offersalary,
@@ -102,13 +104,16 @@ console.log('req.body.userid --- ',req.body.userid);
       where: {
         id: req.body.applicationid
       }
-    }).then((data) => {
-      consistencyApplicationQuery(data).then((info) => {
+    }).then(() => {
+      var id = req.body.applicationid;
+      consistencyApplicationQuery(id).then((info) => {
         res.send(info);
         console.log(info);
       })
     }).catch('error!');
   },
+
+
 
   updateStatus: function(req, res) {
     JobApplication.update({
