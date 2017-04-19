@@ -36,7 +36,7 @@ const GoalApp = createClass({
           <div className="start-date">
           <FormGroup >
             <ControlLabel>Start Date</ControlLabel>
-            <DatePicker placeholder="Placeholder" calendarPlacement="bottom"  />
+            <DatePicker placeholder="Placeholder" calendarPlacement="bottom"  className="form-custom"/>
           </FormGroup>
           </div>
           <div className="end-date">

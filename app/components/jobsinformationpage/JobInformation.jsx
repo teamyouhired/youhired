@@ -5,13 +5,13 @@ import ActivityLog from './activities/ActivityLog';
 import ApplicationContacts from './contacts/ApplicationContacts';
 import { getUserData, addContact } from '../../api/users';
 // import { addContact } from '../../actions/jobsinformationpage';
+import JobDescription from '../job-description/JobDescription';
 import HeaderComponent from 'Header';
 import FooterComponent from 'Footer';
 import ContactForm from '../application-forms/ContactForm';
 import { Link } from 'react-router-dom';
 import { displayContactForm, hideModal } from '../../actions/modals/ModalActions';
 import RootModal from '../RootModal';
-
 
 const JobInformation = createClass({
   displayName: 'JobInformation',
@@ -53,6 +53,9 @@ const JobInformation = createClass({
               details={jobApplication} />
             <ActivityLog
               activities={activity} />
+            <div className="jobdesc-main">
+              <JobDescription />
+            </div>
           </div>
           <div>
           <ApplicationContacts
@@ -62,6 +65,7 @@ const JobInformation = createClass({
             hideModal={hideModal} />
           </div>
         </div>
+
 
         <div>
           <FooterComponent />

@@ -4,11 +4,13 @@
 }
 
 
-
-.input-group-addon {
-  background-color: red;
+span.input-group {
+  margin: 0 auto;
+  width: 90%;
 }
 
-span > input.form-control {
-  background-color: blue;
+input.form-custom.form-control {
+  margin: 0px;
+  height: 30px;
+  width: 90%;
 }
