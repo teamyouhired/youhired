@@ -33,29 +33,29 @@ const AddJob = createClass({
   onSubmit(event) {
     event.preventDefault();
 
-    const API_KEY = "g8v5kuA8GXNu";
-    const jobUrlPdf  = "http://pdfmyurl.com/api?license="+ API_KEY + "&url=" + this.jobUrlInput.value + "&page_size=A4&orientation=portrait";
-    console.log("campany name: ",this.companyNameInput.value)
-    $.ajax(jobUrlPdf)
-      .done(file => {
-        console.log("PDF returned in request: ",file)
-          console.log("what is this", this)
-        this.props.addJob({
-          companyname: this.companyNameInput.value,
-          position:  this.jobPositionInput.value,
-          jobfile: file,
-          jobposturl: this.jobUrlInput.value,
-          status: this.statusInput.value
-        });
-      });
+    // const API_KEY = "g8v5kuA8GXNu";
+    // const jobUrlPdf  = "http://pdfmyurl.com/api?license="+ API_KEY + "&url=" + this.jobUrlInput.value + "&page_size=A4&orientation=portrait";
+    // console.log("campany name: ",this.companyNameInput.value)
+    // $.ajax(jobUrlPdf)
+    //   .done(file => {
+    //     console.log("PDF returned in request: ",file)
+    //       console.log("what is this", this)
+    //     this.props.addJob({
+    //       companyname: this.companyNameInput.value,
+    //       position:  this.jobPositionInput.value,
+    //       jobfile: file,
+    //       jobposturl: this.jobUrlInput.value,
+    //       status: this.statusInput.value
+    //     });
+    //   });
 
-    // this.props.addJob({
-    //   companyname: this.companyNameInput.value,
-    //   positionname:  this.jobPositionInput.value,
-    //   jobposturl: this.jobUrlInput.value,
-    //   status: this.statusInput.value
-    // });
-
+    this.props.addJob({
+      companyname: this.companyNameInput.value,
+      positionname:  this.jobPositionInput.value,
+      jobposturl: this.jobUrlInput.value,
+      status: this.statusInput.value
+    })
+    .then(() => console.log('these are my props after the request without clearing them out', this));
     // this.companyNameInput.value = '';
     // this.jobPositionInput.value = '';
     // this.statusInput.value = '';
