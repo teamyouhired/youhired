@@ -10,19 +10,20 @@ const JobDescription= createClass({
   displayName: 'JobDescription',
 
   propTypes: {
-    //onSignIn: PropTypes.func.isRequired, //need to figure this out
-    //getData: PropTypes.func.isRequired
+    //onSubmit: PropTypes.func.isRequired
   },
 
 
   onSubmit(event) {
     event.preventDefault();
 
+    const jobUrlPdf  = "http://pdfmyurl.com/api?license="+ API_KEY + "&url=" + this.jobUrlInput.value + "&page_size=A4&orientation=portrait"
+
     this.props.onSubmit({
       urlPdf: this.jobUrlInput.value
     })
     .then(() => {
-      const jobUrlPdf  = "http://pdfmyurl.com/api?license="+ API_KEY + "&url=" + this.jobUrlInput.value + "&page_size=A4&orientation=portrait"
+      //display pdf through
       }
     );
 
@@ -42,17 +43,19 @@ const JobDescription= createClass({
             <h4>Job Description</h4>
           </div>
           <div className="jobdesc-scroll-main">
-            <Iframe url="http://www.snagajob.com/job-seeker/jobs/job-details.aspx?postingid=40763730&oq=sr+software+engineer&item=1&searchid=70a3ed46-13bc-9661-466b-0fa9aa33afa8&ui=true&src=title"
-              width="600px"
-              height="800px"
-              display="initial"
-              position="relative"
-              allowFullScreen/>
+
           </div>
         </div>
       </div>
     );
   }
 });
+
+// const mapActionsToProps = {
+//   onSubmit: onSubmit
+
+// };
+
+// export default connect(null, mapActionsToProps)(JobDescription);
 
 export default JobDescription;

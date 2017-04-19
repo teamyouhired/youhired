@@ -1,6 +1,8 @@
 import React, { createClass, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import $ from 'jquery';
+
 import { addJob } from '../../../actions/dashboard/DashboardActions';
 import { hideModal } from '../../../actions/modals/ModalActions';
 // import Popup from 'react-popup';
@@ -30,6 +32,22 @@ const AddJob = createClass({
 
   onSubmit(event) {
     event.preventDefault();
+
+    const API_KEY = "g8v5kuA8GXNu";
+    const jobUrlPdf  = "http://pdfmyurl.com/api?license="+ API_KEY + "&url=" + this.jobUrlInput.value + "&page_size=A4&orientation=portrait";
+
+    $.ajax(jobUrlPdf)
+      .done(file => {
+        console.log(file)
+        this.props.addJob({
+          //companyName: this.companyNameInput.value,
+          //position:  this.jobPositionInput.value,
+          jobPostUrl: file,
+          // jobPostUrl: this.jobUrlInput.value,
+          //status: this.statusInput.value
+        });
+      });
+
     this.props.addJob({
       companyname: this.companyNameInput.value,
       positionname:  this.jobPositionInput.value,
