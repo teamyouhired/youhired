@@ -21,10 +21,10 @@ function Routes(app) {
 
   app.get('/api/seed', seedCtrl.sendSeedData);
   app.get('/api/getData', authenticate, generalQueries.getData);
-
+  app.post('/api/addcontactfromapplication', authenticate, contactCtrl.addContactFromApplication);
   app.post('/api/addapplication', authenticate, jobApplicationCtrl.addApplication);
   app.post('/api/addactivity', authenticate, activityLogCtrl.addActivity);
-  app.post('/api/addcontact', authenticate, contactCtrl.addContactFromUser);
+  app.post('/api/addcontactfromdashboard', authenticate, contactCtrl.addContactFromDashboard);
 
   app.post('/api/addinterview', authenticate, jobApplicationCtrl.addInterview);
   app.post('/api/addjoboffer', authenticate, jobApplicationCtrl.addJobOffer);
