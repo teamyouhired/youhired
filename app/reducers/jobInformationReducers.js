@@ -1,5 +1,5 @@
 import { SELECT_JOB } from '../actions/dashboard/DashboardActionTypes';
-import { addContact } from '../api/users';
+import { addContact, addActivity } from '../api/users';
 
 const defaultState = {
     jobDetails: {},
