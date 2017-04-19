@@ -9,10 +9,10 @@ const defaultState = {
 const dashboardReducer = (state = defaultState, { type, payload }) => {
   switch (type) {
     case addJob.SUCCESS:
+    console.log('add job payload ', payload);
       return {
         ...state,
-        jobs: payload.jobapplications,
-        contacts: payload.contacts
+        jobs: state.jobs.concat([{ details: payload, activities: [], contacts: [] }])
       };
     case addTask.SUCCESS:
       return {
@@ -20,9 +20,11 @@ const dashboardReducer = (state = defaultState, { type, payload }) => {
         activity: payload
       };
     case getUserData.SUCCESS:
+    console.log('user data payload', payload);
       return {
         ...state,
-        jobs: payload.jobapplications
+        jobs: payload.jobapplications,
+        contacts: payload.contacts
       };
     default:
       return state;

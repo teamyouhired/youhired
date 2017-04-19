@@ -3,7 +3,7 @@ import $ from 'jquery';
 export function createClient({ actionTypePrefix, requestType, url }) {
   const SUCCESS = `${actionTypePrefix}_SUCCESS`;
   const FAIL = `${actionTypePrefix}_FAIL`;
-  const token = sessionStorage.getItem ? sessionStorage.getItem('auth') : null;
+  const token = sessionStorage.getItem('auth') ? sessionStorage.getItem('auth') : null;
 
   function request(data) {
     function thunk(dispatch) {
