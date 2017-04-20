@@ -10,13 +10,14 @@ const activityLogCtrl = require('./controllers/activityLogCtrl.js');
 const generalQueries = require('./controllers/generalQueries');
 const applicationContactCtrl = require('./controllers/applicationContactCtrl.js');
 const goalCtrl = require('./controllers/goalCtrl.js');
+const updatedSeedCtrl = require('./controllers/updatedSeedCtrl.js');
 
 // endpoint routes
 function Routes(app) {
 
   app.post('/api/signup', userCtrl.onSignup);
   app.post('/api/signin', userCtrl.onSignin);
-  app.post('/api/seedTheData', authenticate, [])
+  app.post('/api/updatedSeed', authenticate, updatedSeedCtrl.seed)
   app.post('/api/test', authenticate, userCtrl.test);
   // app.post('/api/test', userCtrl.test);
 

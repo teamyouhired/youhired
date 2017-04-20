@@ -42,14 +42,15 @@ module.exports = {
     console.log('req.body.userid --- ',req.body.userid);
 
     console.log('add functionality that sends jobPostUrl to site and returns archive URL.  Data received back should be an argument to next function in the chain');
-
+//
     JobApplication.create({
       userid: req.body.userid,
       status: req.body.status,
       jobfile: req.body.jobfile,
       positionname: req.body.positionname,
       companyname: req.body.companyname,
-      jobposturl: req.body.jobposturl
+      jobposturl: req.body.jobposturl,
+      jobfile: req.body.jobfile
     })
     .then((data) => {
       consistencyApplicationQuery(data.dataValues.id).then((info) => {
