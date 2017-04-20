@@ -14,7 +14,7 @@ var ApplicationContact = require('./../models/ApplicationContactJoinModel');
 
 //IMPORT CONTROLLERS
 const userCtrl = require('./userCtrl.js');
-const seedCtrl = require('./seedCtrl.js');
+// const seedCtrl = require('./seedCtrl.js');
 const tokenCtrl = require('./tokenCtrl.js');
 const jobApplicationCtrl = require('./jobApplicationCtrl.js');
 const contactCtrl = require('./contactCtrl.js');
