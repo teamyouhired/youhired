@@ -15,8 +15,6 @@ import SmallChart from './SmallChart';
 import PieOverall from './PieOverall';
 import AppChart from './AppChart';
 
-
-
 const spanishDayLabels = ['Dom', 'Lu', 'Ma', 'Mx', 'Ju', 'Vi', 'Sab'];
 const spanishMonthLabels = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
 const wapperDivStyle = { border: '1px solid #ccc' };
@@ -25,6 +23,16 @@ const scrollingDivStyle = { padding: '10px', height: '70px', overflow: 'auto' };
 const GoalApp = createClass({
   displayName: 'GoalApp',
 
+  onAddGoal(event) {
+    console.log('click event triggered');
+    this.props.displayGoalForm({
+      formType: 'DISPLAY_GOAL_FORM',
+      modalProps: {
+        addGoal: this.props.addGoal,
+        hideModal: this.props.hideModal
+      }
+    });
+  },
 
   render() {
     return (
@@ -65,6 +73,10 @@ const GoalApp = createClass({
               <SmallChart />
             </div>
           </div>
+
+          <button id='job-info-button' className='button' onClick={this.onAddGoal} >
+            Add Goal
+          </button>
 
         </div>
       </div>

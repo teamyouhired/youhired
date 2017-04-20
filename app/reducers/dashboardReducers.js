@@ -1,5 +1,5 @@
 import { ADD_JOB, ADD_TASK } from '../actions/dashboard/DashboardActionTypes';
-import { addJob, addTask, getUserData } from '../api/users';
+import { addJob, addContactToApplication, addTask, getUserData } from '../api/users';
 
 const defaultState = {
   jobs: [],
@@ -9,18 +9,18 @@ const defaultState = {
 const dashboardReducer = (state = defaultState, { type, payload }) => {
   switch (type) {
     case addJob.SUCCESS:
-    console.log('add job payload ', payload);
+    console.log('add job payload dashboard ', payload);
       return {
         ...state,
         jobs: state.jobs.concat([{ details: payload, activities: [], contacts: [] }])
-      };
+      }
     case getUserData.SUCCESS:
-    console.log('user data payload', payload);
+    console.log('get user data payload dashboard', payload);
       return {
         ...state,
         jobs: payload.jobapplications,
         contacts: payload.contacts
-      };
+      }
     default:
       return state;
   }

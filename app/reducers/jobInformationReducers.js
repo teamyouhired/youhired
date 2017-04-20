@@ -1,5 +1,5 @@
 import { SELECT_JOB } from '../actions/dashboard/DashboardActionTypes';
-import { addContact, addActivity } from '../api/users';
+import { addContactToApplication, addActivity, addInterview, addJobOffer } from '../api/users';
 
 const defaultState = {
     jobDetails: {},
@@ -16,7 +16,8 @@ const jobInformationReducer = (state = defaultState, { type, payload }) => {
         jobActivities: payload.jobActivities,
         jobContacts: payload.jobContacts
       }
-    case addContact.SUCCESS:
+    case addContactToApplication.SUCCESS:
+    console.log('add contact to application payload', payload);
       return {
         ...state,
         jobContacts: state.jobContacts.concat([payload])
@@ -25,6 +26,13 @@ const jobInformationReducer = (state = defaultState, { type, payload }) => {
       return {
         ...state,
         jobActivities: state.jobActivities.concat([payload])
+      }
+    case addInterview.SUCCESS:
+    case addJobOffer.SUCCESS:
+    console.log('add offer or interview payload', payload);
+      return {
+        ...state,
+        jobDetails: payload
       }
     default:
       return state;

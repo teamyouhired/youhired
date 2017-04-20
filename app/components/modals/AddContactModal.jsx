@@ -1,9 +1,9 @@
 import React, { createClass, PropTypes } from 'react';
 import ContactForm from '../application-forms/ContactForm';
 
-const AddContactModal = ({ userId = null, addContact, hideModal }) => (
+const AddContactModal = ({ userId = null, addContact, hideModal, applicationId }) => (
   <div>
-    <ContactForm addContact={addContact} hideModal={hideModal} />
+    <ContactForm applicationId={applicationId} addContact={addContact} hideModal={hideModal} />
   </div>
 );
 

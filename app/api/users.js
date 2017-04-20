@@ -19,10 +19,10 @@ export const addGoal = createClient({
   url: '/api/addgoal'
 });
 
-export const addContact = createClient({
+export const addContactToApplication = createClient({
   actionTypePrefix: 'user:addContact',
   requestType: 'POST',
-  url: '/api/addcontact'
+  url: '/api/addcontactfromapplication'
 });
 
 export const getUserData = createClient({
@@ -47,6 +47,18 @@ export const updateStatus = createClient({
   actionTypePrefix: 'user:updateStatus',
   requestType: 'POST',
   url: '/api/updatestatus'
+});
+
+export const addInterview = createClient({
+  actionTypePrefix: 'user:addInterview',
+  requestType: 'POST',
+  url: '/api/addinterview'
+});
+
+export const addJobOffer = createClient({
+  actionTypePrefix: 'user:addJobOffer',
+  requestType: 'POST',
+  url: '/api/addjoboffer'
 });
 
 /*

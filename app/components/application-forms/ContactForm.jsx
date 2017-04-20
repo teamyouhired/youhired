@@ -10,6 +10,7 @@ const ContactForm = createClass({
   onSubmit(event) {
     event.preventDefault();
     this.props.addContact({
+      applicationid: this.props.applicationId,
       contactcompany: this.companyNameInput.value,
       contactpositiontitle:  this.jobPositionInput.value,
       contactfirstname: this.firstName.value,

@@ -13,6 +13,7 @@ const ApplicationContacts = createClass({
     this.props.displayContactForm({
         formType: 'DISPLAY_CONTACT_FORM',
         modalProps: {
+          applicationId: this.props.applicationId,
           addContact: this.props.addContact,
           hideModal: this.props.hideModal
         }

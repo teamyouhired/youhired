@@ -3,7 +3,9 @@ import {
   HIDE_JOB_FORM,
   DISPLAY_CONTACT_FORM,
   DISPLAY_ACTIVITY_FORM,
-  DISPLAY_GOAL_FORM
+  DISPLAY_GOAL_FORM,
+  DISPLAY_INTERVIEW_FORM,
+  DISPLAY_OFFER_FORM
   } from '../actions/modals/ModalActionTypes';
 
 const defaultState = {
@@ -17,6 +19,8 @@ const modalReducer = (state = defaultState, { type, modalType, modalProps }) => 
     case DISPLAY_CONTACT_FORM:
     case DISPLAY_ACTIVITY_FORM:
     case DISPLAY_GOAL_FORM:
+    case DISPLAY_INTERVIEW_FORM:
+    case DISPLAY_OFFER_FORM:
       return {
         ...state,
         modalType: modalType,

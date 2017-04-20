@@ -3,35 +3,33 @@ import React, { createClass } from 'react';
 const JobOfferForm = createClass({
 
   cancelForm() {
-    // close modal and clear all fields
+
+    this.offerSalary.value = '';
+    this.offerOptions.value = '';
+    this.offerBenefits.value = '';
+
     this.props.hideModal();
   },
 
   onSubmit(event) {
     event.preventDefault();
-    this.props.addOffer({
-      applicationID: this.applicationID.value,
-      offerSalary:  this.offerSalary.value,
-      offerOptions: this.offerOptions.value,
-      offerBenefits: this.offerBenefits.value
+    this.props.addJobOffer({
+      applicationid: this.props.applicationId,
+      offersalary:  this.offerSalary.value,
+      offeroptions: this.offerOptions.value,
+      offerbenefits: this.offerBenefits.value
     });
 
-    this.applicationID.value = '';
     this.offerSalary.value = '';
     this.offerOptions.value = '';
     this.offerBenefits.value = '';
-    // need to close the modal now
+
     this.props.hideModal();
   },
 
   render() {
     return (
       <form onSubmit={this.onSubmit}>
-        <input
-          className='form-control'
-          ref={idInput => { this.applicationID = idInput }}
-          placeholder={'Application ID'}
-        />
         <input
           className='form-control'
           ref={offerSalary => { this.offerSalary = offerSalary }}
