@@ -10,7 +10,6 @@ const ApplicationContacts = createClass({
   },
 
   onAddContact(event) {
-    console.log(this.props)
     this.props.displayContactForm({
         formType: 'DISPLAY_CONTACT_FORM',
         modalProps: {

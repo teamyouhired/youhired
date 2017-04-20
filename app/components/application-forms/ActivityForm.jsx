@@ -1,22 +1,24 @@
 import React, { createClass } from 'react';
 
-const TaskForm = createClass({
+const ActivityForm = createClass({
   cancelForm() {
       // close modal and clear all fields
+      this.props.hideModal();
     },
 
     onSubmit(event) {
       event.preventDefault();
-      this.props.addGoal({
-        ApplicationId: this.ApplicationId.value,
+      console.log(this.props.applicationId);
+      this.props.addActivity({
+        applicationid: this.props.applicationId,
         //activityType:  this.activityType.value,
-        description:  this.description.value
+        activitylogcontent:  this.description.value
       });
 
-      this.ApplicationId.value = '';
       //this.activityType.value = '';
       this.description.value = '';
       // need to close the modal now
+      this.props.hideModal();
     },
     /*
       Right now only one status, need to revisit later
@@ -26,18 +28,13 @@ const TaskForm = createClass({
     render() {
       return (
         <form onSubmit={this.onSubmit}>
-          <input
-            className='form-control'
-            ref={ApplicationId => { this.ApplicationId = ApplicationId }}
-            placeholder={'Application ID'}
-          />
           {/*<input
               className='form-control'
               type='number'
               ref={activityType => { this.activityType = activityType }}
               placeholder={'Number of applications to fill out'}
             />*/}
-          <input
+          <textarea
             className='form-control'
             type='number'
             ref={description => { this.description = description }}
@@ -54,4 +51,4 @@ const TaskForm = createClass({
     }
 });
 
-export default TaskForm;
+export default ActivityForm;

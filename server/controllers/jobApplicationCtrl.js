@@ -46,6 +46,7 @@ module.exports = {
     JobApplication.create({
       userid: req.body.userid,
       status: req.body.status,
+      jobfile: req.body.jobfile,
       positionname: req.body.positionname,
       companyname: req.body.companyname,
       jobposturl: req.body.jobposturl

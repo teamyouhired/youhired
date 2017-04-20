@@ -7,10 +7,16 @@ export const addJob = createClient({
 });
 
 // change to activity
-export const addTask = createClient({
-  actionTypePrefix: 'user:addTask',
+export const addActivity = createClient({
+  actionTypePrefix: 'user:addActivity',
   requestType: 'POST',
   url: '/api/addactivity'
+});
+
+export const addGoal = createClient({
+  actionTypePrefix: 'user:addGoal',
+  requestType: 'POST',
+  url: '/api/addgoal'
 });
 
 export const addContact = createClient({
@@ -36,6 +42,13 @@ export const signIn = createClient({
   requestType: 'POST',
   url: '/api/signin'
 });
+
+export const updateStatus = createClient({
+  actionTypePrefix: 'user:updateStatus',
+  requestType: 'POST',
+  url: '/api/updatestatus'
+});
+
 /*
   what needs to happen when a login attempt takes place,
   put this in the routing and use onEntry lifecycle hook to check for the token before allowing access to the page

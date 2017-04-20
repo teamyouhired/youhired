@@ -4,6 +4,7 @@ const GoalForm = createClass({
 
   cancelForm() {
     // close modal and clear all fields
+    this.props.hideModal();
   },
 
   onSubmit(event) {
@@ -16,6 +17,7 @@ const GoalForm = createClass({
     this.ApplicationId.value = '';
     this.goal.value = '';
     // need to close the modal now
+    this.props.hideModal();
   },
 
   render() {

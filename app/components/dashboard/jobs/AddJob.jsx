@@ -33,19 +33,24 @@ const AddJob = createClass({
   onSubmit(event) {
     event.preventDefault();
 
+    let companyName = this.companyNameInput.value;
+    let positionName = this.jobPositionInput.value;
+    let jobPostUrl = this.jobUrlInput.value;
+    let status = this.statusInput.value;
+
     const API_KEY = "g8v5kuA8GXNu";
-    const jobUrlPdf  = "http://pdfmyurl.com/api?license="+ API_KEY + "&url=" + this.jobUrlInput.value + "&page_size=A4&orientation=portrait";
-    console.log("campany name: ",this.companyNameInput.value)
+    const jobUrlPdf  = "http://pdfmyurl.com/api?license="+ API_KEY + "&url=" + this.jobUrlInput.value + " &page_size=A4&orientation=portrait";
+
     $.ajax(jobUrlPdf)
       .done(file => {
-        console.log("PDF returned in request: ",file)
-          console.log("what is this", this)
+        console.log('this is the file', file);
+        let sfile = JSON.stringify(file)
         this.props.addJob({
-          companyname: this.companyNameInput.value,
-          position:  this.jobPositionInput.value,
-          jobfile: file,
-          jobposturl: this.jobUrlInput.value,
-          status: this.statusInput.value
+          companyname: companyName,
+          positionname:  positionName,
+          jobfile: sfile,
+          jobposturl: jobPostUrl,
+          status: status
         });
       });
 
@@ -54,12 +59,12 @@ const AddJob = createClass({
     //   positionname:  this.jobPositionInput.value,
     //   jobposturl: this.jobUrlInput.value,
     //   status: this.statusInput.value
-    // });
-
-    // this.companyNameInput.value = '';
-    // this.jobPositionInput.value = '';
-    // this.statusInput.value = '';
-    // this.jobUrlInput.value = '';
+    // })
+    // .then(() => console.log('these are my props after the request without clearing them out', this));
+    this.companyNameInput.value = '';
+    this.jobPositionInput.value = '';
+    this.statusInput.value = '';
+    this.jobUrlInput.value = '';
 
     this.props.hideModal();
     // this.props.changePage({
