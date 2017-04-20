@@ -1,4 +1,5 @@
 var pg = require('pg');
+var fs = require('fs');
 var Sequelize = require('sequelize');
 var connection = require('./../db');
 var User = require('./../models/UserModel');
@@ -7,10 +8,6 @@ var JobApplication = require('./../models/JobApplicationModel');
 var Contact = require('./../models/ContactModel');
 var ActivityLog = require('./../models/ActivityLogModel');
 var ContactApplicationJoin = require('./../models/ContactApplicationJoinModel');
-
-
-
-
 
 
 

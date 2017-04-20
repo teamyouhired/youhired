@@ -1,6 +1,9 @@
 // var bcrypt = require('bcrypt');
 const express = require('express');
 const bodyParser = require('body-parser');
+var request = require('request');
+var cheerio = require('cheerio');
+
 const routes = require('./routes');
 const seedCtrl = require('./controllers/seedCtrl.js')
 
