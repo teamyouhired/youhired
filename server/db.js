@@ -7,7 +7,7 @@ var Sequelize = require('sequelize');
 //   dialect: 'postgres'
 // });
 
-// module.exports = new Sequelize('youhired', 'macuser', 'password', {
+// module.exports = new Sequelize('youhired', 'RFreude', 'password', {
 //   dialect: 'postgres'
 // });
 

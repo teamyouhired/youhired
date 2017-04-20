@@ -43,7 +43,6 @@ const AddJob = createClass({
 
     $.ajax(jobUrlPdf)
       .done(file => {
-        console.log('this is the file', file);
         let sfile = JSON.stringify(file)
         this.props.addJob({
           companyname: companyName,

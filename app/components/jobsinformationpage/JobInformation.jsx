@@ -21,7 +21,7 @@ import RootModal from '../RootModal';
 const JobInformation = createClass({
   displayName: 'JobInformation',
   propTypes: {
-    jobApplication: PropTypes.array.isRequired,
+    jobApplication: PropTypes.object.isRequired,
     activity: PropTypes.array.isRequired,
     applicationContacts: PropTypes.array.isRequired
   },
@@ -56,7 +56,7 @@ const JobInformation = createClass({
 
   render() {
     const {
-      pdfFile,
+      jobfile,
       jobApplication,
       activity,
       applicationContacts,
@@ -80,7 +80,7 @@ const JobInformation = createClass({
         <div className="main-view">
           <div className="job-area">
             <BasicInformation
-              details={jobApplication} />
+              details={ jobApplication } />
               <div className="update-buttons text-center">
                 <button id='job-info-button' className='button' onClick={this.onAddActivity} >
                   Add Activity
@@ -95,7 +95,7 @@ const JobInformation = createClass({
             <ActivityLog
               activities={activity} />
             <div className="jobdesc-main">
-              <JobDescription pdfFile={pdfFile}/>
+              <JobDescription jobfile={jobfile}/>
             </div>
           </div>
           <div>
@@ -120,7 +120,7 @@ const mapStateToProps = (state) => {
   return {
     jobApplication: state.jobInformation.jobDetails,
     isModalActive: state.modal.modalType,
-    pdfFile: state.jobInformation.jobDetails.jobarchiveurl,
+    jobfile: state.jobInformation.jobDetails.jobfile,
     activity: state.jobInformation.jobActivities,
     applicationContacts: state.jobInformation.jobContacts,
     isModalActive: state.modal.modalType
