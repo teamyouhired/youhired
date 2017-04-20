@@ -2,7 +2,6 @@
 
 
 .team-card {
-  border: 2px solid;
   padding: 20px;
   margin: 10px;
   box-shadow: 0 8px 16px 0 rgba(1,1,1,0.2), 0 6px 20px 0 rgba(1,1,1,0.2);
@@ -39,10 +38,6 @@ body {
     float: right;
     width: 175px;
     background-color: #52658F; /* Green */
-    border: solid;
-    border-width: 1px;
-    border-color: #f7f5e6;
-    border-radius: 3px;
     color: white;
     padding: 10px 50px;
     text-align: center;
@@ -152,7 +147,6 @@ footer {
   float: left;
   text-align: center;
   width: 32%;
-  border: 2px solid;
   margin: 7px;
   padding-bottom: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -162,7 +156,6 @@ footer {
   float: left;
   text-align: center;
   width: 32%;
-  border: 2px solid;
   margin: 7px;
   padding-bottom: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -173,7 +166,6 @@ footer {
   float: left;
   text-align: center;
   width: 32%;
-  border: 2px solid;
   margin: 7px;
   padding-bottom: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -193,14 +185,12 @@ footer {
 }
 
 .my-nav {
-  border-radius: 0px;
   padding-right: 10px;
 }
 /*================LOGIN PAGE==================*/
 
 
 .form-control{
-  border-radius: 0px;
   margin: 12px 3px;
   height: 40px;
 }
