@@ -8,13 +8,13 @@ const ActivityForm = createClass({
 
     onSubmit(event) {
       event.preventDefault();
+      console.log(this.props.applicationId);
       this.props.addActivity({
-        ApplicationId: this.ApplicationId.value,
+        applicationid: this.props.applicationId,
         //activityType:  this.activityType.value,
-        description:  this.description.value
+        activitylogcontent:  this.description.value
       });
 
-      this.ApplicationId.value = '';
       //this.activityType.value = '';
       this.description.value = '';
       // need to close the modal now
@@ -28,18 +28,13 @@ const ActivityForm = createClass({
     render() {
       return (
         <form onSubmit={this.onSubmit}>
-          <input
-            className='form-control'
-            ref={ApplicationId => { this.ApplicationId = ApplicationId }}
-            placeholder={'Application ID'}
-          />
           {/*<input
               className='form-control'
               type='number'
               ref={activityType => { this.activityType = activityType }}
               placeholder={'Number of applications to fill out'}
             />*/}
-          <input
+          <textarea
             className='form-control'
             type='number'
             ref={description => { this.description = description }}

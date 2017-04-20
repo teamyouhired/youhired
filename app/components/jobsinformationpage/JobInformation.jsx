@@ -34,6 +34,7 @@ const JobInformation = createClass({
       formType: 'DISPLAY_ACTIVITY_FORM',
       modalProps: {
         addActivity: this.props.addActivity,
+        applicationId: this.props.jobApplication.applicationid,
         hideModal: this.props.hideModal
       }
     });
