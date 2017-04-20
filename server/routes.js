@@ -29,7 +29,7 @@ function Routes(app) {
   app.post('/api/seedTheData', authenticate, [])
   app.post('/api/test', authenticate, userCtrl.test);
 
-  app.post('/api/addpdf', activityLogCtrl.addPdf);
+  // app.post('/api/addpdf', activityLogCtrl.addPdf);
   // app.post('/api/test', userCtrl.test);
 
 
