@@ -10,7 +10,7 @@ var ContactApplicationJoin = require('./../models/ContactApplicationJoinModel');
 var ApplicationContact = require('./../models/ApplicationContactJoinModel');
 
 var jobsList = "SELECT TO_CHAR(createdat, 'MON YYYY') AS createdat, positionname, companyname, status FROM jobapplications WHERE (seeduserid = 111111)";
-var jobApplicationInfo = "SELECT TO_CHAR(createdat, 'MON YYYY') AS createdat, positionname, companyname, jobposturl, jobarchiveurl, status, companyaddress, companycity, companystate, companyzip, offersalary, offeroptions, offerbenefits FROM jobapplications WHERE (seeduserid = 111111 AND seedapplicationid = 444);";
+var jobApplicationInfo = "SELECT TO_CHAR(createdat, 'MON YYYY') AS createdat, positionname, companyname, jobposturl, jobfile, status, companyaddress, companycity, companystate, companyzip, offersalary, offeroptions, offerbenefits FROM jobapplications WHERE (seeduserid = 111111 AND seedapplicationid = 444);";
 var jobActivities = "SELECT TO_CHAR(createdat, 'DD MON YYYY   HH12:MI:SS') AS createdat, activitylogcontent FROM activitylogs WHERE seedapplicationid = 444 AND activitytype = 'NOTE' GROUP BY createdat, activitylogcontent ORDER BY createdat DESC;";
 var jobContacts = "SELECT c.contactfirstname, c.contactlastname, c.contactcompany, c.contactpositiontitle, c.contactphonenumber, c.contactemail FROM ((contacts c INNER JOIN contactapplicationjoins j ON c.seedcontactid = j.seedcontactid) INNER JOIN jobApplications a ON j.seedapplicationid = a.seedapplicationid) WHERE a.seedapplicationid = 444;";
 
@@ -104,7 +104,7 @@ module.exports = {
           positionname: 'Open feedback dialog Principal, Strategy and Business Operations, Google Cloud',
           companyname: 'Google',
           jobposturl: 'www.google.com',
-          jobarchiveurl: 'http://res.cloudinary.com/dlsmih11r/image/upload/v1491607406/Strategic_Account_Specialist_Google_Cloud_Google_LinkedIn_liseeq.pdf',
+          // jobarchiveurl: 'http://res.cloudinary.com/dlsmih11r/image/upload/v1491607406/Strategic_Account_Specialist_Google_Cloud_Google_LinkedIn_liseeq.pdf',
           status: 'INTERVIEW',
           companyaddress: 'One Great Google Way',
           companycity: 'Mountain View',
@@ -124,7 +124,7 @@ module.exports = {
           positionname: 'Leasing Specialist ­Xchange',
           companyname: 'Uber',
           jobposturl: 'www.uber.com',
-          jobarchiveurl: 'http://res.cloudinary.com/dlsmih11r/image/upload/v1491607406/Careers_at_Uber_Leasing_Specialist_-_Xchange_-_Richmond_CA_jqddoy.pdf',
+          // jobarchiveurl: 'http://res.cloudinary.com/dlsmih11r/image/upload/v1491607406/Careers_at_Uber_Leasing_Specialist_-_Xchange_-_Richmond_CA_jqddoy.pdf',
           status: 'INTERVIEW',
           companyaddress: '1000 Awesome Uber Way',
           companycity: 'Oakland',
@@ -143,7 +143,7 @@ module.exports = {
           positionname: 'Business Analyst',
           companyname: 'LifeLock',
           jobposturl: 'www.lifelock.com',
-          jobarchiveurl: 'http://res.cloudinary.com/dlsmih11r/image/upload/v1491607406/Business_Analyst_LifeLock_LinkedIn_rq6sep.pdf',
+          // jobarchiveurl: 'http://res.cloudinary.com/dlsmih11r/image/upload/v1491607406/Business_Analyst_LifeLock_LinkedIn_rq6sep.pdf',
           status: 'INTERESTED',
           companyaddress: null,
           companycity: null,
@@ -162,7 +162,7 @@ module.exports = {
           positionname: 'Security Engineer, Information Security',
           companyname: 'Pinterest',
           jobposturl: 'www.pinterest.com',
-          jobarchiveurl: 'http://res.cloudinary.com/dlsmih11r/image/upload/r_11/v1491607405/Security_Engineer_Information_Security_Pinterest_Careers_od1vyr.pdf',
+          // jobarchiveurl: 'http://res.cloudinary.com/dlsmih11r/image/upload/r_11/v1491607405/Security_Engineer_Information_Security_Pinterest_Careers_od1vyr.pdf',
           status: 'OFFER',
           companyaddress: '12 Pinterest Point',
           companycity: 'San Francisco',
@@ -181,7 +181,7 @@ module.exports = {
           positionname: 'Web Producer',
           companyname: 'Okta',
           jobposturl: 'www.okta.com',
-          jobarchiveurl: 'http://res.cloudinary.com/dlsmih11r/image/upload/v1491607405/Web_Producer_-_Okta_Jobs.com_ltemve.pdf',
+          // jobarchiveurl: 'http://res.cloudinary.com/dlsmih11r/image/upload/v1491607405/Web_Producer_-_Okta_Jobs.com_ltemve.pdf',
           status: 'OFFER',
           companyaddress: '12 Okta Way',
           companycity: 'San Francisco',
