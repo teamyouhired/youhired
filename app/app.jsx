@@ -26,6 +26,13 @@ require('styles.css');
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const enhancer = composeEnhancers(applyMiddleware(thunk))
+// const rootReducer = (state, action) => {
+//   if (action.type === 'USER_LOGOUT') {
+//     state = undefined
+//   }
+
+//   return appReducer(state, action)
+// }
 const store = createStore(combineReducers(reducers), enhancer);
 
 ReactDOM.render (
