@@ -3,18 +3,24 @@ import { connect } from 'react-redux';
 import BasicInformation from './BasicInformation';
 import ActivityLog from './activities/ActivityLog';
 import ApplicationContacts from './contacts/ApplicationContacts';
-import { getUserData, addContact, updateStatus, addGoal, addActivity } from '../../api/users';
-// import { addContact } from '../../actions/jobsinformationpage';
+import {
+  getUserData,
+  addContactToApplication,
+  updateStatus,
+  addActivity,
+  addInterview,
+  addJobOffer
+  } from '../../api/users';
 import JobDescription from '../job-description/JobDescription';
 import HeaderComponent from 'Header';
 import FooterComponent from 'Footer';
 import ContactForm from '../application-forms/ContactForm';
-import { Link } from 'react-router-dom';
 import {
   displayContactForm,
   hideModal,
   displayActivityForm,
-  displayGoalForm
+  displayInterviewForm,
+  displayOfferForm
   } from '../../actions/modals/ModalActions';
 import RootModal from '../RootModal';
 
@@ -40,11 +46,23 @@ const JobInformation = createClass({
     });
   },
 
-  onAddGoal(event) {
-    this.props.displayGoalForm({
-      formType: 'DISPLAY_GOAL_FORM',
+  onInterview(event) {
+    this.props.displayInterviewForm({
+      formType: 'DISPLAY_INTERVIEW_FORM',
       modalProps: {
-        addGoal: this.props.addGoal,
+        addInterview: this.props.addInterview,
+        applicationId: this.props.jobApplication.applicationid,
+        hideModal: this.props.hideModal
+      }
+    });
+  },
+
+  onJobOffer(event) {
+    this.props.displayOfferForm({
+      formType: 'DISPLAY_OFFER_FORM',
+      modalProps: {
+        addJobOffer: this.props.addJobOffer,
+        applicationId: this.props.jobApplication.applicationid,
         hideModal: this.props.hideModal
       }
     });
@@ -62,7 +80,7 @@ const JobInformation = createClass({
       applicationContacts,
       displayContactForm,
       hideModal,
-      addContact,
+      addContactToApplication,
       isModalActive
     } = this.props;
     return (
@@ -82,15 +100,23 @@ const JobInformation = createClass({
             <BasicInformation
               details={ jobApplication } />
               <div className="update-buttons text-center">
+
                 <button id='job-info-button' className='button' onClick={this.onAddActivity} >
                   Add Activity
                 </button>
-                <button id='job-info-button' className='button' onClick={this.onAddGoal} >
-                  Add Goal
+
+                <button id='job-info-button' className='button' onClick={this.onInterview} >
+                  Add Interview
                 </button>
-                <button id='job-info-button' className='button' onClick={this.onUpdateStatus} >
+
+                <button id='job-info-button' className='button' onClick={this.onJobOffer} >
+                  Add JobOffer
+                </button>
+
+                {/*<button id='job-info-button' className='button' onClick={this.onUpdateStatus} >
                   Update Status
-                </button>
+                </button>*/}
+
               </div>
             <ActivityLog
               activities={activity} />
@@ -100,8 +126,9 @@ const JobInformation = createClass({
           </div>
           <div>
           <ApplicationContacts
+            applicationId={jobApplication.applicationid}
             contacts={applicationContacts}
-            addContact={addContact}
+            addContact={addContactToApplication}
             displayContactForm={displayContactForm}
             hideModal={hideModal} />
           </div>
@@ -128,13 +155,15 @@ const mapStateToProps = (state) => {
 };
 
 const mapActionsToProps = {
-  addContact: addContact,
+  addContactToApplication: addContactToApplication,
   displayContactForm: displayContactForm,
-  displayGoalForm: displayGoalForm,
   displayActivityForm: displayActivityForm,
+  displayInterviewForm: displayInterviewForm,
+  displayOfferForm: displayOfferForm,
   hideModal: hideModal,
-  addGoal: addGoal,
   addActivity: addActivity,
+  addInterview: addInterview,
+  addJobOffer: addJobOffer,
   updateStatus: updateStatus
 };
 

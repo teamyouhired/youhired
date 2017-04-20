@@ -26,7 +26,6 @@ const JobCard = createClass({
   },
 
   render() {
-    console.log(this.props.jobDetails);
     return (
       <div onClick={this.onJobClick} className='card-horizontal'>
           <div className="card-company">

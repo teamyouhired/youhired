@@ -6,13 +6,13 @@ import TaskList from './tasks/TaskList';
 import { getUserData } from '../../api/users';
 import { changePage } from '../../actions/NavigationActions';
 import Redirect from 'react-router-dom';
-import { addJob } from '../../api/users';
+import { addJob, addGoal } from '../../api/users';
 import AddJob from './jobs/AddJob';
 import GoalApp from './goals/GoalApp';
 import VisualData from './visualdata/VisualData';
 import HeaderComponent from 'Header';
 import FooterComponent from 'Footer';
-import { displayJobForm, hideModal } from '../../actions/modals/ModalActions';
+import { displayJobForm, displayGoalForm, hideModal } from '../../actions/modals/ModalActions';
 import { selectJob } from '../../actions/dashboard/DashboardActions';
 import RootModal from '../RootModal';
 
@@ -43,6 +43,7 @@ const Dashboard = createClass({
       activeComponent,
       jobs,
       displayJobForm,
+      displayGoalForm,
       hideModal,
       selectJob,
       isModalActive
@@ -91,7 +92,10 @@ const Dashboard = createClass({
                   <h4 className="job-app-text"> Goals Monitoring </h4>
                 </div>
                 <div className="job-card">
-                  <GoalApp />
+                  <GoalApp
+                    addGoal={addGoal}
+                    hideModal={hideModal}
+                    displayGoalForm={displayGoalForm} />
                 </div>
               </div>
 
@@ -122,6 +126,8 @@ const mapActionsToProps = {
   getData: getUserData,
   changePage: changePage,
   addJob: addJob,
+  addGoal: addGoal,
+  displayGoalForm: displayGoalForm,
   displayJobForm: displayJobForm,
   hideModal: hideModal,
   selectJob: selectJob

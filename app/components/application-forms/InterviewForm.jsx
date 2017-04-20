@@ -3,38 +3,37 @@ import React, { createClass } from 'react';
 const InterviewForm = createClass({
 
   cancelForm() {
-    // close modal and clear all fields
+
+    this.companyAddress.value = '';
+    this.companyState.value = '';
+    this.companyCity.value = '';
+    this.companyZip.value = '';
+
     this.props.hideModal();
   },
-   // companyCity
-  // companyState
-  // companyZip
-  // Date and Time
+
   onSubmit(event) {
     event.preventDefault();
     this.props.addInterview({
-      applicationID: this.applicationID.value,
-      offerSalary:  this.companyAddress.value,
-      offerOptions: this.offerOptions.value,
-      offerBenefits: this.offerBenefits.value
+      applicationid: this.props.applicationId,
+      companyaddress:  this.companyAddress.value,
+      companycity: this.companyCity.value,
+      companystate: this.companyState.value,
+      companyzip: this.companyZip.value
     });
 
-    this.applicationID.value = '';
     this.companyAddress.value = '';
-    this.offerOptions.value = '';
-    this.offerBenefits.value = '';
-    // need to close the modal now
+    this.companyState.value = '';
+    this.companyCity.value = '';
+    this.companyZip.value = '';
+
     this.props.hideModal();
   },
 
   render() {
     return (
       <form onSubmit={this.onSubmit}>
-        <input
-          className='form-control'
-          ref={idInput => { this.applicationID = idInput }}
-          placeholder={'Application ID'}
-        />
+
         <input
           className='form-control'
           ref={companyAddress => { this.companyAddress = companyAddress }}
@@ -42,13 +41,19 @@ const InterviewForm = createClass({
         />
         <input
           className='form-control'
-          ref={offerOptions => { this.offerOptions = offerOptions }}
-          placeholder={'Options'}
+          ref={companyCity => { this.companyCity = companyCity }}
+          placeholder={'City'}
         />
         <input
           className='form-control'
-          ref={offerBenefits => { this.offerBenefits = offerBenefits }}
-          placeholder={'Benefits'}
+          ref={companyState => { this.companyState = companyState }}
+          placeholder={'State'}
+          maxLength={2}
+        />
+        <input
+          className='form-control'
+          ref={companyZip => { this.companyZip = companyZip }}
+          placeholder={'Zip Code'}
         />
         <button className='button' type='submit'>
           Submit

@@ -25,14 +25,14 @@ function Routes(app) {
   app.post('/api/addcontactfromapplication', authenticate, contactCtrl.addContactFromApplication);
   app.post('/api/addapplication', authenticate, jobApplicationCtrl.addApplication);
   app.post('/api/addactivity', authenticate, activityLogCtrl.addActivity);
-  app.post('/api/addcontactfromdashboard', authenticate, contactCtrl.addContactFromDashboard);
+  // app.post('/api/addcontactfromdashboard', authenticate, contactCtrl.addContactFromDashboard);
 
   app.post('/api/addinterview', authenticate, jobApplicationCtrl.addInterview);
   app.post('/api/addjoboffer', authenticate, jobApplicationCtrl.addJobOffer);
   app.post('/api/updatestatus', authenticate, jobApplicationCtrl.updateStatus);
 
   app.get('/api/seedme', seedCtrl.seedDatabase);
-  app.post('/api/associatecontactwithapplication', authenticate, applicationContactCtrl.associateContactWithApplication);
+  // app.post('/api/associatecontactwithapplication', authenticate, applicationContactCtrl.associateContactWithApplication);
 
   // app.get('*', function (req, res) {
   //   res.send('Please login');
