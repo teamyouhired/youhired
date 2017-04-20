@@ -86,7 +86,7 @@ module.exports = {
     };
 
     var getContactsForApplication = function(id){
-      return connection.query('SELECT c.contactfirstname, c.contactlastname, c.contactcompany, c.contactpositiontitle, c.contactphonenumber, c.contactemail, c.contactaddress, c.contactcity, c.contactstate, c.contactzip, c.secondaryphonenumber, c.secondaryemail, c.backgroundinformation FROM ((contacts c INNER JOIN applicationcontacts j ON c.id = j.contactid) INNER JOIN jobapplications a ON j.applicationid = a.id) WHERE a.id = :id ', {
+      return connection.query('SELECT c.id AS contactid, c.contactfirstname, c.contactlastname, c.contactcompany, c.contactpositiontitle, c.contactphonenumber, c.contactemail, c.contactaddress, c.contactcity, c.contactstate, c.contactzip, c.secondaryphonenumber, c.secondaryemail, c.backgroundinformation FROM ((contacts c INNER JOIN applicationcontacts j ON c.id = j.contactid) INNER JOIN jobapplications a ON j.applicationid = a.id) WHERE a.id = :id ', {
           replacements: { id: id}
         });
     };

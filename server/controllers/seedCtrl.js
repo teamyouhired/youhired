@@ -561,8 +561,9 @@ module.exports = {
 // {
 //   "positionname": "Front end developer",
 //   "companyname": "Facebook.com",
-//   "jobposturl": "www.facebook.com",
-//   "status": "APPLIED"
+//   "status": "APPLIED",
+//   "jobposturl": "www.jobpost.com",
+//   "jobfile": "a pdf file"
 // }
 
 
