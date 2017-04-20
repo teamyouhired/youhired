@@ -25,7 +25,13 @@ function Routes(app) {
 //seeding functions and large data pull
   app.get('/api/setuptables', updatedSeedCtrl.setUpTables);
   app.post('/api/updatedSeed', authenticate, updatedSeedCtrl.seed)
+
+  app.post('/api/seedTheData', authenticate, [])
   app.post('/api/test', authenticate, userCtrl.test);
+
+  app.post('/api/addpdf', activityLogCtrl.addPdf);
+  // app.post('/api/test', userCtrl.test);
+
 
   //retreving data
   app.get('/api/getData', authenticate, generalQueries.getData);

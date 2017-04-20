@@ -20,6 +20,7 @@
     "bcryptjs": "^2.4.3",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
+    "cheerio": "^0.22.0",
     "express": "^4.15.2",
     "file-loader": "^0.8.5",
     "fs": "0.0.1-security",
@@ -52,6 +53,7 @@
     "redux": "^3.6.0",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.2.0",
+    "request": "^2.81.0",
     "sequelize": "^3.30.4",
     "url-loader": "^0.5.7",
     "validator": "^7.0.0"
