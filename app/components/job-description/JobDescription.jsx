@@ -30,7 +30,7 @@ const JobDescription= createClass({
 
   },
   render() {
-    const { createdat, pdfFile } = this.props;
+    const {createdat, pdfFile } = this.props;
     return (
       <div>
         <div className='jobdesc-heading'>
@@ -42,7 +42,7 @@ const JobDescription= createClass({
             <h4>Job Description</h4>
           </div>
           <div className="jobdesc-scroll-main">
-            <ReactPDF file={pdfFile} />
+            <ReactPDF file="job_openings_monster_com_v2_job_View_JobID_182346627_MESCOID.pdf" />
           </div>
         </div>
       </div>
