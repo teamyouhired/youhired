@@ -23,6 +23,7 @@ const Login = createClass({
         this.props.getData();
         this.props.history.push('/dashboard');
       } else {
+        alert('Invalid username or password. Please sign up. ')
         this.props.history.push('/signup');
       }
     });
@@ -43,19 +44,21 @@ const Login = createClass({
               <div className="col-lg-12">
                 <span className="singtext" >Login</span>
               </div>
-            <div className="col-lg-12 col-md-12 col-sm-12">
-              <input className="form-control" type="text" ref={email => this.emailInput = email} placeholder="E-mail" />
-            </div>
-            <div className="col-lg-12  col-md-12 col-sm-12">
-              <input className="form-control" type="password" ref={password => this.passwordInput = password} placeholder="Please enter password" />
-            </div>
-            <div className="col-lg-12  col-md-12 col-sm-12">
 
-              <button onClick={this.onSignIn} className="btn  submitButton">
-                Submit
-              </button>
+            <form onSubmit={this.onSignIn} >
+              <div className="col-lg-12 col-md-12 col-sm-12">
+                <input className="form-control" type="text" ref={email => this.emailInput = email} placeholder="E-mail" />
+              </div>
+              <div className="col-lg-12  col-md-12 col-sm-12">
+                <input className="form-control" type="password" ref={password => this.passwordInput = password} placeholder="Please enter password" />
+              </div>
+              <div className="col-lg-12  col-md-12 col-sm-12">
+                <button onSubmit={this.onSignIn} className="btn  submitButton" type="submit" >
+                  Submit
+                </button>
+              </div>
+            </form>
 
-            </div>
           </div>
           <div className="row forGotPassword">
               <a href="#" >Forgot Username / Password? </a>
