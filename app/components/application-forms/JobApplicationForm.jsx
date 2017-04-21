@@ -20,7 +20,6 @@ const JobApplicationForm = createClass({
     // ensure all fields were emptied when page changed
     this.companyNameInput.value = '';
     this.jobPositionInput.value = '';
-    this.statusInput.value = '';
     this.jobUrlInput.value = '';
 
     this.props.changePage({
@@ -33,13 +32,11 @@ const JobApplicationForm = createClass({
     this.props.addJob({
       companyName: this.companyNameInput.value,
       position:  this.jobPositionInput.value,
-      jobPostUrl: this.jobUrlInput.value,
-      status: this.statusInput.value
+      jobPostUrl: this.jobUrlInput.value
     });
 
     this.companyNameInput.value = '';
     this.jobPositionInput.value = '';
-    this.statusInput.value = '';
     this.jobUrlInput.value = '';
     this.props.changePage({
       activeComponent: 'JobList'
@@ -63,11 +60,6 @@ const JobApplicationForm = createClass({
           className='form-control'
           ref={urlInput => { this.jobUrlInput = urlInput }}
           placeholder={'Job Post Url'}
-        />
-        <input
-          className='form-control'
-          ref={statusInput => { this.statusInput = statusInput }}
-          placeholder={'Current Status'}
         />
         <button className='button' type='submit'>
           Submit
