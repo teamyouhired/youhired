@@ -45,7 +45,7 @@ module.exports = {
 //
     JobApplication.create({
       userid: req.body.userid,
-      status: req.body.status,
+      status: 'INTERESTED',
       jobfile: req.body.jobfile,
       positionname: req.body.positionname,
       companyname: req.body.companyname,
@@ -60,7 +60,7 @@ module.exports = {
         ActivityLog.create({
           applicationid: data.dataValues.id,
           activitytype: 'STATUSCHANGE',
-          activitylogcontent: req.body.status
+          activitylogcontent: 'INTERESTED'
         })
       })
     })
@@ -135,7 +135,8 @@ module.exports = {
         activitylogcontent: req.body.status
       })
       .then(function(info){
-        res.send(info);
+        console.log('Status change received!');
+        res.send('Status change received!');
       })
     }).catch('error!');
   }
