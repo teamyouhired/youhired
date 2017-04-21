@@ -20,8 +20,9 @@ const Signup = createClass({
     })
     .then(() => {
       if (sessionStorage.getItem('auth')) {
-        this.props.getData();
-        this.props.history.push('/dashboard');
+        this.props.getData().then(() => {
+          this.props.history.push('/dashboard');
+        });
       } else {
         alert('User already exisits');
       }

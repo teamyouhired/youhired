@@ -17,7 +17,6 @@ const jobInformationReducer = (state = defaultState, { type, payload }) => {
         jobContacts: payload.jobContacts
       }
     case addContactToApplication.SUCCESS:
-    console.log('add contact to application payload', payload);
       return {
         ...state,
         jobContacts: state.jobContacts.concat([payload])
@@ -29,7 +28,6 @@ const jobInformationReducer = (state = defaultState, { type, payload }) => {
       }
     case addInterview.SUCCESS:
     case addJobOffer.SUCCESS:
-    console.log('add offer or interview payload', payload);
       return {
         ...state,
         jobDetails: payload

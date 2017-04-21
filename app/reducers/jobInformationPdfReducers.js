@@ -7,7 +7,6 @@ const defaultState = {
 const jobInformationPdfReducer = (state = defaultState, { type, payload }) => {
   switch (type) {
     case CREATE_PDF:
-    console.log('payload from pdf reducer : ', payload);
       return {
         ...state,
         jobUrl:

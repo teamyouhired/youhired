@@ -9,13 +9,11 @@ const defaultState = {
 const dashboardReducer = (state = defaultState, { type, payload }) => {
   switch (type) {
     case addJob.SUCCESS:
-    console.log('add job payload dashboard ', payload);
       return {
         ...state,
         jobs: state.jobs.concat([{ details: payload, activities: [], contacts: [] }])
       }
     case getUserData.SUCCESS:
-    console.log('get user data payload dashboard', payload);
       return {
         ...state,
         jobs: payload.jobapplications,
