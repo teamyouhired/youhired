@@ -12,14 +12,6 @@ import HeaderComponent from 'Header';
 import About from 'about-us/about-us';
 import Services from 'services/services';
 import Dashboard from './components/dashboard/Dashboard';
-import AuthenticateUser from './AuthenticateUser';
-
-// const requireAuth = (nextState, replace) => {
-//   console.log('requireAuth was invoked', nextState, 'replace', replace);
-//   if (!sessionStorage.getItem('auth')) {
-//     replace({pathname: '/login'});
-//   }
-// };
 
 const routes = (
   <div>

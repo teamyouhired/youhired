@@ -20,11 +20,12 @@ const Login = createClass({
     })
     .then(() => {
       if (sessionStorage.getItem('auth')) {
-        this.props.getData();
-        this.props.history.push('/dashboard');
+        this.props.getData().then(() => {
+          this.props.history.push('/dashboard');
+        });
       } else {
-        alert('Invalid username or password. Please sign up. ')
         this.props.history.push('/signup');
+        alert('Invalid username or password. Please sign up. ')
       }
     });
 
@@ -69,12 +70,6 @@ const Login = createClass({
     );
   }
 });
-
-const mapStateToProps = (state) => {
-  return {
-
-  }
-};
 
 const mapActionsToProps = {
   onSignIn: signIn,

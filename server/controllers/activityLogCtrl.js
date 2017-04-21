@@ -37,7 +37,7 @@ module.exports = {
 
     ActivityLog.create({
       applicationid: req.body.applicationid,
-      activitytype: req.body.activitytype,
+      activitytype: 'NOTE',
       activitylogcontent: req.body.activitylogcontent
       //jobarchiveurl: whatever url we get back from the site
     })

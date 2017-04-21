@@ -3,9 +3,10 @@ import $ from 'jquery';
 export function createClient({ actionTypePrefix, requestType, url }) {
   const SUCCESS = `${actionTypePrefix}_SUCCESS`;
   const FAIL = `${actionTypePrefix}_FAIL`;
-  const token = sessionStorage.getItem('auth') ? sessionStorage.getItem('auth') : null;
+
 
   function request(data) {
+    const token = sessionStorage.getItem('auth') ? sessionStorage.getItem('auth') : null;
     function thunk(dispatch) {
       return $.ajax({
         url,
@@ -14,8 +15,6 @@ export function createClient({ actionTypePrefix, requestType, url }) {
         type: requestType,
         headers: { auth: token },
         success(response) {
-          // var xhr = new XMLHttpRequest()
-          // console.log(xhr.getResponseHeader('auth'));
 
           if (response.token) {
             sessionStorage.setItem('auth', response.token);
