@@ -26,7 +26,7 @@ const About = createClass({
             <div className="card-pic-body no-border">
                     <div className="card-row-top">
                     <div className="team-card">
-                        <img className="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="" />
+                        <img className="img-circle img-responsive img-center" src="images/d2 cut.png" alt="" />
                         <h3 className="name">Dimitri Timkin</h3>
                             <h5>Product Owner</h5>
 
@@ -36,7 +36,7 @@ const About = createClass({
                         </div>
                     </div>
                     <div className="team-card">
-                        <img className="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="" />
+                        <img className="img-circle img-responsive img-center" src="images/Chris.jpg" alt="" />
                         <h3 className="name">Chris Abrami</h3>
                             <h5>Scrum Master</h5>
 

@@ -1,6 +1,7 @@
 import React, { createClass, PropTypes } from 'react';
 import Iframe from 'react-iframe';
 import ReactPDF from 'react-pdf';
+import Base64 from 'base-64'
 
 const JobDescription= createClass({
   displayName: 'JobDescription',
@@ -11,8 +12,11 @@ const JobDescription= createClass({
 
   render() {
     const {createdat, jobfile } = this.props;
-    //let parsejobfile = JSON.parse(jobfile);
-
+    console.log("Returned from ajax request: ", jobfile)
+    let parsejobfile = JSON.parse(jobfile);
+    let encodeData = encodeURI(parsejobfile);
+    console.log("Encoded Data: ",encodeData)
+    let decodedData = Base64.decode(encodeData);
 //     function b64toBlob(b64Data, contentType, sliceSize) {
 //       contentType = contentType || '';
 //       sliceSize = sliceSize || 512;
@@ -70,7 +74,7 @@ const JobDescription= createClass({
           <div className="jobdesc-scroll-main">
 
 
-            {/*<ReactPDF file= { blobUrl } />*/}
+            <ReactPDF file= { decodedData } />
 
           </div>
         </div>

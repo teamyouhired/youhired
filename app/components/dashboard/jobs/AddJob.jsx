@@ -2,6 +2,7 @@ import React, { createClass, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import $ from 'jquery';
+import PDFParser from "pdf2json";
 
 import { addJob } from '../../../actions/dashboard/DashboardActions';
 import { hideModal } from '../../../actions/modals/ModalActions';
