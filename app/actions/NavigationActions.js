@@ -1,6 +1,6 @@
-import { CHANGE_PAGE } from './NavigationActionTypes';
+import { CHANGE_PAGE, LOGOUT } from './NavigationActionTypes';
 
-export function changePage({ activeComponent }) {
+export const changePage = ({ activeComponent }) => {
   return {
     type: CHANGE_PAGE,
     payload: {
@@ -8,3 +8,9 @@ export function changePage({ activeComponent }) {
     }
   };
 }
+
+export const logout = () => {
+  return {
+    type: LOGOUT
+  };
+};

@@ -73,6 +73,7 @@ module.exports = {
       return ActivityLog.findAll({
         attributes: [
           ['id', 'activitylogid'],
+          'applicationid',
           'activitytype',
           'activitylogcontent',
           'createdat'

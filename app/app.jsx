@@ -10,7 +10,7 @@ import path from 'path';
 import { browserHistory } from 'react-router';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import * as reducers from './reducers/reducers';
+import rootReducer from './reducers/reducers';
 //import Dashboard from '.components/dashboard/Dashboard';
 import JobInformation from './components/jobsinformationpage/JobInformation';
 import Login from 'login/Login';
@@ -33,7 +33,7 @@ const enhancer = composeEnhancers(applyMiddleware(thunk))
 
 //   return appReducer(state, action)
 // }
-const store = createStore(combineReducers(reducers), enhancer);
+const store = createStore(rootReducer, enhancer);
 
 ReactDOM.render (
   <Provider store={store}>

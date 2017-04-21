@@ -1,10 +1,15 @@
 import React, { createClass } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { logout } from '../actions/NavigationActions';
 
 const HeaderComponent = createClass({
 
   logout() {
+
+    this.props.logout();
     sessionStorage.removeItem('auth');
+
   },
 
   render() {
@@ -20,9 +25,9 @@ const HeaderComponent = createClass({
       </div>
       <div className="collapse navbar-collapse" id="myNavbar">
         <ul className="nav navbar-nav navbar-right">
-          <li><a href="#" className="nav-names"><span className="glyphicon nav-names glyphicon-log-in"></span>
+          <li><span className="glyphicon nav-names glyphicon-log-in"></span>
           <Link onClick={this.logout} to="/" style={{ color: 'white' }}>Logout</Link>
-          </a></li>
+          </li>
         </ul>
         <div>
         <ul className="nav navbar-nav navbar-left">
@@ -42,4 +47,8 @@ const HeaderComponent = createClass({
   }
 });
 
-export default HeaderComponent;
+const mapActionsToProps = {
+  logout: logout
+}
+
+export default connect(null, mapActionsToProps)(HeaderComponent);
