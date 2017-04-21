@@ -20,7 +20,7 @@ var consistencyActivityQuery = function(data){
           'applicationid',
           'activitytype',
           'activitylogcontent',
-          'createdat'
+          [Sequelize.fn('TO_CHAR', Sequelize.col('createdat'), 'dd MON YYYY'), 'createdat']
         ],
         where: {
             id: data.dataValues.id

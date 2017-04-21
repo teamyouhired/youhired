@@ -37,7 +37,9 @@ module.exports = {
         'contactzip',
         'secondaryphonenumber',
         'secondaryemail',
-        'backgroundinformation'
+        'backgroundinformation',
+        [Sequelize.fn('TO_CHAR', Sequelize.col('createdat'), 'dd MON YYYY'), 'createdat']
+        // [Sequelize.fn('TO_CHAR', Sequelize.col('createdat'), 'dd-mm-YYYY'), 'createdat']
         ],
         where: {
           userid: req.body.userid
@@ -61,7 +63,8 @@ module.exports = {
           'offersalary',
           'offeroptions',
           'offerbenefits',
-          'userid'
+          'userid',
+          [Sequelize.fn('TO_CHAR', Sequelize.col('createdat'), 'MON YYYY'), 'createdat']
         ],
         where: {
           userid: req.body.userid
@@ -76,7 +79,7 @@ module.exports = {
           'applicationid',
           'activitytype',
           'activitylogcontent',
-          'createdat'
+          [Sequelize.fn('TO_CHAR', Sequelize.col('createdat'), 'dd MON YYYY'), 'createdat']
         ],
         where: {
           applicationid: id,
@@ -86,7 +89,7 @@ module.exports = {
     };
 
     var getContactsForApplication = function(id){
-      return connection.query('SELECT c.id AS contactid, c.contactfirstname, c.contactlastname, c.contactcompany, c.contactpositiontitle, c.contactphonenumber, c.contactemail, c.contactaddress, c.contactcity, c.contactstate, c.contactzip, c.secondaryphonenumber, c.secondaryemail, c.backgroundinformation FROM ((contacts c INNER JOIN applicationcontacts j ON c.id = j.contactid) INNER JOIN jobapplications a ON j.applicationid = a.id) WHERE a.id = :id ', {
+      return connection.query("SELECT c.id AS contactid, c.contactfirstname, c.contactlastname, c.contactcompany, c.contactpositiontitle, c.contactphonenumber, c.contactemail, c.contactaddress, c.contactcity, c.contactstate, c.contactzip, c.secondaryphonenumber, c.secondaryemail, c.backgroundinformation, TO_CHAR(c.createdat, 'DD MON YYYY') AS createdat FROM ((contacts c INNER JOIN applicationcontacts j ON c.id = j.contactid) INNER JOIN jobapplications a ON j.applicationid = a.id) WHERE a.id = :id ", {
           replacements: { id: id}
         });
     };
@@ -142,5 +145,26 @@ module.exports = {
     }).catch((error) => {
       console.log(error);
     });
+  },
+
+  modifyTimeStamp: function(req, res) {
+    JobApplication.findAll({
+      attributes: [
+      ['id', 'applicationid'],
+      'positionname',
+      'companyname',
+      [Sequelize.fn('TO_CHAR', Sequelize.col('createdat'), 'mm-YYYY'), 'createdat']
+      // 'createdat'
+      ],
+      where: {
+        userid: req.body.userid
+      }
+    }).then((results) => {
+      res.send(results);
+    })
   }
+
+
+
+
 };
