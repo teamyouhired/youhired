@@ -1,9 +1,5 @@
 import React, { createClass } from 'react';
 
-
-
-
-
 const BasicInformation = createClass({
   render() {
     const { details } = this.props;
@@ -57,8 +53,3 @@ const BasicInformation = createClass({
 });
 
 export default BasicInformation;
-
-
-
-
-
