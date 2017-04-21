@@ -1,6 +1,6 @@
 import { ADD_JOB, ADD_TASK, SELECT_JOB } from './DashboardActionTypes';
 
-export function addJob({ companyName, status }) {
+export const addJob = ({ companyName, status }) => {
   return {
     type: ADD_JOB,
     payload: {
@@ -10,14 +10,14 @@ export function addJob({ companyName, status }) {
   };
 }
 
-export function selectJob(jobInformation) {
+export const selectJob = (jobInformation) => {
   return {
     type: SELECT_JOB,
     payload: jobInformation
   };
 }
 
-export function addTask({ dateStarted, dateDue, completed, description, application }) {
+export const addTask = ({ dateStarted, dateDue, completed, description, application }) => {
   return {
     type: ADD_TASK,
     payload: {

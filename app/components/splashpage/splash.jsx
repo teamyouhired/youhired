@@ -3,6 +3,16 @@ import { Link } from 'react-router-dom';
 import FooterComponent from 'Footer';
 
 const Splash = createClass({
+  displayName: 'Splash',
+
+  onLogin() {
+    this.props.history.push('/login');
+  },
+
+  onSignup() {
+    this.props.history.push('/signup');
+  },
+
   render () {
     return (<div className="main-splash" style={{backgroundColor: '#F7F5E6'}}>
       <header className="business-header">
@@ -10,11 +20,11 @@ const Splash = createClass({
         <div className="my-logo"></div>
 
         <div className="button-container">
-          <button type="button" className="button">
-            <Link style={{ color: 'white' }} to='/login'>Login</Link>
+          <button type="button" className="button" onClick={this.onLogin} >
+            Login
           </button>
-          <button type="button" className="button bottom-button">
-            <Link style={{ color: 'white' }} to='/signup'>Sign up</Link>
+          <button type="button" className="button bottom-button" onClick={this.onSignup} >
+            Sign up
           </button>
         </div>
       </header>

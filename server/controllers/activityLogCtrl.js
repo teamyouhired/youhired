@@ -17,6 +17,7 @@ var ContactApplicationJoin = require('./../models/ContactApplicationJoinModel');
 var consistencyActivityQuery = function(data){
       return ActivityLog.findOne({
         attributes:  [['id', 'activitylogid'],
+          'applicationid',
           'activitytype',
           'activitylogcontent',
           'createdat'

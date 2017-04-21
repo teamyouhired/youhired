@@ -36,6 +36,10 @@ const Dashboard = createClass({
     }
   },
 
+  componentDidMount() {
+    this.props.getData();
+  },
+
   render() {
     const {
       addJob,

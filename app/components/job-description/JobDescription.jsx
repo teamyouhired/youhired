@@ -13,33 +13,33 @@ const JobDescription= createClass({
     const {createdat, jobfile } = this.props;
     //let parsejobfile = JSON.parse(jobfile);
 
-    function b64toBlob(b64Data, contentType, sliceSize) {
-      contentType = contentType || '';
-      sliceSize = sliceSize || 512;
+//     function b64toBlob(b64Data, contentType, sliceSize) {
+//       contentType = contentType || '';
+//       sliceSize = sliceSize || 512;
 
-      var byteCharacters = atob(b64Data);
-      var byteArrays = [];
+//       var byteCharacters = atob(b64Data);
+//       var byteArrays = [];
 
-      for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-        var slice = byteCharacters.slice(offset, offset + sliceSize);
+//       for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+//         var slice = byteCharacters.slice(offset, offset + sliceSize);
 
-        var byteNumbers = new Array(slice.length);
-        for (var i = 0; i < slice.length; i++) {
-          byteNumbers[i] = slice.charCodeAt(i);
-        }
+//         var byteNumbers = new Array(slice.length);
+//         for (var i = 0; i < slice.length; i++) {
+//           byteNumbers[i] = slice.charCodeAt(i);
+//         }
 
-    var byteArray = new Uint8Array(byteNumbers);
+//     var byteArray = new Uint8Array(byteNumbers);
 
-    byteArrays.push(byteArray);
-  }
+//     byteArrays.push(byteArray);
+//   }
 
-  var blob = new Blob(byteArrays, {type: contentType});
-  return blob;
-}
-var blob = b64toBlob(jobfile, "text");
-var blobUrl = URL.createObjectURL(blob);
+//   var blob = new Blob(byteArrays, {type: contentType});
+//   return blob;
+// }
+// var blob = b64toBlob(jobfile, "text");
+// var blobUrl = URL.createObjectURL(blob);
 
-window.location = blobUrl;
+// window.location = blobUrl;
 
 
         return (
@@ -50,7 +50,7 @@ window.location = blobUrl;
           </div>
           <div className="jobdesc-scroll-main">
 
-            <ReactPDF file= { blobUrl } />
+            {/*<ReactPDF file= { blobUrl } />*/}
           </div>
         </div>
       </div>

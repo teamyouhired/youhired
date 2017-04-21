@@ -1,7 +1,7 @@
 import React, { createClass, PropTypes } from 'react';
 import JobCard from './JobCard';
 import AddJob from './AddJob';
-// import Popup from 'react-popup';
+import ScrollArea from 'react-scrollbar';
 
 const JobList = createClass({
     displayName: 'JobList',
@@ -34,7 +34,10 @@ const JobList = createClass({
       } = this.props;
       return (
         <div className='job-list'>
-          <div>
+          <ScrollArea
+            speed={0.8}
+            className='job-list-scroll'
+            horizontal={false}>
             {jobs.map((job, index) =>
               <JobCard
                 key={index}
@@ -46,7 +49,7 @@ const JobList = createClass({
                 jobContacts={job.contacts}
               />
             )}
-          </div>
+          </ScrollArea>
           <button className='button' onClick={this.onAddJob}>
             Add Job
           </button>

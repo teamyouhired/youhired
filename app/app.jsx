@@ -10,7 +10,7 @@ import path from 'path';
 import { browserHistory } from 'react-router';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import * as reducers from './reducers/reducers';
+import rootReducer from './reducers/reducers';
 //import Dashboard from '.components/dashboard/Dashboard';
 import JobInformation from './components/jobsinformationpage/JobInformation';
 import Login from 'login/Login';
@@ -26,7 +26,14 @@ require('styles.css');
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const enhancer = composeEnhancers(applyMiddleware(thunk))
-const store = createStore(combineReducers(reducers), enhancer);
+// const rootReducer = (state, action) => {
+//   if (action.type === 'USER_LOGOUT') {
+//     state = undefined
+//   }
+
+//   return appReducer(state, action)
+// }
+const store = createStore(rootReducer, enhancer);
 
 ReactDOM.render (
   <Provider store={store}>

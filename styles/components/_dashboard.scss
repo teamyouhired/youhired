@@ -13,10 +13,13 @@
 }
 
 .task-list {
-  border: 1px dashed black;
   height: 100%;
   flex-basis: 50%;
   margin-left: 5px;
+}
+
+.job-list-scroll {
+  height: 430px;
 }
 
 .card-horizontal {
@@ -63,3 +66,4 @@
   font-size: 3rem;
   margin: auto;
 }
+

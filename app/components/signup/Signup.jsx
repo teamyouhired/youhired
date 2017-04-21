@@ -42,17 +42,21 @@ const Signup = createClass({
             <div className="col-lg-12">
               <span className="singtext" >Sign Up Today! </span>
             </div>
-          <div className="col-lg-12 col-md-12 col-sm-12">
-            <input className="form-control" type="text" ref={email => this.emailInput = email} placeholder="E-mail" />
-          </div>
-          <div className="col-lg-12  col-md-12 col-sm-12">
-            <input className="form-control" type="password" ref={password => this.passwordInput = password} placeholder="Please enter password" />
-          </div>
-          <div className="col-lg-12  col-md-12 col-sm-12">
-            <button onClick={this.onSignUp} className="btn  submitButton" >
-              Submit
-            </button>
-          </div>
+
+          <form onSubmit={this.onSignUp} >
+            <div className="col-lg-12 col-md-12 col-sm-12">
+              <input className="form-control" type="text" ref={email => this.emailInput = email} placeholder="E-mail" />
+            </div>
+            <div className="col-lg-12  col-md-12 col-sm-12">
+              <input className="form-control" type="password" ref={password => this.passwordInput = password} placeholder="Please enter password" />
+            </div>
+            <div className="col-lg-12  col-md-12 col-sm-12">
+              <button onSubmit={this.onSignUp} className="btn  submitButton" type="submit" >
+                Submit
+              </button>
+            </div>
+          </form>
+
         </div>
         <div className="row forGotPassword">
             <a href="#" >Forgot Username / Password? </a>
