@@ -35,6 +35,46 @@ const AddJob = createClass({
     const API_KEY = "g8v5kuA8GXNu";
     const jobUrlPdf  = "http://pdfmyurl.com/api?license="+ API_KEY + "&url=" + this.jobUrlInput.value + " &page_size=A4&orientation=portrait";
 
+
+    // function fetchBlob(uri, callback) {
+    //   var xhr = new XMLHttpRequest();
+    //   xhr.open('GET', uri, true);
+    //   xhr.responseType = 'arraybuffer';
+
+    //   xhr.onload = function(e) {
+    //     if (this.status == 200) {
+    //       var blob = JSON.parse(this.response);
+    //       if (callback) {
+    //         callback(blob);
+    //       }
+    //     }
+    //   };
+    //   xhr.send();
+    // };
+
+    // fetchBlob(jobUrlPdf, function(blob) {
+    //   var str = String.fromCharCode.apply(null, new Uint8Array(blob));
+    //   console.log(str);
+
+    // });
+
+
+    // $.ajax(fetchBlob(jobPostUrl, function(blob) {
+    //                   var str = String.fromCharCode.apply(null, new Uint8Array(blob));
+    //                     return str;
+    //                 })
+    //               )
+    //   .done(file => {
+    //     let sfile = JSON.stringify(file)
+    //     this.props.addJob({
+    //       companyname: companyName,
+    //       positionname:  positionName,
+    //       jobfile: sfile,
+    //       jobposturl: jobPostUrl,
+    //       status: status
+    //     });
+    //   });
+
     $.ajax(jobUrlPdf)
       .done(file => {
         let sfile = JSON.stringify(file)
