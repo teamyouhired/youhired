@@ -47,7 +47,8 @@ var consistencyContactQuery = function(data){
             'contactzip',
             'secondaryphonenumber',
             'secondaryemail',
-            'backgroundinformation'
+            'backgroundinformation',
+            [Sequelize.fn('TO_CHAR', Sequelize.col('createdat'), 'dd MON YYYY'), 'createdat']
           ],
         where: {
             id: data.dataValues.id

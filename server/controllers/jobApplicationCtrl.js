@@ -26,14 +26,14 @@ var consistencyApplicationQuery = function(id){
           'offersalary',
           'offeroptions',
           'offerbenefits',
-          'userid'
+          'userid',
+          [Sequelize.fn('TO_CHAR', Sequelize.col('createdat'), 'MON YYYY'), 'createdat']
           ],
         where: {
             id: id
           }
       });
     }
-
 
 module.exports = {
 
