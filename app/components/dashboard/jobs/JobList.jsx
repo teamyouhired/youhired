@@ -32,13 +32,18 @@ const JobList = createClass({
         activeComponent,
         jobs
       } = this.props;
+
+      let order = ['OFFER', 'INTERVIEW', 'APPLIED', 'INTERESTED'];
+
       return (
         <div className='job-list'>
           <ScrollArea
             speed={0.8}
             className='job-list-scroll'
             horizontal={false}>
-            {jobs.map((job, index) =>
+            {jobs.sort((a, b) => {
+                return order.indexOf(a.details.status) - order.indexOf(b.details.status);
+              }).map((job, index) =>
               <JobCard
                 key={index}
                 activeComponent={activeComponent}

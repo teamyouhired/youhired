@@ -40,7 +40,7 @@ const JobOfferForm = createClass({
           ref={offerOptions => { this.offerOptions = offerOptions }}
           placeholder={'Options'}
         />
-        <input
+        <textarea
           className='form-control'
           ref={offerBenefits => { this.offerBenefits = offerBenefits }}
           placeholder={'Benefits'}

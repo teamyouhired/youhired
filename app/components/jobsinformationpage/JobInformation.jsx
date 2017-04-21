@@ -110,7 +110,7 @@ const JobInformation = createClass({
                 </button>
 
                 <button id='job-info-button' className='button' onClick={this.onJobOffer} >
-                  Add JobOffer
+                  Add Job Offer
                 </button>
 
                 {/*<button id='job-info-button' className='button' onClick={this.onUpdateStatus} >
