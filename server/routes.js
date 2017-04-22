@@ -39,9 +39,11 @@ function Routes(app) {
   app.post('/api/addinterview', authenticate, jobApplicationCtrl.addInterview);
   app.post('/api/addjoboffer', authenticate, jobApplicationCtrl.addJobOffer);
   app.post('/api/updatestatus', authenticate, jobApplicationCtrl.updateStatus);
+  app.post('/api/addgoal', authenticate, goalCtrl.addNewGoal);
 
   //testing routes
   app.get('/api/checktimestamp', authenticate, generalQueries.modifyTimeStamp);
+
 
   //other routes not currently in use:
 
