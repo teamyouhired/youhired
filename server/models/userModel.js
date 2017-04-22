@@ -10,21 +10,18 @@ var JobApplication = require('./../models/JobApplicationModel');
 var connection = require('./../db');
 
 var User = connection.define('users', {
-  // userId: {
-  //   type: Sequelize.INTEGER,
-  //   primaryKey: true,
-  //   autoIncrement: true // Automatically gets converted to SERIAL for postgres
-  // },
-  seeduserid: Sequelize.INTEGER,
+
   useremail: {
     type: Sequelize.STRING(100),
     // unique: true,
     // allowNull: false
+    notEmpty: true
   },
   userpassword: {
     type: Sequelize.STRING(255),
     unique: false,
-    allowNull: false
+    allowNull: false,
+    notEmpty: true
   },
   userfirstname: {
     type: Sequelize.STRING(50),

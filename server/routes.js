@@ -23,6 +23,7 @@ function Routes(app) {
   app.post('/api/signin', userCtrl.onSignin);
 
 //seeding functions and large data pull
+  app.get('/api/setuptables', updatedSeedCtrl.setUpTables);
   app.post('/api/updatedSeed', authenticate, updatedSeedCtrl.seed)
   app.post('/api/test', authenticate, userCtrl.test);
   app.get('/api/getData', authenticate, generalQueries.getData);

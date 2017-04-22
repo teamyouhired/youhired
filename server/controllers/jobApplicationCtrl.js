@@ -23,9 +23,7 @@ var consistencyApplicationQuery = function(id){
           'jobfile',
           'status',
           'companyaddress',
-          'companycity',
-          'companystate',
-          'companyzip',
+          'interviewdatetime',
           'offersalary',
           'offeroptions',
           'offerbenefits',
@@ -42,6 +40,8 @@ module.exports = {
 
   addApplication: function(req, res) {
 
+
+    console.log(req.body);
     console.log('req.body.userid --- ',req.body.userid);
 
     console.log('add functionality that sends jobPostUrl to site and returns archive URL.  Data received back should be an argument to next function in the chain');
@@ -83,11 +83,9 @@ module.exports = {
     console.log(req.body.applicationid);
     JobApplication.update({
       companyaddress: req.body.companyaddress,
-      companycity: req.body.companycity,
-      companystate: req.body.companystate,
-      companyzip: req.body.companyzip
+      interviewdatetime: req.body.interviewdatetime
     },{
-      fields: ['companyaddress', 'companycity', 'companystate', 'companyzip'],
+      fields: ['companyaddress', 'interviewdatetime'],
       where: {
         id: req.body.applicationid
       }
