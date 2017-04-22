@@ -15,6 +15,7 @@ import JobDescription from '../job-description/JobDescription';
 import HeaderComponent from 'Header';
 import FooterComponent from 'Footer';
 import ContactForm from '../application-forms/ContactForm';
+import UpdateStatus from '../application-forms/UpdateStatusDropdown';
 import {
   displayContactForm,
   hideModal,
@@ -69,7 +70,9 @@ const JobInformation = createClass({
   },
 
   onUpdateStatus(event) {
-    // dispatch action to update status in server
+    this.props.updateStatus({
+
+    })
   },
 
   render() {
@@ -113,9 +116,7 @@ const JobInformation = createClass({
                   Add Job Offer
                 </button>
 
-                {/*<button id='job-info-button' className='button' onClick={this.onUpdateStatus} >
-                  Update Status
-                </button>*/}
+                <UpdateStatus />
 
               </div>
             <ActivityLog

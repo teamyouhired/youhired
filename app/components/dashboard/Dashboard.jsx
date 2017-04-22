@@ -30,10 +30,10 @@ const Dashboard = createClass({
 
   componentWillMount() {
     const history = this.props.history;
-
-    if (!sessionStorage.getItem('auth')) {
-      history.push('/signup');
-    }
+    this.props.getData();
+    // if (!sessionStorage.getItem('auth')) {
+    //   history.push('/signup');
+    // }
   },
 
   render() {

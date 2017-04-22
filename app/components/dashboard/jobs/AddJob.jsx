@@ -18,16 +18,11 @@ const AddJob = createClass({
   cancelForm(event) {
     event.preventDefault();
 
-    // ensure all fields were emptied when page changed
     this.companyNameInput.value = '';
     this.jobPositionInput.value = '';
-    this.statusInput.value = '';
     this.jobUrlInput.value = '';
 
     this.props.hideModal();
-    // this.props.changePage({
-    //   activeComponent: 'JobList'
-    // });
   },
 
   onSubmit(event) {
@@ -36,7 +31,6 @@ const AddJob = createClass({
     let companyName = this.companyNameInput.value;
     let positionName = this.jobPositionInput.value;
     let jobPostUrl = this.jobUrlInput.value;
-    let status = this.statusInput.value;
 
     const API_KEY = "g8v5kuA8GXNu";
     const jobUrlPdf  = "http://pdfmyurl.com/api?license="+ API_KEY + "&url=" + this.jobUrlInput.value + " &page_size=A4&orientation=portrait";
@@ -48,8 +42,7 @@ const AddJob = createClass({
           companyname: companyName,
           positionname:  positionName,
           jobfile: sfile,
-          jobposturl: jobPostUrl,
-          status: status
+          jobposturl: jobPostUrl
         });
       });
 
@@ -62,13 +55,9 @@ const AddJob = createClass({
     // .then(() => console.log('these are my props after the request without clearing them out', this));
     this.companyNameInput.value = '';
     this.jobPositionInput.value = '';
-    this.statusInput.value = '';
     this.jobUrlInput.value = '';
 
     this.props.hideModal();
-    // this.props.changePage({
-    //   activeComponent: 'JobList'
-    // });
   },
 
   render() {
@@ -88,11 +77,6 @@ const AddJob = createClass({
           className='form-control'
           ref={urlInput => { this.jobUrlInput = urlInput }}
           placeholder={'Job Post Url'}
-        />
-        <input
-          className='form-control'
-          ref={statusInput => { this.statusInput = statusInput }}
-          placeholder={'Current Status'}
         />
         <button className='button' type='submit'>
           Submit
