@@ -12,58 +12,7 @@ const JobDescription= createClass({
 
   render() {
     const {createdat, jobfile } = this.props;
-    console.log("Returned from ajax request: ", jobfile)
-    let parsejobfile = JSON.parse(jobfile);
-    let encodeData = encodeURI(parsejobfile);
-    console.log("Encoded Data: ",encodeData)
-    let decodedData = Base64.decode(encodeData);
-//     function b64toBlob(b64Data, contentType, sliceSize) {
-//       contentType = contentType || '';
-//       sliceSize = sliceSize || 512;
-
-//       var byteCharacters = atob(b64Data);
-//       var byteArrays = [];
-
-//       for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-//         var slice = byteCharacters.slice(offset, offset + sliceSize);
-
-//         var byteNumbers = new Array(slice.length);
-//         for (var i = 0; i < slice.length; i++) {
-//           byteNumbers[i] = slice.charCodeAt(i);
-//         }
-
-//     var byteArray = new Uint8Array(byteNumbers);
-
-
-//     function b64toBlob(b64Data, contentType, sliceSize) {
-//       contentType = contentType || '';
-//       sliceSize = sliceSize || 512;
-
-//       var byteCharacters = atob(b64Data);
-//       var byteArrays = [];
-
-//       for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-//         var slice = byteCharacters.slice(offset, offset + sliceSize);
-
-//         var byteNumbers = new Array(slice.length);
-//         for (var i = 0; i < slice.length; i++) {
-//           byteNumbers[i] = slice.charCodeAt(i);
-//         }
-
-//     var byteArray = new Uint8Array(byteNumbers);
-
-
-//     byteArrays.push(byteArray);
-//   }
-
-//   var blob = new Blob(byteArrays, {type: contentType});
-//   return blob;
-// }
-// var blob = b64toBlob(jobfile, "text");
-// var blobUrl = URL.createObjectURL(blob);
-
-// window.location = blobUrl;
-
+    //console.log("Returned from ajax request: ", jobfile)
 
         return (
       <div>
@@ -74,7 +23,9 @@ const JobDescription= createClass({
           <div className="jobdesc-scroll-main">
 
 
-            <ReactPDF file= { decodedData } />
+
+            <iframe src="http://docs.google.com/gview?url=http://pdfmyurl.com/api?license=g8v5kuA8GXNu&url=http://www.example.com&embedded=true"></iframe>
+            {/*<ReactPDF file= { decodedData } />*/}
 
           </div>
         </div>

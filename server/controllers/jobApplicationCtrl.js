@@ -1,5 +1,8 @@
 var pg = require('pg');
 var Sequelize = require('sequelize');
+var $ = require('jquery');
+var fs = require('fs')
+var http = require('http')
 var connection = require('./../db');
 var User = require('./../models/UserModel');
 var Token = require('./../models/TokenModel');
@@ -119,6 +122,44 @@ module.exports = {
   },
 
 
+   addJobDescription: function(req, res) {
+    const API_KEY = "g8v5kuA8GXNu";
+    const jobUrlPdf  = "http://pdfmyurl.com/api?license="+ API_KEY + "&url=" + "http://www.example.com" + " &page_size=A4&orientation=portrait";
+
+    http.get(jobUrlPdf, function(res) {
+      console.log(res)
+      var writeStream = fs.createWriteStream('public/pdfjobdesc/'+ someVar +'.pdf', "utf8");
+      var rawData = '';
+      res.on ('data', function(chunk) {
+        //rawData += chunk;
+        writeStream.write(chunk);
+      })
+      res.on('end', function () {
+        console.log('Done!')
+      })
+    })
+
+
+
+        // fs.writeFile('tempName.pdf', file, function(err) {
+        //   return console.log(err);
+        // })
+        //let sfile = JSON.stringify(file)
+        // this.props.addJob({
+        //   companyname: companyName,
+        //   positionname:  positionName,
+        //   jobfile: sfile,
+        //   jobposturl: jobPostUrl,
+        //   status: status
+        // });
+      //});
+
+  },
+
+
+
+
+
 
   updateStatus: function(req, res) {
     JobApplication.update({
@@ -143,3 +184,21 @@ module.exports = {
 
 
 };
+
+
+// fetch(jobUrlPdf)
+//       .then(file => {
+//         fs.writeFile('tempName.pdf', file, function(err) {
+//           return console.log(err);
+//         })
+//         //let sfile = JSON.stringify(file)
+//         // this.props.addJob({
+//         //   companyname: companyName,
+//         //   positionname:  positionName,
+//         //   jobfile: sfile,
+//         //   jobposturl: jobPostUrl,
+//         //   status: status
+//         // });
+//       });
+
+//   },
