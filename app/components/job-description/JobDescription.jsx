@@ -13,7 +13,7 @@ const JobDescription= createClass({
   render() {
     let {createdat, jobfile } = this.props;
     //console.log("Returned from ajax request: ", jobfile)
-    jobfile = 'pdfjobdesc/pdf1492830235169.pdf'
+    //jobfile = 'pdfjobdesc/pdf1492830235169.pdf'
         return (
       <div>
         <div className='jobdesc-heading'>
@@ -22,9 +22,6 @@ const JobDescription= createClass({
           </div>
           <div className="jobdesc-scroll-main">
 
-
-
-            {/*<iframe src="http://docs.google.com/gview?url=http://pdfmyurl.com/api?license=g8v5kuA8GXNu&url=http://www.example.com&embedded=true"></iframe>*/}
             <ReactPDF file= { jobfile } />
 
           </div>

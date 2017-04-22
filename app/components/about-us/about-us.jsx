@@ -40,7 +40,7 @@ const About = createClass({
                         <h3 className="name">Chris Abrami</h3>
                             <h5>Scrum Master</h5>
 
-                        <p>Dimitri developed the vision for youHired and guided the directions of the project.</p>
+                        <p>"Chris built out the database and back end and guided the tactical day to day execution of project tasks."</p>
                         <div className="per-linkedin">
                             <a href="https://www.linkedin.com"><i className="fa fa-linkedin"></i></a>
                         </div>
@@ -62,7 +62,7 @@ const About = createClass({
                         <h3 className="name">Jesse Hill</h3>
                             <h5>Fullstack Engineer</h5>
 
-                        <p>Jesse llllllll</p>
+                        <p>Developed client side functionality using React / Redux.</p>
                         <div className="per-linkedin">
                             <a href="https://www.linkedin.com/in/jesse-hill-89b26b62/"><i className="fa fa-linkedin"></i></a>
                         </div>

@@ -6,7 +6,7 @@ import TaskList from './tasks/TaskList';
 import { getUserData } from '../../api/users';
 import { changePage } from '../../actions/NavigationActions';
 import Redirect from 'react-router-dom';
-import { addJob, addGoal } from '../../api/users';
+import { addJob, addGoal, addJobDescription } from '../../api/users';
 import AddJob from './jobs/AddJob';
 import GoalApp from './goals/GoalApp';
 import VisualData from './visualdata/VisualData';
@@ -38,6 +38,7 @@ const Dashboard = createClass({
 
   render() {
     const {
+      addJobDescription,
       addJob,
       changePage,
       activeComponent,
@@ -70,6 +71,7 @@ const Dashboard = createClass({
                 <div className="job-card">
                   <JobList
                     jobs={jobs}
+                    addJobDescription={addJobDescription}
                     changePage={changePage}
                     activeComponent={activeComponent}
                     addJob={addJob}
@@ -127,6 +129,7 @@ const mapActionsToProps = {
   changePage: changePage,
   addJob: addJob,
   addGoal: addGoal,
+  addJobDescription: addJobDescription,
   displayGoalForm: displayGoalForm,
   displayJobForm: displayJobForm,
   hideModal: hideModal,

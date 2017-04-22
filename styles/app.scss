@@ -1,6 +1,12 @@
 @import 'base/variables';
 
 // Components
+@import 'components/_Root';
+@import 'components/login';
+@import 'components/services';
+@import 'components/footer';
+@import 'components/splash';
+@import 'components/header';
 @import 'components/about-us';
 @import 'components/jobdescription';
 @import 'components/datepick';

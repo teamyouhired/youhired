@@ -4,7 +4,8 @@ import { addContactToApplication, addActivity, addInterview, addJobOffer, addJob
 const defaultState = {
     jobDetails: {},
     jobActivities: [],
-    jobContacts: []
+    jobContacts: [],
+    jobPdf: ""
 };
 
 const jobInformationReducer = (state = defaultState, { type, payload }) => {
@@ -15,7 +16,6 @@ const jobInformationReducer = (state = defaultState, { type, payload }) => {
         jobDetails: payload.jobDetails,
         jobActivities: payload.jobActivities,
         jobContacts: payload.jobContacts,
-        jobDescription: payload.jobDescription
       }
     case addContactToApplication.SUCCESS:
       return {
@@ -32,6 +32,11 @@ const jobInformationReducer = (state = defaultState, { type, payload }) => {
       return {
         ...state,
         jobDetails: payload
+      }
+    case addJobDescription.SUCCESS:
+      return {
+        ...state,
+        jobPdf: payload
       }
     // case updateStatus.SUCCESS:
     //   return {

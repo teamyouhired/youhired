@@ -36,14 +36,19 @@ const AddJob = createClass({
 
     // const API_KEY = "g8v5kuA8GXNu";
     // const jobUrlPdf  = "http://pdfmyurl.com/api?license="+ API_KEY + "&url=" + this.jobUrlInput.value + " &page_size=A4&orientation=portrait";
+//=========
+//
+  this.props.addJobDescription({jobPostUrl: jobPostUrl})
 
-    fetch('api/jobdescription', {method: 'get', body: {jobPostUrl: jobPostUrl}})
-      .then(function(response) {
-        console.log("Response", response)
-      })
-      .catch(function(err) {
-        console.log("THIS IS THE RESPONSE ERROR: ", err)
-      });
+    // console.log("browser side: ", jobPostUrl)
+    // fetch('api/jobdescription', {method: "post", body: JSON.stringify({jobPostUrl: jobPostUrl})})
+    //   .then(function(response) {
+    //     console.log("Response")
+    //   })
+    //   .catch(function(err) {
+    //     console.log("THIS IS THE RESPONSE ERROR: ")
+    //   });
+//==========
           // companyname: companyName,
           // positionname:  positionName,
           // jobfile: sfile,
@@ -51,12 +56,12 @@ const AddJob = createClass({
          //});
       //});
 
-    // this.props.addJob({
-    //   companyname: this.companyNameInput.value,
-    //   positionname:  this.jobPositionInput.value,
-    //   jobposturl: this.jobUrlInput.value,
-    //   status: this.statusInput.value
-    // })
+    this.props.addJob({
+      companyname: this.companyNameInput.value,
+      positionname:  this.jobPositionInput.value,
+      jobposturl: this.jobUrlInput.value,
+      //status: this.statusInput.value
+    })
     // .then(() => console.log('these are my props after the request without clearing them out', this));
     this.companyNameInput.value = '';
     this.jobPositionInput.value = '';

@@ -124,15 +124,17 @@ module.exports = {
 
    addJobDescription: function(req, res) {
     const API_KEY = "g8v5kuA8GXNu";
+    console.log("req.body: *************====> ", req.body)
     let jobPostUrl = req.body.jobPostUrl;
+    console.log("server url: ", jobPostUrl)
     const jobUrlPdf  = "http://pdfmyurl.com/api?license="+ API_KEY + "&url=" + jobPostUrl + " &page_size=A4&orientation=portrait";
     var date = new Date();
-    let pdfName = "pdf" + date.getTime() + ".pdf";
+    let pdfName = "pdfjobdesc/" + "pdf" + date.getTime() + ".pdf";
     //console.log("Check body: ", req.body)
 
     http.get(jobUrlPdf, function(response) {
       //console.log(response)
-      var writeStream = fs.createWriteStream('public/pdfjobdesc/'+ pdfName, "utf8");
+      var writeStream = fs.createWriteStream('public/'+ pdfName, "utf8");
       var rawData = '';
       response.on ('data', function(chunk) {
         //rawData += chunk;
