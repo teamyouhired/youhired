@@ -34,19 +34,22 @@ const AddJob = createClass({
     let positionName = this.jobPositionInput.value;
     let jobPostUrl = this.jobUrlInput.value;
 
-    const API_KEY = "g8v5kuA8GXNu";
-    const jobUrlPdf  = "http://pdfmyurl.com/api?license="+ API_KEY + "&url=" + this.jobUrlInput.value + " &page_size=A4&orientation=portrait";
+    // const API_KEY = "g8v5kuA8GXNu";
+    // const jobUrlPdf  = "http://pdfmyurl.com/api?license="+ API_KEY + "&url=" + this.jobUrlInput.value + " &page_size=A4&orientation=portrait";
 
-    $.ajax(jobUrlPdf)
-      .done(file => {
-        let sfile = JSON.stringify(file)
-        this.props.addJob({
-          companyname: companyName,
-          positionname:  positionName,
-          jobfile: sfile,
-          jobposturl: jobPostUrl
-        });
+    fetch('api/jobdescription', {method: 'get', body: {jobPostUrl: jobPostUrl}})
+      .then(function(response) {
+        console.log("Response", response)
+      })
+      .catch(function(err) {
+        console.log("THIS IS THE RESPONSE ERROR: ", err)
       });
+          // companyname: companyName,
+          // positionname:  positionName,
+          // jobfile: sfile,
+          // jobposturl: jobPostUrl
+         //});
+      //});
 
     // this.props.addJob({
     //   companyname: this.companyNameInput.value,

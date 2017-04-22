@@ -1,4 +1,13 @@
-import { ADD_JOB, ADD_TASK, SELECT_JOB } from './DashboardActionTypes';
+import { ADD_JOB, ADD_TASK, SELECT_JOB, ADD_JOB_DESCRIPTION } from './DashboardActionTypes';
+
+
+export const addJobDescription = (jobPostUrl) => {
+  return {
+    type: ADD_JOB_DESCRIPTION,
+    payload: jobPostUrl
+  };
+}
+
 
 export const addJob = ({ companyName, status }) => {
   return {

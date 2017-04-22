@@ -1,5 +1,5 @@
 import { SELECT_JOB } from '../actions/dashboard/DashboardActionTypes';
-import { addContactToApplication, addActivity, addInterview, addJobOffer } from '../api/users';
+import { addContactToApplication, addActivity, addInterview, addJobOffer, addJobDescription } from '../api/users';
 
 const defaultState = {
     jobDetails: {},
@@ -14,7 +14,8 @@ const jobInformationReducer = (state = defaultState, { type, payload }) => {
         ...state,
         jobDetails: payload.jobDetails,
         jobActivities: payload.jobActivities,
-        jobContacts: payload.jobContacts
+        jobContacts: payload.jobContacts,
+        jobDescription: payload.jobDescription
       }
     case addContactToApplication.SUCCESS:
       return {

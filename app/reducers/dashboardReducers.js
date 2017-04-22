@@ -1,5 +1,5 @@
-import { ADD_JOB, ADD_TASK } from '../actions/dashboard/DashboardActionTypes';
-import { addJob, addContactToApplication, addTask, getUserData } from '../api/users';
+import { ADD_JOB, ADD_TASK, ADD_JOB_DESCRIPTION } from '../actions/dashboard/DashboardActionTypes';
+import { addJob, addContactToApplication, addTask, getUserData, addJobDescription } from '../api/users';
 
 const defaultState = {
   jobs: [],
@@ -17,7 +17,8 @@ const dashboardReducer = (state = defaultState, { type, payload }) => {
       return {
         ...state,
         jobs: payload.jobapplications,
-        contacts: payload.contacts
+        contacts: payload.contacts,
+        jobDescription: payload.jobDescription
       }
     default:
       return state;
