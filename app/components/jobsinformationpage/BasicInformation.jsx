@@ -19,7 +19,6 @@ const BasicInformation = createClass({
         <div className='basic-information'>
           <div className="company-info">
             <p>{details.companyaddress}</p>
-            <p>{details.companystate + ', ' + details.companyzip}</p>
           </div>
           <div className="offer-info" >
           </div>
