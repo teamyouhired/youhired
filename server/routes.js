@@ -26,7 +26,10 @@ function Routes(app) {
   app.get('/api/setuptables', updatedSeedCtrl.setUpTables);
   app.post('/api/updatedSeed', authenticate, updatedSeedCtrl.seed)
   app.post('/api/test', authenticate, userCtrl.test);
+
+  //retreving data
   app.get('/api/getData', authenticate, generalQueries.getData);
+  app.get('/api/goalinfo', authenticate, generalQueries.returnGoalInfo);
   // app.get('/api/seedme', seedCtrl.seedDatabase);
 
 
