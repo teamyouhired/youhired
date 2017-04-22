@@ -7,16 +7,11 @@ var Contact = require('./../models/ContactModel');
 
 
 var ActivityLog = connection.define('activitylogs', {
-  seedactivitylogid: {
-    type: Sequelize.INTEGER,
-    unique: true
-  },
-  seedapplicationid: Sequelize.INTEGER,
-  seedcontactid: Sequelize.INTEGER,
   activitytype: Sequelize.STRING(50),
   activitylogcontent: {
     type: Sequelize.TEXT,
-    allowNull: false
+    allowNull: false,
+    notEmpty: true
   }
 }, {
   timestamps: true,
@@ -24,14 +19,10 @@ var ActivityLog = connection.define('activitylogs', {
   updatedAt: 'updatedat'
 });
 
-ActivityLog.belongsTo(JobApplication, {
-  foreignKey: 'applicationid',
-  targetKey: 'id'
-});
+ActivityLog.belongsTo(JobApplication, {foreignKey: 'applicationid'});
+JobApplication.hasMany(ActivityLog, {foreignKey: 'applicationid'});
 
-ActivityLog.belongsTo(Contact, {
-  foreignKey: 'contactid',
-  targetKey: 'id'
-});
+ActivityLog.belongsTo(Contact, {foreignKey: 'contactid'});
+Contact.hasMany(ActivityLog, {foreignKey: 'contactid'});
 
 module.exports = ActivityLog;

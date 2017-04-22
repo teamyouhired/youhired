@@ -27,6 +27,13 @@ const goalCtrl = require('./goalCtrl.js');
 
 module.exports = {
 
+  setUpTables: function(req, res){
+
+    connection.sync();
+    res.send('Table set up complete!');
+    console.log('Table set up complete!');
+  },
+
   seed: function(req, res){
     Goal.create({
       userid: req.body.userid,
@@ -58,77 +65,67 @@ module.exports = {
     }).then(() => {
       JobApplication.create({
         userid: req.body.userid,
-        status: "INTERESTED",
         positionname: "Senior Front End Developer",
         companyname: "Google",
+        status: 'INTERESTED',
         jobposturl: "www.google.com"
       })
     }).then(() => {
       JobApplication.create({
         userid: req.body.userid,
-        status: "INTERESTED",
         positionname: "Back End Developer",
         companyname: "Facebook",
+        status: 'INTERESTED',
         jobposturl: "www.facebook.com"
       })
     }).then(() => {
       JobApplication.create({
         userid: req.body.userid,
-        status: "APPLIED",
         positionname: "Full Stack Developer",
         companyname: "Datastax",
+        status: 'INTERESTED',
         jobposturl: "www.datastax.com"
       })
     }).then(() => {
       JobApplication.create({
         userid: req.body.userid,
-        status: "INTERESTED",
         positionname: "Software Engineer",
         companyname: "Pinterest",
+        status: 'INTERESTED',
         jobposturl: "www.pinterest.com"
       })
     }).then(() => {
       JobApplication.create({
         userid: req.body.userid,
-        status: "APPLIED",
         positionname: "Software Developer",
         companyname: "Uber",
+        status: 'INTERESTED',
         jobposturl: "www.uber.com"
       })
     }).then(() => {
       JobApplication.create({
         userid: req.body.userid,
-        status: "INTERVIEW",
         positionname: "Software Engineer - Full Stack",
         companyname: "Homeaway",
-        jobposturl: "www.homeaway.com",
-        companyaddress: '12 Homeaway Drive',
-        companycity: 'San Francisco',
-        companystate: 'CA',
-        companyzip: 94101
+        status: 'INTERESTED',
+        jobposturl: "www.homeaway.com"
       })
     }).then(() => {
       JobApplication.create({
         userid: req.body.userid,
-        status: "INTERESTED",
         positionname: "Front End Engineer",
         companyname: "Youtube",
+        status: 'INTERESTED',
         jobposturl: "www.youtube.com"
       })
     }).then(() => {
       JobApplication.create({
         userid: req.body.userid,
-        status: "OFFER",
         positionname: "Senior Front End Developer - iOS",
         companyname: "Apple",
+        status: 'INTERESTED',
         jobposturl: "www.apple.com",
-        companyaddress: '12 Apple Ave',
-        companycity: 'San Francisco',
-        companystate: 'CA',
-        companyzip: 94101,
-        offersalary: '110000',
-        offeroptions: '1000 shares at $10 each',
-        offerbenefits: 'Health, Dental, 4 weeks paid vacation'
+
       }).then((info) => {
         var id = info.dataValues.id;
         ActivityLog.create({
@@ -254,42 +251,81 @@ module.exports = {
           })
         })
 
-
-
-
-
       })
 
     }).then(() => {
       JobApplication.create({
         userid: req.body.userid,
-        status: "INTERVIEW",
         positionname: "Senior Front End Developer",
         companyname: "Adobe",
-        jobposturl: "www.adobe.com",
-        companyaddress: '12 Adobe Drive',
-        companycity: 'San Jose',
-        companystate: 'CA',
-        companyzip: 94101
+        status: 'INTERESTED',
+        jobposturl: "www.adobe.com"
       })
     }).then(() => {
       JobApplication.create({
         userid: req.body.userid,
-        status: "APPLIED",
         positionname: "JavaScript Developer",
         companyname: "Facebook",
+        status: 'INTERESTED',
         jobposturl: "www.facebook.com"
       })
     }).then(() => {
       JobApplication.create({
         userid: req.body.userid,
-        status: "INTERESTED",
         positionname: "Senior Front End Developer",
         companyname: "US Government",
+        status: 'INTERESTED',
         jobposturl: "www.usajobs.com"
       })
-    })
-    .then(() => {
+    }).then(() => {
+
+    }).then(() => {
+
+    }).then(() => {
+
+    }).then(() => {
+
+    }).then(() => {
+
+    }).then(() => {
+
+    }).then(() => {
+
+    }).then(() => {
+
+    }).then(() => {
+
+    }).then(() => {
+
+    }).then(() => {
+
+    }).then(() => {
+
+    }).then(() => {
+
+    }).then(() => {
+
+    }).then(() => {
+
+    }).then(() => {
+
+    }).then(() => {
+
+    }).then(() => {
+
+    }).then(() => {
+
+    }).then(() => {
+
+    }).then(() => {
+
+    }).then(() => {
+
+    }).then(() => {
+
+    }).then(() => {
+
+    }).then(() => {
       res.send('all done!');
     })
   }

@@ -6,26 +6,26 @@ var JobApplication = require('./../models/JobApplicationModel');
 
 
 var Contact = connection.define('contacts', {
-  seedcontactid: {
-    type: Sequelize.INTEGER,
-    unique: true
-  },
-  seeduserid: Sequelize.INTEGER,
+
   contactfirstname: {
         type: Sequelize.STRING(50),
-        allowNull: false
+        allowNull: false,
+        notEmpty: true
       },
   contactlastname: {
         type: Sequelize.STRING(50),
-        allowNull: false
+        allowNull: false,
+        notEmpty: true
       },
   contactcompany: {
         type: Sequelize.STRING(100),
-        allowNull: false
+        allowNull: false,
+        notEmpty: true
       },
   contactpositiontitle: {
         type: Sequelize.STRING(100),
-        allowNull: false
+        allowNull: false,
+        notEmpty: true
       },
   contactphonenumber: Sequelize.STRING(14),
   contactemail: Sequelize.STRING(100),
@@ -42,10 +42,8 @@ var Contact = connection.define('contacts', {
   updatedAt: 'updatedat'
 });
 
-Contact.belongsTo(User, {
-  foreignKey: 'userid',
-  targetKey: 'id'
-});
+Contact.belongsTo(User, {foreignKey: 'userid'});
+User.hasMany(Contact, {foreignKey: 'userid'});
 
 
 // Contact.belongsToMany(JobApplication, {through: 'applicationcontact', foreignKey: 'contactid' })

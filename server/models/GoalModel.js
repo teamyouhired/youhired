@@ -6,15 +6,18 @@ var User = require('./../models/userModel');
 var Goal = connection.define('goals', {
   numberofstatus: {
     type: Sequelize.INTEGER,
-    allowNull: false
+    allowNull: false,
+    notEmpty: true
   },
   goaltype: {
     type: Sequelize.STRING(50),
-    allowNull: false
+    allowNull: false,
+    notEmpty: true
   },
   goalduedate: {
     type: Sequelize.DATE,
-    allowNull: false
+    allowNull: false,
+    notEmpty: true
   }
 },{
   timestamps: true,
@@ -22,9 +25,7 @@ var Goal = connection.define('goals', {
   updatedAt: 'updatedat'
 });
 
-Goal.belongsTo(User, {
-  foreignKey: 'userid'
-  // targetKey: 'id'
-});
+Goal.belongsTo(User, {foreignKey: 'userid'});
+User.hasMany(Goal, {foreignKey: 'userid'});
 
 module.exports = Goal;

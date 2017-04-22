@@ -7,13 +7,12 @@ var connection = require('./../db');
 var Token = connection.define('token', {
   auth: {
     type: Sequelize.TEXT,
-    allowNull: false
+    allowNull: false,
+    notEmpty: true
   }
 });
 
-Token.belongsTo(User, {
-  foreignKey: 'userid',
-  targetKey: 'id'
-});
+Token.belongsTo(User, {foreignKey: 'userid'});
+User.hasMany(Token, {foreignKey: 'userid'});
 
 module.exports = Token;

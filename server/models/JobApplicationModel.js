@@ -4,29 +4,26 @@ var connection = require('./../db');
 var User = require('./../models/userModel');
 
 var JobApplication = connection.define('jobapplications', {
-  seedapplicationid: {
-    type: Sequelize.INTEGER,
-    unique: true
-  },
-  seeduserid: Sequelize.INTEGER,
+
   positionname: {
     type: Sequelize.STRING(100),
-    allowNull: false
+    allowNull: false,
+    notEmpty: true
   },
   companyname: {
     type: Sequelize.STRING(100),
-    allowNull: false
+    allowNull: false,
+    notEmpty: true
   },
   jobposturl: Sequelize.TEXT,
   jobfile: Sequelize.TEXT,
   status: {
     type: Sequelize.STRING(50),
-    allowNull: false
+    allowNull: false,
+    notEmpty: true
   },
-  companyaddress: Sequelize.STRING(150),
-  companycity: Sequelize.STRING(150),
-  companystate: Sequelize.STRING(2),
-  companyzip: Sequelize.STRING(5),
+  companyaddress: Sequelize.STRING(1000),
+  interviewdatetime: Sequelize.DATE,
   offersalary: Sequelize.STRING(10),
   offeroptions: Sequelize.TEXT,
   offerbenefits: Sequelize.TEXT
@@ -38,11 +35,8 @@ var JobApplication = connection.define('jobapplications', {
 
 // User.hasMany(JobApplication);
 
-JobApplication.belongsTo(User, {
-  foreignKey: 'userid'
-  // targetKey: 'id'
-});
-
+JobApplication.belongsTo(User, {foreignKey: 'userid'});
+User.hasMany(JobApplication, {foreignKey: 'userid'});
 
 
 module.exports = JobApplication;
