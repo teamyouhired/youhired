@@ -1,10 +1,11 @@
 import { SELECT_JOB } from '../actions/dashboard/DashboardActionTypes';
-import { addContactToApplication, addActivity, addInterview, addJobOffer } from '../api/users';
+import { addContactToApplication, addActivity, addInterview, addJobOffer, addJobDescription } from '../api/users';
 
 const defaultState = {
     jobDetails: {},
     jobActivities: [],
-    jobContacts: []
+    jobContacts: [],
+    jobPdf: ""
 };
 
 const jobInformationReducer = (state = defaultState, { type, payload }) => {
@@ -14,7 +15,7 @@ const jobInformationReducer = (state = defaultState, { type, payload }) => {
         ...state,
         jobDetails: payload.jobDetails,
         jobActivities: payload.jobActivities,
-        jobContacts: payload.jobContacts
+        jobContacts: payload.jobContacts,
       }
     case addContactToApplication.SUCCESS:
       return {
@@ -31,6 +32,11 @@ const jobInformationReducer = (state = defaultState, { type, payload }) => {
       return {
         ...state,
         jobDetails: payload
+      }
+    case addJobDescription.SUCCESS:
+      return {
+        ...state,
+        jobPdf: payload
       }
     // case updateStatus.SUCCESS:
     //   return {

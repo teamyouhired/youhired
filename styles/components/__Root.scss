@@ -1,0 +1,95 @@
+body {
+  background-color: #4abdac;
+}
+.button-container {
+  position: absolute;
+  bottom: 50px;
+  right: 100px;
+}
+
+.bottom-button {
+  clear: right;
+  margin-top: 15px;
+
+}
+
+.button {
+    float: right;
+    width: 175px;
+    background-color: #DFEEF3; /* Green */
+    color: white;
+    padding: 10px 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 0 8px 16px 0 rgba(1,1,1,0.2), 0 6px 20px 0 rgba(1,1,1,0.2);
+}
+
+
+.root-view {
+
+
+}
+
+.job-card{
+  width: 100%;
+}
+
+.job-app-header {
+  height: 40px;
+  background-color: #4abdac;
+}
+
+.job-app-text {
+  margin: 0px;
+  padding-top: 7px;
+  color: white;
+
+}
+
+.root-main {
+
+  text-align: center;
+  margin: auto;
+  height: 750px;
+  width: 100%;
+  padding: 20px;
+
+}
+
+.root-main-apps {
+  background-color: #dfdce3;
+  float: left;
+  text-align: center;
+  width: 32%;
+  margin: 7px;
+  padding-bottom: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.root-main-tasks {
+  float: left;
+  text-align: center;
+  width: 32%;
+  margin: 7px;
+  padding-bottom: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.root-main-goals {
+  background-color: #dfdce3;
+  float: left;
+  text-align: center;
+  width: 32%;
+  margin: 7px;
+  padding-bottom: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.root-background {
+  padding-right: 0px;
+  padding-left: 0px;
+  background-color: #dfdce3;
+}
+

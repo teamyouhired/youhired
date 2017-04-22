@@ -15,7 +15,9 @@ const updatedSeedCtrl = require('./controllers/updatedSeedCtrl.js');
 // endpoint routes
 function Routes(app) {
 
+
 //signup and signin
+
 
   app.post('/api/signup', userCtrl.onSignup);
   app.post('/api/signin', userCtrl.onSignin);
@@ -31,6 +33,9 @@ function Routes(app) {
   app.post('/api/addapplication', authenticate, jobApplicationCtrl.addApplication);
   app.post('/api/addactivity', authenticate, activityLogCtrl.addActivity);
   app.post('/api/addcontactfromapplication', authenticate, contactCtrl.addContactFromApplication);
+  app.post('/api/jobdescription', jobApplicationCtrl.addJobDescription);
+  // app.post('/api/addcontactfromdashboard', authenticate, contactCtrl.addContactFromDashboard);
+
   app.post('/api/addinterview', authenticate, jobApplicationCtrl.addInterview);
   app.post('/api/addjoboffer', authenticate, jobApplicationCtrl.addJobOffer);
   app.post('/api/updatestatus', authenticate, jobApplicationCtrl.updateStatus);

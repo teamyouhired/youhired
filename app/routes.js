@@ -4,6 +4,7 @@ import path from 'path';
 import { createHistory } from 'history/createBrowserHistory';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import JobInformation from './components/jobsinformationpage/JobInformation';
+//import AddJob from './components/dashboard/jobs/AddJob';
 import Login from 'login/Login';
 import Signup from 'signup/Signup';
 import Splash from 'splashpage/splash';
@@ -22,6 +23,7 @@ const routes = (
     <Route path='/about-us' component={About} />
     <Route path='/dashboard' component={Dashboard} />
     <Route path='/job-information' component={JobInformation} />
+    {/*<Route path='/api/jobdescription' component={AddJob} />*/}
   </div>
 );
 

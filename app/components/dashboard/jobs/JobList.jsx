@@ -20,7 +20,8 @@ const JobList = createClass({
         formType: 'DISPLAY_JOB_FORM',
         modalProps: {
           addJob: this.props.addJob,
-          hideModal: this.props.hideModal
+          hideModal: this.props.hideModal,
+          addJobDescription: this.props.addJobDescription
         }
       });
     },

@@ -1,5 +1,8 @@
 var pg = require('pg');
 var Sequelize = require('sequelize');
+var $ = require('jquery');
+var fs = require('fs')
+var http = require('http')
 var connection = require('./../db');
 var User = require('./../models/UserModel');
 var Token = require('./../models/TokenModel');
@@ -119,6 +122,49 @@ module.exports = {
   },
 
 
+   addJobDescription: function(req, res) {
+    const API_KEY = "g8v5kuA8GXNu";
+    console.log("req.body: *************====> ", req.body)
+    let jobPostUrl = req.body.jobPostUrl;
+    console.log("server url: ", jobPostUrl)
+    const jobUrlPdf  = "http://pdfmyurl.com/api?license="+ API_KEY + "&url=" + jobPostUrl + " &page_size=A4&orientation=portrait";
+    var date = new Date();
+    let pdfName = "pdfjobdesc/" + "pdf" + date.getTime() + ".pdf";
+    //console.log("Check body: ", req.body)
+
+    http.get(jobUrlPdf, function(response) {
+      //console.log(response)
+      var writeStream = fs.createWriteStream('public/'+ pdfName, "utf8");
+      var rawData = '';
+      response.on ('data', function(chunk) {
+        //rawData += chunk;
+        writeStream.write(chunk);
+      })
+      //res.send(pdf1492830235169.pdf);
+      res.send(pdfName);
+    })
+
+
+
+        // fs.writeFile('tempName.pdf', file, function(err) {
+        //   return console.log(err);
+        // })
+        //let sfile = JSON.stringify(file)
+        // this.props.addJob({
+        //   companyname: companyName,
+        //   positionname:  positionName,
+        //   jobfile: sfile,
+        //   jobposturl: jobPostUrl,
+        //   status: status
+        // });
+      //});
+
+  },
+
+
+
+
+
 
   updateStatus: function(req, res) {
     JobApplication.update({
@@ -143,3 +189,21 @@ module.exports = {
 
 
 };
+
+
+// fetch(jobUrlPdf)
+//       .then(file => {
+//         fs.writeFile('tempName.pdf', file, function(err) {
+//           return console.log(err);
+//         })
+//         //let sfile = JSON.stringify(file)
+//         // this.props.addJob({
+//         //   companyname: companyName,
+//         //   positionname:  positionName,
+//         //   jobfile: sfile,
+//         //   jobposturl: jobPostUrl,
+//         //   status: status
+//         // });
+//       });
+
+//   },

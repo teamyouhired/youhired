@@ -61,6 +61,12 @@ export const addJobOffer = createClient({
   url: '/api/addjoboffer'
 });
 
+export const addJobDescription = createClient({
+  actionTypePrefix: 'user:addJobDescription',
+  requestType: 'POST',
+  url: '/api/jobdescription'
+});
+
 /*
   what needs to happen when a login attempt takes place,
   put this in the routing and use onEntry lifecycle hook to check for the token before allowing access to the page

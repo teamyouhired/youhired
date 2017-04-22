@@ -148,7 +148,7 @@ const mapStateToProps = (state) => {
   return {
     jobApplication: state.jobInformation.jobDetails,
     isModalActive: state.modal.modalType,
-    jobfile: state.jobInformation.jobDetails.jobfile,
+    jobfile: state.jobInformation.jobPdf,
     activity: state.jobInformation.jobActivities,
     applicationContacts: state.jobInformation.jobContacts,
     isModalActive: state.modal.modalType
