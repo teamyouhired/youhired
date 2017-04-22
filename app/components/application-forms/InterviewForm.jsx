@@ -20,7 +20,6 @@ const InterviewForm = createClass({
 
   onSubmit(event) {
     event.preventDefault();
-    console.log('date being sent to database', this.state.dateString);
     this.props.addInterview({
       applicationid: this.props.applicationId,
       companyaddress:  this.companyAddress.value,
@@ -31,7 +30,7 @@ const InterviewForm = createClass({
     this.props.hideModal();
   },
 
-  handleChange(dateString, { dateMoment }) {
+  handleChange(dateString, { dateMoment, timestamp }) {
     this.setState({
       startDate: dateMoment,
       dateString: dateString
