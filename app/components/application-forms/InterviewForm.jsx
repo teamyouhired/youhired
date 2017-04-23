@@ -23,7 +23,7 @@ const InterviewForm = createClass({
     this.props.addInterview({
       applicationid: this.props.applicationId,
       companyaddress:  this.companyAddress.value,
-      datestring: this.state.dateString
+      interviewdatetime: this.state.startDate
     });
 
     this.companyAddress.value = '';
@@ -32,8 +32,7 @@ const InterviewForm = createClass({
 
   handleChange(dateString, { dateMoment, timestamp }) {
     this.setState({
-      startDate: dateMoment,
-      dateString: dateString
+      startDate: dateMoment
     });
   },
 
