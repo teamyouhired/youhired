@@ -13,7 +13,7 @@ const HeaderComponent = createClass({
   },
 
   render() {
-    return (<nav className="navbar navbar-light my-nav" style={{backgroundColor: '#fbfbfb'}}>
+    return (<nav className="navbar navbar-light my-nav">
 
       <div className="navbar-header my-nav">
         <img src='images/small-logo.png' alt="" />
@@ -22,20 +22,20 @@ const HeaderComponent = createClass({
       <div className="main-nav">
       <ul className="nav navbar-nav navbar-left">
         <li>
-          <Link to="/dashboard" className="nav-names" style={{ color: '#747474' }}>MAIN DASHBOARD
+          <Link to="/dashboard" className="nav-names">MAIN DASHBOARD
         </Link>
         </li>
-        <li><a href="#" className="nav-names" style={{ color: '#747474' }}>GOALS</a></li>
-        <li><a href="#" className="nav-names" style={{ color: '#747474' }}>CURRENT JOBS</a></li>
-        <li><a href="#" className="nav-names" style={{ color: '#747474' }}>JOB HUNT ADVICE</a></li>
-        <li><a href="#" className="nav-names"  style={{ color: '#747474' }}>JOB SEARCH</a></li>
+        <li><a href="#" className="nav-names">GOALS</a></li>
+        <li><a href="#" className="nav-names">CURRENT JOBS</a></li>
+        <li><a href="#" className="nav-names">JOB HUNT ADVICE</a></li>
+        <li><a href="#" className="nav-names">JOB SEARCH</a></li>
       </ul>
       </div>
 
       <div className="header-logout">
       <ul className="nav navbar-nav navbar-right">
         <li><span className="glyphicon nav-names glyphicon-log-in"></span>
-        <Link onClick={this.logout} to="/" className="logout-link" style={{ color: '#747474' }}>Logout</Link>
+        <Link onClick={this.logout} to="/" className="logout-link">Logout</Link>
         </li>
       </ul>
       </div>

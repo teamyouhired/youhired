@@ -1,6 +1,6 @@
 .goal-card {
   height: 215px;
-  background-color: white;
+  background-color: $color-info-containers;
   margin: 5px;
 }
 
@@ -8,7 +8,7 @@
 
   padding-left: 3px;
   text-align: left;
-  background-color: #dfdce3;
+  background-color: $color-header;
   width: 100%;
   height: 20px;
 
@@ -16,7 +16,7 @@
 
 .goal-title {
   margin: 0px;
-  color: white;
+  color: $color-text-light;
 }
 
 .goal-main-input {
@@ -38,7 +38,6 @@
 }
 
 .goal-card-goal {
-
   text-align: center;
   margin: 5px;
   margin: 3px;
@@ -91,7 +90,6 @@
   width: 50%;
   height: 50%;
 }
-
 
 .date-container {
   float: left;

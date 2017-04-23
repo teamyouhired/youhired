@@ -3,7 +3,7 @@
     width: 25%;
     height: 100%;
     background-color: #52658F;
-    color: white;
+    color: $color-text-light;
     margin: 0 auto;
     text-align: center;
     text-decoration: none;
@@ -37,13 +37,13 @@
   height: 500px;
   width: 100%;
   overflow: auto;
-  background-color: white;
+  background-color: $color-info-containers;
 }
 
 .jobdesc-heading {
   width: 100%;
-  background-color: #747474;
-  color: white;
+  background-color: $color-header;
+  color: $color-text-light;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
