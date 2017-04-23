@@ -5,23 +5,22 @@ const CompanyInformation = createClass({
 
   render() {
     const {
-      companyname,
-      companyaddress,
-      positionname,
-      createdat
+      companyName,
+      positionName,
+      createdAt
     } = this.props;
 
     return (
       <div>
         <div className='basic-heading'>
           <div className="company-details">
-            <h4>{companyname}</h4>
+            <h4>{companyName}</h4>
           </div>
           <div className="offer-details" >
-            <h4>{positionname}</h4>
+            <h4>{positionName}</h4>
           </div>
           <div className="creation-info">
-            <p>{createdat}</p>
+            <p>{createdAt}</p>
           </div>
         </div>
       </div>
