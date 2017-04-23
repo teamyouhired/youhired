@@ -35,7 +35,7 @@ const VisualData = createClass({
             <Bar dataKey="pv" fill="#8884d8" />
             <Bar dataKey="uv" fill="#82ca9d" />
           </BarChart>
-
+{/*
         <hr />
         <PieChart width={450} height={450} onMouseEnter={this.onPieEnter}>
         <Pie
@@ -67,7 +67,7 @@ const VisualData = createClass({
             }
           </Pie>
       </PieChart>
-
+*/}
       </div>
     );
   }

@@ -25,7 +25,9 @@ const FooterComponent = createClass({
     <div className="footer-right">
       <p className="footer-company-about">
         <span>About the company</span>
+        <p className="footer-comp-info">
         youHired is a personal job search Organizer where a job seeker can save and track job application status, set reminders, take notes, set search goals, document individual interview restrospectives and save contact info.
+        </p>
       </p>
       <div className="footer-icons">
         <a href="https://www.facebook.com"><i className="fa fa-facebook"></i></a>

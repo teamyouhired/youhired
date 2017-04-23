@@ -1,5 +1,9 @@
+.navbar.navbar-light.my-nav {
+  background-color: $color-background;
+}
+
 .nav-names {
-  color: white;
+  color: $color-text-dark;
 }
 
 .main-nav {
@@ -8,7 +12,6 @@
 }
 
 .my-nav {
-
   padding-right: 10px;
 }
 
@@ -23,8 +26,8 @@
 }
 
 .logout-link {
+  color: $color-text-dark;
   float:left;
-
 }
 
 .navbar.navbar-light.my-nav {
