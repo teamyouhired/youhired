@@ -32,9 +32,6 @@ const JobInformation = createClass({
     activity: PropTypes.array.isRequired,
     applicationContacts: PropTypes.array.isRequired
   },
-  // componentWillMount() {
-  //   this.props.getData();
-  // },
 
   onAddActivity(event) {
     this.props.displayActivityForm({

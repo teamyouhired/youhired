@@ -13,6 +13,10 @@ const BasicInformation = createClass({
           positionName={details.positionname}
           creationDate={details.createdat}
         />
+        {details.companyaddress ? (destails.offersalary ? <InterviewDetails
+          address={details.companyaddress}
+          date={details.interviewdatetime}
+          /> : null) : null}
         {details.offersalary ? <OfferDetails
           offerSalary={details.offersalary}
           offerOptions={details.offeroptions}
