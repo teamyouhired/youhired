@@ -35,6 +35,28 @@ var consistencyApplicationQuery = function(id){
       });
     }
 
+
+
+    var intToTimestamp = function(input){
+      var string = input;
+      var timestampResult = [];
+      var timezone;
+
+      var separators = [' ', '\\/', '-'];
+      var arr = string.split(new RegExp('[' + separators.join('') + ']', 'g'));
+
+      timestampResult.push(arr[2]);
+      timestampResult.push(arr[1]);
+      timestampResult.push(arr[0]);
+
+      var result = timestampResult.join('-');
+
+      var final = result + ' ' + arr[3] + ':00 -' + arr[4] + ':00';
+      console.log(final);
+      return final;
+
+    }
+
 module.exports = {
 
   addApplication: function(req, res) {
@@ -80,9 +102,13 @@ module.exports = {
 
   addInterview: function(req, res) {
     console.log(req.body.applicationid);
+
+    //Interview:  21/04/2017 16:49-7
+    //2017-04-22 12:32:47.914-07
+
     JobApplication.update({
       companyaddress: req.body.companyaddress,
-      interviewdatetime: req.body.interviewdatetime
+      interviewdatetime: intToTimestamp(req.body.interviewdatetime)
     },{
       fields: ['companyaddress', 'interviewdatetime'],
       where: {
