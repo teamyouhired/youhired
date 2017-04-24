@@ -8,15 +8,32 @@
 
 //INFILL COLORS
 
-$color-background: #d4d1b1; //BACKGROUND COLOR FOR ENTIRE SITE
-$color-header: #20717f; //HEADER COLOR
-$color-info-containers: #efefef; //INFORMATION CONTAINER COLOR BELOW HEADERS
+$color-background: #d3d1d6; //BACKGROUND COLOR FOR ENTIRE SITE
+$color-header: #2E57B2; //HEADER COLOR
+$color-info-containers: white; //INFORMATION CONTAINER COLOR BELOW HEADERS
 $color-card: #caebf2; //JOB APPLICATION CARD COLOR
-$color-button-background: #619199; //ALL BUTTONS BACKGROUND COLOR
+$color-button-background: #2E57B2; //ALL BUTTONS BACKGROUND COLOR
 
 //TEXT STILL NEEDS SOME ORGANIZATION
 
 $color-text-light: white; //TYPICALLY HEADER TEXT
-$color-text-dark: #7f4660;  //TYPICALLY BODY TEXT
+$color-text-dark: #20717F;  //TYPICALLY BODY TEXT
 $color-text-button: white; //ALL BUTTON TEXT
 
+/* colors tried
+scheme 1
+  dark purple = 7f4660
+  light purple = A7A2CC
+  light teal for buttons = 619199
+  light blue for cards = caebf2
+  headers = 20717f
+  background = d4d1b1
+
+scheme 2
+  background = A7A2CA
+  headers = 617F5F
+  buttons = 617F5F
+  dark text = 094B7F
+  job card = 6E996A
+  containers = D4C7BE
+*/
