@@ -40,8 +40,6 @@ var consistencyApplicationQuery = function(id){
     var intToTimestamp = function(input){
       var string = input;
       var timestampResult = [];
-      var timezone;
-
       var separators = [' ', '\\/', '-'];
       var arr = string.split(new RegExp('[' + separators.join('') + ']', 'g'));
 
