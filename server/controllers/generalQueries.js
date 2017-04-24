@@ -163,41 +163,9 @@ module.exports = {
     }).then((results) => {
       res.send(results);
     })
-  },
-
-  returnGoalInfo: function(req, res) {
-
-    var results = {};
-
-    var getGoalsForType = function(indexedItem){
-      return connection.query("SELECT COUNT(a.activitylogcontent) AS total FROM ((activitylogs a INNER JOIN jobapplications j ON a.applicationid = j.id) INNER JOIN users u ON j.userid = u.id) WHERE u.id = :id AND a.activitytype = 'STATUSCHANGE' AND a.activitylogcontent = :indexedItem AND a.createdat >= (SELECT updatedat FROM goals WHERE userid = :id AND goaltype = :indexedItem) AND a.createdat < (SELECT goalduedate FROM goals WHERE userid = :id AND goaltype = :indexedItem) GROUP BY a.activitylogcontent;", {
-          replacements: { indexedItem: indexedItem, id: req.body.userid}
-        }).then((data) => {
-          if(data[0][0]) {
-            results[indexedItem] = data[0][0]['total'];
-          } else {
-            results[indexedItem] = 0;
-          }
-
-        });
-    };
-
-    goalTypes = ['INTERESTED', 'APPLIED', 'INFO INTERVIEW', 'INTERVIEW'];
-
-    var subroutine = function(array, count){
-      if(count >= array.length){
-        console.log(results);
-        res.send(results);
-      } else {
-        getGoalsForType(array[count]).then(() => {
-          subroutine(array, count += 1);
-        });
-      }
-    }
-
-    subroutine(goalTypes, 0);
-
   }
+
+
 
 };
 
