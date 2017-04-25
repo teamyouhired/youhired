@@ -1,6 +1,6 @@
 var pg = require('pg');
 var Sequelize = require('sequelize');
-var $ = require('jquery');
+//var $ = require('jquery');
 var fs = require('fs')
 var http = require('http')
 var connection = require('./../db');
