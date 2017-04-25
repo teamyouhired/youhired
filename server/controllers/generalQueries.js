@@ -11,6 +11,15 @@ var ContactApplicationJoin = require('./../models/ContactApplicationJoinModel');
 
 var Promise = require('bluebird');
 
+
+  var currentStatuses = function(req){
+    return connection.query("SELECT status, COUNT(status) AS total FROM jobapplications WHERE userid = :id GROUP BY status;", {
+        replacements: {
+          id: req.body.userid
+        }
+    })
+  };
+
 module.exports = {
 
   getData: function (req, res) {
@@ -163,6 +172,28 @@ module.exports = {
     }).then((results) => {
       res.send(results);
     })
+  },
+
+  getCurrentStatuses: function(req, res) {
+    //will require a userid
+    //will require an input date
+    var statuses = {
+      'INTERESTED': 0,
+      'APPLIED': 0,
+      'INFO INTERVIEW': 0,
+      'INTERVIEW': 0,
+      'JOB OFFER': 0
+    }
+
+    currentStatuses(req).then((results) => {
+      var data = results[0];
+      for(var i = 0; i < data.length; i++){
+        statuses[data[i]['status']] = data[i]['total']
+      }
+      res.send(statuses);
+    })
+
+    // return statuses;
   }
 
 
