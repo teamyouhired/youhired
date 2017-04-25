@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import 'react-date-picker/index.css';
 import { TransitionView, Calendar } from 'react-date-picker';
 import { changeDate } from '../../actions/jobsinformationpage/JobInformationActions';
+import { hideModal } from '../../actions/modals/ModalActions';
 import { selectGoalType } from '../../actions/dashboard/DashboardActions';
+import { addGoal } from '../../api/users';
 import moment from 'moment';
 import { DropdownButton, MenuItem } from 'react-bootstrap';
 
@@ -96,7 +98,9 @@ const mapStateToProps = (state) => {
 
 const mapActionsToProps = {
   changeDate: changeDate,
-  selectGoalType: selectGoalType
+  selectGoalType: selectGoalType,
+  addGoal: addGoal,
+  hideModal: hideModal
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(GoalForm);
