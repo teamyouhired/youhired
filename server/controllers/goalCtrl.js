@@ -115,10 +115,10 @@ module.exports = {
 
     var subroutine = function(array, count){
       if(count >= array.length){
-        currentStatuses().then((data) => {
-          results['currentStatuses'] = data[0];
+        // currentStatuses().then((data) => {
+        //   results['currentStatuses'] = data[0];
           res.send(results);
-        })
+
       } else {
         getGoalProgressByType(array[count])
         .then(() => {
