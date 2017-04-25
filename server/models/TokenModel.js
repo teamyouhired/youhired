@@ -1,7 +1,7 @@
 var pg = require('pg');
 var Sequelize = require('sequelize');
 
-var User = require('./../models/userModel');
+var User = require('./../models/UserModel');
 var connection = require('./../db');
 
 var Token = connection.define('token', {

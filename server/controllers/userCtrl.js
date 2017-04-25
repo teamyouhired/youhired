@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 var Sequelize = require('sequelize');
 const jwt = require('jsonwebtoken');
 var connection = require('./../db');
-var User = require('./../models/userModel');
+var User = require('./../models/UserModel');
 var Token = require('./../models/TokenModel');
 // console.log('USER.dima', User.dima());
 // console.log('USER', User);
