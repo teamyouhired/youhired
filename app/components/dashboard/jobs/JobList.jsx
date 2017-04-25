@@ -34,7 +34,7 @@ const JobList = createClass({
         jobs
       } = this.props;
 
-      let order = ['OFFER', 'INTERVIEW', 'APPLIED', 'INTERESTED'];
+      let order = ['OFFER', 'INTERVIEW', 'INFO INTERVIEW', 'APPLIED', 'INTERESTED'];
 
       return (
         <div className='job-list'>
