@@ -105,13 +105,6 @@ module.exports = {
       })
     };
 
-    var currentStatuses = function(){
-      return connection.query("SELECT status, COUNT(status) AS total FROM jobapplications WHERE userid = :id GROUP BY status;", {
-          replacements: {
-            id: req.body.userid
-          }
-      })
-    };
 
     var subroutine = function(array, count){
       if(count >= array.length){

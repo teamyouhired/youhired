@@ -36,6 +36,7 @@ function Routes(app) {
   //retreving data
   app.get('/api/getData', authenticate, generalQueries.getData);
   app.get('/api/goalinfo', authenticate, goalCtrl.returnGoalInfo);
+  app.get('/api/currentstatuses',  authenticate, generalQueries.getCurrentStatuses);
   // app.get('/api/getgoalbytype', authenticate, goalCtrl.getGoalData);
   // app.get('/api/seedme', seedCtrl.seedDatabase);
 
