@@ -3,7 +3,7 @@ var Sequelize = require('sequelize');
 var connection = require('./../db');
 
 //IMPORT MODELS
-var User = require('./../models/UserModel');
+var User = require('./../models/userModel');
 var Token = require('./../models/TokenModel')
 var JobApplication = require('./../models/JobApplicationModel');
 var Contact = require('./../models/ContactModel');
