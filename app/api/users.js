@@ -19,6 +19,12 @@ export const addGoal = createClient({
   url: '/api/addgoal'
 });
 
+export const getGoals = createClient({
+  actionTypePrefix: 'user:getGoals',
+  requestType: 'GET',
+  url: '/api/goalinfo'
+});
+
 export const addContactToApplication = createClient({
   actionTypePrefix: 'user:addContact',
   requestType: 'POST',

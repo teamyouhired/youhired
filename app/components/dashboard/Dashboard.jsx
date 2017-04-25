@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import JobList from './jobs/JobList';
 import TaskList from './tasks/TaskList';
-import { getUserData } from '../../api/users';
+import { getUserData, getUserGoals } from '../../api/users';
 import { changePage } from '../../actions/NavigationActions';
 import Redirect from 'react-router-dom';
 import { addJob, addGoal, addJobDescription } from '../../api/users';
@@ -31,6 +31,7 @@ const Dashboard = createClass({
   componentWillMount() {
     const history = this.props.history;
     this.props.getData();
+    this.props.getGoals();
     // if (!sessionStorage.getItem('auth')) {
     //   history.push('/signup');
     // }
@@ -131,7 +132,8 @@ const mapActionsToProps = {
   displayGoalForm: displayGoalForm,
   displayJobForm: displayJobForm,
   hideModal: hideModal,
-  selectJob: selectJob
+  selectJob: selectJob,
+  getGoals: getUserGoals
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(Dashboard);
