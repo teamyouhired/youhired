@@ -7,6 +7,7 @@
   },
   "main": "webpack.config.dima.js",
   "scripts": {
+    "start": "node server/server.js",
     "css": "webpack -w",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js 'test/**/*.js'",
     "test:watch": "npm run test -- --watch",
