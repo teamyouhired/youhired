@@ -16,10 +16,10 @@ const OfferDetails = createClass({
       <div>
         <div className="details">
           <div className="position-details">
-            <h4>Position Details</h4>
+            <h4 className="header-titles">Position Details</h4>
           </div>
           <div className="job-url">
-            <h4>Description</h4>
+            <h4 className="header-titles">Description</h4>
           </div>
         </div>
         <div className="details-info">

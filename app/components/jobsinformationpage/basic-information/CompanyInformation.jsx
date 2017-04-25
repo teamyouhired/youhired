@@ -14,13 +14,13 @@ const CompanyInformation = createClass({
       <div>
         <div className='basic-heading'>
           <div className="company-details">
-            <h4>{companyName}</h4>
+            <h4 className="comp-name">{companyName}</h4>
           </div>
           <div className="offer-details" >
-            <h4>{positionName}</h4>
+            <h4 className="header-titles">{positionName}</h4>
           </div>
           <div className="creation-info">
-            <p>{createdAt}</p>
+            <p className="header-titles">{createdAt}</p>
           </div>
         </div>
       </div>

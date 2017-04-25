@@ -28,9 +28,9 @@ const About = createClass({
                     <div className="team-card">
                         <img className="img-circle img-responsive img-center" src="images/d2 cut.png" alt="" />
                         <h3 className="name">Dimitri Timkin</h3>
-                            <h5>Product Owner</h5>
+                            <h5 className="job-title">Product Owner</h5>
 
-                        <p> Dimitri developed the vision for youHired and guided the directions of the project.</p>
+                        <p> Dimitri developed the vision for youHired and guided the direction of the project and helped control the project flow.</p>
                         <div className="per-linkedin">
                             <a href="https://www.linkedin.com"><i className="fa fa-linkedin"></i></a>
                         </div>
@@ -38,9 +38,9 @@ const About = createClass({
                     <div className="team-card">
                         <img className="img-circle img-responsive img-center" src="images/Chris.jpg" alt="" />
                         <h3 className="name">Chris Abrami</h3>
-                            <h5>Scrum Master</h5>
+                            <h5 className="job-title">Scrum Master</h5>
 
-                        <p>"Chris built out the database and back end and guided the tactical day to day execution of project tasks."</p>
+                        <p>Chris built out the database and back end and guided the tactical day to day execution of project tasks.</p>
                         <div className="per-linkedin">
                             <a href="https://www.linkedin.com"><i className="fa fa-linkedin"></i></a>
                         </div>
@@ -50,9 +50,9 @@ const About = createClass({
                      <div className="team-card">
                         <img className="img-circle img-responsive img-center" src="images/Ryan.jpg" alt="" />
                         <h3 className="name">Ryan Freude</h3>
-                            <h5>Fullstack Engineer</h5>
+                            <h5 className="job-title">Fullstack Engineer</h5>
 
-                        <p>Ryan ran the show on this one...enough said.</p>
+                        <p>Developed client side functionality using React/Redux and developed visualizaion components.</p>
                         <div className="per-linkedin">
                             <a href="https://www.linkedin.com"><i className="fa fa-linkedin"></i></a>
                         </div>
@@ -60,9 +60,9 @@ const About = createClass({
                      <div className="team-card">
                         <img className="img-circle img-responsive img-center" src="images/FullSizeRender-4.jpg" alt="" />
                         <h3 className="name">Jesse Hill</h3>
-                            <h5>Fullstack Engineer</h5>
+                            <h5 className="job-title">Fullstack Engineer</h5>
 
-                        <p>Developed client side functionality using React / Redux.</p>
+                        <p>Developed client side functionality using React / Redux and assisted in database development.</p>
                         <div className="per-linkedin">
                             <a href="https://www.linkedin.com/in/jesse-hill-89b26b62/"><i className="fa fa-linkedin"></i></a>
                         </div>

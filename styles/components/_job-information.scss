@@ -1,9 +1,27 @@
 p {
+  font-family: $text-standard;
+  font-size: $text-medium;
   margin: 1px;
 }
 
+.comp-name {
+  font-family: $text-title;
+  font-size: $text-xlarge;
+}
+
+.header-titles {
+  font-family: $text-title;
+  font-size: $text-large;
+}
+
+.btn-group>.btn:first-child {
+  font-family: $text-standard;
+  font-size: $text-medium;
+}
+
 .creation-date {
-  font-size: 24px;
+  font-family: $text-title;
+  font-size: $text-large;
   margin: 5px;
   padding-right: 5px;
 }
@@ -22,6 +40,8 @@ p {
 }
 
 .position-details-info {
+  font-family: $text-standard;
+  font-size: $text-medium;
   padding-left: 5px;
   width: 50%;
   height: 100%;
@@ -75,12 +95,16 @@ h4 {
 }
 
 .act-title-text {
+  font-family: $text-title;
+  font-size: $text-large;
   margin-top: 0px;
   padding-top: 5px;
   padding-bottom: 5px;
 }
 
 .activity-title {
+  font-family: $text-title;
+  font-size: $text-large;
   background-color: $color-header;
   padding-left: 5px;
   width: 100%;
@@ -154,6 +178,8 @@ h4 {
 }
 
 #contact-name-text {
+  font-family: $text-title;
+  font-size: $text-large;
   margin: 0px;
 }
 
@@ -178,12 +204,14 @@ h4 {
 }
 
 .company-details {
-  font-size: 32px;
+  font-family: $text-title;
+  font-size: $text-large;
   margin: 5px;
 }
 
 .offer-details {
-  font-size: 24px;
+  font-family: $text-title;
+  font-size: $text-large;
   margin: 5px;
 }
 
@@ -199,7 +227,8 @@ h4 {
 }
 
 #job-info-button {
-  font-size: 14px;
+  font-family: $text-standard;
+  font-size: $text-medium;
   text-align: center;
   white-space: nowrap;
 }

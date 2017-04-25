@@ -1,5 +1,6 @@
 import jsdom from 'jsdom';
 import jquery from 'jquery';
+import ReactTestUtils from 'react-dom/test-utils'; // ES6
 import TestUtils from 'react-addons-test-utils';
 import ReactDOM from 'react-dom';
 import chai, { expect } from 'chai';
