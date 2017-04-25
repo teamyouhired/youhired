@@ -20,6 +20,16 @@ var Promise = require('bluebird');
     })
   };
 
+  var currentStatuses = function(req){
+    return connection.query("SELECT status, COUNT(status) AS total FROM jobapplications WHERE userid = :id GROUP BY status;", {
+        replacements: {
+          id: req.body.userid
+        }
+    })
+  };
+
+
+
 module.exports = {
 
   getData: function (req, res) {
@@ -184,7 +194,6 @@ module.exports = {
       'INTERVIEW': 0,
       'JOB OFFER': 0
     }
-
 
     currentStatuses(req).then((results) => {
       var data = results[0];
