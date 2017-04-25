@@ -103,12 +103,22 @@ module.exports = {
         results['goalTracking'][indexedItem]['goalTotal'] = info['numberofstatus'];
         results['goalTracking'][indexedItem]['goalduedate'] = info['goalduedate'];
       })
-    }
+    };
+
+    var currentStatuses = function(){
+      return connection.query("SELECT status, COUNT(status) AS total FROM jobapplications WHERE userid = :id GROUP BY status;", {
+          replacements: {
+            id: req.body.userid
+          }
+      })
+    };
 
     var subroutine = function(array, count){
       if(count >= array.length){
-        // console.log(results);
-        res.send(results);
+        currentStatuses().then((data) => {
+          results['currentStatuses'] = data[0];
+          res.send(results);
+        })
       } else {
         getGoalProgressByType(array[count])
         .then(() => {

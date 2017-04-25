@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 var connection = require('./../db');
 var User = require('./../models/UserModel');
 var Token = require('./../models/TokenModel');
+var Goal = require('./../models/GoalModel');
 // console.log('USER.dima', User.dima());
 // console.log('USER', User);
 // server route handlers
@@ -66,6 +67,35 @@ module.exports = {
           Token.create({auth, userid})
             .then(token => {
               res.header('auth', token.auth).send({user: user, token: token.auth});
+            })
+            .then(() => {
+              Goal.create({
+                userid: userid,
+                numberofstatus: 0,
+                goaltype: 'INTERESTED',
+                goalduedate: '2017-12-31T12:00:00.166Z'
+              })
+            }).then(() => {
+              Goal.create({
+                userid: userid,
+                numberofstatus: 0,
+                goaltype: 'APPLIED',
+                goalduedate: '2017-12-31T12:00:00.166Z'
+              })
+            }).then(() => {
+              Goal.create({
+                userid: userid,
+                numberofstatus: 0,
+                goaltype: 'INFO INTERVIEW',
+                goalduedate: '2017-12-31T00:12:00.166Z'
+              })
+            }).then(() => {
+              Goal.create({
+                userid: userid,
+                numberofstatus: 0,
+                goaltype: 'INTERVIEW',
+                goalduedate: '2017-12-31T12:00:00.166Z'
+              })
             })
             .catch(err => {
               console.log('Error1 --->', err);
