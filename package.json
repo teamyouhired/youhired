@@ -7,6 +7,8 @@
   },
   "main": "webpack.config.dima.js",
   "scripts": {
+    "build": "node_modules/.bin/webpack --config webpack.config.js",
+    "heroku-postbuild": "node_modules/.bin/webpack -p --config webpack.config.js",
     "start": "node server/server.js",
     "css": "webpack -w",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js 'test/**/*.js'",
