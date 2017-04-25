@@ -13,6 +13,7 @@ import HeaderComponent from 'Header';
 import About from 'about-us/about-us';
 import Services from 'services/services';
 import Dashboard from './components/dashboard/Dashboard';
+import ContactPage from './components/contact-page/ContactPage';
 
 const routes = (
   <div>
@@ -23,6 +24,7 @@ const routes = (
     <Route path='/about-us' component={About} />
     <Route path='/dashboard' component={Dashboard} />
     <Route path='/job-information' component={JobInformation} />
+    <Route path='/contact-page' component={ContactPage} />
     {/*<Route path='/api/jobdescription' component={AddJob} />*/}
   </div>
 );
