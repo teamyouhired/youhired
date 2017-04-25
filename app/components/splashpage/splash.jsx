@@ -24,7 +24,7 @@ const Splash = createClass({
             Login
           </button>
           <button type="button" className="button bottom-button" onClick={this.onSignup} >
-            Sign up
+            Sign Up
           </button>
         </div>
       </header>
