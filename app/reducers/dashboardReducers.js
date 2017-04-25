@@ -25,7 +25,7 @@ const dashboardReducer = (state = defaultState, { type, payload }) => {
     case SELECT_GOAL_TYPE:
       return {
         ...state,
-        goalType: payload
+        goalType: payload.goalTracking
       }
     case getGoals.SUCCESS:
       return {

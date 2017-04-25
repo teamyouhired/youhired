@@ -62,11 +62,12 @@ const GoalForm = createClass({
             onChange={this.changeDate}
           />
         </TransitionView>
+        <br />
         <DropdownButton className='button' title='Status' onSelect={this.selectStatus} >
-          <MenuItem eventKey='OFFER'>Offer</MenuItem>
-          <MenuItem eventKey='INTERVIEW'>Interview</MenuItem>
-          <MenuItem eventKey='APPLIED'>Applied</MenuItem>
           <MenuItem eventKey='INTERESTED'>Interested</MenuItem>
+          <MenuItem eventKey='APPLIED'>Applied</MenuItem>
+          <MenuItem eventKey='INTERVIEW'>Interview</MenuItem>
+          <MenuItem eventKey='Info Interview'>Info Interview</MenuItem>
         </DropdownButton>
         <input
           className='form-control'
