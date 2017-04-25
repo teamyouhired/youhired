@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 var Token = require('./../models/TokenModel')
 // var JobApplication = require('./JobApplicationModel');
-var JobApplication = require('./../models/JobApplicationModel');
+//var JobApplication = require('./../models/JobApplicationModel');
 
 var connection = require('./../db');
 
