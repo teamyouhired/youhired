@@ -29,6 +29,9 @@ const HeaderComponent = createClass({
         <li><a href="#" className="nav-names">CURRENT JOBS</a></li>
         <li><a href="#" className="nav-names">JOB HUNT ADVICE</a></li>
         <li><a href="#" className="nav-names">JOB SEARCH</a></li>
+        <li>
+          <Link to={'/contact-page'} className="nav-names" >CONTACT PAGE</Link>
+        </li>
       </ul>
       </div>
 

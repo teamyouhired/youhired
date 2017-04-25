@@ -1,9 +1,10 @@
-import { ADD_JOB, ADD_TASK, ADD_JOB_DESCRIPTION } from '../actions/dashboard/DashboardActionTypes';
+import { ADD_JOB, ADD_TASK, SELECT_GOAL_TYPE } from '../actions/dashboard/DashboardActionTypes';
 import { addJob, addContactToApplication, addTask, getUserData, addJobDescription } from '../api/users';
 
 const defaultState = {
   jobs: [],
-  contacts: []
+  contacts: [],
+  goalType: ''
 };
 
 const dashboardReducer = (state = defaultState, { type, payload }) => {
@@ -19,6 +20,11 @@ const dashboardReducer = (state = defaultState, { type, payload }) => {
         jobs: payload.jobapplications,
         contacts: payload.contacts,
         jobDescription: payload.jobDescription
+      }
+    case SELECT_GOAL_TYPE:
+      return {
+        ...state,
+        goalType: payload
       }
     default:
       return state;
