@@ -8,7 +8,8 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-family: $text-standard;
+    font-size: $text-medium;
 }
 
 .input-job-url {
@@ -41,6 +42,8 @@
 }
 
 .jobdesc-heading {
+  font-family: $text-title;
+  font-size: $text-large;
   width: 100%;
   background-color: $color-header;
   color: $color-text-light;

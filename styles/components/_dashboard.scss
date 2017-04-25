@@ -2,7 +2,6 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-
 }
 
 .job-list {
@@ -58,12 +57,14 @@
 }
 
 .add-task {
+  font-family: $text-standard;
   font-size: 2rem;
 }
 
 .description, .date-due {
+  font-family: $text-standard;
   display: inline-flex;
-  font-size: 3rem;
+  font-size: $text-small;
   margin: auto;
 }
 

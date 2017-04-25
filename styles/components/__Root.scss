@@ -17,6 +17,8 @@ body {
 }
 
 .button {
+    font-family: $text-standard;
+    font-size: $text-small;
     float: right;
     width: 175px;
     background-color: $color-button-background;
@@ -39,6 +41,8 @@ body {
 }
 
 .job-app-text {
+  font-family: $text-title;
+  font-size: $text-large;
   margin: 0px;
   padding-top: 7px;
   color: $color-text-light;

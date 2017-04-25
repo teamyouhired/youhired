@@ -3,6 +3,8 @@
 }
 
 .nav-names {
+  font-family: $text-standard;
+  font-size: $text-medium;
   color: $color-text-dark;
 }
 
@@ -26,6 +28,8 @@
 }
 
 .logout-link {
+  font-family: $text-standard;
+  font-size: $text-medium;
   color: $color-text-dark;
   float:left;
 }

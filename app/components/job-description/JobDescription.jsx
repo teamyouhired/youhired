@@ -12,13 +12,11 @@ const JobDescription= createClass({
 
   render() {
     let {createdat, jobfile } = this.props;
-    //console.log("Returned from ajax request: ", jobfile)
-    //jobfile = 'pdfjobdesc/pdf1492830235169.pdf'
         return (
       <div>
         <div className='jobdesc-heading'>
           <div className="company-details">
-            <h4>Job Description</h4>
+            <h4 className="header-titles">Job Description</h4>
           </div>
           <div className="jobdesc-scroll-main">
 

@@ -8,6 +8,11 @@
 
 }
 
+button.button {
+  font-family: $text-standard;
+  font-size: $text-medium;
+}
+
 .business-header {
     position: relative;
     height: 400px;
@@ -25,7 +30,7 @@
 }
 .text-center {
   color: $color-text-dark;
-  font-family: "Lucida Bright", Georgia, serif;
+  font-family: $text-standard;
   text-align: center;
 }
 

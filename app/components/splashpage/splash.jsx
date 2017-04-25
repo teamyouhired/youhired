@@ -24,7 +24,7 @@ const Splash = createClass({
             Login
           </button>
           <button type="button" className="button bottom-button" onClick={this.onSignup} >
-            Sign up
+            Sign Up
           </button>
         </div>
       </header>
@@ -33,7 +33,7 @@ const Splash = createClass({
 
       <div className="row position-absolute">
         <div className="col-sm-4 ">
-          <img className="img-circle img-responsive img-center" src='images/business-team.jpg' alt="" />
+          <img className="img-circle img-responsive img-center" src='images/about-us.png' alt="" />
               <Link to='/about-us'>
                 <h2 className="text-center">ABOUT US</h2>
               </Link>
@@ -48,8 +48,9 @@ const Splash = createClass({
         </div>
         <div className="col-sm-4">
           <img className="img-circle img-responsive img-center" src="images/download.jpeg" alt="" />
-            <h2 className="text-center">SEARCH NOW</h2>
-
+            <a href='https://www.monster.com/?disGeo=true'>
+              <h2 className="text-center">SEARCH NOW</h2>
+            </a>
         </div>
       </div>
     </div>

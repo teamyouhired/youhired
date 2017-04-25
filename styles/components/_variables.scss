@@ -9,16 +9,29 @@
 //INFILL COLORS
 
 $color-background: #d3d1d6; //BACKGROUND COLOR FOR ENTIRE SITE
-$color-header: #2E57B2; //HEADER COLOR
+$color-header: #1A5E8E; //HEADER COLOR
 $color-info-containers: white; //INFORMATION CONTAINER COLOR BELOW HEADERS
 $color-card: #caebf2; //JOB APPLICATION CARD COLOR
-$color-button-background: #2E57B2; //ALL BUTTONS BACKGROUND COLOR
+$color-button-background: #F1AE57; //ALL BUTTONS BACKGROUND COLOR
 
 //TEXT STILL NEEDS SOME ORGANIZATION
 
 $color-text-light: white; //TYPICALLY HEADER TEXT
 $color-text-dark: #20717F;  //TYPICALLY BODY TEXT
 $color-text-button: white; //ALL BUTTON TEXT
+
+//FONT SIZE
+
+$text-xsmall: 8px;
+$text-small: 14px;
+$text-medium: 16px;
+$text-large: 20px;
+$text-xlarge: 32px;
+
+//FONT STYLE
+
+$text-title: Verdana;
+$text-standard: Geneva;
 
 /* colors tried
 scheme 1
