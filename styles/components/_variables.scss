@@ -8,7 +8,7 @@
 
 //INFILL COLORS
 
-$color-background: #d3d1d6; //BACKGROUND COLOR FOR ENTIRE SITE
+$color-background: #ecd1d6; //BACKGROUND COLOR FOR ENTIRE SITE
 $color-header: #1A5E8E; //HEADER COLOR
 $color-info-containers: white; //INFORMATION CONTAINER COLOR BELOW HEADERS
 $color-card: #caebf2; //JOB APPLICATION CARD COLOR
@@ -18,7 +18,7 @@ $color-button-background: #F1AE57; //ALL BUTTONS BACKGROUND COLOR
 
 $color-text-light: white; //TYPICALLY HEADER TEXT
 $color-text-dark: #20717F;  //TYPICALLY BODY TEXT
-$color-text-button: white; //ALL BUTTON TEXT
+$color-text-button: #1A5E8E; //ALL BUTTON TEXT
 
 //FONT SIZE
 
@@ -49,4 +49,6 @@ scheme 2
   dark text = 094B7F
   job card = 6E996A
   containers = D4C7BE
+
+logo orange = F1AE57
 */

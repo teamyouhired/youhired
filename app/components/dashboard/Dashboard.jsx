@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import JobList from './jobs/JobList';
 import TaskList from './tasks/TaskList';
-import { getUserData } from '../../api/users';
+import { getUserData, getGoals } from '../../api/users';
 import { changePage } from '../../actions/NavigationActions';
 import Redirect from 'react-router-dom';
 import { addJob, addGoal, addJobDescription } from '../../api/users';
@@ -31,9 +31,7 @@ const Dashboard = createClass({
   componentWillMount() {
     const history = this.props.history;
     this.props.getData();
-    // if (!sessionStorage.getItem('auth')) {
-    //   history.push('/signup');
-    // }
+    this.props.getGoals();
   },
 
   render() {
@@ -43,6 +41,7 @@ const Dashboard = createClass({
       changePage,
       activeComponent,
       jobs,
+      goals,
       displayJobForm,
       displayGoalForm,
       hideModal,
@@ -97,7 +96,8 @@ const Dashboard = createClass({
                   <GoalApp
                     addGoal={addGoal}
                     hideModal={hideModal}
-                    displayGoalForm={displayGoalForm} />
+                    displayGoalForm={displayGoalForm}
+                    goals={goals} />
                 </div>
               </div>
 
@@ -118,7 +118,8 @@ const mapStateToProps = (state) => {
       applicationContacts: state.dashboard.contacts,
       activeComponent: state.navigation.activeComponent,
       isAuthenticated: state.authentication.isAuthenticated,
-      isModalActive: state.modal.modalType
+      isModalActive: state.modal.modalType,
+      goals: state.dashboard.goals.goalTracking
   };
 };
 
@@ -131,7 +132,8 @@ const mapActionsToProps = {
   displayGoalForm: displayGoalForm,
   displayJobForm: displayJobForm,
   hideModal: hideModal,
-  selectJob: selectJob
+  selectJob: selectJob,
+  getGoals: getGoals
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(Dashboard);

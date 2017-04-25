@@ -18,11 +18,12 @@ const GoalForm = createClass({
   onSubmit(event) {
     event.preventDefault();
     this.props.addGoal({
-      type: this.props.goalType,
-      goal:  this.goal.value,
-      date: this.props.currentDate
+      goaltype: this.props.goalType,
+      numberofstatus:  this.goal.value,
+      goalduedate: this.props.currentDate
     })
     .then(() => {
+      console.log('goal should be added');
       this.props.changeDate({
         startDate: moment()
       });
@@ -61,11 +62,12 @@ const GoalForm = createClass({
             onChange={this.changeDate}
           />
         </TransitionView>
+        <br />
         <DropdownButton className='button' title='Status' onSelect={this.selectStatus} >
-          <MenuItem eventKey='OFFER'>Offer</MenuItem>
-          <MenuItem eventKey='INTERVIEW'>Interview</MenuItem>
-          <MenuItem eventKey='APPLIED'>Applied</MenuItem>
           <MenuItem eventKey='INTERESTED'>Interested</MenuItem>
+          <MenuItem eventKey='APPLIED'>Applied</MenuItem>
+          <MenuItem eventKey='INTERVIEW'>Interview</MenuItem>
+          <MenuItem eventKey='Info Interview'>Info Interview</MenuItem>
         </DropdownButton>
         <input
           className='form-control'
