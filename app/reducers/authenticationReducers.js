@@ -2,6 +2,7 @@ import { signUp, signIn } from '../api/users';
 
 const defaultState = {
   isAuthenticated: sessionStorage.getItem('auth') ? true : false,
+  authFailed: false,
   location: '/'
 }
 
@@ -14,13 +15,14 @@ const authentication = (state = defaultState, { type, payload }) => {
       return {
         ...state,
         isAuthenticated: true,
+        authFailed: false,
         location: '/dashboard'
       };
     case signIn.FAIL:
     case signUp.FAIL:
       return {
         ...state,
-        isAuthenticated: false
+        authFailed: true
       };
     default:
       return state;

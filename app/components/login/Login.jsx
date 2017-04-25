@@ -1,6 +1,7 @@
 import React, { createClass, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { toggleSpinner } from '../../actions/NavigationActions';
 import { signIn, getUserData } from '../../api/users';
 
 const Login = createClass({
@@ -8,25 +9,38 @@ const Login = createClass({
 
   propTypes: {
     onSignIn: PropTypes.func.isRequired,
-    getData: PropTypes.func.isRequired
+    getData: PropTypes.func.isRequired,
+    toggleSpinner: PropTypes.func.isRequired,
+    isLoading: PropTypes.bool.isRequired
   },
 
   onSignIn(event) {
     event.preventDefault();
+
+    this.props.toggleSpinner({
+      isLoading: this.props.isLoading
+    });
 
     this.props.onSignIn({
       useremail: this.emailInput.value,
       userpassword: this.passwordInput.value
     })
     .then(() => {
+      console.log('then function ran even though the api call failed')
       if (sessionStorage.getItem('auth')) {
         this.props.getData().then(() => {
+          this.props.toggleSpinner({
+            isLoading: this.props.isLoading
+          });
           this.props.history.push('/dashboard');
         });
-      } else {
-        this.props.history.push('/signup');
-        alert('Invalid username or password. Please sign up. ')
       }
+    })
+    .catch((err) => {
+      this.props.toggleSpinner({
+        isLoading: this.props.isLoading
+      });
+      alert('invalid login attempt')
     });
 
     this.emailInput.value = '';
@@ -34,6 +48,7 @@ const Login = createClass({
   },
 
   render() {
+    const { isLoading } = this.props;
     return (
       <div>
         <div className="col-lg-4 col-md-3 col-sm-2"></div>
@@ -57,6 +72,7 @@ const Login = createClass({
                 <button onSubmit={this.onSignIn} className="btn  submitButton" type="submit" >
                   Submit
                 </button>
+                { isLoading ? <span className="fa fa-spinner fa-pulse fa-2x fa-fw"></span>  : null }
               </div>
             </form>
 
@@ -71,9 +87,17 @@ const Login = createClass({
   }
 });
 
-const mapActionsToProps = {
-  onSignIn: signIn,
-  getData: getUserData
+const mapStateToProps = (state) => {
+  return {
+    isLoading: state.navigation.isLoading,
+    authFailed: state.authentication.authFailed
+  };
 };
 
-export default connect(null, mapActionsToProps)(Login);
+const mapActionsToProps = {
+  onSignIn: signIn,
+  getData: getUserData,
+  toggleSpinner: toggleSpinner
+};
+
+export default connect(mapStateToProps, mapActionsToProps)(Login);

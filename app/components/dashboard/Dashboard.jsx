@@ -115,9 +115,7 @@ const Dashboard = createClass({
 const mapStateToProps = (state) => {
   return {
       jobs: state.dashboard.jobs,
-      companies: state.dashboard.companies,
-      activity: state.dashboard.activity,
-      applicationContacts: state.dashboard.applicationContacts,
+      applicationContacts: state.dashboard.contacts,
       activeComponent: state.navigation.activeComponent,
       isAuthenticated: state.authentication.isAuthenticated,
       isModalActive: state.modal.modalType
