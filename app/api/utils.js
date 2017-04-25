@@ -27,7 +27,6 @@ export function createClient({ actionTypePrefix, requestType, url }) {
 
         },
         error(response) {
-          console.log('fail function ran');
           dispatch({
             type: FAIL,
             payload: response

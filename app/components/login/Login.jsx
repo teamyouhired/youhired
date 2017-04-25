@@ -21,12 +21,12 @@ const Login = createClass({
       isLoading: this.props.isLoading
     });
 
-
     this.props.onSignIn({
       useremail: this.emailInput.value,
       userpassword: this.passwordInput.value
     })
     .then(() => {
+      console.log('then function ran even though the api call failed')
       if (sessionStorage.getItem('auth')) {
         this.props.getData().then(() => {
           this.props.toggleSpinner({
@@ -34,10 +34,13 @@ const Login = createClass({
           });
           this.props.history.push('/dashboard');
         });
-      } else {
-        this.props.toggleSpinner();
-        this.props.history.push('/signup');
       }
+    })
+    .catch((err) => {
+      this.props.toggleSpinner({
+        isLoading: this.props.isLoading
+      });
+      alert('invalid login attempt')
     });
 
     this.emailInput.value = '';
@@ -86,7 +89,8 @@ const Login = createClass({
 
 const mapStateToProps = (state) => {
   return {
-    isLoading: state.navigation.isLoading
+    isLoading: state.navigation.isLoading,
+    authFailed: state.authentication.authFailed
   };
 };
 

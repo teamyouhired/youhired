@@ -1,5 +1,6 @@
 import React, { createClass, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { toggleSpinner } from '../../actions/NavigationActions';
 import { signUp, getUserData } from '../../api/users';
 import { Link } from 'react-router-dom';
 
@@ -8,11 +9,17 @@ const Signup = createClass({
 
   propTypes: {
     onSignUp: PropTypes.func.isRequired,
-    getData: PropTypes.func.isRequired
+    getData: PropTypes.func.isRequired,
+    toggleSpinner: PropTypes.func.isRequired,
+    isLoading: PropTypes.bool.isRequired
   },
 
   onSignUp(event) {
     event.preventDefault();
+
+    this.props.toggleSpinner({
+      isLoading: this.props.isLoading
+    });
 
     this.props.onSignUp({
       useremail: this.emailInput.value,
@@ -21,17 +28,25 @@ const Signup = createClass({
     .then(() => {
       if (sessionStorage.getItem('auth')) {
         this.props.getData().then(() => {
+          this.props.toggleSpinner({
+            isLoading: this.props.isLoading
+          });
           this.props.history.push('/dashboard');
         });
-      } else {
-        alert('User already exisits');
       }
+    })
+    .catch((err) => {
+      this.props.toggleSpinner({
+        isLoading: this.props.isLoading
+      });
+      alert('invalid sign up attempt or user already exists')
     });
 
     this.emailInput.value = '';
     this.passwordInput.value = '';
   },
   render() {
+    const { isLoading } = this.props;
     return (
       <div>
       <div className="col-lg-4 col-md-3 col-sm-2"></div>
@@ -55,6 +70,7 @@ const Signup = createClass({
               <button onSubmit={this.onSignUp} className="btn  submitButton" type="submit" >
                 Submit
               </button>
+              { isLoading ? <span className="fa fa-spinner fa-pulse fa-2x fa-fw"></span>  : null }
             </div>
           </form>
 
@@ -68,9 +84,17 @@ const Signup = createClass({
   }
 });
 
-const mapActionsToProps = {
-  onSignUp: signUp,
-  getData: getUserData
+const mapStateToProps = (state) => {
+  return {
+    isLoading: state.navigation.isLoading,
+    authFailed: state.authentication.authFailed
+  };
 };
 
-export default connect(null, mapActionsToProps)(Signup);
+const mapActionsToProps = {
+  onSignUp: signUp,
+  getData: getUserData,
+  toggleSpinner: toggleSpinner
+};
+
+export default connect(mapStateToProps, mapActionsToProps)(Signup);
