@@ -1,4 +1,4 @@
-import { CHANGE_PAGE, LOGOUT } from './NavigationActionTypes';
+import { CHANGE_PAGE, LOGOUT, TOGGLE_SPINNER } from './NavigationActionTypes';
 
 export const changePage = ({ activeComponent }) => {
   return {
@@ -12,5 +12,12 @@ export const changePage = ({ activeComponent }) => {
 export const logout = () => {
   return {
     type: LOGOUT
+  };
+};
+
+export const toggleSpinner = ({ isLoading }) => {
+  return {
+    type: TOGGLE_SPINNER,
+    payload: !isLoading
   };
 };
