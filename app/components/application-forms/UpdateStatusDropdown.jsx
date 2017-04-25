@@ -7,8 +7,6 @@ const UpdateStatus = createClass({
   displayName: 'updateStatusForm',
 
   selectStatus(event) {
-    console.log(this.props.updateStatus);
-    console.log(this.props.applicationid);
     this.props.updateStatus({
       applicationid: this.props.applicationId,
       status: event
@@ -27,7 +25,6 @@ const UpdateStatus = createClass({
 });
 
 const mapStateToProps = (state) => {
-  console.log(state.jobInformation);
   return {
     applicationId: state.jobInformation.jobDetails.applicationid
   }
