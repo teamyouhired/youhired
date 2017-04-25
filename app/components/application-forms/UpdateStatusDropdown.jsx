@@ -18,6 +18,7 @@ const UpdateStatus = createClass({
       <DropdownButton className='button' title='Status' onSelect={this.selectStatus} >
         <MenuItem eventKey='OFFER'>Offer</MenuItem>
         <MenuItem eventKey='INTERVIEW'>Interview</MenuItem>
+        <MenuItem eventKey='INFO INTERVIEW'>Info Interview</MenuItem>
         <MenuItem eventKey='APPLIED'>Applied</MenuItem>
       </DropdownButton>
     )
