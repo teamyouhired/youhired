@@ -48,8 +48,9 @@ const GoalApp = createClass({
               type={type}
             />
           )}
-        <button id='job-info-button' className='button' onClick={this.onAddGoal} >
-          Add Goal
+        <ProgressBar striped bsStyle='success' now={(goalsDone / totalGoal) * 100} />
+        <button className='button goal-info-button' onClick={this.onAddGoal} >
+            Add Goal
         </button>
       </div>
     );

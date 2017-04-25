@@ -27,8 +27,8 @@ const HeaderComponent = createClass({
         </li>
         <li><a href="#" className="nav-names">GOALS</a></li>
         <li><a href="#" className="nav-names">CURRENT JOBS</a></li>
-        <li><a href="#" className="nav-names">JOB HUNT ADVICE</a></li>
-        <li><a href="#" className="nav-names">JOB SEARCH</a></li>
+        <li><a href="http://www.careercast.com/job-hunting-advice" className="nav-names">JOB HUNT ADVICE</a></li>
+        <li><a href='https://www.monster.com/?disGeo=true' className="nav-names">JOB SEARCH</a></li>
         <li>
           <Link to={'/contact-page'} className="nav-names" >CONTACT PAGE</Link>
         </li>

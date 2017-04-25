@@ -227,6 +227,15 @@ h4 {
 }
 
 #job-info-button {
+  padding: 0px;
+  font-family: $text-standard;
+  font-size: $text-medium;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.goal-info-button {
+  margin-right: 5px;
   font-family: $text-standard;
   font-size: $text-medium;
   text-align: center;
