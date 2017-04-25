@@ -185,6 +185,7 @@ module.exports = {
       'JOB OFFER': 0
     }
 
+
     currentStatuses(req).then((results) => {
       var data = results[0];
       for(var i = 0; i < data.length; i++){
