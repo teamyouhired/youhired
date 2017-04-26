@@ -1,11 +1,9 @@
 import React, { createClass, PropTypes } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import JobList from './jobs/JobList';
 import TaskList from './tasks/TaskList';
 import { getUserData, getGoals } from '../../api/users';
 import { changePage } from '../../actions/NavigationActions';
-import Redirect from 'react-router-dom';
 import { addJob, addGoal, addJobDescription } from '../../api/users';
 import AddJob from './jobs/AddJob';
 import GoalApp from './goals/GoalApp';
@@ -30,6 +28,9 @@ const Dashboard = createClass({
 
   componentWillMount() {
     const history = this.props.history;
+    if (!sessionStorage.getItem('auth')) {
+      history.push('/login');
+    }
     this.props.getData();
     this.props.getGoals();
   },
@@ -48,8 +49,6 @@ const Dashboard = createClass({
       selectJob,
       isModalActive
     } = this.props;
-    console.log('jobs in dashboard', jobs)
-
     return (
       <div className="root-view">
         <div className={isModalActive ? "overlay" : ""} >

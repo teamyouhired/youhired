@@ -26,7 +26,6 @@ const Login = createClass({
       userpassword: this.passwordInput.value
     })
     .then(() => {
-      console.log('then function ran even though the api call failed')
       if (sessionStorage.getItem('auth')) {
         this.props.getData().then(() => {
           this.props.toggleSpinner({

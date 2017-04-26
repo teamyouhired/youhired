@@ -3,7 +3,16 @@ import React, { createClass } from 'react';
 const ContactForm = createClass({
 
   cancelForm() {
-    // close modal and clear all fields
+    this.companyNameInput.value = '';
+    this.jobPositionInput.value = '';
+    this.firstName.value = '';
+    this.lastName.value = '';
+    this.phoneNumber.value = '';
+    this.email.value = '';
+    this.address.value = '';
+    this.city.value = '';
+    this.state.value = '';
+    this.zip.value = '';
     this.props.hideModal();
   },
 
@@ -33,7 +42,6 @@ const ContactForm = createClass({
     this.city.value = '';
     this.state.value = '';
     this.zip.value = '';
-    // need to close the modal now
     this.props.hideModal();
   },
 

@@ -1,4 +1,4 @@
-import { ADD_JOB, ADD_TASK, SELECT_GOAL_TYPE } from '../actions/dashboard/DashboardActionTypes';
+import { SELECT_GOAL_TYPE } from '../actions/dashboard/DashboardActionTypes';
 import { addJob, addContactToApplication, addTask, getUserData, getGoals, addJobDescription } from '../api/users';
 
 const defaultState = {

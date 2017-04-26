@@ -38,11 +38,6 @@ const jobInformationReducer = (state = defaultState, { type, payload }) => {
         ...state,
         jobPdf: payload
       }
-    // case updateStatus.SUCCESS:
-    //   return {
-    //     ...state,
-    //     [jobDetails.status]: payload
-    //   }
     default:
       return state;
   }

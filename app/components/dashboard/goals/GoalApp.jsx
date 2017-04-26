@@ -26,7 +26,6 @@ const GoalApp = createClass({
   displayName: 'GoalApp',
 
   onAddGoal(event) {
-    console.log('click event triggered');
     this.props.displayGoalForm({
       formType: 'DISPLAY_GOAL_FORM',
       modalProps: {

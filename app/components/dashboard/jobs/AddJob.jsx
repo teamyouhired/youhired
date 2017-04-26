@@ -1,13 +1,6 @@
 import React, { createClass, PropTypes } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import $ from 'jquery';
-import Base64 from 'base-64'
-//import PDFParser from "pdf2json";
-
 import { addJob } from '../../../actions/dashboard/DashboardActions';
 import { hideModal } from '../../../actions/modals/ModalActions';
-// import Popup from 'react-popup';
 
 const AddJob = createClass({
   displayName: 'AddJob',
@@ -23,30 +16,23 @@ const AddJob = createClass({
     this.companyNameInput.value = '';
     this.jobPositionInput.value = '';
     this.jobUrlInput.value = '';
-
     this.props.hideModal();
   },
 
   onSubmit(event) {
     event.preventDefault();
 
-    let companyName = this.companyNameInput.value;
-    let positionName = this.jobPositionInput.value;
-    let jobPostUrl = this.jobUrlInput.value;
-
-    this.props.addJobDescription({jobPostUrl: jobPostUrl})
+    this.props.addJobDescription({jobPostUrl: this.jobUrlInput.value})
 
     this.props.addJob({
       companyname: this.companyNameInput.value,
       positionname:  this.jobPositionInput.value,
       jobposturl: this.jobUrlInput.value,
-      //status: this.statusInput.value
     })
 
     this.companyNameInput.value = '';
     this.jobPositionInput.value = '';
     this.jobUrlInput.value = '';
-
     this.props.hideModal();
   },
 

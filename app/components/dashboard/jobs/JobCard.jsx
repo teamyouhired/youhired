@@ -15,13 +15,16 @@ const JobCard = createClass({
   },
 
   onJobClick(event) {
+    // may make this path dynamic based on which job was selected - Note for future development
     //const path = '/job-information/:' + this.props.applicationid;
     const path = '/job-information';
+
     this.props.selectJob({
       jobDetails: this.props.jobDetails,
       jobActivities: this.props.jobActivities,
       jobContacts: this.props.jobContacts
     });
+
     this.context.router.history.push(path)
   },
 

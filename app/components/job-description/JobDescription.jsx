@@ -6,10 +6,6 @@ import Base64 from 'base-64'
 const JobDescription= createClass({
   displayName: 'JobDescription',
 
-  propTypes: {
-    //onSubmit: PropTypes.func.isRequired
-  },
-
   render() {
     let {createdat, jobfile } = this.props;
         return (
@@ -30,6 +26,3 @@ const JobDescription= createClass({
 });
 
 export default JobDescription;
-
-
-

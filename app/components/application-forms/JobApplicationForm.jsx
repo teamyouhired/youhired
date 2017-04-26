@@ -1,11 +1,5 @@
-
-// may replace the AddJob component with this one to keep all the form components in the same file. TBD
-
-// import React, { createClass, PropTypes } from 'react';
-// import { bindActionCreators } from 'redux';
-// import { connect } from 'react-redux';
-// import { addJob } from '../../../actions/dashboard/DashboardActions';
-// import Popup from 'react-popup';
+// This file is here for if we take the time to abstract the AddJob component into its own form so that our code can be more modular
+// import React, { createClient, PropTypes } from 'react';
 
 const JobApplicationForm = createClass({
   displayName: 'JobApplicationForm',
@@ -17,7 +11,6 @@ const JobApplicationForm = createClass({
   cancelForm(event) {
     event.preventDefault();
 
-    // ensure all fields were emptied when page changed
     this.companyNameInput.value = '';
     this.jobPositionInput.value = '';
     this.jobUrlInput.value = '';
@@ -29,6 +22,7 @@ const JobApplicationForm = createClass({
 
   onSubmit(event) {
     event.preventDefault();
+
     this.props.addJob({
       companyName: this.companyNameInput.value,
       position:  this.jobPositionInput.value,
@@ -38,6 +32,7 @@ const JobApplicationForm = createClass({
     this.companyNameInput.value = '';
     this.jobPositionInput.value = '';
     this.jobUrlInput.value = '';
+
     this.props.changePage({
       activeComponent: 'JobList'
     });

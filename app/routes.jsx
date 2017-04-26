@@ -4,7 +4,6 @@ import path from 'path';
 import { createHistory } from 'history/createBrowserHistory';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import JobInformation from './components/jobsinformationpage/JobInformation';
-//import AddJob from './components/dashboard/jobs/AddJob';
 import Login from 'login/Login';
 import Signup from 'signup/Signup';
 import Splash from 'splashpage/splash';
