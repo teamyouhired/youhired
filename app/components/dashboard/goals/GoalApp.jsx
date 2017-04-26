@@ -48,7 +48,6 @@ const GoalApp = createClass({
               type={type}
             />
           )}
-        <ProgressBar striped bsStyle='success' now={(goalsDone / totalGoal) * 100} />
         <button className='button goal-info-button' onClick={this.onAddGoal} >
             Add Goal
         </button>

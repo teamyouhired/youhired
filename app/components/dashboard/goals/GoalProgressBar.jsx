@@ -13,7 +13,7 @@ const GoalProgressBar = createClass({
   render() {
     const { progress, goal, type } = this.props;
     return (
-      <div>
+      <div className="goal-progress-bar-list" >
         <h4>{type}</h4>
         <ProgressBar striped bsStyle='success' now={(progress / goal) * 100} />
       </div>
