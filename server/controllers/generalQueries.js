@@ -28,9 +28,88 @@ var Promise = require('bluebird');
     })
   };
 
+  var statusChangesForUser = function(req) {
+    return connection.query("SELECT a.activitylogcontent AS status, COUNT(a.activitylogcontent) AS total FROM ((activitylogs a INNER JOIN jobapplications j ON a.applicationid = j.id) INNER JOIN users u ON j.userid = u.id) WHERE a.createdat > (NOW() - INTERVAL '1 day') AND activitytype = 'STATUSCHANGE' AND u.id = :id GROUP BY a.activitylogcontent;", {
+        replacements: {
+          id: req.body.userid
+        }
+    })
+  };
+
+  var averageStatusChangesForAllUsers = function(req) {
+    return connection.query("SELECT a.activitylogcontent AS status, COUNT (a.activitylogcontent) AS statusChanges, COUNT (DISTINCT u.id) AS users, COUNT (a.activitylogcontent) / COUNT (DISTINCT u.id) AS averageForOtherUsers FROM ((activitylogs a INNER JOIN jobapplications j ON a.applicationid = j.id) INNER JOIN users u ON j.userid = u.id) WHERE a.createdat > (NOW() - INTERVAL '1 day') AND activitytype = 'STATUSCHANGE' AND u.id != :id GROUP BY a.activitylogcontent;", {
+        replacements: {
+          id: req.body.userid
+        }
+    })
+
+  }
+
 
 
 module.exports = {
+
+  progressVersusAverage:  function(req, res){
+    var statuses = {
+      'INTERESTED': {user: 0, averageforothers: 0},
+      'APPLIED': {user: 0, averageforothers: 0},
+      'INFO INTERVIEW': {user: 0, averageforothers: 0},
+      'INTERVIEW': {user: 0, averageforothers: 0},
+      'JOB OFFER': {user: 0, averageforothers: 0},
+    }
+
+    statusChangesForUser(req)
+    .then((results) => {
+      var data = results[0];
+      for(var i = 0; i < data.length; i++){
+        statuses[data[i]['status']]['user'] = data[i]['total']
+      }
+
+    })
+    .then(() => {
+      averageStatusChangesForAllUsers(req).then((results) => {
+        // res.send(results)
+        var data = results[0];
+        for(var i = 0; i < data.length; i++){
+          statuses[data[i]['status']]['averageforothers'] = data[i]['averageforotherusers']
+        }
+      }).then(() => {
+        res.send(statuses);
+      })
+    })
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   getData: function (req, res) {
 
