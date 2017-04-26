@@ -83,7 +83,7 @@ const Dashboard = createClass({
                 <div className="job-app-header">
                   <h4 className="job-app-text"> Data Visualization </h4>
                 </div>
-                <div className="job-card">
+                <div className="visual-data-container">
                   <VisualData />
                 </div>
               </div>
