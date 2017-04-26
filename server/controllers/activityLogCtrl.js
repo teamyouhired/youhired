@@ -25,9 +25,6 @@ var consistencyActivityQuery = function(data){
       });
     }
 
-
-
-
 module.exports = {
 
   addActivity: function(req, res) {
@@ -40,7 +37,7 @@ module.exports = {
     .then((data) => {
       consistencyActivityQuery(data).then((info) => {
         res.send(info);
-        console.log(info);
+        // console.log(info);
       })
     }).catch((err) => {res.status(500).send(err)} );
   }
