@@ -196,11 +196,11 @@ module.exports = {
     var loopThroughApplications = function(array, count){
 
       if(count === array.length){
-          console.log(count);
+
           res.send(data);
           return;
         } else {
-          console.log(count);
+
           var item = applications[count];
           data['jobapplications'].push({
             details: item['dataValues']
@@ -215,7 +215,7 @@ module.exports = {
             var id = item['dataValues']['applicationid'];
             getContactsForApplication(id)
               .then((result) => {
-                  console.log(count);
+
                   data['jobapplications'][count]['contacts'] = result[0] || [];
               }).then(() => {
                   loopThroughApplications(array, count += 1)

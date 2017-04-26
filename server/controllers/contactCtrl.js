@@ -71,7 +71,7 @@ module.exports = {
 
       addContact(req).then((data) => {
       consistencyContactQuery(data).then((info) => {
-        console.log('*********this is the info********', info);
+        // console.log('*********this is the info********', info);
         res.send(info);
       })
     }).catch((err) => {res.status(500).send(err)} );
@@ -87,7 +87,7 @@ module.exports = {
           consistencyContactQuery(data)
           .then((info) => {
             res.send(info);
-            console.log(info);
+            // console.log(info);
           })
         })
     }).catch((err) => {res.status(500).send(err)} );

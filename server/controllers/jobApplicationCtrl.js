@@ -50,7 +50,7 @@ var consistencyApplicationQuery = function(id){
       var result = timestampResult.join('-');
 
       var final = result + ' ' + arr[3] + ':00 -' + arr[4] + ':00';
-      console.log(final);
+
       return final;
 
     }
@@ -59,11 +59,6 @@ module.exports = {
 
   addApplication: function(req, res) {
 
-
-    console.log(req.body);
-    console.log('req.body.userid --- ',req.body.userid);
-
-    console.log('add functionality that sends jobPostUrl to site and returns archive URL.  Data received back should be an argument to next function in the chain');
 //
     JobApplication.create({
       userid: req.body.userid,
@@ -77,7 +72,6 @@ module.exports = {
     .then((data) => {
       consistencyApplicationQuery(data.dataValues.id).then((info) => {
         res.send(info);
-        console.log(info);
       }).then(() => {
         ActivityLog.create({
           applicationid: data.dataValues.id,
@@ -99,7 +93,6 @@ module.exports = {
   // },
 
   addInterview: function(req, res) {
-    console.log(req.body.applicationid);
 
     //Interview:  21/04/2017 16:49-7
     //2017-04-22 12:32:47.914-07
@@ -116,7 +109,6 @@ module.exports = {
       var id = req.body.applicationid;
       consistencyApplicationQuery(id).then((info) => {
         res.send(info);
-        console.log(info);
       })
     }).catch((err) => {res.status(500).send(err)});
   },
@@ -137,7 +129,7 @@ module.exports = {
       var id = req.body.applicationid;
       consistencyApplicationQuery(id).then((info) => {
         res.send(info);
-        console.log(info);
+        // console.log(info);
       })
     }).catch((err) => {res.status(500).send(err)});
   },
@@ -145,9 +137,9 @@ module.exports = {
 
    addJobDescription: function(req, res) {
     const API_KEY = "g8v5kuA8GXNu";
-    console.log("req.body: *************====> ", req.body)
+    // console.log("req.body: *************====> ", req.body)
     let jobPostUrl = req.body.jobPostUrl;
-    console.log("server url: ", jobPostUrl)
+    // console.log("server url: ", jobPostUrl)
     const jobUrlPdf  = "http://pdfmyurl.com/api?license="+ API_KEY + "&url=" + jobPostUrl + " &page_size=A4&orientation=portrait";
     var date = new Date();
     let pdfName = "pdfjobdesc/" + "pdf" + date.getTime() + ".pdf";
@@ -202,7 +194,7 @@ module.exports = {
         activitylogcontent: req.body.status
       })
       .then(function(info){
-        console.log('Status change received!');
+        // console.log('Status change received!');
         res.send('Status change received!');
       })
     }).catch((err) => {res.status(500).send(err)});
