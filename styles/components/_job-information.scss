@@ -222,7 +222,7 @@ h4 {
 
 .update-buttons {
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
   margin: 12px 0 0 0;
 }
 
@@ -236,6 +236,8 @@ h4 {
 
 .goal-info-button {
   margin-right: 5px;
+  margin-top: 142px;
+  align-self: flex-end;
   font-family: $text-standard;
   font-size: $text-medium;
   text-align: center;
