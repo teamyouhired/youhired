@@ -51,7 +51,7 @@ const Dashboard = createClass({
     console.log('jobs in dashboard', jobs)
     return (
       <div className="root-view">
-        <div>
+        <div className={isModalActive ? "overlay" : ""} >
           <HeaderComponent />
         </div>
           { isModalActive ? (
