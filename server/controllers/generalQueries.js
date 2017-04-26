@@ -76,7 +76,7 @@ module.exports = {
       }).then(() => {
         res.send(statuses);
       })
-    })
+    }).catch((err) => {res.status(500).send(err)} );
   },
 
 
@@ -241,8 +241,8 @@ module.exports = {
           loopThroughApplications(applications, 0)
           // res.send(data);
       })
-    }).catch((error) => {
-      console.log(error);
+    }).catch((err) => {
+      res.status(500).send(err)
     });
   },
 
@@ -260,7 +260,7 @@ module.exports = {
       }
     }).then((results) => {
       res.send(results);
-    })
+    }).catch((err) => {res.status(500).send(err)});
   },
 
   getCurrentStatuses: function(req, res) {
@@ -280,7 +280,7 @@ module.exports = {
         statuses[data[i]['status']] = data[i]['total']
       }
       res.send(statuses);
-    })
+    }).catch((err) => {res.status(500).send(err)});
 
     // return statuses;
   }

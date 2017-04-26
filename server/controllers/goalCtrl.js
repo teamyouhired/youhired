@@ -119,7 +119,7 @@ module.exports = {
           .then(() => {
             subroutine(array, count += 1);
           })
-        })
+        }).catch((err) => {res.status(500).send(err)})
       }
     }
 

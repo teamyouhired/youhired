@@ -13,7 +13,7 @@ module.exports = {
        applicationid: req.body.applicationid
     }).then(function(info){
         res.send(info);
-    }).catch('error!');
+    }).catch((err) => {res.status(500).send(err)} );
   }
 
 }

@@ -42,7 +42,7 @@ module.exports = {
         res.send(info);
         console.log(info);
       })
-    }).catch('error!');
+    }).catch((err) => {res.status(500).send(err)} );
   }
 };
 

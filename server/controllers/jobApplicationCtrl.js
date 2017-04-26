@@ -86,7 +86,7 @@ module.exports = {
         })
       })
     })
-    .catch('error!');
+    .catch((err) => {res.status(500).send(err)});
   },
 
   // retrieveArchivedUrl: function(req, res) {
@@ -118,7 +118,7 @@ module.exports = {
         res.send(info);
         console.log(info);
       })
-    }).catch('error!');
+    }).catch((err) => {res.status(500).send(err)});
   },
 
 
@@ -139,7 +139,7 @@ module.exports = {
         res.send(info);
         console.log(info);
       })
-    }).catch('error!');
+    }).catch((err) => {res.status(500).send(err)});
   },
 
 
@@ -205,7 +205,7 @@ module.exports = {
         console.log('Status change received!');
         res.send('Status change received!');
       })
-    }).catch('error!');
+    }).catch((err) => {res.status(500).send(err)});
   }
 
 
