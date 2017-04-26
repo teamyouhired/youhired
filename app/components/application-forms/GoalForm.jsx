@@ -73,6 +73,7 @@ const GoalForm = createClass({
           type='number'
           ref={goal => { this.goal = goal }}
           placeholder={'Number of applications to fill out'}
+          required
         />
         <button className='button' type='submit'>
           Submit

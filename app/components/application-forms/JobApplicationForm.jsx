@@ -45,16 +45,19 @@ const JobApplicationForm = createClass({
           className='form-control'
           ref={nameInput => { this.companyNameInput = nameInput }}
           placeholder={'Company Name'}
+          required
         />
         <input
           className='form-control'
           ref={positionInput => { this.jobPositionInput = positionInput }}
           placeholder={'Position'}
+          required
         />
         <input
           className='form-control'
           ref={urlInput => { this.jobUrlInput = urlInput }}
           placeholder={'Job Post Url'}
+          required
         />
         <button className='button' type='submit'>
           Submit
