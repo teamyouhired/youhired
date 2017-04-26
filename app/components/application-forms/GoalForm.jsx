@@ -66,7 +66,7 @@ const GoalForm = createClass({
           <MenuItem eventKey='INTERESTED'>Interested</MenuItem>
           <MenuItem eventKey='APPLIED'>Applied</MenuItem>
           <MenuItem eventKey='INTERVIEW'>Interview</MenuItem>
-          <MenuItem eventKey='Info Interview'>Info Interview</MenuItem>
+          <MenuItem eventKey='INFO INTERVIEW'>Info Interview</MenuItem>
         </DropdownButton>
         <input
           className='form-control'
