@@ -62,7 +62,7 @@ var associateContactToApplication = function(req, data){
        applicationid: req.body.applicationid
   }).then(function(){
       console.log('Association completed between contactid and applicaitonid');
-  }).catch('error!');
+  }).catch((err) => {res.status(500).send(err)} );
 }
 
 module.exports = {
@@ -74,7 +74,7 @@ module.exports = {
         console.log('*********this is the info********', info);
         res.send(info);
       })
-    }).catch('error!');
+    }).catch((err) => {res.status(500).send(err)} );
   },
 
   addContactFromApplication: function(req, res) {
@@ -90,7 +90,7 @@ module.exports = {
             console.log(info);
           })
         })
-    }).catch('error!');
+    }).catch((err) => {res.status(500).send(err)} );
   }
 
   // associateContactToApplication: function(req, res) {
