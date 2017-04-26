@@ -1,8 +1,15 @@
+.vd-main {
+  width: 100%;
+}
+
 .recharts-wrapper {
   width: 50% !important;
 }
 
-
+svg.recharts-surface {
+  width: 300;
+  height: 150;
+}
 
 
 

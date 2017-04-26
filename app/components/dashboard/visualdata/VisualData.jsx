@@ -25,7 +25,7 @@ const VisualData = createClass({
 
   render() {
     return (
-      <div className='vd-main'>
+      <ResponsiveContainer width="100%">
           <BarChart width={450} height={250} data={data}>
             <XAxis dataKey="name" />
             <YAxis />
@@ -35,43 +35,9 @@ const VisualData = createClass({
             <Bar dataKey="pv" fill="#8884d8" />
             <Bar dataKey="uv" fill="#82ca9d" />
           </BarChart>
-{/*
-        <hr />
-        <PieChart width={450} height={450} onMouseEnter={this.onPieEnter}>
-        <Pie
-            data={data1}
-            cx={120}
-            cy={200}
-            innerRadius={60}
-            outerRadius={80}
-            fill="#8884d8"
-            paddingAngle={5}
-          >
-            {
-              data1.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
-            }
-          </Pie>
-          <Pie
-            data={data1}
-            cx={340}
-            cy={200}
-            startAngle={180}
-            endAngle={0}
-            innerRadius={60}
-            outerRadius={80}
-            fill="#8884d8"
-            paddingAngle={5}
-          >
-            {
-              data1.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
-            }
-          </Pie>
-      </PieChart>
-*/}
-      </div>
+      </ResponsiveContainer>
     );
   }
-
 });
 
 export default VisualData;
