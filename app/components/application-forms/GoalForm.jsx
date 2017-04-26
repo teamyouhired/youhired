@@ -25,7 +25,6 @@ const GoalForm = createClass({
       goalduedate: this.props.currentDate
     })
     .then(() => {
-      console.log('goal should be added');
       this.props.changeDate({
         startDate: moment()
       });
@@ -42,14 +41,12 @@ const GoalForm = createClass({
   },
 
   changeDate(dateString, { dateMoment, timestamp }) {
-
     let newDate = new Date();
     let timezone = newDate.getTimezoneOffset() / 60;
-    let date = dateString.slice(0, 10)
-    console.log(date);
-    console.log('combined date', date + '-' + timezone);
+    let date = dateString.slice(0, 10);
+
     this.props.changeDate({
-      currentDate: dateString + '-' + timezone
+      currentDate: date + '-' + timezone
     });
   },
 

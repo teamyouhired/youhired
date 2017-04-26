@@ -3,16 +3,15 @@ import React, { createClass } from 'react';
 const JobOfferForm = createClass({
 
   cancelForm() {
-
     this.offerSalary.value = '';
     this.offerOptions.value = '';
     this.offerBenefits.value = '';
-
     this.props.hideModal();
   },
 
   onSubmit(event) {
     event.preventDefault();
+
     this.props.addJobOffer({
       applicationid: this.props.applicationId,
       offersalary:  this.offerSalary.value,
@@ -23,7 +22,6 @@ const JobOfferForm = createClass({
     this.offerSalary.value = '';
     this.offerOptions.value = '';
     this.offerBenefits.value = '';
-
     this.props.hideModal();
   },
 
