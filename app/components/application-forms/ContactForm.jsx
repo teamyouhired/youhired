@@ -52,52 +52,62 @@ const ContactForm = createClass({
           className='form-control'
           ref={firstName => { this.firstName = firstName }}
           placeholder={'First Name'}
+          required
         />
         <input
           className='form-control'
           ref={lastName => { this.lastName = lastName }}
           placeholder={'Last Name'}
+          required
         />
         <input
           className='form-control'
           ref={nameInput => { this.companyNameInput = nameInput }}
           placeholder={'Company Name'}
+          required
         />
         <input
           className='form-control'
           ref={positionInput => { this.jobPositionInput = positionInput }}
           placeholder={'Job Position'}
+          required
         />
         <input
           className='form-control'
           ref={phoneNumber => { this.phoneNumber = phoneNumber }}
           placeholder={'Phone Number'}
+          required
         />
         <input
           className='form-control'
           ref={email => { this.email = email }}
           placeholder={'Email'}
+          required
         />
         <input
           className='form-control'
           ref={address => { this.address = address }}
           placeholder={'Address'}
+          required
         />
         <input
           className='form-control'
           ref={city => { this.city = city }}
           placeholder={'City'}
+          required
         />
         <input
           className='form-control'
           ref={state => { this.state = state }}
           placeholder={'State'}
           maxLength={2}
+          required
         />
         <input
           className='form-control'
           ref={zip => { this.zip = zip }}
           placeholder={'Zip code'}
+          required
         />
         <button className='button' type='submit'>
           Submit

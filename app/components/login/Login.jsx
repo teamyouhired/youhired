@@ -2,7 +2,7 @@ import React, { createClass, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { toggleSpinner } from '../../actions/NavigationActions';
-import { signIn, getUserData } from '../../api/users';
+import { signIn, getUserData, getProgressVersusAverage, getCurrentStatuses } from '../../api/users';
 
 const Login = createClass({
   displayName: 'Login',
@@ -27,7 +27,10 @@ const Login = createClass({
     })
     .then(() => {
       if (sessionStorage.getItem('auth')) {
-        this.props.getData().then(() => {
+        this.props.getData()
+          .then(() => {
+            this.props.getProgressVersusAverage();
+            this.props.getCurrentStatuses();
           this.props.toggleSpinner({
             isLoading: this.props.isLoading
           });
@@ -96,7 +99,9 @@ const mapStateToProps = (state) => {
 const mapActionsToProps = {
   onSignIn: signIn,
   getData: getUserData,
-  toggleSpinner: toggleSpinner
+  toggleSpinner: toggleSpinner,
+  getProgressVersusAverage: getProgressVersusAverage,
+  getCurrentStatuses: getCurrentStatuses
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(Login);

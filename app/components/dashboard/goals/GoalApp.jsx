@@ -39,7 +39,7 @@ const GoalApp = createClass({
     const { goals } = this.props;
 
     return (
-      <div>
+      <div className='goal-container'>
         { map(goals, (goal, type) =>
             <GoalProgressBar
               progress={goal.progress}
@@ -47,7 +47,7 @@ const GoalApp = createClass({
               type={type}
             />
           )}
-        <button className='button goal-info-button' onClick={this.onAddGoal} >
+        <button className='goal-info-button button' onClick={this.onAddGoal} >
             Add Goal
         </button>
       </div>

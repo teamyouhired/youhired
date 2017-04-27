@@ -26,6 +26,7 @@ const ActivityForm = createClass({
           type='number'
           ref={description => { this.description = description }}
           placeholder={'Description'}
+          required
         />
         <button className='button' type='submit'>
           Submit

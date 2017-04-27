@@ -6,6 +6,18 @@ export const addJob = createClient({
   url: '/api/addapplication'
 });
 
+export const getCurrentStatuses = createClient({
+  actionTypePrefix: 'user:getCurrentStatuses',
+  requestType: 'GET',
+  url: '/api/currentstatuses'
+});
+
+export const getProgressVersusAverage = createClient({
+  actionTypePrefix: 'user:getProgressVersusAverage',
+  requestType: 'GET',
+  url: '/api/progressversusaverage'
+});
+
 export const addActivity = createClient({
   actionTypePrefix: 'user:addActivity',
   requestType: 'POST',

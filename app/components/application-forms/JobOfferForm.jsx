@@ -32,16 +32,19 @@ const JobOfferForm = createClass({
           className='form-control'
           ref={offerSalary => { this.offerSalary = offerSalary }}
           placeholder={'Salary'}
+          required
         />
         <input
           className='form-control'
           ref={offerOptions => { this.offerOptions = offerOptions }}
           placeholder={'Options'}
+          required
         />
         <textarea
           className='form-control'
           ref={offerBenefits => { this.offerBenefits = offerBenefits }}
           placeholder={'Benefits'}
+          required
         />
         <button className='button' type='submit'>
           Submit

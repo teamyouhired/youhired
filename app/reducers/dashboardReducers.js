@@ -1,11 +1,13 @@
 import { SELECT_GOAL_TYPE } from '../actions/dashboard/DashboardActionTypes';
-import { addJob, addContactToApplication, addTask, getUserData, getGoals, addJobDescription } from '../api/users';
+import { addJob, addContactToApplication, addTask, getUserData, getGoals, addJobDescription, getProgressVersusAverage, getCurrentStatuses } from '../api/users';
 
 const defaultState = {
   jobs: [],
   contacts: [],
   goalType: '',
-  goals: []
+  goals: [],
+  progressVsAverage: {},
+  currentStatuses: {}
 };
 
 const dashboardReducer = (state = defaultState, { type, payload }) => {
@@ -31,6 +33,16 @@ const dashboardReducer = (state = defaultState, { type, payload }) => {
       return {
         ...state,
         goals: payload
+      }
+    case getProgressVersusAverage.SUCCESS:
+      return {
+        ...state,
+        progressVsAverage: payload
+      }
+    case getCurrentStatuses.SUCCESS:
+      return {
+        ...state,
+        currentStatuses: payload
       }
     default:
       return state;

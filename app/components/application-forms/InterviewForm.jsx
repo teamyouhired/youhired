@@ -54,6 +54,7 @@ const InterviewForm = createClass({
           className='form-control'
           ref={companyAddress => { this.companyAddress = companyAddress }}
           placeholder={'Company Address'}
+          required
         />
         <button className='button' type='submit'>
           Submit

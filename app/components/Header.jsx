@@ -37,7 +37,7 @@ const HeaderComponent = createClass({
 
       <div className="header-logout">
       <ul className="nav navbar-nav navbar-right">
-        <li><span className="glyphicon nav-names glyphicon-log-in"></span>
+        <li>
         <Link onClick={this.logout} to="/" className="logout-link">Logout</Link>
         </li>
       </ul>
