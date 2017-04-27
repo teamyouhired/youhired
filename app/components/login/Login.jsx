@@ -2,7 +2,9 @@ import React, { createClass, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { toggleSpinner } from '../../actions/NavigationActions';
+import { displayErrorMessage } from '../../actions/modals/ModalActions';
 import { signIn, getUserData, getProgressVersusAverage, getCurrentStatuses, getGoals } from '../../api/users';
+import RootModal from '../RootModal';
 
 const Login = createClass({
   displayName: 'Login',
@@ -49,7 +51,12 @@ const Login = createClass({
       this.props.toggleSpinner({
         isLoading: this.props.isLoading
       });
-      alert('invalid login attempt')
+      this.props.displayErrorMessage({
+        formType: 'DISPLAY_ERROR_MESSAGE',
+        modalProps: {
+          message: 'Invalid login attempt! Please try again.'
+        }
+      });
     });
 
     this.emailInput.value = '';
@@ -57,9 +64,9 @@ const Login = createClass({
   },
 
   render() {
-    const { isLoading } = this.props;
+    const { isLoading, isModalActive, authFailed } = this.props;
     return (
-      <div>
+      <div >
         <div className="col-lg-4 col-md-3 col-sm-2"></div>
           <div className="col-lg-4 col-md-6 col-sm-8">
             <div className="logo">
@@ -68,6 +75,7 @@ const Login = createClass({
             <div className="row loginbox">
               <div className="col-lg-12">
                 <span className="singtext" >Login</span>
+                { authFailed ? <p className="error-message" >Invalid login attempt, please try again.</p> : null }
               </div>
 
             <form onSubmit={this.onSignIn} >
@@ -99,7 +107,8 @@ const Login = createClass({
 const mapStateToProps = (state) => {
   return {
     isLoading: state.navigation.isLoading,
-    authFailed: state.authentication.authFailed
+    authFailed: state.authentication.authFailed,
+    isModalActive: state.modal.modalType
   };
 };
 
@@ -109,7 +118,8 @@ const mapActionsToProps = {
   toggleSpinner: toggleSpinner,
   getProgressVersusAverage: getProgressVersusAverage,
   getCurrentStatuses: getCurrentStatuses,
-  getGoals: getGoals
+  getGoals: getGoals,
+  displayErrorMessage: displayErrorMessage
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(Login);

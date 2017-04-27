@@ -4,6 +4,7 @@ import AddActivityModal from './modals/AddActivityModal';
 import AddGoalModal from './modals/AddGoalModal';
 import AddJobOfferModal from './modals/AddOfferModal';
 import AddInterviewModal from './modals/AddInterviewModal';
+import ErrorMessageModal from './modals/ErrorMessageModal';
 import { connect } from 'react-redux';
 import React from 'react';
 
@@ -13,7 +14,8 @@ const MODAL_COMPONENTS = {
   'DISPLAY_ACTIVITY_FORM': AddActivityModal,
   'DISPLAY_GOAL_FORM': AddGoalModal,
   'DISPLAY_INTERVIEW_FORM': AddInterviewModal,
-  'DISPLAY_OFFER_FORM': AddJobOfferModal
+  'DISPLAY_OFFER_FORM': AddJobOfferModal,
+  'DISPLAY_ERROR_MESSAGE': ErrorMessageModal
 };
 
 const RootModal = ({ modalType, modalProps }) => {
