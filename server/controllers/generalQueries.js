@@ -55,7 +55,7 @@ module.exports = {
       'APPLIED': {user: 0, averageforothers: 0},
       'INFO INTERVIEW': {user: 0, averageforothers: 0},
       'INTERVIEW': {user: 0, averageforothers: 0},
-      'JOB OFFER': {user: 0, averageforothers: 0},
+      'OFFER': {user: 0, averageforothers: 0},
     }
 
     statusChangesForUser(req)
@@ -73,11 +73,11 @@ module.exports = {
     .then(() => {
       averageStatusChangesForAllUsers(req).then((results) => {
         var data = results[0];
-
         if(data.length === 0){
           return;
         } else {
           for(var i = 0; i < data.length; i++){
+            console.log(statuses[data[i]['status']]);
             statuses[data[i]['status']]['averageforothers'] = data[i]['averageforotherusers']
           }
         }
@@ -279,7 +279,7 @@ module.exports = {
       'APPLIED': 0,
       'INFO INTERVIEW': 0,
       'INTERVIEW': 0,
-      'JOB OFFER': 0
+      'OFFER': 0
     }
 
     currentStatuses(req).then((results) => {
