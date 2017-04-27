@@ -4,9 +4,24 @@
 }
 
 .visual-data-container {
-  height: 200px;
+  height: 450px;
   width: 100%;
 }
 
+.ind-chart-cont {
+  width:100%;
+  height: 50%;
+  text-align: center;
+}
 
+.ind-chart-cont-bottom {
+  margin-top: 20px;
+  float: left;
+  width:100%;
+  height: 50%;
+  text-align: center;
+}
+.status-chart-head {
+  font-size: $text-medium;
+}
 
