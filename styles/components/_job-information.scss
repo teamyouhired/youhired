@@ -133,20 +133,25 @@ h4 {
   clear: right;
   padding: 7px;
   word-wrap: normal;
+  width: 100%;
 }
 
 .action-head {
   padding-left: 7px;
-  padding-bottom: 2px;
-  padding-top: 2px;
   border-bottom: solid $color-header 1px;
   overflow: auto;
   color: $color-text-dark;
   background-color: $color-info-containers;
+  width: 100%;
 }
 
 .activity-date {
  padding-left: 7px;
+ border-bottom: solid $color-header 1px;
+ overflow: auto;
+ color: $color-text-dark;
+ background-color: $color-info-containers;
+ width: 100%;
 }
 
 .basic-heading {

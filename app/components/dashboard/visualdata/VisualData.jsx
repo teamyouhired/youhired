@@ -19,11 +19,13 @@ const data = [
 //       {name: 'Applied', Total: 308, amt: 19},
 //       {name: 'Interested', Total: 401, amt: 300},
 // ];
-
+  // props
+    // progressVsAverage
+    // currentStatuses
 const VisualData = createClass({
   displayName: 'VisualData',
-
   render() {
+    console.log('props in visual data', this.props);
     return (
 
         <ResponsiveContainer width="95%" height="100%">

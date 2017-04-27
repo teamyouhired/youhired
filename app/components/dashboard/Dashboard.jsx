@@ -4,7 +4,7 @@ import JobList from './jobs/JobList';
 import TaskList from './tasks/TaskList';
 import { getUserData, getGoals } from '../../api/users';
 import { changePage } from '../../actions/NavigationActions';
-import { addJob, addGoal, addJobDescription } from '../../api/users';
+import { addJob, addGoal, addJobDescription, getProgressVersusAverage, getCurrentStatuses } from '../../api/users';
 import AddJob from './jobs/AddJob';
 import GoalApp from './goals/GoalApp';
 import VisualData from './visualdata/VisualData';
@@ -33,6 +33,8 @@ const Dashboard = createClass({
     }
     this.props.getData();
     this.props.getGoals();
+    this.props.getProgressVersusAverage();
+    this.props.getCurrentStatuses();
   },
 
   render() {
@@ -47,6 +49,8 @@ const Dashboard = createClass({
       displayGoalForm,
       hideModal,
       selectJob,
+      currentStatuses,
+      progressVsAverage,
       isModalActive
     } = this.props;
     return (
@@ -84,7 +88,10 @@ const Dashboard = createClass({
                   <h4 className="job-app-text"> Data Visualization </h4>
                 </div>
                 <div className="visual-data-container">
-                  <VisualData />
+                  <VisualData
+                    progressVsAverage={progressVsAverage}
+                    currentStatuses={currentStatuses}
+                  />
                 </div>
               </div>
 
@@ -119,7 +126,9 @@ const mapStateToProps = (state) => {
       activeComponent: state.navigation.activeComponent,
       isAuthenticated: state.authentication.isAuthenticated,
       isModalActive: state.modal.modalType,
-      goals: state.dashboard.goals.goalTracking
+      goals: state.dashboard.goals.goalTracking,
+      progressVsAverage: state.dashboard.progressVsAverage,
+      currentStatuses: state.dashboard.currentStatuses
   };
 };
 
@@ -133,7 +142,9 @@ const mapActionsToProps = {
   displayJobForm: displayJobForm,
   hideModal: hideModal,
   selectJob: selectJob,
-  getGoals: getGoals
+  getGoals: getGoals,
+  getProgressVersusAverage: getProgressVersusAverage,
+  getCurrentStatuses: getCurrentStatuses
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(Dashboard);
