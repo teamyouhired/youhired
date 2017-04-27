@@ -45,8 +45,4 @@ var Contact = connection.define('contacts', {
 Contact.belongsTo(User, {foreignKey: 'userid'});
 User.hasMany(Contact, {foreignKey: 'userid'});
 
-
-// Contact.belongsToMany(JobApplication, {through: 'applicationcontact', foreignKey: 'contactid' })
-// JobApplication.belongsToMany(Contact, {through: 'applicationcontact', foreignKey: 'applicationid' })
-
 module.exports = Contact;

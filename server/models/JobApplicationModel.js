@@ -33,8 +33,6 @@ var JobApplication = connection.define('jobapplications', {
   updatedAt: 'updatedat'
 });
 
-// User.hasMany(JobApplication);
-
 JobApplication.belongsTo(User, {foreignKey: 'userid'});
 User.hasMany(JobApplication, {foreignKey: 'userid'});
 

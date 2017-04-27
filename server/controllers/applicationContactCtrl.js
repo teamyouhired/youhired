@@ -7,13 +7,17 @@ var ApplicationContact = require('./../models/ApplicationContactJoinModel');
 
 module.exports = {
 
-    associateContactWithApplication: function(req, res) {
-     ApplicationContact.create({
-       contactid: req.body.contactid,
-       applicationid: req.body.applicationid
-    }).then(function(info){
-        res.send(info);
-    }).catch((err) => {res.status(500).send(err)} );
+  associateContactWithApplication: function(req, res) {
+    ApplicationContact.create({
+      contactid: req.body.contactid,
+      applicationid: req.body.applicationid
+    })
+    .then(function(info){
+      res.send(info);
+    })
+    .catch((err) => {
+      res.status(500).send(err)
+    });
   }
 
 }
