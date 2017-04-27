@@ -32,10 +32,15 @@ const Dashboard = createClass({
     if (!sessionStorage.getItem('auth')) {
       history.push('/login');
     }
-    this.props.getData();
-    this.props.getGoals();
-    this.props.getProgressVersusAverage();
-    this.props.getCurrentStatuses();
+    // if (history.pop() === '/login' || history.pop() === '/signup') {
+
+    // } else {
+      console.log('this is the history', history);
+      this.props.getData();
+      this.props.getGoals();
+      this.props.getProgressVersusAverage();
+      this.props.getCurrentStatuses();
+    // }
   },
 
   render() {

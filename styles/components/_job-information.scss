@@ -126,6 +126,8 @@ h4 {
 
 .activity {
   word-wrap: normal;
+  border: solid $color-header 1px;
+  background-color: $color-info-containers;
 }
 
 .activity-description {
@@ -133,7 +135,7 @@ h4 {
   clear: right;
   padding: 7px;
   word-wrap: normal;
-  width: 100%;
+  width: 98%;
 }
 
 .action-head {
@@ -141,17 +143,15 @@ h4 {
   border-bottom: solid $color-header 1px;
   overflow: auto;
   color: $color-text-dark;
-  background-color: $color-info-containers;
   width: 100%;
 }
 
 .activity-date {
  padding-left: 7px;
- border-bottom: solid $color-header 1px;
  overflow: auto;
  color: $color-text-dark;
  background-color: $color-info-containers;
- width: 100%;
+ width: 98%;
 }
 
 .basic-heading {
