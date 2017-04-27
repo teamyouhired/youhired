@@ -51,12 +51,6 @@ const Signup = createClass({
       this.props.toggleSpinner({
         isLoading: this.props.isLoading
       });
-      this.props.displayErrorMessage({
-        formType: 'DISPLAY_ERROR_MESSAGE',
-        modalProps: {
-          message: 'User already exists! Please try again.'
-        }
-      });
     });
 
     this.emailInput.value = '';
