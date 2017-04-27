@@ -14,16 +14,12 @@ var ApplicationContact = require('./../models/ApplicationContactJoinModel');
 
 //IMPORT CONTROLLERS
 const userCtrl = require('./userCtrl.js');
-// const seedCtrl = require('./seedCtrl.js');
 const tokenCtrl = require('./tokenCtrl.js');
 const jobApplicationCtrl = require('./jobApplicationCtrl.js');
 const contactCtrl = require('./contactCtrl.js');
 const activityLogCtrl = require('./activityLogCtrl.js');
 const applicationContactCtrl = require('./applicationContactCtrl.js');
 const goalCtrl = require('./goalCtrl.js');
-
-
-
 
 module.exports = {
 

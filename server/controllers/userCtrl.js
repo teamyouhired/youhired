@@ -5,28 +5,28 @@ var connection = require('./../db');
 var User = require('./../models/UserModel');
 var Token = require('./../models/TokenModel');
 var Goal = require('./../models/GoalModel');
-// console.log('USER.dima', User.dima());
-// console.log('USER', User);
-// server route handlers
+
 module.exports = {
 
   test: function (req, res) {
-    // var token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5IiwiYWNjZXNzIjoiYXV0aCIsImlhdCI6MTQ5MjEwNDY1NH0.QjYGuK3zwa-JlDYSVqTGCMb2CHTtyxnHvXD-aXxS4Gw'
+
     console.log('res user', res.userid);
+
     console.log('res token', res.token);
+
     var id = res.userid;
+
     console.log('id -------- ',id);
+
     res.send(res.token);
-    // res.send(JSON.stringify(res.token));
-    // res.send(JSON.stringify(id));
-    // res.header('auth', res.token).send(user);
   },
-
-
   // create new user
   onSignup: function (req, res) {
+
     var {useremail, userpassword} = req.body;
+
     console.log(useremail + 'and ' + userpassword);
+
     if (useremail) {
       useremail = useremail.trim().toLowerCase();
     }
@@ -53,65 +53,59 @@ module.exports = {
       if (user.length !== 0) {
         console.log('Email already in use!');
         res.status(400).send('Email already in use!');
-      } else {
-        // create new user, generate token and save to db
-        console.log('Creating new user');
-        User.create({
-          useremail: useremail,
-          userpassword: userpassword
-        })
-        .then(usr => {
-          var userid = usr.dataValues.id;
-          var auth = User.generateToken(userid)
+    } else {
+      // create new user, generate token and save to db
+      console.log('Creating new user');
+      User.create({
+        useremail: useremail,
+        userpassword: userpassword
+      })
+      .then(usr => {
+        var userid = usr.dataValues.id;
+        var auth = User.generateToken(userid)
 
-          Token.create({auth, userid})
-            .then(token => {
-              res.header('auth', token.auth).send({user: user, token: token.auth});
+        Token.create({auth, userid})
+          .then(token => {
+            res.header('auth', token.auth).send({user: user, token: token.auth});
+          })
+          .then(() => {
+            Goal.create({
+              userid: userid,
+              numberofstatus: 0,
+              goaltype: 'INTERESTED',
+              goalduedate: '2017-12-31T12:00:00.166Z'
             })
-            .then(() => {
-              Goal.create({
-                userid: userid,
-                numberofstatus: 0,
-                goaltype: 'INTERESTED',
-                goalduedate: '2017-12-31T12:00:00.166Z'
-              })
-            }).then(() => {
-              Goal.create({
-                userid: userid,
-                numberofstatus: 0,
-                goaltype: 'APPLIED',
-                goalduedate: '2017-12-31T12:00:00.166Z'
-              })
-            }).then(() => {
-              Goal.create({
-                userid: userid,
-                numberofstatus: 0,
-                goaltype: 'INFO INTERVIEW',
-                goalduedate: '2017-12-31T00:12:00.166Z'
-              })
-            }).then(() => {
-              Goal.create({
-                userid: userid,
-                numberofstatus: 0,
-                goaltype: 'INTERVIEW',
-                goalduedate: '2017-12-31T12:00:00.166Z'
-              })
+          }).then(() => {
+            Goal.create({
+              userid: userid,
+              numberofstatus: 0,
+              goaltype: 'APPLIED',
+              goalduedate: '2017-12-31T12:00:00.166Z'
             })
-            .catch(err => {
-              console.log('Error1 --->', err);
-              res.status(400).send(err.message);
-            });
+          }).then(() => {
+            Goal.create({
+              userid: userid,
+              numberofstatus: 0,
+              goaltype: 'INFO INTERVIEW',
+              goalduedate: '2017-12-31T00:12:00.166Z'
+            })
+          }).then(() => {
+            Goal.create({
+              userid: userid,
+              numberofstatus: 0,
+              goaltype: 'INTERVIEW',
+              goalduedate: '2017-12-31T12:00:00.166Z'
+            })
+          })
+          .catch(err => {
+            console.log('Error1 --->', err);
+            res.status(400).send(err.message);
+          });
         });
       }
     });
   },
-  // Find all projects with a least one task where task.state === project.task
-  // Project.findAll({
-  //     include: [{
-  //         model: Task,
-  //         where: { state: Sequelize.col('project.state') }
-  //     }]
-  // })
+
   onSignin: function (req, res) {
     var {useremail, userpassword} = req.body;
     console.log('email -', useremail, userpassword);
@@ -140,29 +134,29 @@ module.exports = {
         return res.status(400).send('User doesn\'t exist!');
       }
       bcrypt.compare(userpassword, user.userpassword)
-        .then(match => {
-          if (!match) {
-            console.log('passwords do NOT match');
-            res.status(401).send('passwords do not match');
-          } else {
-            console.log('passwords match', '\n\n');
-            var userid = user.id;
-            var auth = User.generateToken(userid)
+      .then(match => {
+        if (!match) {
+          console.log('passwords do NOT match');
+          res.status(401).send('passwords do not match');
+        } else {
+          console.log('passwords match', '\n\n');
+          var userid = user.id;
+          var auth = User.generateToken(userid)
 
-            Token.create({auth, userid})
-              .then(token => {
-                res.header('auth', token.auth).send({user: user, token: token.auth});
-              })
-              .catch(err => {
-                console.log('Error1 --->', err);
-                res.status(400).send(err.message);
-              });
-          }
-        })
-        .catch(err => {
-          console.log('Error has occured', err);
-          res.status(401).send('Error has occured!');
-        })
+          Token.create({auth, userid})
+            .then(token => {
+              res.header('auth', token.auth).send({user: user, token: token.auth});
+            })
+            .catch(err => {
+              console.log('Error1 --->', err);
+              res.status(400).send(err.message);
+            });
+        }
+      })
+      .catch(err => {
+        console.log('Error has occured', err);
+        res.status(401).send('Error has occured!');
+      })
     });
   }
 };
