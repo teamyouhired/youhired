@@ -17,6 +17,7 @@ p {
 .btn-group>.btn:first-child {
   font-family: $text-standard;
   font-size: $text-medium;
+  border-radius: 4px;
 }
 
 .creation-date {
@@ -230,6 +231,7 @@ h4 {
   display: flex;
   justify-content: space-around;
   margin: 12px 0 0 0;
+  border-radius: 4px;
 }
 
 #job-info-button {
@@ -237,6 +239,7 @@ h4 {
   font-family: $text-standard;
   font-size: $text-medium;
   text-align: center;
+  border-radius: 4px;
   white-space: nowrap;
 }
 
@@ -246,6 +249,7 @@ h4 {
   align-self: flex-end;
   font-family: $text-standard;
   font-size: $text-medium;
+  border-radius: 4px;
   text-align: center;
   white-space: nowrap;
 }
