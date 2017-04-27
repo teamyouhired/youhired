@@ -1,7 +1,7 @@
 import React, { createClass, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { toggleSpinner } from '../../actions/NavigationActions';
-import { signUp, getUserData, getProgressVersusAverage, getCurrentStatuses } from '../../api/users';
+import { signUp, getUserData, getProgressVersusAverage, getCurrentStatuses, getGoals } from '../../api/users';
 import { Link } from 'react-router-dom';
 
 const Signup = createClass({
@@ -29,12 +29,20 @@ const Signup = createClass({
       if (sessionStorage.getItem('auth')) {
         this.props.getData()
           .then(() => {
-            this.props.getProgressVersusAverage();
-            this.props.getCurrentStatuses();
-          this.props.toggleSpinner({
-            isLoading: this.props.isLoading
-          });
-          this.props.history.push('/dashboard');
+            this.props.getProgressVersusAverage()
+              .then(() => {
+                this.props.getCurrentStatuses()
+                  .then(() => {
+                    this.props.getGoals()
+                      .then(() => {
+                        this.props.toggleSpinner({
+                          isLoading: this.props.isLoading
+                        });
+
+                        this.props.history.push('/dashboard');
+                      })
+                  })
+              })
         });
       }
     })
@@ -99,7 +107,8 @@ const mapActionsToProps = {
   getData: getUserData,
   toggleSpinner: toggleSpinner,
   getProgressVersusAverage: getProgressVersusAverage,
-  getCurrentStatuses: getCurrentStatuses
+  getCurrentStatuses: getCurrentStatuses,
+  getGoals: getGoals
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(Signup);

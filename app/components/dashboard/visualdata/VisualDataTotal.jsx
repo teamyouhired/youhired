@@ -10,15 +10,33 @@ const VisualDataTotal = createClass({
   displayName: 'VisualDataTotal',
   render() {
 
-
     const data1 = [
-      {name: 'Interested', You: this.props.currentStatuses.INTERESTED, Users: 11},
-      {name: 'Applied', You: this.props.currentStatuses.APPLIED, Users: 20},
-      {name: 'Info', You: this.props.currentStatuses['INFO INTERVIEW'], Users: 7},
-      {name: 'Interview', You: this.props.currentStatuses.INTERVIEW, Users: 4},
-      {name: 'Job Offer', You: this.props.currentStatuses['JOB OFFER'], Users: 12},
-    ];
-
+          {
+            name: 'Interested',
+            You: this.props.progressVsAverage.INTERESTED.user,
+            Users: this.props.progressVsAverage.INTERESTED.averageforothers
+          },
+          {
+            name: 'Applied',
+            You: this.props.progressVsAverage.APPLIED.user,
+            Users: this.props.progressVsAverage.APPLIED.averageforothers
+          },
+          {
+            name: 'Info',
+            You: this.props.progressVsAverage['INFO INTERVIEW'].user,
+            Users: this.props.progressVsAverage['INFO INTERVIEW'].averageforothers
+          },
+          {
+            name: 'Interview',
+            You: this.props.progressVsAverage.INTERVIEW.user,
+            Users: this.props.progressVsAverage.INTERVIEW.averageforothers
+          },
+          {
+            name: 'Job Offer',
+            You: this.props.progressVsAverage['OFFER'].user,
+            Users: this.props.progressVsAverage['OFFER'].averageforothers
+          },
+        ];
     //console.log('props in visual data', this.props.currentStatuses);
     return (
 
@@ -39,4 +57,3 @@ const VisualDataTotal = createClass({
 });
 
 export default VisualDataTotal;
-

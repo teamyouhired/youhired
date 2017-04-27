@@ -1,5 +1,13 @@
 .goal-progress-bar-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   margin: 5px;
+}
+
+.progress-bar-custom {
+  flex-basis: 2;
+  flex-grow: 3;
 }
 
 .goal-card {

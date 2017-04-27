@@ -10,16 +10,14 @@ const VisualData = createClass({
   displayName: 'VisualData',
   render() {
 
-
     const data = [
-      {name: 'Interested', Current: this.props.currentStatuses.INTERESTED, Goal: 20},
-      {name: 'Applied', Current: this.props.currentStatuses.APPLIED, Goal: 20},
-      {name: 'Info', Current: this.props.currentStatuses['INFO INTERVIEW'], Goal: 20},
-      {name: 'Interview', Current: this.props.currentStatuses.INTERVIEW, Goal: 20},
-      {name: 'Job Offer', Current: this.props.currentStatuses['JOB OFFER'], Goal: 20},
+      { name: 'Interested', Current: +this.props.currentStatuses.INTERESTED },
+      { name: 'Applied', Current: +this.props.currentStatuses.APPLIED },
+      { name: 'Info', Current: +this.props.currentStatuses['INFO INTERVIEW'] },
+      { name: 'Interview', Current: +this.props.currentStatuses.INTERVIEW },
+      { name: 'Job Offer', Current: +this.props.currentStatuses['OFFER'] },
     ];
-
-    console.log('props in visual data', this.props);
+    //console.log('props in visual data', this.props);
     return (
 
         <ResponsiveContainer width="95%" height="100%">
@@ -30,7 +28,6 @@ const VisualData = createClass({
             <Tooltip />
             <Legend />
             <Bar dataKey="Current" fill="#8884d8" />
-            <Bar dataKey="Goal" fill="#FF8042" />
           </BarChart>
         </ResponsiveContainer>
 
@@ -39,4 +36,3 @@ const VisualData = createClass({
 });
 
 export default VisualData;
-

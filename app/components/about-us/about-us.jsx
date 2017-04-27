@@ -7,9 +7,6 @@ const About = createClass({
     return (
 
     <div className="main-page">
-        <div>
-          <HeaderComponent />
-        </div>
         <div className="row no-border">
             <div className="col-lg-12 header-display no-border">
                 <h1 className="page-header no-border">About Us
