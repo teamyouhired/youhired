@@ -5,7 +5,8 @@ import {
   DISPLAY_ACTIVITY_FORM,
   DISPLAY_GOAL_FORM,
   DISPLAY_INTERVIEW_FORM,
-  DISPLAY_OFFER_FORM
+  DISPLAY_OFFER_FORM,
+  DISPLAY_ERROR_MESSAGE
   } from '../actions/modals/ModalActionTypes';
 
 const defaultState = {
@@ -21,6 +22,7 @@ const modalReducer = (state = defaultState, { type, modalType, modalProps }) => 
     case DISPLAY_GOAL_FORM:
     case DISPLAY_INTERVIEW_FORM:
     case DISPLAY_OFFER_FORM:
+    case DISPLAY_ERROR_MESSAGE:
       return {
         ...state,
         modalType: modalType,
