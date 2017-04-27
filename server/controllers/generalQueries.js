@@ -61,17 +61,25 @@ module.exports = {
     statusChangesForUser(req)
     .then((results) => {
       var data = results[0];
-      for(var i = 0; i < data.length; i++){
-        statuses[data[i]['status']]['user'] = data[i]['total']
+      if(data.length === 0){
+        return;
+      } else {
+        for(var i = 0; i < data.length; i++){
+          statuses[data[i]['status']]['user'] = data[i]['total']
+        }
       }
 
     })
     .then(() => {
       averageStatusChangesForAllUsers(req).then((results) => {
-        // res.send(results)
         var data = results[0];
-        for(var i = 0; i < data.length; i++){
-          statuses[data[i]['status']]['averageforothers'] = data[i]['averageforotherusers']
+
+        if(data.length === 0){
+          return;
+        } else {
+          for(var i = 0; i < data.length; i++){
+            statuses[data[i]['status']]['averageforothers'] = data[i]['averageforotherusers']
+          }
         }
       }).then(() => {
         res.send(statuses);
