@@ -29,21 +29,20 @@ const Login = createClass({
       if (sessionStorage.getItem('auth')) {
         this.props.getData()
           .then(() => {
-            this.props.getProgressVersusAverage()
-              .then(() => {
-                this.props.getCurrentStatuses()
-                  .then(() => {
-                    this.props.getGoals()
-                      .then(() => {
-                        this.props.toggleSpinner({
-                          isLoading: this.props.isLoading
-                        });
-
-                        this.props.history.push('/dashboard');
-                      })
-                  })
-              })
-        });
+            return this.props.getProgressVersusAverage();
+          })
+          .then(() => {
+            return this.props.getCurrentStatuses();
+          })
+          .then(() => {
+            return this.props.getGoals();
+          })
+          .then(() => {
+            this.props.toggleSpinner({
+              isLoading: this.props.isLoading
+            });
+            this.props.history.push('/dashboard');
+          });
       }
     })
     .catch((err) => {

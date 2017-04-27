@@ -14,9 +14,11 @@ const GoalProgressBar = createClass({
     const { progress, goal, type } = this.props;
     return (
       <div className="goal-progress-bar-list" >
-        <h4>{type}</h4>
-        <h4>{goal}</h4>
-        <ProgressBar className="progress-bar-custom" striped bsStyle='success' now={(progress / goal) * 100} />
+        <div className="progress-bar-custom">
+          <h4 className="goal-type">{type}</h4>
+          <h4 className="goal-goal">{`Goal: ${goal}`}</h4>
+        </div>
+          <ProgressBar striped bsStyle='success' now={(progress / goal) * 100} />
       </div>
     );
   }

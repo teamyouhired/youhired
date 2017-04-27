@@ -35,11 +35,11 @@ const Dashboard = createClass({
     // if (history.pop() === '/login' || history.pop() === '/signup') {
 
     // } else {
-      console.log('this is the history', history);
-      this.props.getData();
-      this.props.getGoals();
-      this.props.getProgressVersusAverage();
-      this.props.getCurrentStatuses();
+      // console.log('this is the history', history);
+      // this.props.getProgressVersusAverage();
+      // this.props.getCurrentStatuses();
+      // this.props.getGoals();
+      // this.props.getData();
     // }
   },
 
@@ -143,8 +143,8 @@ const mapStateToProps = (state) => {
       isAuthenticated: state.authentication.isAuthenticated,
       isModalActive: state.modal.modalType,
       goals: state.dashboard.goals.goalTracking,
-      progressVsAverage: state.dashboard.progressVsAverage,
-      currentStatuses: state.dashboard.currentStatuses
+      progressVsAverage: state.chart.progressVsAverage,
+      currentStatuses: state.chart.currentStatuses
   };
 };
 
