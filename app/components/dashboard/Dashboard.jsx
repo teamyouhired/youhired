@@ -8,6 +8,7 @@ import { addJob, addGoal, addJobDescription, getProgressVersusAverage, getCurren
 import AddJob from './jobs/AddJob';
 import GoalApp from './goals/GoalApp';
 import VisualData from './visualdata/VisualData';
+import VisualDataTotal from './visualdata/VisualDataTotal';
 import HeaderComponent from 'Header';
 import FooterComponent from 'Footer';
 import { displayJobForm, displayGoalForm, hideModal } from '../../actions/modals/ModalActions';
@@ -88,10 +89,20 @@ const Dashboard = createClass({
                   <h4 className="job-app-text"> Data Visualization </h4>
                 </div>
                 <div className="visual-data-container">
-                  <VisualData
-                    progressVsAverage={progressVsAverage}
-                    currentStatuses={currentStatuses}
-                  />
+                  <div className="ind-chart-cont">
+                    <p className="status-chart-head">Current Goal Status</p>
+                    <VisualData
+                      currentStatuses={currentStatuses}
+                      progressVsAverage={progressVsAverage}
+                    />
+                  </div>
+                  <div className="ind-chart-cont-bottom">
+                    <p className="status-chart-head">User Comparison Goal Status</p>
+                    <VisualDataTotal
+                      currentStatuses={currentStatuses}
+                      progressVsAverage={progressVsAverage}
+                    />
+                  </div>
                 </div>
               </div>
 
