@@ -14,13 +14,8 @@ const OfferDetails = createClass({
 
     return (
       <div>
-        <div className="details">
-          <div className="position-details">
-            <h4 className="header-titles">Position Details</h4>
-          </div>
-          <div className="job-url">
-            <h4 className="header-titles">Description</h4>
-          </div>
+        <div className="position-details">
+          <h4 className="header-titles">Position Details</h4>
         </div>
         <div className="details-info">
           <div className="position-details-info">

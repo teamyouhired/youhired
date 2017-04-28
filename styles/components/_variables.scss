@@ -8,15 +8,16 @@
 
 //INFILL COLORS
 
-$color-background: #475672; //BACKGROUND COLOR FOR ENTIRE SITE
+$color-background: #697894; //BACKGROUND COLOR FOR ENTIRE SITE
 $color-header: #1A5E8E; //HEADER COLOR
-$color-info-containers: white; //INFORMATION CONTAINER COLOR BELOW HEADERS
+$color-info-containers: #ccc; //INFORMATION CONTAINER COLOR BELOW HEADERS
 $color-card: #caebf2; //JOB APPLICATION CARD COLOR
 $color-button-background: #619199; //ALL BUTTONS BACKGROUND COLOR
 
 //TEXT STILL NEEDS SOME ORGANIZATION
 
 $color-text-light: white; //TYPICALLY HEADER TEXT
+$color-text-subheaders: #475672;
 $color-text-dark: white;  //TYPICALLY BODY TEXT
 $color-text-button: white; //ALL BUTTON TEXT
 
@@ -51,4 +52,5 @@ scheme 2
   containers = D4C7BE
 
 logo orange = F1AE57
+soft orange = F8BE74
 */

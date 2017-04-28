@@ -38,9 +38,11 @@
 
 .jobdesc-scroll-main {
   height: 500px;
+  border-radius: 0 0 5px 5px;
   width: 100%;
   overflow: auto;
   background-color: $color-info-containers;
+
 }
 
 .jobdesc-heading {
@@ -49,6 +51,7 @@
   width: 100%;
   background-color: $color-header;
   color: $color-text-light;
+  border-radius: 6px 6px 5px 5px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
