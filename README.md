@@ -25,7 +25,7 @@ npm install
 
 Compile and bundle dependencies with webpack
 ```
-webpack
+webpack -w
 ```
 
 From the root directory, run node to start the server
