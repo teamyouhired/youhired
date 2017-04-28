@@ -29,10 +29,7 @@ const Login = createClass({
     })
     .then(() => {
       if (sessionStorage.getItem('auth')) {
-        this.props.getData()
-          .then(() => {
-            return this.props.getProgressVersusAverage();
-          })
+        this.props.getProgressVersusAverage()
           .then(() => {
             return this.props.getCurrentStatuses();
           })
