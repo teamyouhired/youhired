@@ -28,6 +28,12 @@ Compile and bundle dependencies with webpack
 webpack
 ```
 
+From the root directory, run node to start the server.
+
+```
+nodemon server/server.js
+```
+
 Go to http://localhost:3000 in your browser
 
 
@@ -40,7 +46,7 @@ brew install postgres
 pg_ctl -D /usr/local/var/postgres start && brew services start postgresql
 ```
 
-From the root directory, run node to start the server.
+Start the server.
 
 ```
 nodemon server/server.js
