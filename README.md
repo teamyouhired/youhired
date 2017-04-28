@@ -16,7 +16,7 @@ You Hired
 
 ## Usage
 
-Clone the repository and install node modules.
+Clone the repository and install node modules
 ```
 git clone https://github.com/teamyouhired/youhired.git
 
@@ -28,7 +28,7 @@ Compile and bundle dependencies with webpack
 webpack
 ```
 
-From the root directory, run node to start the server.
+From the root directory, run node to start the server
 
 ```
 nodemon server/server.js
@@ -46,7 +46,7 @@ brew install postgres
 pg_ctl -D /usr/local/var/postgres start && brew services start postgresql
 ```
 
-Start the server.
+Start the server
 
 ```
 nodemon server/server.js
