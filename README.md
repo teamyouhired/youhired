@@ -4,6 +4,7 @@ You Hired
 
 > youHired is a personal job search Organizer where a job seeker can save and track job application status, set reminders, take notes, set search goals, document individual interview restrospectives and save contact info.
 
+
 ## Table of Contents
 
 1. [Usage](#Usage)
@@ -18,23 +19,24 @@ You Hired
 ## Usage
 
 Clone the repository and install node modules.
+```
+git clone https://github.com/teamyouhired/youhired.git
 
-`git clone https://github.com/teamyouhired/youhired.git`
-
-`npm install`
-
+npm install
+```
 
 Compile and bundle dependencies with webpack
-
-`webpack`
+```
+webpack
+```
 
 
 Install and run PostgreSQL locally
+```
+brew install postgres
 
-`brew install postgres
-
-pg_ctl -D /usr/local/var/postgres start && brew services start postgresql`
-
+pg_ctl -D /usr/local/var/postgres start && brew services start postgresql
+```
 
 From the root directory, run node server/server.js to start the server.
 
