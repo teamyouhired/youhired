@@ -20,6 +20,7 @@ You Hired
 Clone the repository and install node modules.
 
 `git clone https://github.com/teamyouhired/youhired.git`
+
 `npm install`
 
 
@@ -31,6 +32,7 @@ Compile and bundle dependencies with webpack
 Install and run PostgreSQL locally
 
 `brew install postgres
+
 pg_ctl -D /usr/local/var/postgres start && brew services start postgresql`
 
 
