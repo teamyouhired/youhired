@@ -9,6 +9,7 @@ You Hired
 
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
+1. [Development](#development)
 1. [Team](#team)
 1. [Contributing](#contributing)
 1. [Style Guide](#style-guide)
@@ -27,6 +28,10 @@ Compile and bundle dependencies with webpack
 webpack
 ```
 
+Go to http://localhost:3000 in your browser
+
+
+## Development
 
 Install and run PostgreSQL locally
 ```
