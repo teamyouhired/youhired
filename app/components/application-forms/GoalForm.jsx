@@ -5,7 +5,7 @@ import { TransitionView, Calendar } from 'react-date-picker';
 import { changeDate } from '../../actions/jobsinformationpage/JobInformationActions';
 import { hideModal } from '../../actions/modals/ModalActions';
 import { selectGoalType } from '../../actions/dashboard/DashboardActions';
-import { addGoal } from '../../api/users';
+import { addGoal, getGoals } from '../../api/users';
 import moment from 'moment';
 import { DropdownButton, MenuItem } from 'react-bootstrap';
 
@@ -28,6 +28,7 @@ const GoalForm = createClass({
       this.props.changeDate({
         startDate: moment()
       });
+      this.props.getGoals();
     });
 
     this.goal.value = '';
@@ -98,7 +99,8 @@ const mapActionsToProps = {
   changeDate: changeDate,
   selectGoalType: selectGoalType,
   addGoal: addGoal,
-  hideModal: hideModal
+  hideModal: hideModal,
+  getGoals: getGoals
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(GoalForm);

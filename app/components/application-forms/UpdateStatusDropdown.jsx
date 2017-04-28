@@ -1,6 +1,6 @@
 import React, { createClass } from 'react';
 import { connect } from 'react-redux';
-import { updateStatus, getData } from '../../api/users';
+import { updateStatus, getUserData } from '../../api/users';
 import { DropdownButton, MenuItem } from 'react-bootstrap';
 
 const UpdateStatus = createClass({
@@ -34,7 +34,7 @@ const mapStateToProps = (state) => {
 
 const mapActionsToProps = {
   updateStatus: updateStatus,
-  getData: getData
+  getData: getUserData
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(UpdateStatus);

@@ -32,15 +32,17 @@ const Dashboard = createClass({
     if (!sessionStorage.getItem('auth')) {
       history.push('/login');
     }
-    // if (history.pop() === '/login' || history.pop() === '/signup') {
 
-    // } else {
-      // console.log('this is the history', history);
-      // this.props.getProgressVersusAverage();
-      // this.props.getCurrentStatuses();
-      // this.props.getGoals();
-      // this.props.getData();
-    // }
+    this.props.getProgressVersusAverage()
+      .then(() => {
+        return this.props.getCurrentStatuses();
+      })
+      .then(() => {
+        return this.props.getGoals();
+      })
+      .then(() => {
+        this.props.getData()
+      });
   },
 
   render() {
