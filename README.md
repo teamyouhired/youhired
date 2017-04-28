@@ -40,10 +40,10 @@ brew install postgres
 pg_ctl -D /usr/local/var/postgres start && brew services start postgresql
 ```
 
-From the root directory, run node server/server.js to start the server.
+From the root directory, run node to start the server.
 
-``` sh
-node server/server.js
+```
+nodemon server/server.js
 ```
 
 ## Requirements
