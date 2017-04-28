@@ -1,8 +1,10 @@
 import React, { createClass, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { toggleSpinner } from '../../actions/NavigationActions';
+import { displayErrorMessage } from '../../actions/modals/ModalActions';
 import { signUp, getUserData, getProgressVersusAverage, getCurrentStatuses, getGoals } from '../../api/users';
 import { Link } from 'react-router-dom';
+import RootModal from '../RootModal';
 
 const Signup = createClass({
   displayName: 'Signup',
@@ -27,39 +29,34 @@ const Signup = createClass({
     })
     .then(() => {
       if (sessionStorage.getItem('auth')) {
-        this.props.getData()
+        this.props.getProgressVersusAverage()
           .then(() => {
-            this.props.getProgressVersusAverage()
-              .then(() => {
-                this.props.getCurrentStatuses()
-                  .then(() => {
-                    this.props.getGoals()
-                      .then(() => {
-                        this.props.toggleSpinner({
-                          isLoading: this.props.isLoading
-                        });
-
-                        this.props.history.push('/dashboard');
-                      })
-                  })
-              })
-        });
+            return this.props.getCurrentStatuses();
+          })
+          .then(() => {
+            return this.props.getGoals();
+          })
+          .then(() => {
+            this.props.toggleSpinner({
+              isLoading: this.props.isLoading
+            });
+            this.props.history.push('/dashboard');
+          });
       }
     })
     .catch((err) => {
       this.props.toggleSpinner({
         isLoading: this.props.isLoading
       });
-      alert('invalid sign up attempt or user already exists')
     });
 
     this.emailInput.value = '';
     this.passwordInput.value = '';
   },
   render() {
-    const { isLoading } = this.props;
+    const { isLoading, isModalActive, authFailed } = this.props;
     return (
-      <div>
+      <div >
       <div className="col-lg-4 col-md-3 col-sm-2"></div>
         <div className="col-lg-4 col-md-6 col-sm-8">
           <div className="logo">
@@ -68,6 +65,7 @@ const Signup = createClass({
           <div className="row loginbox">
             <div className="col-lg-12">
               <span className="singtext" >Sign Up Today! </span>
+              { authFailed ? <p className="error-message" >Invalid login attempt, please try again.</p> : null }
             </div>
 
           <form onSubmit={this.onSignUp} >
@@ -98,7 +96,8 @@ const Signup = createClass({
 const mapStateToProps = (state) => {
   return {
     isLoading: state.navigation.isLoading,
-    authFailed: state.authentication.authFailed
+    authFailed: state.authentication.authFailed,
+    isModalActive: state.modal.modalType
   };
 };
 
@@ -108,7 +107,8 @@ const mapActionsToProps = {
   toggleSpinner: toggleSpinner,
   getProgressVersusAverage: getProgressVersusAverage,
   getCurrentStatuses: getCurrentStatuses,
-  getGoals: getGoals
+  getGoals: getGoals,
+  displayErrorMessage: displayErrorMessage
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(Signup);

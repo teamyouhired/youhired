@@ -13,28 +13,28 @@ const VisualDataTotal = createClass({
     const data1 = [
           {
             name: 'Interested',
-            You: this.props.progressVsAverage.INTERESTED.user,
-            Users: this.props.progressVsAverage.INTERESTED.averageforothers
+            You: +this.props.progressVsAverage.INTERESTED.user,
+            Users: +this.props.progressVsAverage.INTERESTED.averageforothers
           },
           {
             name: 'Applied',
-            You: this.props.progressVsAverage.APPLIED.user,
-            Users: this.props.progressVsAverage.APPLIED.averageforothers
+            You: +this.props.progressVsAverage.APPLIED.user,
+            Users: +this.props.progressVsAverage.APPLIED.averageforothers
           },
           {
             name: 'Info',
-            You: this.props.progressVsAverage['INFO INTERVIEW'].user,
-            Users: this.props.progressVsAverage['INFO INTERVIEW'].averageforothers
+            You: +this.props.progressVsAverage['INFO INTERVIEW'].user,
+            Users: +this.props.progressVsAverage['INFO INTERVIEW'].averageforothers
           },
           {
             name: 'Interview',
-            You: this.props.progressVsAverage.INTERVIEW.user,
-            Users: this.props.progressVsAverage.INTERVIEW.averageforothers
+            You: +this.props.progressVsAverage.INTERVIEW.user,
+            Users: +this.props.progressVsAverage.INTERVIEW.averageforothers
           },
           {
             name: 'Job Offer',
-            You: this.props.progressVsAverage['OFFER'].user,
-            Users: this.props.progressVsAverage['OFFER'].averageforothers
+            You: +this.props.progressVsAverage['OFFER'].user,
+            Users: +this.props.progressVsAverage['OFFER'].averageforothers
           },
         ];
     //console.log('props in visual data', this.props.currentStatuses);

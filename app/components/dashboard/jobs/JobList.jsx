@@ -57,7 +57,7 @@ const JobList = createClass({
           )}
         </ScrollArea>
 
-        <button className='button' onClick={this.onAddJob}>
+        <button className='button job-list-button' onClick={this.onAddJob}>
           Add Job
         </button>
       </div>

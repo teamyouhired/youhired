@@ -16,17 +16,12 @@ const ContactList = createClass({
 
       return (
         <div>
-          <ScrollArea
-            speed={0.8}
-            className='job-list-scroll'
-            horizontal={false}>
-            { contacts.map((contact, index) =>
-              <Contact
-                key={index}
-                {...contact}
-              />
-            )}
-          </ScrollArea>
+          { contacts.map((contact, index) =>
+            <Contact
+              key={index}
+              {...contact}
+            />
+          )}
         </div>
       );
     }

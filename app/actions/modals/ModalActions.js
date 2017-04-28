@@ -5,7 +5,8 @@ import {
   DISPLAY_ACTIVITY_FORM,
   DISPLAY_GOAL_FORM,
   DISPLAY_INTERVIEW_FORM,
-  DISPLAY_OFFER_FORM
+  DISPLAY_OFFER_FORM,
+  DISPLAY_ERROR_MESSAGE
   } from './ModalActionTypes';
 
 export const displayJobForm = ({ formType, modalProps }) => {
@@ -52,6 +53,14 @@ export const displayInterviewForm = ({ formType, modalProps }) => {
 export const displayOfferForm = ({ formType, modalProps }) => {
   return {
     type: DISPLAY_OFFER_FORM,
+    modalType: formType,
+    modalProps: modalProps
+  };
+};
+
+export const displayErrorMessage = ({ formType, modalProps }) => {
+  return {
+    type: DISPLAY_ERROR_MESSAGE,
     modalType: formType,
     modalProps: modalProps
   };

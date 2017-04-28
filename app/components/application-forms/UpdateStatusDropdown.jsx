@@ -1,6 +1,6 @@
 import React, { createClass } from 'react';
 import { connect } from 'react-redux';
-import { updateStatus } from '../../api/users';
+import { updateStatus, getUserData } from '../../api/users';
 import { DropdownButton, MenuItem } from 'react-bootstrap';
 
 const UpdateStatus = createClass({
@@ -10,7 +10,8 @@ const UpdateStatus = createClass({
     this.props.updateStatus({
       applicationid: this.props.applicationId,
       status: event
-    });
+    })
+    .then(this.props.getData());
   },
 
   render() {
@@ -32,7 +33,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapActionsToProps = {
-  updateStatus: updateStatus
+  updateStatus: updateStatus,
+  getData: getUserData
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(UpdateStatus);

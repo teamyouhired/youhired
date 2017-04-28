@@ -8,11 +8,12 @@ body {
 }
 
 .job-list-scroll {
-  height: 450px !important;
+  height: 440px !important;
 }
 
 .bottom-button {
   clear: right;
+  border-radius: 5px;
   margin-top: 15px;
 }
 
@@ -24,6 +25,7 @@ body {
     background-color: $color-button-background;
     color: $color-text-button;
     padding: 10px 50px;
+    border-radius: 5px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -37,7 +39,7 @@ body {
 
 .job-app-header {
   height: 40px;
-  border-radius: 5px;
+  border-radius: 5px 5px 0 0;
   background-color: $color-header;
 }
 
@@ -66,7 +68,7 @@ body {
   float: left;
   text-align: center;
   width: 32%;
-  border-radius: 5px;
+  border-radius: 7px 7px 5px 5px;
   margin-top: 7px;
   margin-left: 7px;
   margin-right: 7px;
@@ -80,7 +82,7 @@ body {
   float: left;
   text-align: center;
   width: 32%;
-  border-radius: 5px;
+  border-radius: 7px 7px 5px 5px;
   margin-top: 7px;
   margin-left: 7px;
   margin-right: 7px;
@@ -94,7 +96,7 @@ body {
   float: left;
   text-align: center;
   width: 32%;
-  border-radius: 5px;
+  border-radius: 7px 7px 5px 5px;
   margin-top: 7px;
   margin-left: 7px;
   margin-right: 7px;

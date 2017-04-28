@@ -11,12 +11,10 @@ const OfferDetails = createClass({
     } = this.props;
 
     return (
-      <div>
-        <h2>Interview</h2>
+      <div className="interview-details">
+        <h4 className="header-titles">Interview</h4>
         <div className="company-info">
           <p>{address}</p>
-        </div>
-        <div>
           <p>{date}</p>
         </div>
       </div>

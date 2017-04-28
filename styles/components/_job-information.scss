@@ -12,11 +12,13 @@ p {
 .header-titles {
   font-family: $text-title;
   font-size: $text-large;
+  margin-top: 0 !important;
 }
 
 .btn-group>.btn:first-child {
   font-family: $text-standard;
   font-size: $text-medium;
+  border-radius: 4px;
 }
 
 .creation-date {
@@ -49,11 +51,13 @@ p {
 
 .details-info {
   background-color: $color-info-containers;
+  border-radius: 0 0 5px 5px;
 }
 
 .position-details {
-  color: $color-text-light;
-  padding: 5px;
+  color: $color-text-subheaders;
+  background-color: $color-info-containers;
+  padding: 0 5px 5px 5px;
   height: 100%;
   width: 50%;
   float: left;
@@ -80,11 +84,13 @@ h4 {
 }
 
 .app-contacts {
-  border-left: 10px solid $color-background;
-  border-bottom: 15px solid $color-background;
+  border: 1px solid $color-info-containers;
+  border-radius: 5px 5px 5px 5px;
+  margin-left: 10px;
+  margin-bottom: 10px;
   background-color: $color-info-containers;
   height: 100%;
-  width: 25%;
+  width: 24%;
   float: left;
 }
 
@@ -97,16 +103,18 @@ h4 {
 .act-title-text {
   font-family: $text-title;
   font-size: $text-large;
-  margin-top: 0px;
+  margin-top: 0;
+  margin-bottom: 0;
   padding-top: 5px;
-  padding-bottom: 5px;
 }
 
 .activity-title {
   font-family: $text-title;
   font-size: $text-large;
   background-color: $color-header;
+  border-radius: 5px 5px 0 0;
   padding-left: 5px;
+  height: 31px;
   width: 100%;
   text-align: center;
   color: $color-text-light;
@@ -115,11 +123,13 @@ h4 {
   width: 100%;
   flex-basis: 60%;
   margin-top: 15px;
+  padding-bottom: 5px;
   flex-order: 2;
 }
 
 .activity-scroll {
   word-wrap: normal;
+  border-radius: 0 0 5px 5px;
   height: 400px;
   width: 100%
 }
@@ -149,7 +159,7 @@ h4 {
 .activity-date {
  padding-left: 7px;
  overflow: auto;
- color: $color-text-dark;
+ color: $color-text-subheaders;
  background-color: $color-info-containers;
  width: 98%;
 }
@@ -157,6 +167,7 @@ h4 {
 .basic-heading {
   background-color: $color-header;
   color: $color-text-light;
+  border-radius: 5px 5px 0 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -175,7 +186,7 @@ h4 {
   margin:0;
   padding:5px;
   background-color: $color-info-containers;
-  color:$color-text-dark;
+  color:$color-text-subheaders;
 }
 
 .contact-text {
@@ -209,16 +220,26 @@ h4 {
   margin: 5px;
 }
 
+.interview-details {
+  background-color: $color-info-containers;
+  color: $color-text-subheaders;
+  font-style: bold;
+  border-radius: 0 0 5px 5px;
+  margin: 0;
+  padding-left: 7px;
+}
+
 .company-details {
   font-family: $text-title;
   font-size: $text-large;
+  border-radius: 5px 5px 0 0;
   margin: 5px;
 }
 
 .offer-details {
   font-family: $text-title;
   font-size: $text-large;
-  margin: 5px;
+  margin: 5px 5px 0 5px;
 }
 
 .large-plus-sign {
@@ -230,6 +251,7 @@ h4 {
   display: flex;
   justify-content: space-around;
   margin: 12px 0 0 0;
+  border-radius: 5px;
 }
 
 #job-info-button {
@@ -237,15 +259,17 @@ h4 {
   font-family: $text-standard;
   font-size: $text-medium;
   text-align: center;
+  border-radius: 5px;
   white-space: nowrap;
 }
 
 .goal-info-button {
   margin-right: 5px;
-  margin-top: 142px;
+  margin-top: 147px;
   align-self: flex-end;
   font-family: $text-standard;
   font-size: $text-medium;
+  border-radius: 5px;
   text-align: center;
   white-space: nowrap;
 }

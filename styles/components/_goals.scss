@@ -1,13 +1,18 @@
 .goal-progress-bar-list {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
   margin: 5px;
 }
 
 .progress-bar-custom {
-  flex-basis: 2;
-  flex-grow: 3;
+  display: flex;
+  justify-content: space-between;
+}
+
+.goal-type {
+  align-self: flex-start;
+}
+
+.goal-goal {
+  align-self: flex-end;
 }
 
 .goal-card {
@@ -91,6 +96,7 @@
   font-family: $text-standard;
   margin: 0 auto;
   padding: 0px;
+  border-radius: 4px;
   font-size: $text-medium;
   width: 66%;
 }
