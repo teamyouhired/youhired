@@ -2,11 +2,7 @@
 
 You Hired
 
-... change template below
-...
-
-
-> The most delightful way to collect and organize plans for your next trip
+> youHired is a personal job search Organizer where a job seeker can save and track job application status, set reminders, take notes, set search goals, document individual interview restrospectives and save contact info.
 
 ## Table of Contents
 
@@ -15,50 +11,49 @@ You Hired
 1. [Requirements](#requirements)
 1. [Development](#development)
     1. [Installing Dependencies](#installing-dependencies)
-    1. [Tasks](#tasks)
 1. [Team](#team)
 1. [Contributing](#contributing)
 1. [Style Guide](#style-guide)
 
 ## Usage
 
-> Ensure you have a local version of MongoDB installed. Run the Mongo daemon (mongod from the command line) and leave it running in the background.
+Clone the repository and install node modules.
 
-`mongod`
+`git clone https://github.com/teamyouhired/youhired.git`
+`npm install`
+
+
+Compile and bundle dependencies with webpack
+
+`webpack`
+
+
+Install and run PostgreSQL locally
+
+`brew install postgres
+pg_ctl -D /usr/local/var/postgres start && brew services start postgresql`
+
 
 From the root directory, run node server/server.js to start the server.
 
 `node server/server.js`
 
-You can use a service like [Postman](https://www.getpostman.com) to test requests to the database. Sample request objects are included in server.js for convenience.
 
 ## Requirements
 
-- Node 0.10.x
-- Mongodb 3.x
-- Mongoose 4.x
-- Express 4.x
-- Path 0.12.x
-
-## Development
-
-### Installing Dependencies
-
-From within the root directory:
-
-```sh
-npm install
-```
-
-### Roadmap
-
-View the project roadmap [here](https://github.com/hydra-reactor/hydra-reactor/issues)
+- Node.js
+- Express
+- PostgreSQL
+- Sequelize
+- React
+- Redux
+- React Router
 
 ## Team
 
-  - __Product Owner__: Darin
-  - __Scrum Master__: Emma
-  - __Development Team Members__: Chris, Dimitri, Ryan, Darin and Emma
+  - __Product Owner__: Dimitri
+  - __Scrum Master__: Chris
+  - __Development Team Members__: Dimitri, Chris, Ryan, Jesse 
 
 ## Contributing
 
