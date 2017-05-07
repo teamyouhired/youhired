@@ -60,7 +60,6 @@ nodemon server/server.js
 - Sequelize
 - React
 - Redux
-- React Router
 
 ## Team
 
